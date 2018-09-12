@@ -1,0 +1,591 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V7.51A/W32 for 8051                08/Jun/2011  10:49:56 #
+# Copyright 2004-2009 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.3.1\Component #
+#                          s\mac\high_level\mac_pib.c                         #
+#    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.3.1\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\Too #
+#                          ls\CC2530DB\f8wCoord.cfg" (-DCPU32MHZ              #
+#                          -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRU #
+#                          E -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8       #
+#                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)    #
+#                          -f "C:\Texas Instruments\ZStack-CC2530-2.3.1\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\Too #
+#                          ls\CC2530DB\f8wConfig.cfg" (-DSECURE=0             #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.3.1\Components\mac\hig #
+#                          h_level\mac_pib.c" -D BUILD_ALL_DEVICES -D         #
+#                          HOLD_AUTO_START -D LCD_SUPPORTED -D                #
+#                          HAL_UART=FALSE -lC "C:\Texas                       #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\DemoEB\List\" -lA         #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects #
+#                          \zstack\Samples\SampleApp\CC2530DB\DemoEB\List\"   #
+#                          --diag_suppress Pe001,Pa010 -o "C:\Texas           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\DemoEB\Obj\" -e           #
+#                          --require_prototypes --debug --core=plain          #
+#                          --dptr=16,1 --data_model=large                     #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 16 -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\" -I "C:\Texas            #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\SOURCE\" -I "C:\Texas  #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\ZMAIN\TI2530DB\" #
+#                           -I "C:\Texas Instruments\ZStack-CC2530-2.3.1\Proj #
+#                          ects\zstack\Samples\SampleApp\CC2530DB\..\..\..\.. #
+#                          \..\COMPONENTS\MT\" -I "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \HAL\INCLUDE\" -I "C:\Texas                        #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \HAL\TARGET\CC2530EB\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \OSAL\MCU\CCSOC\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \OSAL\INCLUDE\" -I "C:\Texas                       #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\AF\" -I "C:\Texas                           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\NWK\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SEC\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SAPI\" -I "C:\Texas                         #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SYS\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\ZDO\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \ZMAC\F8W\" -I "C:\Texas                           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \ZMAC\" -I "C:\Texas Instruments\ZStack-CC2530-2.3 #
+#                          .1\Projects\zstack\Samples\SampleApp\CC2530DB\..\. #
+#                          .\..\..\..\COMPONENTS\SERVICES\SADDR\" -I          #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects #
+#                          \zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\ #
+#                          COMPONENTS\SERVICES\SDATA\" -I "C:\Texas           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\INCLUDE\" -I "C:\Texas                        #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\HIGH_LEVEL\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\LOW_LEVEL\srf04\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\LOW_LEVEL\srf04\SINGLE_CHIP\" -I "C:\Program  #
+#                          Files\IAR Systems\Embedded Workbench               #
+#                          5.3\8051\INC\" -I "C:\Program Files\IAR            #
+#                          Systems\Embedded Workbench 5.3\8051\INC\CLIB\"     #
+#                          -Ohz                                               #
+#    List file          =  C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects\ #
+#                          zstack\Samples\SampleApp\CC2530DB\DemoEB\List\mac_ #
+#                          pib.lst                                            #
+#    Object file        =  C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects\ #
+#                          zstack\Samples\SampleApp\CC2530DB\DemoEB\Obj\mac_p #
+#                          ib.r51                                             #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Texas Instruments\ZStack-CC2530-2.3.1\Components\mac\high_level\mac_pib.c
+      1          /**************************************************************************************************
+      2            Filename:       mac_pib.c
+      3            Revised:        $Date: 2010-07-15 09:15:17 -0700 (Thu, 15 Jul 2010) $
+      4            Revision:       $Revision: 23020 $
+      5          
+      6            Description:    This module contains procedures for the MAC PIB.
+      7          
+      8          
+      9            Copyright 2006-2010 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com.
+     38          **************************************************************************************************/
+     39          
+     40          /* ------------------------------------------------------------------------------------------------
+     41           *                                          Includes
+     42           * ------------------------------------------------------------------------------------------------
+     43           */
+     44          #include "hal_mcu.h"
+     45          #include "hal_board.h"
+     46          #include "mac_api.h"
+     47          #include "mac_spec.h"
+     48          #include "mac_low_level.h"
+     49          #include "mac_radio_defs.h"
+     50          #include "mac_main.h"
+     51          #include "mac_pib.h"
+     52          #include "OSAL.h"
+     53          #include <stddef.h>
+     54          
+     55          /* ------------------------------------------------------------------------------------------------
+     56           *                                           Constants
+     57           * ------------------------------------------------------------------------------------------------
+     58           */
+     59          
+     60          /* Attribute index constants, based on attribute ID values from spec */
+     61          #define MAC_ATTR_SET1_START       0x40
+     62          #define MAC_ATTR_SET1_END         0x5D
+     63          #define MAC_ATTR_SET1_OFFSET      0
+     64          #define MAC_ATTR_SET2_START       0xE0
+     65          #define MAC_ATTR_SET2_END         0xE5
+     66          #define MAC_ATTR_SET2_OFFSET      (MAC_ATTR_SET1_END - MAC_ATTR_SET1_START + MAC_ATTR_SET1_OFFSET + 1)
+     67          
+     68          /* frame response values */
+     69          #define MAC_MAX_FRAME_RESPONSE_MIN  143
+     70          #define MAC_MAX_FRAME_RESPONSE_MAX  25776
+     71          
+     72          /* ------------------------------------------------------------------------------------------------
+     73           *                                           Typedefs
+     74           * ------------------------------------------------------------------------------------------------
+     75           */
+     76          
+     77          /* PIB access and min/max table type */
+     78          typedef struct
+     79          {
+     80            uint8     offset;
+     81            uint8     len;
+     82            uint8     min;
+     83            uint8     max;
+     84          } macPibTbl_t;
+     85          
+     86          /* ------------------------------------------------------------------------------------------------
+     87           *                                           Local Variables
+     88           * ------------------------------------------------------------------------------------------------
+     89           */
+     90          
+     91          /* PIB default values */
+     92          static CODE const macPib_t macPibDefaults =
+     93          {
+     94            54,                                         /* ackWaitDuration */
+     95            FALSE,                                      /* associationPermit */
+     96            TRUE,                                       /* autoRequest */
+     97            FALSE,                                      /* battLifeExt */
+     98            6,                                          /* battLifeExtPeriods */
+     99          
+    100            NULL,                                       /* *pMacBeaconPayload */
+    101            0,                                          /* beaconPayloadLength */
+    102            MAC_BO_NON_BEACON,                          /* beaconOrder */
+    103            0,                                          /* beaconTxTime */
+    104            0,                                          /* bsn */
+    105          
+    106            {0, SADDR_MODE_EXT},                        /* coordExtendedAddress */
+    107            MAC_SHORT_ADDR_NONE,                        /* coordShortAddress */
+    108            0,                                          /* dsn */
+    109            FALSE,                                      /* gtsPermit */
+    110            4,                                          /* maxCsmaBackoffs */
+    111          
+    112            3,                                          /* minBe */
+    113            0xFFFF,                                     /* panId */
+    114            FALSE,                                      /* promiscuousMode */
+    115            FALSE,                                      /* rxOnWhenIdle */
+    116            MAC_SHORT_ADDR_NONE,                        /* shortAddress */
+    117          
+    118            MAC_SO_NONE,                                /* superframeOrder */
+    119            0x01F4,                                     /* transactionPersistenceTime */
+    120            FALSE,                                      /* assocciatedPanCoord */
+    121            5,                                          /* maxBe */
+    122            1220,                                       /* maxFrameTotalWaitTime */
+    123          
+    124            3,                                          /* maxFrameRetries */
+    125            32,                                         /* ResponseWaitTime */
+    126            0,                                          /* syncSymbolOffset */
+    127            TRUE,                                       /* timeStampSupported */
+    128            FALSE,                                      /* securityEnabled */
+    129          
+    130            /* Proprietary */
+    131          #if defined (HAL_PA_LNA)
+    132            19,                                         /* phyTransmitPower for CC2591 */
+    133          #elif defined (HAL_PA_LNA_CC2590)
+    134            11,                                         /* phyTransmitPower for CC2590 */
+    135          #else
+    136            0,                                          /* phyTransmitPower without frontend */
+    137          #endif
+    138            MAC_CHAN_11,                                /* logicalChannel */
+    139            {0, SADDR_MODE_EXT},                        /* extendedAddress */
+    140            1,                                          /* altBe */
+    141            MAC_BO_NON_BEACON,                          /* deviceBeaconOrder */
+    142          };
+    143          
+    144          /* PIB access and min/max table.  min/max of 0/0 means not checked; if min/max are
+    145           * equal, element is read-only
+    146           */
+    147          static CODE const macPibTbl_t macPibTbl[] =
+    148          {
+    149            {offsetof(macPib_t, ackWaitDuration), sizeof(uint8), 54, 54},                      /* MAC_ACK_WAIT_DURATION */
+    150            {offsetof(macPib_t, associationPermit), sizeof(bool), FALSE, TRUE},                /* MAC_ASSOCIATION_PERMIT */
+    151            {offsetof(macPib_t, autoRequest), sizeof(bool), FALSE, TRUE},                      /* MAC_AUTO_REQUEST */
+    152            {offsetof(macPib_t, battLifeExt), sizeof(bool), FALSE, TRUE},                      /* MAC_BATT_LIFE_EXT */
+    153            {offsetof(macPib_t, battLifeExtPeriods), sizeof(uint8), 6, 6},                     /* MAC_BATT_LIFE_EXT_PERIODS */
+    154          
+    155            {offsetof(macPib_t, pBeaconPayload), sizeof(uint8 *), 0, 0},                       /* MAC_BEACON_PAYLOAD */
+    156            {offsetof(macPib_t, beaconPayloadLength), sizeof(uint8), 0, 52},                   /* MAC_BEACON_PAYLOAD_LENGTH */
+    157            {offsetof(macPib_t, beaconOrder), sizeof(uint8), 0, 15},                           /* MAC_BEACON_ORDER */
+    158            {offsetof(macPib_t, beaconTxTime), sizeof(uint32), 1, 1},                          /* MAC_BEACON_TX_TIME */
+    159            {offsetof(macPib_t, bsn), sizeof(uint8), 0x00, 0xFF},                              /* MAC_BSN */
+    160          
+    161            {offsetof(macPib_t, coordExtendedAddress.addr.extAddr), sizeof(sAddrExt_t), 0, 0}, /* MAC_COORD_EXTENDED_ADDRESS */
+    162            {offsetof(macPib_t, coordShortAddress), sizeof(uint16), 0, 0},                     /* MAC_COORD_SHORT_ADDRESS */
+    163            {offsetof(macPib_t, dsn), sizeof(uint8), 0x00, 0xFF},                              /* MAC_DSN */
+    164            {offsetof(macPib_t, gtsPermit), sizeof(bool), FALSE, TRUE},                        /* MAC_GTS_PERMIT */
+    165          
+    166            /* Range of maxCsmaBackoffs is between 0 and 5 in IEEE 802.15.4.
+    167             * Such restriction is removed here to allow 802.15.4 non-compliant experimental
+    168             * applications.
+    169             * To be compliant with 802.15.4, application or upper layer must not set this
+    170             * PIB attribute out of range of 802.15.4.
+    171             * The range is still restricted to 254 since value 255 would cause backoff
+    172             * counter to overflow, wrap around and loop infinitely. */
+    173            {offsetof(macPib_t, maxCsmaBackoffs), sizeof(uint8), 0, 254},                      /* MAC_MAX_CSMA_BACKOFFS */
+    174          
+    175            {offsetof(macPib_t, minBe), sizeof(uint8), 0, 8},                                  /* MAC_MIN_BE */
+    176            {offsetof(macPib_t, panId), sizeof(uint16), 0, 0},                                 /* MAC_PAN_ID */
+    177            {offsetof(macPib_t, promiscuousMode), sizeof(bool), FALSE, TRUE},                  /* MAC_PROMISCUOUS_MODE */
+    178            {offsetof(macPib_t, rxOnWhenIdle), sizeof(bool), FALSE, TRUE},                     /* MAC_RX_ON_WHEN_IDLE */
+    179            {offsetof(macPib_t, shortAddress), sizeof(uint16), 0, 0},                          /* MAC_SHORT_ADDRESS */
+    180          
+    181            {offsetof(macPib_t, superframeOrder), sizeof(uint8), 0, 15},                       /* MAC_SUPERFRAME_ORDER */
+    182            {offsetof(macPib_t, transactionPersistenceTime), sizeof(uint16), 0, 0},            /* MAC_TRANSACTION_PERSISTENCE_TIME */
+    183            {offsetof(macPib_t, associatedPanCoord), sizeof(bool), FALSE, TRUE},               /* MAC_ASSOCIATED_PAN_COORD */
+    184          
+    185            /* Range of maxBe is between 3 and 8 in IEEE 802.15.4.
+    186             * Such restriction is removed here to allow 802.15.4 non-compliant experimental
+    187             * applications.
+    188             * To be compliant with 802.15.4, application or upper layer must not set this
+    189             * PIB attribute out of range of 802.15.4. */
+    190            {offsetof(macPib_t, maxBe), sizeof(uint8), 0, 8},                                  /* MAC_MAX_BE */
+    191            {offsetof(macPib_t, maxFrameTotalWaitTime), sizeof(uint16), 0x00, 0xFF},           /* MAC_MAX_FRAME_RESPONSE_TIME */
+    192          
+    193            {offsetof(macPib_t, maxFrameRetries), sizeof(uint8), 0, 7},                        /* MAC_MAX_FRAME_RETRIES */
+    194            {offsetof(macPib_t, responseWaitTime), sizeof(uint8), 2, 64},                      /* MAC_RESPONSE_WAIT_TIME */
+    195            {offsetof(macPib_t, syncSymbolOffset), sizeof(uint8), 0, 0},                       /* MAC_SYNC_SYMBOL_OFFSET */
+    196            {offsetof(macPib_t, timeStampSupported), sizeof(bool), FALSE, TRUE},               /* MAC_TIMESTAMP_SUPPORTED */
+    197            {offsetof(macPib_t, securityEnabled), sizeof(bool), FALSE, TRUE},                  /* MAC_SECURITY_ENABLED */
+    198          
+    199            /* Proprietary PIBs */
+    200            {offsetof(macPib_t, phyTransmitPower), sizeof(uint8), 0, 0xFF},                    /* MAC_PHY_TRANSMIT_POWER */
+    201            {offsetof(macPib_t, logicalChannel), sizeof(uint8), MAC_CHAN_11, MAC_CHAN_28},     /* MAC_LOGICAL_CHANNEL */
+    202            {offsetof(macPib_t, extendedAddress.addr.extAddr), sizeof(sAddrExt_t), 0, 0},      /* MAC_EXTENDED_ADDRESS */
+    203            {offsetof(macPib_t, altBe), sizeof(uint8), 0, 8},                                  /* MAC_ALT_BE */
+    204            {offsetof(macPib_t, deviceBeaconOrder), sizeof(uint8), 0, 15},                     /* MAC_DEVICE_BEACON_ORDER */
+    205            {offsetof(macPib_t, phyTransmitPower), sizeof(uint8), 0, 0},                       /* MAC_PHY_TRANSMIT_POWER_SIGNED */
+    206          };
+    207          
+    208          /* Invalid PIB table index used for error code */
+    209          #define MAC_PIB_INVALID     ((uint8) (sizeof(macPibTbl) / sizeof(macPibTbl[0])))
+    210          
+    211          /* ------------------------------------------------------------------------------------------------
+    212           *                                           Global Variables
+    213           * ------------------------------------------------------------------------------------------------
+    214           */
+    215          
+    216          /* MAC PIB */
+    217          macPib_t macPib;
+    218          
+    219          
+    220          /**************************************************************************************************
+    221           * @fn          macPibReset
+    222           *
+    223           * @brief       This function initializes the PIB.
+    224           *
+    225           * input parameters
+    226           *
+    227           * @param       None.
+    228           *
+    229           * output parameters
+    230           *
+    231           * None.
+    232           *
+    233           * @return      None.
+    234           **************************************************************************************************
+    235           */
+    236          MAC_INTERNAL_API void macPibReset(void)
+    237          {
+    238            /* copy PIB defaults */
+    239            macPib = macPibDefaults;
+    240          
+    241            /* initialize random sequence numbers */
+    242            macPib.dsn = macRadioRandomByte();
+    243            macPib.bsn = macRadioRandomByte();
+    244          }
+    245          
+    246          /**************************************************************************************************
+    247           * @fn          macPibIndex
+    248           *
+    249           * @brief       This function takes an PIB attribute and returns the index in to
+    250           *              macPibTbl for the attribute.
+    251           *
+    252           * input parameters
+    253           *
+    254           * @param       pibAttribute - PIB attribute to look up.
+    255           *
+    256           * output parameters
+    257           *
+    258           * None.
+    259           *
+    260           * @return      Index in to macPibTbl for the attribute or MAC_PIB_INVALID.
+    261           **************************************************************************************************
+    262           */
+    263          static uint8 macPibIndex(uint8 pibAttribute)
+    264          {
+    265            if ((pibAttribute >= MAC_ATTR_SET1_START) && (pibAttribute <= MAC_ATTR_SET1_END))
+    266            {
+    267              return (pibAttribute - MAC_ATTR_SET1_START + MAC_ATTR_SET1_OFFSET);
+    268            }
+    269            else if ((pibAttribute >= MAC_ATTR_SET2_START) && (pibAttribute <= MAC_ATTR_SET2_END))
+    270            {
+    271              return (pibAttribute - MAC_ATTR_SET2_START + MAC_ATTR_SET2_OFFSET);
+    272            }
+    273            else
+    274            {
+    275              return MAC_PIB_INVALID;
+    276            }
+    277          }
+    278          
+    279          
+    280          /**************************************************************************************************
+    281           * @fn          MAC_MlmeGetReq
+    282           *
+    283           * @brief       This direct execute function retrieves an attribute value
+    284           *              from the MAC PIB.
+    285           *
+    286           * input parameters
+    287           *
+    288           * @param       pibAttribute - The attribute identifier.
+    289           * @param       pValue - pointer to the attribute value.
+    290           *
+    291           * output parameters
+    292           *
+    293           * @param       pValue - pointer to the attribute value.
+    294           *
+    295           * @return      The status of the request, as follows:
+    296           *              MAC_SUCCESS Operation successful.
+    297           *              MAC_UNSUPPORTED_ATTRIBUTE Attribute not found.
+    298           *
+    299           **************************************************************************************************
+    300           */
+    301          uint8 MAC_MlmeGetReq(uint8 pibAttribute, void *pValue)
+    302          {
+    303            uint8         i;
+    304            halIntState_t intState;
+    305          
+    306            if ((i = macPibIndex(pibAttribute)) == MAC_PIB_INVALID)
+    307            {
+    308              return MAC_UNSUPPORTED_ATTRIBUTE;
+    309            }
+    310          
+    311            HAL_ENTER_CRITICAL_SECTION(intState);
+    312            osal_memcpy(pValue, (uint8 *) &macPib + macPibTbl[i].offset, macPibTbl[i].len);
+    313            HAL_EXIT_CRITICAL_SECTION(intState);
+    314            return MAC_SUCCESS;
+    315          }
+    316          
+    317          /**************************************************************************************************
+    318           * @fn          MAC_MlmeSetReq
+    319           *
+    320           * @brief       This direct execute function sets an attribute value
+    321           *              in the MAC PIB.
+    322           *
+    323           * input parameters
+    324           *
+    325           * @param       pibAttribute - The attribute identifier.
+    326           * @param       pValue - pointer to the attribute value.
+    327           *
+    328           * output parameters
+    329           *
+    330           * None.
+    331           *
+    332           * @return      The status of the request, as follows:
+    333           *              MAC_SUCCESS Operation successful.
+    334           *              MAC_UNSUPPORTED_ATTRIBUTE Attribute not found.
+    335           *
+    336           **************************************************************************************************
+    337           */
+    338          uint8 MAC_MlmeSetReq(uint8 pibAttribute, void *pValue)
+    339          {
+    340            uint8         i;
+    341            halIntState_t intState;
+    342          
+    343            if (pibAttribute == MAC_BEACON_PAYLOAD)
+    344            {
+    345              macPib.pBeaconPayload = pValue;
+    346              return MAC_SUCCESS;
+    347            }
+    348          
+    349            /* look up attribute in PIB table */
+    350            if ((i = macPibIndex(pibAttribute)) == MAC_PIB_INVALID)
+    351            {
+    352              return MAC_UNSUPPORTED_ATTRIBUTE;
+    353            }
+    354          
+    355            /* do range check; no range check if min and max are zero */
+    356            if ((macPibTbl[i].min != 0) || (macPibTbl[i].max != 0))
+    357            {
+    358              /* if min == max, this is a read-only attribute */
+    359              if (macPibTbl[i].min == macPibTbl[i].max)
+    360              {
+    361                return MAC_READ_ONLY;
+    362              }
+    363          
+    364              /* check for special cases */
+    365              if (pibAttribute == MAC_MAX_FRAME_TOTAL_WAIT_TIME)
+    366              {
+    367                if ((*((uint16 *) pValue) < MAC_MAX_FRAME_RESPONSE_MIN) ||
+    368                    (*((uint16 *) pValue) > MAC_MAX_FRAME_RESPONSE_MAX))
+    369                {
+    370                  return MAC_INVALID_PARAMETER;
+    371                }
+    372              }
+    373          
+    374              /* range check for general case */
+    375              if ((*((uint8 *) pValue) < macPibTbl[i].min) || (*((uint8 *) pValue) > macPibTbl[i].max))
+    376              {
+    377                return MAC_INVALID_PARAMETER;
+    378              }
+    379          
+    380            }
+    381          
+    382            /* set value in PIB */
+    383            HAL_ENTER_CRITICAL_SECTION(intState);
+    384            osal_memcpy((uint8 *) &macPib + macPibTbl[i].offset, pValue, macPibTbl[i].len);
+    385            HAL_EXIT_CRITICAL_SECTION(intState);
+    386          
+    387            /* handle special cases */
+    388            switch (pibAttribute)
+    389            {
+    390              case MAC_PAN_ID:
+    391                /* set pan id in radio */
+    392                macRadioSetPanID(macPib.panId);
+    393                break;
+    394          
+    395              case MAC_SHORT_ADDRESS:
+    396                /* set short address in radio */
+    397                macRadioSetShortAddr(macPib.shortAddress);
+    398                break;
+    399          
+    400              case MAC_RX_ON_WHEN_IDLE:
+    401                /* turn rx on or off */
+    402                if (macPib.rxOnWhenIdle)
+    403                {
+    404                  macRxEnable(MAC_RX_WHEN_IDLE);
+    405                }
+    406                else
+    407                {
+    408                  macRxDisable(MAC_RX_WHEN_IDLE);
+    409                }
+    410                break;
+    411          
+    412              case MAC_LOGICAL_CHANNEL:
+    413                macRadioSetChannel(macPib.logicalChannel);
+    414                break;
+    415          
+    416              case MAC_EXTENDED_ADDRESS:
+    417                /* set ext address in radio */
+    418                macRadioSetIEEEAddr(macPib.extendedAddress.addr.extAddr);
+    419                break;
+    420          
+    421          #ifndef MAC_OBSOLETE_PHY_TRANSMIT_POWER
+    422              /* Define MAC_OBSOLETE_PHY_TRANSMIT_POWER to save some code */
+    423          
+    424              case MAC_PHY_TRANSMIT_POWER:
+    425                /* Legacy transmit power attribute */
+    426          #if !defined HAL_MAC_USE_REGISTER_POWER_VALUES && \
+    427            !defined HAL_PA_LNA && !defined HAL_PA_LNA_CC2590
+    428                /* Legacy transmit power attribute value for CC2530 alone,
+    429                 * or runtime selection support build means a negative absolute value.
+    430                 * However, when used as register power values or
+    431                 * with HAL_PA_LNAxxx definition (without runtime selection)
+    432                 * the attribute value is not a negative absolute value. */
+    433                macPib.phyTransmitPower = (uint8)(-(int8)macPib.phyTransmitPower);
+    434          #endif /* !defined HAL_MAC_USE_REGISTER_POWER_VALUES && ... */
+    435                /* pass through to next case -- do not break*/
+    436          
+    437          #endif /* MAC_OBSOLETE_PHY_TRANSMIT_POWER */
+    438          
+    439              case MAC_PHY_TRANSMIT_POWER_SIGNED:
+    440                /* Set the transmit power */
+    441                macRadioSetTxPower(macPib.phyTransmitPower);
+    442                break;
+    443          
+    444              default:
+    445                break;
+    446            }
+    447          
+    448            return MAC_SUCCESS;
+    449          }
+    450          
+
+Errors: 1
+Warnings: none

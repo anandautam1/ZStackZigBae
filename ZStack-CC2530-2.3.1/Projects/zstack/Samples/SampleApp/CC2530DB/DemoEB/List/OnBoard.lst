@@ -1,0 +1,576 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V7.51A/W32 for 8051                08/Jun/2011  10:49:44 #
+# Copyright 2004-2009 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects\ #
+#                          zstack\ZMain\TI2530DB\OnBoard.c                    #
+#    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.3.1\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\Too #
+#                          ls\CC2530DB\f8wCoord.cfg" (-DCPU32MHZ              #
+#                          -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRU #
+#                          E -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8       #
+#                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)    #
+#                          -f "C:\Texas Instruments\ZStack-CC2530-2.3.1\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\Too #
+#                          ls\CC2530DB\f8wConfig.cfg" (-DSECURE=0             #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\ZM #
+#                          ain\TI2530DB\OnBoard.c" -D BUILD_ALL_DEVICES -D    #
+#                          HOLD_AUTO_START -D LCD_SUPPORTED -D                #
+#                          HAL_UART=FALSE -lC "C:\Texas                       #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\DemoEB\List\" -lA         #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects #
+#                          \zstack\Samples\SampleApp\CC2530DB\DemoEB\List\"   #
+#                          --diag_suppress Pe001,Pa010 -o "C:\Texas           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\DemoEB\Obj\" -e           #
+#                          --require_prototypes --debug --core=plain          #
+#                          --dptr=16,1 --data_model=large                     #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 16 -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\" -I "C:\Texas            #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\SOURCE\" -I "C:\Texas  #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\ZMAIN\TI2530DB\" #
+#                           -I "C:\Texas Instruments\ZStack-CC2530-2.3.1\Proj #
+#                          ects\zstack\Samples\SampleApp\CC2530DB\..\..\..\.. #
+#                          \..\COMPONENTS\MT\" -I "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \HAL\INCLUDE\" -I "C:\Texas                        #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \HAL\TARGET\CC2530EB\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \OSAL\MCU\CCSOC\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \OSAL\INCLUDE\" -I "C:\Texas                       #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\AF\" -I "C:\Texas                           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\NWK\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SEC\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SAPI\" -I "C:\Texas                         #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SYS\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\ZDO\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \ZMAC\F8W\" -I "C:\Texas                           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \ZMAC\" -I "C:\Texas Instruments\ZStack-CC2530-2.3 #
+#                          .1\Projects\zstack\Samples\SampleApp\CC2530DB\..\. #
+#                          .\..\..\..\COMPONENTS\SERVICES\SADDR\" -I          #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects #
+#                          \zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\ #
+#                          COMPONENTS\SERVICES\SDATA\" -I "C:\Texas           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\INCLUDE\" -I "C:\Texas                        #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\HIGH_LEVEL\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\LOW_LEVEL\srf04\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\LOW_LEVEL\srf04\SINGLE_CHIP\" -I "C:\Program  #
+#                          Files\IAR Systems\Embedded Workbench               #
+#                          5.3\8051\INC\" -I "C:\Program Files\IAR            #
+#                          Systems\Embedded Workbench 5.3\8051\INC\CLIB\"     #
+#                          -Ohz                                               #
+#    List file          =  C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects\ #
+#                          zstack\Samples\SampleApp\CC2530DB\DemoEB\List\OnBo #
+#                          ard.lst                                            #
+#    Object file        =  C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects\ #
+#                          zstack\Samples\SampleApp\CC2530DB\DemoEB\Obj\OnBoa #
+#                          rd.r51                                             #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects\zstack\ZMain\TI2530DB\OnBoard.c
+      1          /**************************************************************************************************
+      2            Filename:       OnBoard.c
+      3            Revised:        $Date: 2010-08-02 13:42:17 -0700 (Mon, 02 Aug 2010) $
+      4            Revision:       $Revision: 23272 $
+      5          
+      6            Description:    This file contains the UI and control for the
+      7                            peripherals on the EVAL development board
+      8            Notes:          This file targets the Chipcon CC2530/31
+      9          
+     10          
+     11            Copyright 2005-2010 Texas Instruments Incorporated. All rights reserved.
+     12          
+     13            IMPORTANT: Your use of this Software is limited to those specific rights
+     14            granted under the terms of a software license agreement between the user
+     15            who downloaded the software, his/her employer (which must be your employer)
+     16            and Texas Instruments Incorporated (the "License").  You may not use this
+     17            Software unless you agree to abide by the terms of the License. The License
+     18            limits your use, and you acknowledge, that the Software may not be modified,
+     19            copied or distributed unless embedded on a Texas Instruments microcontroller
+     20            or used solely and exclusively in conjunction with a Texas Instruments radio
+     21            frequency transceiver, which is integrated into your product.  Other than for
+     22            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     23            works of, modify, distribute, perform, display or sell this Software and/or
+     24            its documentation for any purpose.
+     25          
+     26            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     27            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     28            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     29            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     30            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     31            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     32            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     33            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     34            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     35            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     36            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     37          
+     38            Should you have any questions regarding your right to use this Software,
+     39            contact Texas Instruments Incorporated at www.TI.com.
+     40          **************************************************************************************************/
+     41          
+     42          /*********************************************************************
+     43           * INCLUDES
+     44           */
+     45          
+     46          #include "ZComDef.h"
+     47          #include "ZGlobals.h"
+     48          #include "OnBoard.h"
+     49          #include "OSAL.h"
+     50          #include "MT.h"
+     51          #include "MT_SYS.h"
+     52          #include "DebugTrace.h"
+     53          
+     54          /* Hal */
+     55          #include "hal_lcd.h"
+     56          #include "hal_mcu.h"
+     57          #include "hal_timer.h"
+     58          #include "hal_key.h"
+     59          #include "hal_led.h"
+     60          
+     61          /* Allow access macRandomByte() */
+     62          #include "mac_radio_defs.h"
+     63          
+     64          /*********************************************************************
+     65           * CONSTANTS
+     66           */
+     67          
+     68          // Task ID not initialized
+     69          #define NO_TASK_ID 0xFF
+     70          
+     71          // Minimum length RAM "pattern" for Stack check
+     72          #define MIN_RAM_INIT 12
+     73          
+     74          /*********************************************************************
+     75           * GLOBAL VARIABLES
+     76           */
+     77          
+     78          #if defined MAKE_CRC_SHDW
+     79          #pragma location="CRC_SHDW"
+     80          const CODE uint16 _crcShdw = 0xFFFF;
+     81          #pragma required=_crcShdw
+     82          
+     83          #else  // if !defined MAKE_CRC_SHDW
+     84          
+     85          #pragma location="LOCK_BITS_ADDRESS_SPACE"
+     86          __no_init uint8 _lockBits[16];
+     87          #pragma required=_lockBits
+     88          
+     89          #if defined ZCL_KEY_ESTABLISH
+     90          #include "zcl_cert_data.c"
+     91          #else
+     92          #pragma location="IEEE_ADDRESS_SPACE"
+     93          __no_init uint8 _nvIEEE[Z_EXTADDR_LEN];
+     94          #pragma required=_nvIEEE
+     95          #endif
+     96          
+     97          #pragma location="RESERVED_ADDRESS_SPACE"
+     98          __no_init uint8 _reserved[1932];
+     99          #pragma required=_reserved
+    100          #endif
+    101          
+    102          // 64-bit Extended Address of this device
+    103          uint8 aExtendedAddress[8];
+    104          
+    105          /*********************************************************************
+    106           * LOCAL VARIABLES
+    107           */
+    108          
+    109          // Registered keys task ID, initialized to NOT USED.
+    110          static uint8 registeredKeysTaskID = NO_TASK_ID;
+    111          
+    112          /*********************************************************************
+    113           * LOCAL FUNCTIONS
+    114           */
+    115          
+    116          static void ChkReset( void );
+    117          
+    118          /*********************************************************************
+    119           * @fn      InitBoard()
+    120           * @brief   Initialize the CC2420DB Board Peripherals
+    121           * @param   level: COLD,WARM,READY
+    122           * @return  None
+    123           */
+    124          void InitBoard( uint8 level )
+    125          {
+    126            if ( level == OB_COLD )
+    127            {
+    128              // IAR does not zero-out this byte below the XSTACK.
+    129              *(uint8 *)0x0 = 0;
+    130              // Interrupts off
+    131              osal_int_disable( INTS_ALL );
+    132              // Check for Brown-Out reset
+    133              ChkReset();
+    134            }
+    135            else  // !OB_COLD
+    136            {
+    137              /* Initialize Key stuff */
+    138              HalKeyConfig(HAL_KEY_INTERRUPT_DISABLE, OnBoard_KeyCallback);
+    139            }
+    140          }
+    141          
+    142          /*********************************************************************
+    143           * @fn      ChkReset()
+    144           * @brief   Check reset bits - if reset cause is unknown, assume a
+    145           *          brown-out (low power), assume batteries are not reliable,
+    146           *          hang in a loop and sequence through the LEDs.
+    147           * @param   None
+    148           * @return  None
+    149           *********************************************************************/
+    150          void ChkReset( void )
+    151          {
+    152            uint8 rib;
+    153          
+    154            // Isolate reset indicator bits
+    155            rib = SLEEPSTA & LRESET;
+    156          
+    157            if ( rib == RESETPO )
+    158            {
+    159              // Put code here to handle Power-On reset
+    160            }
+    161            else if ( rib == RESETEX )
+    162            {
+    163              // Put code here to handle External reset
+    164            }
+    165            else if ( rib == RESETWD )
+    166            {
+    167              // Put code here to handle WatchDog reset
+    168            }
+    169            else  // Unknown reason - not expected.
+    170            {
+    171              HAL_ASSERT(0);
+    172            }
+    173          }
+    174          
+    175          /*********************************************************************
+    176           *                        "Keyboard" Support
+    177           *********************************************************************/
+    178          
+    179          /*********************************************************************
+    180           * Keyboard Register function
+    181           *
+    182           * The keyboard handler is setup to send all keyboard changes to
+    183           * one task (if a task is registered).
+    184           *
+    185           * If a task registers, it will get all the keys. You can change this
+    186           * to register for individual keys.
+    187           *********************************************************************/
+    188          uint8 RegisterForKeys( uint8 task_id )
+    189          {
+    190            // Allow only the first task
+    191            if ( registeredKeysTaskID == NO_TASK_ID )
+    192            {
+    193              registeredKeysTaskID = task_id;
+    194              return ( true );
+    195            }
+    196            else
+    197              return ( false );
+    198          }
+    199          
+    200          /*********************************************************************
+    201           * @fn      OnBoard_SendKeys
+    202           *
+    203           * @brief   Send "Key Pressed" message to application.
+    204           *
+    205           * @param   keys  - keys that were pressed
+    206           *          state - shifted
+    207           *
+    208           * @return  status
+    209           *********************************************************************/
+    210          uint8 OnBoard_SendKeys( uint8 keys, uint8 state )
+    211          {
+    212            keyChange_t *msgPtr;
+    213          
+    214            if ( registeredKeysTaskID != NO_TASK_ID )
+    215            {
+    216              // Send the address to the task
+    217              msgPtr = (keyChange_t *)osal_msg_allocate( sizeof(keyChange_t) );
+    218              if ( msgPtr )
+    219              {
+    220                msgPtr->hdr.event = KEY_CHANGE;
+    221                msgPtr->state = state;
+    222                msgPtr->keys = keys;
+    223          
+    224                osal_msg_send( registeredKeysTaskID, (uint8 *)msgPtr );
+    225              }
+    226              return ( ZSuccess );
+    227            }
+    228            else
+    229              return ( ZFailure );
+    230          }
+    231          
+    232          /*********************************************************************
+    233           * @fn      OnBoard_KeyCallback
+    234           *
+    235           * @brief   Callback service for keys
+    236           *
+    237           * @param   keys  - keys that were pressed
+    238           *          state - shifted
+    239           *
+    240           * @return  void
+    241           *********************************************************************/
+    242          void OnBoard_KeyCallback ( uint8 keys, uint8 state )
+    243          {
+    244            uint8 shift;
+    245            (void)state;
+    246          
+    247            shift = (keys & HAL_KEY_SW_6) ? true : false;
+    248          
+    249            if ( OnBoard_SendKeys( keys, shift ) != ZSuccess )
+    250            {
+    251              // Process SW1 here
+    252              if ( keys & HAL_KEY_SW_1 )  // Switch 1
+    253              {
+    254              }
+    255              // Process SW2 here
+    256              if ( keys & HAL_KEY_SW_2 )  // Switch 2
+    257              {
+    258              }
+    259              // Process SW3 here
+    260              if ( keys & HAL_KEY_SW_3 )  // Switch 3
+    261              {
+    262              }
+    263              // Process SW4 here
+    264              if ( keys & HAL_KEY_SW_4 )  // Switch 4
+    265              {
+    266              }
+    267              // Process SW5 here
+    268              if ( keys & HAL_KEY_SW_5 )  // Switch 5
+    269              {
+    270              }
+    271              // Process SW6 here
+    272              if ( keys & HAL_KEY_SW_6 )  // Switch 6
+    273              {
+    274              }
+    275            }
+    276          }
+    277          
+    278          /*********************************************************************
+    279           * @fn      OnBoard_stack_used
+    280           *
+    281           * @brief   Runs through the stack looking for touched memory.
+    282           *
+    283           * @param   none
+    284           *
+    285           * @return  Maximum number of bytes used by the stack.
+    286           *********************************************************************/
+    287          uint16 OnBoard_stack_used(void)
+    288          {
+    289            uint8 const *ptr;
+    290            uint8 cnt = 0;
+    291          
+    292            for (ptr = CSTACK_END; ptr > CSTACK_BEG; ptr--)
+    293            {
+    294              if (STACK_INIT_VALUE == *ptr)
+    295              {
+    296                if (++cnt >= MIN_RAM_INIT)
+    297                {
+    298                  ptr += MIN_RAM_INIT;
+    299                  break;
+    300                }
+    301              }
+    302              else
+    303              {
+    304                cnt = 0;
+    305              }
+    306            }
+    307          
+    308            return (uint16)(CSTACK_END - ptr + 1);
+    309          }
+    310          
+    311          /*********************************************************************
+    312           * @fn      _itoa
+    313           *
+    314           * @brief   convert a 16bit number to ASCII
+    315           *
+    316           * @param   num -
+    317           *          buf -
+    318           *          radix -
+    319           *
+    320           * @return  void
+    321           *
+    322           *********************************************************************/
+    323          void _itoa(uint16 num, uint8 *buf, uint8 radix)
+    324          {
+    325            char c,i;
+    326            uint8 *p, rst[5];
+    327          
+    328            p = rst;
+    329            for ( i=0; i<5; i++,p++ )
+    330            {
+    331              c = num % radix;  // Isolate a digit
+    332              *p = c + (( c < 10 ) ? '0' : '7');  // Convert to Ascii
+    333              num /= radix;
+    334              if ( !num )
+    335                break;
+    336            }
+    337          
+    338            for ( c=0 ; c<=i; c++ )
+    339              *buf++ = *p--;  // Reverse character order
+    340          
+    341            *buf = '\0';
+    342          }
+    343          
+    344          /*********************************************************************
+    345           * @fn        Onboard_rand
+    346           *
+    347           * @brief    Random number generator
+    348           *
+    349           * @param   none
+    350           *
+    351           * @return  uint16 - new random number
+    352           *
+    353           *********************************************************************/
+    354          uint16 Onboard_rand( void )
+    355          {
+    356            return ( MAC_RADIO_RANDOM_WORD() );
+    357          }
+    358          
+    359          /*********************************************************************
+    360           * @fn        Onboard_wait
+    361           *
+    362           * @brief    Delay wait
+    363           *
+    364           * @param   uint16 - time to wait
+    365           *
+    366           * @return  none
+    367           *
+    368           *********************************************************************/
+    369          void Onboard_wait( uint16 timeout )
+    370          {
+    371            while (timeout--)
+    372            {
+    373              asm("NOP");
+    374              asm("NOP");
+    375              asm("NOP");
+    376            }
+    377          }
+    378          
+    379          /*********************************************************************
+    380           * @fn      Onboard_soft_reset
+    381           *
+    382           * @brief   Effect a soft reset.
+    383           *
+    384           * @param   none
+    385           *
+    386           * @return  none
+    387           *
+    388           *********************************************************************/
+    389          __near_func void Onboard_soft_reset( void )
+    390          {
+    391            HAL_DISABLE_INTERRUPTS();
+    392            // Abort all DMA channels to insure that ongoing operations do not
+    393            // interfere with re-configuration.
+    394            DMAARM = 0x80 | 0x1F;
+    395            asm("LJMP 0x0");
+    396          }
+    397          
+    398          /*********************************************************************
+    399           *                    EXTERNAL I/O FUNCTIONS
+    400           *
+    401           * User defined functions to control external devices. Add your code
+    402           * to the following functions to control devices wired to DB outputs.
+    403           *
+    404           *********************************************************************/
+    405          
+    406          void BigLight_On( void )
+    407          {
+    408            // Put code here to turn on an external light
+    409          }
+    410          
+    411          void BigLight_Off( void )
+    412          {
+    413            // Put code here to turn off an external light
+    414          }
+    415          
+    416          void BuzzerControl( uint8 on )
+    417          {
+    418            // Put code here to turn a buzzer on/off
+    419            (void)on;
+    420          }
+    421          
+    422          void Dimmer( uint8 lvl )
+    423          {
+    424            // Put code here to control a dimmer
+    425            (void)lvl;
+    426          }
+    427          
+    428          // No dip switches on this board
+    429          uint8 GetUserDipSw( void )
+    430          {
+    431            return 0;
+    432          }
+    433          
+    434          /*********************************************************************
+    435          *********************************************************************/
+
+Errors: 1
+Warnings: none

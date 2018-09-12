@@ -1,0 +1,442 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V7.51A/W32 for 8051                08/Jun/2011  10:49:58 #
+# Copyright 2004-2009 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.3.1\Component #
+#                          s\mac\low_level\srf04\mac_rx_onoff.c               #
+#    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.3.1\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\Too #
+#                          ls\CC2530DB\f8wCoord.cfg" (-DCPU32MHZ              #
+#                          -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRU #
+#                          E -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8       #
+#                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)    #
+#                          -f "C:\Texas Instruments\ZStack-CC2530-2.3.1\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\Too #
+#                          ls\CC2530DB\f8wConfig.cfg" (-DSECURE=0             #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.3.1\Components\mac\low #
+#                          _level\srf04\mac_rx_onoff.c" -D BUILD_ALL_DEVICES  #
+#                          -D HOLD_AUTO_START -D LCD_SUPPORTED -D             #
+#                          HAL_UART=FALSE -lC "C:\Texas                       #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\DemoEB\List\" -lA         #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects #
+#                          \zstack\Samples\SampleApp\CC2530DB\DemoEB\List\"   #
+#                          --diag_suppress Pe001,Pa010 -o "C:\Texas           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\DemoEB\Obj\" -e           #
+#                          --require_prototypes --debug --core=plain          #
+#                          --dptr=16,1 --data_model=large                     #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 16 -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\" -I "C:\Texas            #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\SOURCE\" -I "C:\Texas  #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\ZMAIN\TI2530DB\" #
+#                           -I "C:\Texas Instruments\ZStack-CC2530-2.3.1\Proj #
+#                          ects\zstack\Samples\SampleApp\CC2530DB\..\..\..\.. #
+#                          \..\COMPONENTS\MT\" -I "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \HAL\INCLUDE\" -I "C:\Texas                        #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \HAL\TARGET\CC2530EB\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \OSAL\MCU\CCSOC\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \OSAL\INCLUDE\" -I "C:\Texas                       #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\AF\" -I "C:\Texas                           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\NWK\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SEC\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SAPI\" -I "C:\Texas                         #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SYS\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\ZDO\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \ZMAC\F8W\" -I "C:\Texas                           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \ZMAC\" -I "C:\Texas Instruments\ZStack-CC2530-2.3 #
+#                          .1\Projects\zstack\Samples\SampleApp\CC2530DB\..\. #
+#                          .\..\..\..\COMPONENTS\SERVICES\SADDR\" -I          #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects #
+#                          \zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\ #
+#                          COMPONENTS\SERVICES\SDATA\" -I "C:\Texas           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\INCLUDE\" -I "C:\Texas                        #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\HIGH_LEVEL\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\LOW_LEVEL\srf04\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\LOW_LEVEL\srf04\SINGLE_CHIP\" -I "C:\Program  #
+#                          Files\IAR Systems\Embedded Workbench               #
+#                          5.3\8051\INC\" -I "C:\Program Files\IAR            #
+#                          Systems\Embedded Workbench 5.3\8051\INC\CLIB\"     #
+#                          -Ohz                                               #
+#    List file          =  C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects\ #
+#                          zstack\Samples\SampleApp\CC2530DB\DemoEB\List\mac_ #
+#                          rx_onoff.lst                                       #
+#    Object file        =  C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects\ #
+#                          zstack\Samples\SampleApp\CC2530DB\DemoEB\Obj\mac_r #
+#                          x_onoff.r51                                        #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Texas Instruments\ZStack-CC2530-2.3.1\Components\mac\low_level\srf04\mac_rx_onoff.c
+      1          /**************************************************************************************************
+      2            Filename:       mac_rx_onoff.c
+      3            Revised:        $Date: 2007-09-11 10:58:41 -0700 (Tue, 11 Sep 2007) $
+      4            Revision:       $Revision: 15371 $
+      5          
+      6            Description:    Describe the purpose and contents of the file.
+      7          
+      8          
+      9            Copyright 2006-2009 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, 
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE, 
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com. 
+     38          **************************************************************************************************/
+     39          
+     40          /* ------------------------------------------------------------------------------------------------
+     41           *                                          Includes
+     42           * ------------------------------------------------------------------------------------------------
+     43           */
+     44          
+     45          /* hal */
+     46          #include "hal_defs.h"
+     47          #include "hal_types.h"
+     48          
+     49          /* exported low-level */
+     50          #include "mac_low_level.h"
+     51          
+     52          /* low-level specific */
+     53          #include "mac_rx_onoff.h"
+     54          #include "mac_rx.h"
+     55          #include "mac_tx.h"
+     56          
+     57          /* target specific */
+     58          #include "mac_radio_defs.h"
+     59          
+     60          /* debug */
+     61          #include "mac_assert.h"
+     62          
+     63          
+     64          /* ------------------------------------------------------------------------------------------------
+     65           *                                         Global Variables
+     66           * ------------------------------------------------------------------------------------------------
+     67           */
+     68          uint8 macRxOnFlag;
+     69          uint8 macRxEnableFlags;
+     70          
+     71          
+     72          /**************************************************************************************************
+     73           * @fn          macRxOnOffInit
+     74           *
+     75           * @brief       Initialize variables for rx on/off module.
+     76           *
+     77           * @param       none
+     78           *
+     79           * @return      none
+     80           **************************************************************************************************
+     81           */
+     82          MAC_INTERNAL_API void macRxOnOffInit(void)
+     83          {
+     84            macRxEnableFlags = 0;
+     85            macRxOnFlag = 0;
+     86          }
+     87          
+     88          
+     89          /**************************************************************************************************
+     90           * @fn          macRxEnable
+     91           *
+     92           * @brief       Set enable flags and then turn on receiver.
+     93           *
+     94           * @param       flags - byte containing rx enable flags to set
+     95           *
+     96           * @return      none
+     97           **************************************************************************************************
+     98           */
+     99          MAC_INTERNAL_API void macRxEnable(uint8 flags)
+    100          {
+    101            halIntState_t  s;
+    102          
+    103            MAC_ASSERT(flags != 0); /* rx flags not affected */
+    104          
+    105            /* set enable flags and then turn on receiver */
+    106            HAL_ENTER_CRITICAL_SECTION(s);
+    107            macRxEnableFlags |= flags;
+    108            macRxOn();
+    109            HAL_EXIT_CRITICAL_SECTION(s);
+    110          }
+    111          
+    112          
+    113          /**************************************************************************************************
+    114           * @fn          macRxSoftEnable
+    115           *
+    116           * @brief       Set enable flags but don't turn on the receiver.  Useful to leave the receiver
+    117           *              on after a transmit, but without turning it on immediately.
+    118           *
+    119           * @param       flags - byte containing rx enable flags to set
+    120           *
+    121           * @return      none
+    122           **************************************************************************************************
+    123           */
+    124          MAC_INTERNAL_API void macRxSoftEnable(uint8 flags)
+    125          {
+    126            halIntState_t  s;
+    127          
+    128            MAC_ASSERT(flags != 0); /* rx flags not affected */
+    129          
+    130            /* set the enable flags but do not turn on the receiver */
+    131            HAL_ENTER_CRITICAL_SECTION(s);
+    132            macRxEnableFlags |= flags;
+    133            HAL_EXIT_CRITICAL_SECTION(s);
+    134          }
+    135          
+    136          
+    137          /**************************************************************************************************
+    138           * @fn          macRxDisable
+    139           *
+    140           * @brief       Clear indicated rx enable flags.  If all flags are clear, turn off receiver
+    141           *              unless there is an active receive or transmit.
+    142           *
+    143           * @param       flags - byte containg rx enable flags to clear
+    144           *
+    145           * @return      none
+    146           **************************************************************************************************
+    147           */
+    148          MAC_INTERNAL_API void macRxDisable(uint8 flags)
+    149          {
+    150            halIntState_t  s;
+    151          
+    152            MAC_ASSERT(flags != 0); /* rx flags not affected */
+    153          
+    154            /* clear the indicated flags */
+    155            HAL_ENTER_CRITICAL_SECTION(s);
+    156            macRxEnableFlags &= (flags ^ 0xFF);
+    157            HAL_EXIT_CRITICAL_SECTION(s);
+    158          
+    159            /* turn off the radio if it is allowed */
+    160            macRxOffRequest();
+    161          }
+    162          
+    163          
+    164          /**************************************************************************************************
+    165           * @fn          macRxHardDisable
+    166           *
+    167           * @brief       Clear all enable flags and turn off receiver.
+    168           *
+    169           * @param       none
+    170           *
+    171           * @return      none
+    172           **************************************************************************************************
+    173           */
+    174          MAC_INTERNAL_API void macRxHardDisable(void)
+    175          {
+    176            halIntState_t  s;
+    177          
+    178            HAL_ENTER_CRITICAL_SECTION(s);
+    179          
+    180            macRxEnableFlags = 0;
+    181            macRxOnFlag = 0;
+    182          
+    183            /* force receiver off */
+    184            MAC_RADIO_RXTX_OFF();
+    185            MAC_RADIO_FLUSH_RX_FIFO();
+    186            MAC_DEBUG_TURN_OFF_RX_LED();
+    187          
+    188            HAL_EXIT_CRITICAL_SECTION(s);
+    189          
+    190            /* clean up after being forced off */
+    191            macRxHaltCleanup();
+    192          }
+    193          
+    194          /**************************************************************************************************
+    195           * @fn          macRxOnRequest
+    196           *
+    197           * @brief       Turn on the receiver if any rx enable flag is set.
+    198           *
+    199           * @param       none
+    200           *
+    201           * @return      none
+    202           **************************************************************************************************
+    203           */
+    204          MAC_INTERNAL_API void macRxOnRequest(void)
+    205          {
+    206            halIntState_t  s;
+    207          
+    208            HAL_ENTER_CRITICAL_SECTION(s);
+    209            if (macRxEnableFlags)
+    210            {
+    211              macRxOn();
+    212            }
+    213            HAL_EXIT_CRITICAL_SECTION(s);
+    214          }
+    215          
+    216          
+    217          /**************************************************************************************************
+    218           * @fn          macRxOffRequest
+    219           *
+    220           * @brief       Turn off receiver if permitted.
+    221           *
+    222           * @param       none
+    223           *
+    224           * @return      none
+    225           **************************************************************************************************
+    226           */
+    227          MAC_INTERNAL_API void macRxOffRequest(void)
+    228          {
+    229            halIntState_t  s;
+    230          
+    231            HAL_ENTER_CRITICAL_SECTION(s);
+    232            if (!macRxEnableFlags)
+    233            {
+    234              if (!MAC_RX_IS_PHYSICALLY_ACTIVE() && !MAC_TX_IS_PHYSICALLY_ACTIVE())
+    235              {
+    236                macRxOff();
+    237              }
+    238            }
+    239            HAL_EXIT_CRITICAL_SECTION(s);
+    240          }
+    241          
+    242          
+    243          /**************************************************************************************************
+    244           * @fn          macRxOn
+    245           *
+    246           * @brief       Turn on the receiver if it's not already on.
+    247           *
+    248           * @param       none
+    249           *
+    250           * @return      none
+    251           **************************************************************************************************
+    252           */
+    253          MAC_INTERNAL_API void macRxOn(void)
+    254          {
+    255            halIntState_t  s;
+    256          
+    257            HAL_ENTER_CRITICAL_SECTION(s);
+    258            if (!macRxOnFlag)
+    259            {
+    260              macRxOnFlag = 1;
+    261              MAC_RADIO_RX_ON();
+    262              MAC_DEBUG_TURN_ON_RX_LED();
+    263            }
+    264            HAL_EXIT_CRITICAL_SECTION(s);
+    265          }
+    266          
+    267          
+    268          /**************************************************************************************************
+    269           * @fn          macRxOff
+    270           *
+    271           * @brief       Turn off the receiver if it's not already off.
+    272           *
+    273           * @param       none
+    274           *
+    275           * @return      none
+    276           **************************************************************************************************
+    277           */
+    278          MAC_INTERNAL_API void macRxOff(void)
+    279          {
+    280            halIntState_t  s;
+    281          
+    282            HAL_ENTER_CRITICAL_SECTION(s);
+    283            if (macRxOnFlag)
+    284            {
+    285              macRxOnFlag = 0;
+    286              MAC_RADIO_RXTX_OFF();
+    287              MAC_DEBUG_TURN_OFF_RX_LED();
+    288              
+    289              /* just in case a receive was about to start, flush the receive FIFO */
+    290              MAC_RADIO_FLUSH_RX_FIFO();
+    291          
+    292              /* clear any receive interrupt that happened to squeak through */
+    293              MAC_RADIO_CLEAR_RX_THRESHOLD_INTERRUPT_FLAG();
+    294          
+    295            }
+    296            HAL_EXIT_CRITICAL_SECTION(s);
+    297          }
+    298          
+    299          
+    300          /**************************************************************************************************
+    301          */
+
+Errors: 1
+Warnings: none

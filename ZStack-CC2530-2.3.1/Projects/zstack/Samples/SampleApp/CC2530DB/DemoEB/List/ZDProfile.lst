@@ -1,0 +1,2082 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V7.51A/W32 for 8051                08/Jun/2011  10:49:47 #
+# Copyright 2004-2009 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.3.1\Component #
+#                          s\stack\zdo\ZDProfile.c                            #
+#    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.3.1\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\Too #
+#                          ls\CC2530DB\f8wCoord.cfg" (-DCPU32MHZ              #
+#                          -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRU #
+#                          E -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8       #
+#                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)    #
+#                          -f "C:\Texas Instruments\ZStack-CC2530-2.3.1\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\Too #
+#                          ls\CC2530DB\f8wConfig.cfg" (-DSECURE=0             #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.3.1\Components\stack\z #
+#                          do\ZDProfile.c" -D BUILD_ALL_DEVICES -D            #
+#                          HOLD_AUTO_START -D LCD_SUPPORTED -D                #
+#                          HAL_UART=FALSE -lC "C:\Texas                       #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\DemoEB\List\" -lA         #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects #
+#                          \zstack\Samples\SampleApp\CC2530DB\DemoEB\List\"   #
+#                          --diag_suppress Pe001,Pa010 -o "C:\Texas           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\DemoEB\Obj\" -e           #
+#                          --require_prototypes --debug --core=plain          #
+#                          --dptr=16,1 --data_model=large                     #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 16 -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\" -I "C:\Texas            #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\SOURCE\" -I "C:\Texas  #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\ZMAIN\TI2530DB\" #
+#                           -I "C:\Texas Instruments\ZStack-CC2530-2.3.1\Proj #
+#                          ects\zstack\Samples\SampleApp\CC2530DB\..\..\..\.. #
+#                          \..\COMPONENTS\MT\" -I "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \HAL\INCLUDE\" -I "C:\Texas                        #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \HAL\TARGET\CC2530EB\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \OSAL\MCU\CCSOC\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \OSAL\INCLUDE\" -I "C:\Texas                       #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\AF\" -I "C:\Texas                           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\NWK\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SEC\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SAPI\" -I "C:\Texas                         #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SYS\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\ZDO\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \ZMAC\F8W\" -I "C:\Texas                           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \ZMAC\" -I "C:\Texas Instruments\ZStack-CC2530-2.3 #
+#                          .1\Projects\zstack\Samples\SampleApp\CC2530DB\..\. #
+#                          .\..\..\..\COMPONENTS\SERVICES\SADDR\" -I          #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects #
+#                          \zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\ #
+#                          COMPONENTS\SERVICES\SDATA\" -I "C:\Texas           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\INCLUDE\" -I "C:\Texas                        #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\HIGH_LEVEL\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\LOW_LEVEL\srf04\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\LOW_LEVEL\srf04\SINGLE_CHIP\" -I "C:\Program  #
+#                          Files\IAR Systems\Embedded Workbench               #
+#                          5.3\8051\INC\" -I "C:\Program Files\IAR            #
+#                          Systems\Embedded Workbench 5.3\8051\INC\CLIB\"     #
+#                          -Ohz                                               #
+#    List file          =  C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects\ #
+#                          zstack\Samples\SampleApp\CC2530DB\DemoEB\List\ZDPr #
+#                          ofile.lst                                          #
+#    Object file        =  C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects\ #
+#                          zstack\Samples\SampleApp\CC2530DB\DemoEB\Obj\ZDPro #
+#                          file.r51                                           #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Texas Instruments\ZStack-CC2530-2.3.1\Components\stack\zdo\ZDProfile.c
+      1          /**************************************************************************************************
+      2            Filename:       ZDProfile.c
+      3            Revised:        $Date: 2010-05-28 08:13:38 -0700 (Fri, 28 May 2010) $
+      4            Revision:       $Revision: 22667 $
+      5          
+      6            Description:    This is the Zigbee Device Profile.
+      7          
+      8          
+      9            Copyright 2004-2010 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com.
+     38          **************************************************************************************************/
+     39          
+     40          /*********************************************************************
+     41           * INCLUDES
+     42           */
+     43          #include "ZComdef.h"
+     44          #include "OSAL.h"
+     45          #include "AF.h"
+     46          #include "NLMEDE.h"
+     47          #include "nwk_util.h"
+     48          #include "APS.h"
+     49          
+     50          #include "AddrMgr.h"
+     51          #include "ZDConfig.h"
+     52          #include "ZDProfile.h"
+     53          #include "ZDObject.h"
+     54          #include "ZDNwkMgr.h"
+     55          
+     56          #if defined( LCD_SUPPORTED )
+     57            #include "OnBoard.h"
+     58          #endif
+     59          
+     60          #include "nwk_util.h"
+     61          
+     62          #if defined( MT_ZDO_FUNC )
+     63            #include "MT_ZDO.h"
+     64          #endif
+     65          
+     66          /*********************************************************************
+     67           * MACROS
+     68           */
+     69          
+     70          #define ZADDR_TO_AFADDR( pZADDR, AFADDR ) {                            \
+     71            (AFADDR).endPoint = ZDP_AF_ENDPOINT;                                 \
+     72            (AFADDR).addrMode = (afAddrMode_t)(pZADDR)->addrMode;                \
+     73            (AFADDR).addr.shortAddr = (pZADDR)->addr.shortAddr;                  \
+     74          }
+     75          
+     76          #define FillAndSendBuffer( TRANSSEQ, ADDR, ID, LEN, BUF ) {     \
+     77            afStatus_t stat;                                    \
+     78            ZDP_TmpBuf = (BUF)+1;                               \
+     79            stat = fillAndSend( (TRANSSEQ), (ADDR), (ID), (LEN) );          \
+     80            osal_mem_free( (BUF) );                             \
+     81            ZDP_TmpBuf = ZDP_Buf+1;                             \
+     82            return stat;                                        \
+     83          }
+     84          
+     85          #define FillAndSendTxOptions( TRANSSEQ, ADDR, ID, LEN, TxO ) {  \
+     86            afStatus_t stat;                                    \
+     87            ZDP_TxOptions = (TxO);                              \
+     88            stat = fillAndSend( (TRANSSEQ), (ADDR), (ID), (LEN) );          \
+     89            ZDP_TxOptions = AF_TX_OPTIONS_NONE;                 \
+     90            return stat;                                        \
+     91          }
+     92          
+     93          #define FillAndSendBufferTxOptions( TRANSSEQ, ADDR, ID, LEN, BUF, TxO ) { \
+     94            afStatus_t stat;                                    \
+     95            ZDP_TmpBuf = (BUF)+1;                               \
+     96            ZDP_TxOptions = (TxO);                              \
+     97            stat = fillAndSend( (TRANSSEQ), (ADDR), (ID), (LEN) );          \
+     98            osal_mem_free( (BUF) );                             \
+     99            ZDP_TmpBuf = ZDP_Buf+1;                             \
+    100            ZDP_TxOptions = AF_TX_OPTIONS_NONE;                 \
+    101            return stat;                                        \
+    102          }
+    103          
+    104          /*********************************************************************
+    105           * CONSTANTS
+    106           */
+    107          
+    108          #define ZDP_BUF_SZ          80
+    109          
+    110          CONST byte ZDP_AF_ENDPOINT = 0;
+    111          
+    112          /*********************************************************************
+    113           * TYPEDEFS
+    114           */
+    115          typedef struct
+    116          {
+    117            void *next;
+    118            uint8 taskID;
+    119            uint16 clusterID;
+    120          } ZDO_MsgCB_t;
+    121          
+    122          
+    123          /*********************************************************************
+    124           * GLOBAL VARIABLES
+    125           */
+    126          
+    127          byte ZDP_TransID = 0;
+    128          
+    129          /*********************************************************************
+    130           * EXTERNAL VARIABLES
+    131           */
+    132          
+    133          extern endPointDesc_t ZDApp_epDesc;
+    134          
+    135          /*********************************************************************
+    136           * EXTERNAL FUNCTIONS
+    137           */
+    138          
+    139          /*********************************************************************
+    140           * LOCAL FUNCTIONS
+    141           */
+    142          
+    143          static afStatus_t fillAndSend( uint8 *transSeq, zAddrType_t *addr, cId_t clusterID, byte len );
+    144          uint8 ZDO_SendMsgCBs( zdoIncomingMsg_t *inMsg );
+    145          void zdpProcessAddrReq( zdoIncomingMsg_t *inMsg );
+    146          
+    147          /*********************************************************************
+    148           * LOCAL VARIABLES
+    149           */
+    150          
+    151          static uint8  ZDP_Buf[ ZDP_BUF_SZ ];
+    152          static uint8 *ZDP_TmpBuf = ZDP_Buf+1;
+    153          static byte ZDP_TxOptions = AF_TX_OPTIONS_NONE;
+    154          
+    155          ZDO_MsgCB_t *zdoMsgCBs = (ZDO_MsgCB_t *)NULL;
+    156          
+    157          /*********************************************************************
+    158           * ZDO Message Processing table
+    159           */
+    160          
+    161          typedef void (*pfnZDPMsgProcessor)( zdoIncomingMsg_t *inMsg );
+    162          
+    163          typedef struct
+    164          {
+    165            uint16                clusterID;
+    166            pfnZDPMsgProcessor    pFn;
+    167          } zdpMsgProcItem_t;
+    168          
+    169          CONST zdpMsgProcItem_t zdpMsgProcs[] =
+    170          {
+    171          #if ( RFD_RCVC_ALWAYS_ON==TRUE ) || ( ZG_BUILD_RTR_TYPE )
+    172            // These aren't processed by sleeping end devices.
+    173            { NWK_addr_req,           zdpProcessAddrReq },
+    174            { Device_annce,           ZDO_ProcessDeviceAnnce },
+    175          #endif
+    176            { IEEE_addr_req,          zdpProcessAddrReq },
+    177            { Node_Desc_req,          ZDO_ProcessNodeDescReq },
+    178            { Power_Desc_req,         ZDO_ProcessPowerDescReq },
+    179            { Simple_Desc_req,        ZDO_ProcessSimpleDescReq },
+    180            { Active_EP_req,          ZDO_ProcessActiveEPReq },
+    181            { Match_Desc_req,         ZDO_ProcessMatchDescReq },
+    182          #if defined ( ZDO_MGMT_NWKDISC_RESPONSE )
+    183            { Mgmt_NWK_Disc_req,      ZDO_ProcessMgmtNwkDiscReq },
+    184          #endif
+    185          #if defined ( ZDO_MGMT_LQI_RESPONSE ) && ( ZG_BUILD_RTR_TYPE )
+    186            { Mgmt_Lqi_req,           ZDO_ProcessMgmtLqiReq },
+    187          #endif
+    188          #if defined ( ZDO_MGMT_RTG_RESPONSE ) && ( ZG_BUILD_RTR_TYPE )
+    189            { Mgmt_Rtg_req,           ZDO_ProcessMgmtRtgReq },
+    190          #endif
+    191          #if defined ( ZDO_MGMT_BIND_RESPONSE ) && defined ( REFLECTOR )
+    192            { Mgmt_Bind_req,          ZDO_ProcessMgmtBindReq },
+    193          #endif
+    194          #if defined ( ZDO_MGMT_JOINDIRECT_RESPONSE ) && ( ZG_BUILD_RTR_TYPE )
+    195            { Mgmt_Direct_Join_req,   ZDO_ProcessMgmtDirectJoinReq },
+    196          #endif
+    197          #if defined ( ZDO_MGMT_LEAVE_RESPONSE )
+    198            { Mgmt_Leave_req,         ZDO_ProcessMgmtLeaveReq },
+    199          #endif
+    200          #if defined ( ZDO_MGMT_PERMIT_JOIN_RESPONSE )  && ( ZG_BUILD_RTR_TYPE )
+    201            { Mgmt_Permit_Join_req,   ZDO_ProcessMgmtPermitJoinReq },
+    202          #endif
+    203          #if defined ( ZDO_USERDESC_RESPONSE )
+    204            { User_Desc_req,          ZDO_ProcessUserDescReq },
+    205          #endif
+    206          #if defined ( ZDO_USERDESCSET_RESPONSE )
+    207            { User_Desc_set,          ZDO_ProcessUserDescSet },
+    208          #endif
+    209          #if defined ( ZDO_SERVERDISC_RESPONSE )
+    210            { Server_Discovery_req,   ZDO_ProcessServerDiscReq },
+    211          #endif
+    212            {0xFFFF, NULL} // Last
+    213          };
+    214          
+    215          /*********************************************************************
+    216           * @fn          fillAndSend
+    217           *
+    218           * @brief       Combined to reduce space
+    219           *
+    220           * @param
+    221           * @param
+    222           *
+    223           * @return      afStatus_t
+    224           */
+    225          static afStatus_t fillAndSend( uint8 *transSeq, zAddrType_t *addr, cId_t clusterID, byte len )
+    226          {
+    227            afAddrType_t afAddr;
+    228          
+    229            osal_memset( &afAddr, 0, sizeof(afAddrType_t) );
+    230            ZADDR_TO_AFADDR( addr, afAddr );
+    231          
+    232            *(ZDP_TmpBuf-1) = *transSeq;
+    233          
+    234            return AF_DataRequest( &afAddr, &ZDApp_epDesc, clusterID,
+    235                                     (uint16)(len+1), (uint8*)(ZDP_TmpBuf-1),
+    236                                     transSeq, ZDP_TxOptions,  AF_DEFAULT_RADIUS );
+    237          
+    238          }
+    239          
+    240          /*********************************************************************
+    241           * @fn          ZDP_SendData
+    242           *
+    243           * @brief       This builds and send a request message that has
+    244           *              NWKAddrOfInterest as its only parameter.
+    245           *
+    246           * @param       dstAddr - destination address
+    247           * @param       cmd - clusterID
+    248           * @param       dataLen - number of bytes of data
+    249           * @param       data - pointer to the data
+    250           * @param       SecurityEnable - Security Options
+    251           *
+    252           * @return      afStatus_t
+    253           */
+    254          afStatus_t ZDP_SendData( uint8 *TransSeq, zAddrType_t *dstAddr, uint16 cmd,
+    255                                  byte len, uint8 *buf, byte SecurityEnable )
+    256          {
+    257            uint8 *pBuf = ZDP_TmpBuf;
+    258            byte cnt = len;
+    259          
+    260            while ( cnt-- )
+    261            {
+    262              *pBuf++ = *buf++;
+    263            }
+    264          
+    265            FillAndSendTxOptions( TransSeq, dstAddr, cmd, len, ((SecurityEnable) ? AF_EN_SECURITY : 0) );
+    266          }
+    267          
+    268          /*********************************************************************
+    269           * @fn          ZDP_NWKAddrOfInterestReq
+    270           *
+    271           * @brief       This builds and send a request message that has
+    272           *              NWKAddrOfInterest as its only parameter.
+    273           *
+    274           * @param       dstAddr - destination address
+    275           * @param       nwkAddr - 16 bit address
+    276           * @param       SecurityEnable - Security Options
+    277           *
+    278           * @return      afStatus_t
+    279           */
+    280          afStatus_t ZDP_NWKAddrOfInterestReq( zAddrType_t *dstAddr, uint16 nwkAddr,
+    281                                               byte cmd, byte SecurityEnable )
+    282          {
+    283            (void)SecurityEnable;  // Intentionally unreferenced parameter
+    284          
+    285            ZDP_TmpBuf[0] = LO_UINT16( nwkAddr );
+    286            ZDP_TmpBuf[1] = HI_UINT16( nwkAddr );
+    287          
+    288            return fillAndSend( &ZDP_TransID, dstAddr, cmd, 2 );
+    289          }
+    290          
+    291          /*********************************************************************
+    292           * Address Requests
+    293           */
+    294          
+    295          /*********************************************************************
+    296           * @fn          ZDP_NwkAddrReq
+    297           *
+    298           * @brief       This builds and send a NWK_addr_req message.  This
+    299           *              function sends a broadcast message looking for a 16
+    300           *              bit address with a 64 bit address as bait.
+    301           *
+    302           * @param       IEEEAddress - looking for this device
+    303           * @param       SecurityEnable - Security Options
+    304           *
+    305           * @return      afStatus_t
+    306           */
+    307          afStatus_t ZDP_NwkAddrReq( uint8 *IEEEAddress, byte ReqType,
+    308                                     byte StartIndex, byte SecurityEnable )
+    309          {
+    310            uint8 *pBuf = ZDP_TmpBuf;
+    311            byte len = Z_EXTADDR_LEN + 1 + 1;  // IEEEAddress + ReqType + StartIndex.
+    312            zAddrType_t dstAddr;
+    313          
+    314            (void)SecurityEnable;  // Intentionally unreferenced parameter
+    315          
+    316            if ( osal_ExtAddrEqual( saveExtAddr, IEEEAddress ) == FALSE )
+    317            {
+    318              dstAddr.addrMode = AddrBroadcast;
+    319              dstAddr.addr.shortAddr = NWK_BROADCAST_SHORTADDR_DEVRXON;
+    320            }
+    321            else
+    322            {
+    323              dstAddr.addrMode = Addr16Bit;
+    324              dstAddr.addr.shortAddr = ZDAppNwkAddr.addr.shortAddr;
+    325            }
+    326          
+    327            pBuf = osal_cpyExtAddr( pBuf, IEEEAddress );
+    328          
+    329            *pBuf++ = ReqType;
+    330            *pBuf++ = StartIndex;
+    331          
+    332            return fillAndSend( &ZDP_TransID, &dstAddr, NWK_addr_req, len );
+    333          }
+    334          
+    335          /*********************************************************************
+    336           * @fn          ZDP_IEEEAddrReq
+    337           *
+    338           * @brief       This builds and send a IEEE_addr_req message.  This
+    339           *              function sends a unicast message looking for a 64
+    340           *              bit IEEE address with a 16 bit address as bait.
+    341           *
+    342           * @param       ReqType - ZDP_IEEEADDR_REQTYPE_SINGLE or
+    343           *                        ZDP_IEEEADDR_REQTYPE_EXTENDED
+    344           * @param       SecurityEnable - Security Options
+    345           *
+    346           * @return      afStatus_t
+    347           */
+    348          afStatus_t ZDP_IEEEAddrReq( uint16 shortAddr, byte ReqType,
+    349                                      byte StartIndex, byte SecurityEnable )
+    350          {
+    351            uint8 *pBuf = ZDP_TmpBuf;
+    352            byte len = 2 + 1 + 1;  // shortAddr + ReqType + StartIndex.
+    353            zAddrType_t dstAddr;
+    354          
+    355            (void)SecurityEnable;  // Intentionally unreferenced parameter
+    356          
+    357            dstAddr.addrMode = (afAddrMode_t)Addr16Bit;
+    358            dstAddr.addr.shortAddr = shortAddr;
+    359          
+    360            *pBuf++ = LO_UINT16( shortAddr );
+    361            *pBuf++ = HI_UINT16( shortAddr );
+    362          
+    363            *pBuf++ = ReqType;
+    364            *pBuf++ = StartIndex;
+    365          
+    366            return fillAndSend( &ZDP_TransID, &dstAddr, IEEE_addr_req, len );
+    367          }
+    368          
+    369          /*********************************************************************
+    370           * @fn          ZDP_MatchDescReq
+    371           *
+    372           * @brief       This builds and send a Match_Desc_req message.  This
+    373           *              function sends a broadcast or unicast message
+    374           *              requesting the list of endpoint/interfaces that
+    375           *              match profile ID and cluster IDs.
+    376           *
+    377           * @param       dstAddr - destination address
+    378           * @param       nwkAddr - network address of interest
+    379           * @param       ProfileID - Profile ID
+    380           * @param       NumInClusters - number of input clusters
+    381           * @param       InClusterList - input cluster ID list
+    382           * @param       NumOutClusters - number of output clusters
+    383           * @param       OutClusterList - output cluster ID list
+    384           * @param       SecurityEnable - Security Options
+    385           *
+    386           * @return      afStatus_t
+    387           */
+    388          afStatus_t ZDP_MatchDescReq( zAddrType_t *dstAddr, uint16 nwkAddr,
+    389                                          uint16 ProfileID,
+    390                                          byte NumInClusters, cId_t *InClusterList,
+    391                                          byte NumOutClusters, cId_t *OutClusterList,
+    392                                          byte SecurityEnable )
+    393          {
+    394            uint8 *pBuf = ZDP_TmpBuf;
+    395            // nwkAddr+ProfileID+NumInClusters+NumOutClusters.
+    396            byte i, len = 2 + 2 + 1 + 1;  // nwkAddr+ProfileID+NumInClusters+NumOutClusters.
+    397          
+    398            (void)SecurityEnable;  // Intentionally unreferenced parameter
+    399          
+    400            len += (NumInClusters + NumOutClusters) * sizeof(uint16);
+    401          
+    402            if ( len >= ZDP_BUF_SZ-1 )
+    403            {
+    404              return afStatus_MEM_FAIL;
+    405            }
+    406          
+    407            // The spec changed in Zigbee 2007 (2.4.3.1.7.1) to not allow sending
+    408            // this command to 0xFFFF.  So, here we will filter this and replace 
+    409            // with 0xFFFD to only send to devices with RX ON.  This includes the 
+    410            // network address of interest.
+    411            if ( ((dstAddr->addrMode == AddrBroadcast) || (dstAddr->addrMode == Addr16Bit))
+    412                && (dstAddr->addr.shortAddr == NWK_BROADCAST_SHORTADDR_DEVALL) )
+    413            {
+    414              dstAddr->addr.shortAddr = NWK_BROADCAST_SHORTADDR_DEVRXON;
+    415            }
+    416            if ( nwkAddr == NWK_BROADCAST_SHORTADDR_DEVALL )
+    417            {
+    418              nwkAddr = NWK_BROADCAST_SHORTADDR_DEVRXON;
+    419            }
+    420            
+    421            *pBuf++ = LO_UINT16( nwkAddr );   // NWKAddrOfInterest
+    422            *pBuf++ = HI_UINT16( nwkAddr );
+    423          
+    424            *pBuf++ = LO_UINT16( ProfileID );   // Profile ID
+    425            *pBuf++ = HI_UINT16( ProfileID );
+    426          
+    427            *pBuf++ = NumInClusters; // Input cluster list
+    428            if ( NumInClusters )
+    429            {
+    430              for (i=0; i<NumInClusters; ++i)  {
+    431                *pBuf++ = LO_UINT16( InClusterList[i] );
+    432                *pBuf++ = HI_UINT16( InClusterList[i] );
+    433              }
+    434            }
+    435          
+    436            *pBuf++ = NumOutClusters; // Output cluster list
+    437            if ( NumOutClusters )
+    438            {
+    439              for (i=0; i<NumOutClusters; ++i)  {
+    440                *pBuf++ = LO_UINT16( OutClusterList[i] );
+    441                *pBuf++ = HI_UINT16( OutClusterList[i] );
+    442              }
+    443            }
+    444          
+    445            return fillAndSend( &ZDP_TransID, dstAddr, Match_Desc_req, len );
+    446          }
+    447          
+    448          /*********************************************************************
+    449           * @fn          ZDP_SimpleDescReq
+    450           *
+    451           * @brief       This builds and send a NWK_Simple_Desc_req
+    452           *              message.  This function sends unicast message to the
+    453           *              destination device.
+    454           *
+    455           * @param       dstAddr - destination address
+    456           * @param       nwkAddr - 16 bit address
+    457           * @param       epIntf - endpoint/interface
+    458           * @param       SecurityEnable - Security Options
+    459           *
+    460           * @return      afStatus_t
+    461           */
+    462          afStatus_t ZDP_SimpleDescReq( zAddrType_t *dstAddr, uint16 nwkAddr,
+    463                                              byte endPoint, byte SecurityEnable )
+    464          
+    465          {
+    466            (void)SecurityEnable;  // Intentionally unreferenced parameter
+    467          
+    468            ZDP_TmpBuf[0] = LO_UINT16( nwkAddr );
+    469            ZDP_TmpBuf[1] = HI_UINT16( nwkAddr );
+    470            ZDP_TmpBuf[2] = endPoint;
+    471          
+    472            return fillAndSend( &ZDP_TransID, dstAddr, Simple_Desc_req, 3 );
+    473          }
+    474          
+    475          /*********************************************************************
+    476           * @fn          ZDP_UserDescSet
+    477           *
+    478           * @brief       This builds and send a User_Desc_set message to set
+    479           *              the user descriptor.  This function sends unicast
+    480           *              message to the destination device.
+    481           *
+    482           * @param       dstAddr - destination address
+    483           * @param       nwkAddr - 16 bit address
+    484           * @param       UserDescriptor - user descriptor
+    485           * @param       SecurityEnable - Security Options
+    486           *
+    487           * @return      afStatus_t
+    488           */
+    489          afStatus_t ZDP_UserDescSet( zAddrType_t *dstAddr, uint16 nwkAddr,
+    490                                    UserDescriptorFormat_t *UserDescriptor,
+    491                                    byte SecurityEnable )
+    492          {
+    493            uint8 *pBuf = ZDP_TmpBuf;
+    494            byte len = (UserDescriptor->len < AF_MAX_USER_DESCRIPTOR_LEN) ?
+    495                        UserDescriptor->len : AF_MAX_USER_DESCRIPTOR_LEN;
+    496            byte addrLen = 2;
+    497          
+    498            (void)SecurityEnable;  // Intentionally unreferenced parameter
+    499          
+    500            *pBuf++ = LO_UINT16( nwkAddr );
+    501            *pBuf++ = HI_UINT16( nwkAddr );
+    502          
+    503            *pBuf++ = len;
+    504            addrLen = 3;
+    505          
+    506            pBuf = osal_memcpy( pBuf, UserDescriptor->desc, len );
+    507            osal_memset( pBuf, AF_USER_DESCRIPTOR_FILL, AF_MAX_USER_DESCRIPTOR_LEN-len );
+    508          
+    509            return fillAndSend( &ZDP_TransID, dstAddr, User_Desc_set, (AF_MAX_USER_DESCRIPTOR_LEN + addrLen) );
+    510          }
+    511          
+    512          /*********************************************************************
+    513           * @fn          ZDP_ServerDiscReq
+    514           *
+    515           * @brief       Build and send a Server_Discovery_req request message.
+    516           *
+    517           * @param       serverMask - 16-bit bit-mask of server services being sought.
+    518           * @param       SecurityEnable - Security Options
+    519           *
+    520           * @return      afStatus_t
+    521           */
+    522          afStatus_t ZDP_ServerDiscReq( uint16 serverMask, byte SecurityEnable )
+    523          {
+    524            uint8 *pBuf = ZDP_TmpBuf;
+    525            zAddrType_t dstAddr;
+    526          
+    527            dstAddr.addrMode = AddrBroadcast;
+    528            dstAddr.addr.shortAddr = NWK_BROADCAST_SHORTADDR_DEVRXON;
+    529          
+    530            *pBuf++ = LO_UINT16( serverMask );
+    531            *pBuf = HI_UINT16( serverMask );
+    532          
+    533            FillAndSendTxOptions( &ZDP_TransID, &dstAddr, Server_Discovery_req, 2,
+    534                       ((SecurityEnable) ? AF_EN_SECURITY : AF_TX_OPTIONS_NONE) );
+    535          }
+    536          
+    537          /*********************************************************************
+    538           * @fn          ZDP_DeviceAnnce
+    539           *
+    540           * @brief       This builds and send a Device_Annce message.  This
+    541           *              function sends a broadcast message.
+    542           *
+    543           * @param       nwkAddr - 16 bit address of the device
+    544           * @param       IEEEAddr - 64 bit address of the device
+    545           * @param       capabilities - device capabilities.  This field is only
+    546           *                 sent for v1.1 networks.
+    547           * @param       SecurityEnable - Security Options
+    548           *
+    549           * @return      afStatus_t
+    550           */
+    551          afStatus_t ZDP_DeviceAnnce( uint16 nwkAddr, uint8 *IEEEAddr,
+    552                                        byte capabilities, byte SecurityEnable )
+    553          {
+    554            zAddrType_t dstAddr;
+    555            uint8 len;
+    556          
+    557            (void)SecurityEnable;  // Intentionally unreferenced parameter
+    558          
+    559            dstAddr.addrMode = (afAddrMode_t)AddrBroadcast;
+    560            dstAddr.addr.shortAddr = NWK_BROADCAST_SHORTADDR_DEVRXON;
+    561          
+    562            ZDP_TmpBuf[0] = LO_UINT16( nwkAddr );
+    563            ZDP_TmpBuf[1] = HI_UINT16( nwkAddr );
+    564            osal_cpyExtAddr( &ZDP_TmpBuf[2], IEEEAddr );
+    565            len = 2 + Z_EXTADDR_LEN;
+    566          
+    567            ZDP_TmpBuf[10] = capabilities;
+    568            len++;
+    569          
+    570            return fillAndSend( &ZDP_TransID, &dstAddr, Device_annce, len );
+    571          }
+    572          
+    573          /*********************************************************************
+    574           * Address Responses
+    575           */
+    576          
+    577          /*********************************************************************
+    578           * @fn      zdpProcessAddrReq
+    579           *
+    580           * @brief   Process an incoming NWK_addr_req or IEEE_addr_req message and then
+    581           *          build and send a corresponding NWK_addr_rsp or IEEE_addr_rsp msg.
+    582           *
+    583           * @param   inMsg - incoming message
+    584           *
+    585           * @return  none
+    586           */
+    587          void zdpProcessAddrReq( zdoIncomingMsg_t *inMsg )
+    588          {
+    589            associated_devices_t *pAssoc;
+    590            uint8 reqType;
+    591            uint16 aoi = INVALID_NODE_ADDR;
+    592            uint8 *ieee = NULL;
+    593          
+    594            reqType = inMsg->asdu[(inMsg->clusterID == NWK_addr_req) ? Z_EXTADDR_LEN : sizeof( uint16 ) ];
+    595          
+    596            if ( inMsg->clusterID == NWK_addr_req )
+    597          
+    598            {
+    599              ieee = inMsg->asdu;
+    600          
+    601              if ( osal_ExtAddrEqual( saveExtAddr, ieee ) )
+    602              {
+    603                aoi = ZDAppNwkAddr.addr.shortAddr;
+    604              }
+    605              // Handle response for sleeping end devices
+    606              else if ( (ZSTACK_ROUTER_BUILD)
+    607                && (((pAssoc = AssocGetWithExt( ieee )) != NULL)
+    608                       && (pAssoc->nodeRelation == CHILD_RFD)) )
+    609              {
+    610                aoi = pAssoc->shortAddr;
+    611                if ( reqType != ZDP_ADDR_REQTYPE_SINGLE )
+    612                  reqType = 0xFF; // Force Invalid
+    613              }
+    614            }
+    615            else  // if ( inMsg->clusterID == IEEE_addr_req )
+    616            {
+    617              aoi = BUILD_UINT16( inMsg->asdu[0], inMsg->asdu[1] );
+    618          
+    619              if ( aoi == ZDAppNwkAddr.addr.shortAddr )
+    620              {
+    621                ieee = saveExtAddr;
+    622              }
+    623              else if ( (ZSTACK_ROUTER_BUILD)
+    624                && (((pAssoc = AssocGetWithShort( aoi )) != NULL)
+    625                       && (pAssoc->nodeRelation == CHILD_RFD)) )
+    626              {
+    627                AddrMgrEntry_t addrEntry;
+    628                addrEntry.user = ADDRMGR_USER_DEFAULT;
+    629                addrEntry.index = pAssoc->addrIdx;
+    630                if ( AddrMgrEntryGet( &addrEntry ) )
+    631                {
+    632                  ieee = addrEntry.extAddr;
+    633                }
+    634          
+    635                if ( reqType != ZDP_ADDR_REQTYPE_SINGLE )
+    636                  reqType = 0xFF; // Force Invalid
+    637              }
+    638            }
+    639          
+    640            if ( ((aoi != INVALID_NODE_ADDR) && (ieee != NULL)) || (inMsg->wasBroadcast == FALSE) )
+    641            {
+    642              uint8 stat;
+    643              uint8 *pBuf = ZDP_TmpBuf;
+    644              // Status + IEEE-Addr + Nwk-Addr.
+    645              uint8 len = 1 + Z_EXTADDR_LEN + 2;
+    646              
+    647              // If aoi and iee are both setup, we found results
+    648              if ( (aoi != INVALID_NODE_ADDR) && (ieee != NULL) )
+    649              {
+    650                stat = ((reqType == ZDP_ADDR_REQTYPE_SINGLE) || (reqType == ZDP_ADDR_REQTYPE_EXTENDED)) 
+    651                              ? ZDP_SUCCESS : ZDP_INVALID_REQTYPE;
+    652              }
+    653              else 
+    654              {
+    655                // not found and the req was unicast to this device
+    656                stat = ZDP_DEVICE_NOT_FOUND;
+    657                
+    658                // Fill in the missing field with this device's address
+    659                if ( inMsg->clusterID == NWK_addr_req )
+    660                {
+    661                  aoi = ZDAppNwkAddr.addr.shortAddr;
+    662                }
+    663                else
+    664                {
+    665                  ieee = saveExtAddr;
+    666                }
+    667              }
+    668          
+    669              *pBuf++ = stat;
+    670          
+    671              pBuf = osal_cpyExtAddr( pBuf, ieee );
+    672          
+    673              *pBuf++ = LO_UINT16( aoi );
+    674              *pBuf++ = HI_UINT16( aoi );
+    675          
+    676              if ( ZSTACK_ROUTER_BUILD )
+    677              {
+    678                if ( (reqType == ZDP_ADDR_REQTYPE_EXTENDED) && (aoi == ZDAppNwkAddr.addr.shortAddr)
+    679                     && (stat == ZDP_SUCCESS) )
+    680                {
+    681                  uint8  cnt = 0;
+    682                  uint16 *list = AssocMakeList( &cnt );
+    683          
+    684                  if ( list != NULL )
+    685                  {
+    686                    byte idx = inMsg->asdu[(((inMsg->clusterID == NWK_addr_req) ? Z_EXTADDR_LEN : sizeof( uint16 )) + 1)];
+    687                    uint16 *pList = list + idx;
+    688          
+    689                    // NumAssocDev field is only present on success.
+    690                    if ( cnt > idx )
+    691                    {
+    692                      cnt -= idx;
+    693                      len += (cnt * sizeof( uint16 ));
+    694                    }
+    695                    else
+    696                    {
+    697                      cnt = 0;
+    698                    }
+    699                    *pBuf++ = cnt;
+    700                    len++;
+    701          
+    702                    // StartIndex field is only present if NumAssocDev field is non-zero.
+    703                    *pBuf++ = idx;
+    704                    len++;
+    705          
+    706                    while ( cnt != 0 )
+    707                    {
+    708                      *pBuf++ = LO_UINT16( *pList );
+    709                      *pBuf++ = HI_UINT16( *pList );
+    710                      pList++;
+    711                      cnt--;
+    712                    }
+    713          
+    714                    osal_mem_free( (uint8 *)list );
+    715                  }
+    716                  else
+    717                  {
+    718                    // NumAssocDev field is only present on success.
+    719                    *pBuf++ = 0;
+    720                    len++;
+    721                  }
+    722                }
+    723              }
+    724          
+    725              ZDP_TxOptions = AF_MSG_ACK_REQUEST;
+    726              fillAndSend( &(inMsg->TransSeq), &(inMsg->srcAddr), (cId_t)(inMsg->clusterID | ZDO_RESPONSE_BIT), len );
+    727              ZDP_TxOptions = AF_TX_OPTIONS_NONE;
+    728            }
+    729          }
+    730          
+    731          /*********************************************************************
+    732           * @fn          ZDP_NodeDescMsg
+    733           *
+    734           * @brief       Builds and sends a Node Descriptor message, unicast to the
+    735           *              specified device.
+    736           *
+    737           * @param       inMsg - incoming message
+    738           * @param       nwkAddr - 16 bit network address for device
+    739           * @param       pNodeDesc - pointer to the node descriptor
+    740           *
+    741           * @return      afStatus_t
+    742           */
+    743          afStatus_t ZDP_NodeDescMsg( zdoIncomingMsg_t *inMsg,
+    744                                     uint16 nwkAddr, NodeDescriptorFormat_t *pNodeDesc )
+    745          {
+    746            uint8 *pBuf = ZDP_TmpBuf;
+    747            byte len;
+    748          
+    749            len = 1 + 2 + 13;  // Status + nwkAddr + Node descriptor
+    750          
+    751            *pBuf++ = ZDP_SUCCESS;
+    752          
+    753            *pBuf++ = LO_UINT16( nwkAddr );
+    754            *pBuf++ = HI_UINT16( nwkAddr );
+    755          
+    756            *pBuf++ = (byte)((pNodeDesc->ComplexDescAvail << 3) |
+    757                               (pNodeDesc->UserDescAvail << 4) |
+    758                               (pNodeDesc->LogicalType & 0x07));
+    759          
+    760            *pBuf++ = (byte)((pNodeDesc->FrequencyBand << 3) | (pNodeDesc->APSFlags & 0x07));
+    761            *pBuf++ = pNodeDesc->CapabilityFlags;
+    762            *pBuf++ = pNodeDesc->ManufacturerCode[0];
+    763            *pBuf++ = pNodeDesc->ManufacturerCode[1];
+    764            *pBuf++ = pNodeDesc->MaxBufferSize;
+    765            *pBuf++ = pNodeDesc->MaxInTransferSize[0];
+    766            *pBuf++ = pNodeDesc->MaxInTransferSize[1];
+    767          
+    768            *pBuf++ = LO_UINT16( pNodeDesc->ServerMask );
+    769            *pBuf++ = HI_UINT16( pNodeDesc->ServerMask );
+    770            *pBuf++ = pNodeDesc->MaxOutTransferSize[0];
+    771            *pBuf++ = pNodeDesc->MaxOutTransferSize[1];
+    772            *pBuf = pNodeDesc->DescriptorCapability;
+    773          
+    774            return fillAndSend( &(inMsg->TransSeq), &(inMsg->srcAddr), Node_Desc_rsp, len );
+    775          }
+    776          
+    777          /*********************************************************************
+    778           * @fn          ZDP_PowerDescMsg
+    779           *
+    780           * @brief       Builds and sends a Power Descriptor message, unicast to the
+    781           *              specified device.
+    782           *
+    783           * @param       inMsg - incoming message (request)
+    784           * @param       nwkAddr - 16 bit network address for device
+    785           * @param       pPowerDesc - pointer to the node descriptor
+    786           *
+    787           * @return      afStatus_t
+    788           */
+    789          afStatus_t ZDP_PowerDescMsg( zdoIncomingMsg_t *inMsg,
+    790                               uint16 nwkAddr, NodePowerDescriptorFormat_t *pPowerDesc )
+    791          {
+    792            uint8 *pBuf = ZDP_TmpBuf;
+    793            byte len = 1 + 2 + 2;  // Status + nwkAddr + Node Power descriptor.
+    794          
+    795            *pBuf++ = ZDP_SUCCESS;
+    796          
+    797            *pBuf++ = LO_UINT16( nwkAddr );
+    798            *pBuf++ = HI_UINT16( nwkAddr );
+    799          
+    800            *pBuf++ = (byte)((pPowerDesc->AvailablePowerSources << 4)
+    801                              | (pPowerDesc->PowerMode & 0x0F));
+    802            *pBuf++ = (byte)((pPowerDesc->CurrentPowerSourceLevel << 4)
+    803                              | (pPowerDesc->CurrentPowerSource & 0x0F));
+    804          
+    805            return fillAndSend( &(inMsg->TransSeq), &(inMsg->srcAddr), Power_Desc_rsp, len );
+    806          }
+    807          
+    808          /*********************************************************************
+    809           * @fn          ZDP_SimpleDescMsg
+    810           *
+    811           * @brief       Builds and sends a Simple Descriptor message, unicast to the
+    812           *              specified device.
+    813           *
+    814           * @param       inMsg - incoming message (request)
+    815           * @param       Status - message status (ZDP_SUCCESS or other)
+    816           * @param       pSimpleDesc - pointer to the node descriptor
+    817           *
+    818           * @return      afStatus_t
+    819           */
+    820          afStatus_t ZDP_SimpleDescMsg( zdoIncomingMsg_t *inMsg, byte Status,
+    821                                        SimpleDescriptionFormat_t *pSimpleDesc )
+    822          {
+    823            uint8 *pBuf = ZDP_TmpBuf;
+    824            uint8 i, len;
+    825          
+    826            if ( Status == ZDP_SUCCESS && pSimpleDesc )
+    827            {
+    828              // Status + NWKAddrOfInterest + desc length + empty simple descriptor.
+    829              len = 1 + 2 + 1 + 8;
+    830              len += (pSimpleDesc->AppNumInClusters + pSimpleDesc->AppNumOutClusters) * sizeof ( uint16 );
+    831            }
+    832            else
+    833            {
+    834              len = 1 + 2 + 1; // Status + desc length
+    835            }
+    836            if ( len >= ZDP_BUF_SZ-1 )
+    837            {
+    838              return afStatus_MEM_FAIL;
+    839            }
+    840          
+    841            *pBuf++ = Status;
+    842          
+    843            *pBuf++ = LO_UINT16( ZDAppNwkAddr.addr.shortAddr );
+    844            *pBuf++ = HI_UINT16( ZDAppNwkAddr.addr.shortAddr );
+    845          
+    846            if ( len > 4 )
+    847            {
+    848              *pBuf++ = len - 4;   // Simple descriptor length
+    849          
+    850              *pBuf++ = pSimpleDesc->EndPoint;
+    851              *pBuf++ = LO_UINT16( pSimpleDesc->AppProfId );
+    852              *pBuf++ = HI_UINT16( pSimpleDesc->AppProfId );
+    853              *pBuf++ = LO_UINT16( pSimpleDesc->AppDeviceId );
+    854              *pBuf++ = HI_UINT16( pSimpleDesc->AppDeviceId );
+    855          
+    856              *pBuf++ = (byte)(pSimpleDesc->AppDevVer << 4);
+    857          
+    858              *pBuf++ = pSimpleDesc->AppNumInClusters;
+    859              if ( pSimpleDesc->AppNumInClusters )
+    860              {
+    861                for (i=0; i<pSimpleDesc->AppNumInClusters; ++i)
+    862                {
+    863                  *pBuf++ = LO_UINT16( pSimpleDesc->pAppInClusterList[i] );
+    864                  *pBuf++ = HI_UINT16( pSimpleDesc->pAppInClusterList[i] );
+    865                }
+    866              }
+    867          
+    868              *pBuf++ = pSimpleDesc->AppNumOutClusters;
+    869              if ( pSimpleDesc->AppNumOutClusters )
+    870              {
+    871                for (i=0; i<pSimpleDesc->AppNumOutClusters; ++i)
+    872                {
+    873                  *pBuf++ = LO_UINT16( pSimpleDesc->pAppOutClusterList[i] );
+    874                  *pBuf++ = HI_UINT16( pSimpleDesc->pAppOutClusterList[i] );
+    875                }
+    876              }
+    877            }
+    878          
+    879            else
+    880            {
+    881              *pBuf = 0; // Description Length = 0;
+    882            }
+    883          
+    884            return fillAndSend( &(inMsg->TransSeq), &(inMsg->srcAddr), Simple_Desc_rsp, len );
+    885          }
+    886          
+    887          /*********************************************************************
+    888           * @fn          ZDP_EPRsp
+    889           *
+    890           * @brief       This builds and send an endpoint list. Used in
+    891           *              Active_EP_rsp and Match_Desc_Rsp
+    892           *              message.  This function sends unicast message to the
+    893           *              requesting device.
+    894           *
+    895           * @param       MsgType - either Active_EP_rsp or Match_Desc_Rsp
+    896           * @param       dstAddr - destination address
+    897           * @param       Status - message status (ZDP_SUCCESS or other)
+    898           * @param       nwkAddr - Device's short address that this response describes
+    899           * @param       Count - number of endpoint/interfaces in list
+    900           * @param       pEPIntfList - Array of Endpoint/Interfaces
+    901           * @param       SecurityEnable - Security Options
+    902           *
+    903           * @return      afStatus_t
+    904           */
+    905          afStatus_t ZDP_EPRsp( uint16 MsgType, byte TransSeq, zAddrType_t *dstAddr,
+    906                                  byte Status, uint16 nwkAddr, byte Count,
+    907                                  uint8 *pEPList,
+    908                                  byte SecurityEnable )
+    909          {
+    910            uint8 *pBuf = ZDP_TmpBuf;
+    911            byte len = 1 + 2 + 1;  // Status + nwkAddr + endpoint/interface count.
+    912            byte txOptions;
+    913          
+    914            (void)SecurityEnable;  // Intentionally unreferenced parameter
+    915          
+    916            if ( MsgType == Match_Desc_rsp )
+    917              txOptions = AF_MSG_ACK_REQUEST;
+    918            else
+    919              txOptions = 0;
+    920          
+    921              *pBuf++ = Status;
+    922            *pBuf++ = LO_UINT16( nwkAddr );
+    923            *pBuf++ = HI_UINT16( nwkAddr );
+    924          
+    925            *pBuf++ = Count;   // Endpoint/Interface count
+    926          
+    927            if ( Count )
+    928            {
+    929              len += Count;
+    930              osal_memcpy( pBuf, pEPList, Count );
+    931            }
+    932          
+    933            FillAndSendTxOptions( &TransSeq, dstAddr, MsgType, len, txOptions );
+    934          }
+    935          
+    936          /*********************************************************************
+    937           * @fn          ZDP_UserDescRsp
+    938           *
+    939           * @brief       Build and send the User Decriptor Response.
+    940           *
+    941           *
+    942           * @param       dstAddr - destination address
+    943           * @param       nwkAddrOfInterest -
+    944           * @param       userDesc -
+    945           * @param       SecurityEnable - Security Options
+    946           *
+    947           * @return      ZStatus_t
+    948           */
+    949          ZStatus_t ZDP_UserDescRsp( byte TransSeq, zAddrType_t *dstAddr,
+    950                          uint16 nwkAddrOfInterest, UserDescriptorFormat_t *userDesc,
+    951                          byte SecurityEnable )
+    952          {
+    953            uint8 *pBuf = ZDP_TmpBuf;
+    954            byte len = 1 + 2 + 1;  // Status + nwkAddr + descriptor length.
+    955          
+    956            (void)SecurityEnable;  // Intentionally unreferenced parameter
+    957          
+    958            len += userDesc->len;
+    959          
+    960            *pBuf++ = ZSUCCESS;
+    961          
+    962            *pBuf++ = LO_UINT16( nwkAddrOfInterest );
+    963            *pBuf++ = HI_UINT16( nwkAddrOfInterest );
+    964          
+    965            *pBuf++ = userDesc->len;
+    966            osal_memcpy( pBuf, userDesc->desc, userDesc->len );
+    967          
+    968            return (ZStatus_t)fillAndSend( &TransSeq, dstAddr, User_Desc_rsp, len );
+    969          }
+    970          
+    971          /*********************************************************************
+    972           * @fn          ZDP_ServerDiscRsp
+    973           *
+    974           * @brief       Build and send the Server_Discovery_rsp response.
+    975           *
+    976           * @param       transID - Transaction sequence number of request.
+    977           * @param       dstAddr - Network Destination Address.
+    978           * @param       status - Status of response to request.
+    979           * @param       aoi - Network Address of Interest of request.
+    980           * @param       serverMask - Bit map of service(s) being sought.
+    981           * @param       SecurityEnable - Security Options
+    982           *
+    983           * @return      ZStatus_t
+    984           */
+    985          ZStatus_t ZDP_ServerDiscRsp( byte transID, zAddrType_t *dstAddr, byte status,
+    986                                     uint16 aoi, uint16 serverMask, byte SecurityEnable )
+    987          {
+    988            const byte len = 1  + 2;  // status + aoi + mask.
+    989            uint8 *pBuf = ZDP_TmpBuf;
+    990            ZStatus_t stat;
+    991          
+    992            // Intentionally unreferenced parameters
+    993            (void)aoi;
+    994            (void)SecurityEnable;
+    995          
+    996            *pBuf++ = status;
+    997          
+    998            *pBuf++ = LO_UINT16( serverMask );
+    999            *pBuf++ = HI_UINT16( serverMask );
+   1000          
+   1001            ZDP_TxOptions = AF_MSG_ACK_REQUEST;
+   1002            stat = fillAndSend( &transID, dstAddr, Server_Discovery_rsp, len );
+   1003            ZDP_TxOptions = AF_TX_OPTIONS_NONE;
+   1004          
+   1005            return ( stat );
+   1006          }
+   1007          
+   1008          /*********************************************************************
+   1009           * @fn          ZDP_GenericRsp
+   1010           *
+   1011           * @brief       Sends a response message with only the parameter status
+   1012           *              byte and the addr of interest for data.
+   1013           *              This function sends unicast message to the
+   1014           *              requesting device.
+   1015           *
+   1016           * @param       dstAddr - destination address
+   1017           * @param       status  - generic status for response
+   1018           * @param       aoi     - address of interest
+   1019           * @param       dstAddr - destination address
+   1020           * @param       rspId   - response cluster ID
+   1021           * @param       SecurityEnable - Security Options
+   1022           *
+   1023           * @return      afStatus_t
+   1024           */
+   1025          afStatus_t ZDP_GenericRsp( byte TransSeq, zAddrType_t *dstAddr,
+   1026                               byte status, uint16 aoi, uint16 rspID, byte SecurityEnable )
+   1027          {
+   1028            uint8 len;
+   1029          
+   1030            (void)SecurityEnable;  // Intentionally unreferenced parameter
+   1031          
+   1032            ZDP_TmpBuf[0] = status;
+   1033            ZDP_TmpBuf[1] = LO_UINT16( aoi );
+   1034            ZDP_TmpBuf[2] = HI_UINT16( aoi );
+   1035          
+   1036            // Length byte
+   1037            ZDP_TmpBuf[3] = 0;
+   1038            len = 4;
+   1039          
+   1040            return fillAndSend( &TransSeq, dstAddr, rspID, len );
+   1041          }
+   1042          
+   1043          /*********************************************************************
+   1044           * Binding
+   1045           */
+   1046          /*********************************************************************
+   1047           * @fn          ZDP_EndDeviceBindReq
+   1048           *
+   1049           * @brief       This builds and sends a End_Device_Bind_req message.
+   1050           *              This function sends a unicast message.
+   1051           *
+   1052           * @param       dstAddr - destination address
+   1053           * @param       LocalCoordinator - short address of local coordinator
+   1054           * @param       epIntf - Endpoint/Interface of Simple Desc
+   1055           * @param       ProfileID - Profile ID
+   1056           *
+   1057           *   The Input cluster list is the opposite of what you would think.
+   1058           *   This is the output cluster list of this device
+   1059           * @param       NumInClusters - number of input clusters
+   1060           * @param       InClusterList - input cluster ID list
+   1061           *
+   1062           *   The Output cluster list is the opposite of what you would think.
+   1063           *   This is the input cluster list of this device
+   1064           * @param       NumOutClusters - number of output clusters
+   1065           * @param       OutClusterList - output cluster ID list
+   1066           *
+   1067           * @param       SecurityEnable - Security Options
+   1068           *
+   1069           * @return      afStatus_t
+   1070           */
+   1071          afStatus_t ZDP_EndDeviceBindReq( zAddrType_t *dstAddr,
+   1072                                           uint16 LocalCoordinator,
+   1073                                           byte endPoint,
+   1074                                           uint16 ProfileID,
+   1075                                           byte NumInClusters, cId_t *InClusterList,
+   1076                                           byte NumOutClusters, cId_t *OutClusterList,
+   1077                                           byte SecurityEnable )
+   1078          {
+   1079            uint8 *pBuf = ZDP_TmpBuf;
+   1080            uint8 i, len;
+   1081            uint8 *ieeeAddr;
+   1082          
+   1083            (void)SecurityEnable;  // Intentionally unreferenced parameter
+   1084          
+   1085            // LocalCoordinator + SrcExtAddr + ep + ProfileID +  NumInClusters + NumOutClusters.
+   1086            len = 2 + Z_EXTADDR_LEN + 1 + 2 + 1 + 1;
+   1087            len += (NumInClusters + NumOutClusters) * sizeof ( uint16 );
+   1088          
+   1089            if ( len >= ZDP_BUF_SZ-1 )
+   1090            {
+   1091              return afStatus_MEM_FAIL;
+   1092            }
+   1093          
+   1094            if ( LocalCoordinator != NLME_GetShortAddr() )
+   1095            {
+   1096              return afStatus_INVALID_PARAMETER;
+   1097            }
+   1098          
+   1099            *pBuf++ = LO_UINT16( LocalCoordinator );
+   1100            *pBuf++ = HI_UINT16( LocalCoordinator );
+   1101          
+   1102            ieeeAddr = NLME_GetExtAddr();
+   1103            pBuf = osal_cpyExtAddr( pBuf, ieeeAddr );
+   1104          
+   1105            *pBuf++ = endPoint;
+   1106          
+   1107            *pBuf++ = LO_UINT16( ProfileID );   // Profile ID
+   1108            *pBuf++ = HI_UINT16( ProfileID );
+   1109          
+   1110            *pBuf++ = NumInClusters; // Input cluster list
+   1111            for ( i = 0; i < NumInClusters; ++i )
+   1112            {
+   1113              *pBuf++ = LO_UINT16(InClusterList[i]);
+   1114              *pBuf++ = HI_UINT16(InClusterList[i]);
+   1115            }
+   1116          
+   1117            *pBuf++ = NumOutClusters; // Output cluster list
+   1118            for ( i = 0; i < NumOutClusters; ++i )
+   1119            {
+   1120              *pBuf++ = LO_UINT16(OutClusterList[i]);
+   1121              *pBuf++ = HI_UINT16(OutClusterList[i]);
+   1122            }
+   1123          
+   1124            return fillAndSend( &ZDP_TransID, dstAddr, End_Device_Bind_req, len );
+   1125          }
+   1126          
+   1127          /*********************************************************************
+   1128           * @fn          ZDP_BindUnbindReq
+   1129           *
+   1130           * @brief       This builds and send a Bind_req or Unbind_req message
+   1131           *              Depending on the ClusterID. This function
+   1132           *              sends a unicast message to the local coordinator.
+   1133           *
+   1134           * @param       BindOrUnbind - either Bind_req or Unbind_req
+   1135           * @param       dstAddr - destination address of the message
+   1136           * @param       SourceAddr - source 64 bit address of the binding
+   1137           * @param       SrcEPIntf - Source endpoint/interface
+   1138           * @param       ClusterID - Binding cluster ID
+   1139           * @param       DestinationAddr - destination 64 bit addr of binding
+   1140           * @param       DstEPIntf - destination endpoint/interface
+   1141           * @param       SecurityEnable - Security Options
+   1142           *
+   1143           * @return      afStatus_t
+   1144           */
+   1145          afStatus_t ZDP_BindUnbindReq( uint16 BindOrUnbind, zAddrType_t *dstAddr,
+   1146                                        uint8 *SourceAddr, byte SrcEndPoint,
+   1147                                        cId_t ClusterID,
+   1148                                        zAddrType_t *destinationAddr, byte DstEndPoint,
+   1149                                        byte SecurityEnable )
+   1150          {
+   1151            uint8 *pBuf = ZDP_TmpBuf;
+   1152            byte len;
+   1153          
+   1154            (void)SecurityEnable;  // Intentionally unreferenced parameter
+   1155          
+   1156            // SourceAddr + SrcEPIntf + ClusterID +  addrMode.
+   1157            len = Z_EXTADDR_LEN + 1 + sizeof( cId_t ) + sizeof( uint8 );
+   1158            if ( destinationAddr->addrMode == Addr64Bit )
+   1159              len += Z_EXTADDR_LEN + 1;     // +1 for DstEPIntf
+   1160            else if ( destinationAddr->addrMode == AddrGroup )
+   1161              len += sizeof ( uint16 );
+   1162          
+   1163            pBuf = osal_cpyExtAddr( pBuf, SourceAddr );
+   1164            *pBuf++ = SrcEndPoint;
+   1165          
+   1166            *pBuf++ = LO_UINT16( ClusterID );
+   1167          
+   1168            *pBuf++ = HI_UINT16( ClusterID );
+   1169            *pBuf++ = destinationAddr->addrMode;
+   1170            if ( destinationAddr->addrMode == Addr64Bit )
+   1171            {
+   1172              pBuf = osal_cpyExtAddr( pBuf, destinationAddr->addr.extAddr );
+   1173              *pBuf = DstEndPoint;
+   1174            }
+   1175            else if ( destinationAddr->addrMode == AddrGroup )
+   1176            {
+   1177              *pBuf++ = LO_UINT16( destinationAddr->addr.shortAddr );
+   1178              *pBuf++ = HI_UINT16( destinationAddr->addr.shortAddr );
+   1179            }
+   1180          
+   1181            FillAndSendTxOptions( &ZDP_TransID, dstAddr, BindOrUnbind, len, AF_MSG_ACK_REQUEST );
+   1182          }
+   1183          
+   1184          /*********************************************************************
+   1185           * Network Management
+   1186           */
+   1187          
+   1188          /*********************************************************************
+   1189           * @fn          ZDP_MgmtNwkDiscReq
+   1190           *
+   1191           * @brief       This builds and send a Mgmt_NWK_Disc_req message. This
+   1192           *              function sends a unicast message.
+   1193           *
+   1194           * @param       dstAddr - destination address of the message
+   1195           * @param       ScanChannels - 32 bit address bit map
+   1196           * @param       StartIndex - Starting index within the reporting network
+   1197           *                           list
+   1198           * @param       SecurityEnable - Security Options
+   1199           *
+   1200           * @return      afStatus_t
+   1201           */
+   1202          afStatus_t ZDP_MgmtNwkDiscReq( zAddrType_t *dstAddr,
+   1203                                         uint32 ScanChannels,
+   1204                                         byte ScanDuration,
+   1205                                         byte StartIndex,
+   1206                                         byte SecurityEnable )
+   1207          {
+   1208            uint8 *pBuf = ZDP_TmpBuf;
+   1209            byte len = sizeof( uint32 )+1+1;  // ScanChannels + ScanDuration + StartIndex.
+   1210          
+   1211            (void)SecurityEnable;  // Intentionally unreferenced parameter
+   1212          
+   1213            pBuf = osal_buffer_uint32( pBuf, ScanChannels );
+   1214          
+   1215            *pBuf++ = ScanDuration;
+   1216            *pBuf = StartIndex;
+   1217          
+   1218            return fillAndSend( &ZDP_TransID, dstAddr, Mgmt_NWK_Disc_req, len );
+   1219          }
+   1220          
+   1221          /*********************************************************************
+   1222           * @fn          ZDP_MgmtDirectJoinReq
+   1223           *
+   1224           * @brief       This builds and send a Mgmt_Direct_Join_req message. This
+   1225           *              function sends a unicast message.
+   1226           *
+   1227           * @param       dstAddr - destination address of the message
+   1228           * @param       deviceAddr - 64 bit IEEE Address
+   1229           * @param       SecurityEnable - Security Options
+   1230           *
+   1231           * @return      afStatus_t
+   1232           */
+   1233          afStatus_t ZDP_MgmtDirectJoinReq( zAddrType_t *dstAddr,
+   1234                                         uint8 *deviceAddr,
+   1235                                         byte capInfo,
+   1236                                         byte SecurityEnable )
+   1237          {
+   1238            (void)SecurityEnable;  // Intentionally unreferenced parameter
+   1239          
+   1240            osal_cpyExtAddr( ZDP_TmpBuf, deviceAddr );
+   1241            ZDP_TmpBuf[Z_EXTADDR_LEN] = capInfo;
+   1242          
+   1243            return fillAndSend( &ZDP_TransID, dstAddr, Mgmt_Direct_Join_req, (Z_EXTADDR_LEN + 1) );
+   1244          }
+   1245          
+   1246          /*********************************************************************
+   1247           * @fn          ZDP_MgmtPermitJoinReq
+   1248           *
+   1249           * @brief       This builds and send a Mgmt_Permit_Join_req message.
+   1250           *
+   1251           * @param       dstAddr - destination address of the message
+   1252           * @param       duration - Permit duration
+   1253           * @param       TcSignificance - Trust Center Significance
+   1254           *
+   1255           * @return      afStatus_t
+   1256           */
+   1257          afStatus_t ZDP_MgmtPermitJoinReq( zAddrType_t *dstAddr, byte duration,
+   1258                                            byte TcSignificance, byte SecurityEnable )
+   1259          {
+   1260            (void)SecurityEnable;  // Intentionally unreferenced parameter
+   1261          
+   1262            // Build buffer
+   1263            ZDP_TmpBuf[ZDP_MGMT_PERMIT_JOIN_REQ_DURATION] = duration;
+   1264            ZDP_TmpBuf[ZDP_MGMT_PERMIT_JOIN_REQ_TC_SIG]   = TcSignificance;
+   1265          
+   1266            // Send the message
+   1267            return fillAndSend( &ZDP_TransID, dstAddr, Mgmt_Permit_Join_req,
+   1268                                ZDP_MGMT_PERMIT_JOIN_REQ_SIZE );
+   1269          }
+   1270          
+   1271          /*********************************************************************
+   1272           * @fn          ZDP_MgmtLeaveReq
+   1273           *
+   1274           * @brief       This builds and send a Mgmt_Leave_req message.
+   1275           *
+   1276           * @param       dstAddr - destination address of the message
+   1277           *              IEEEAddr - IEEE adddress of device that is removed
+   1278           *              RemoveChildren - set to 1 to remove the children of the
+   1279           *                                device as well. 0 otherwise.
+   1280           *              Rejoin - set to 1 if the removed device should rejoin
+   1281                                   afterwards. 0 otherwise.
+   1282           *
+   1283           * @return      afStatus_t
+   1284           */
+   1285          afStatus_t ZDP_MgmtLeaveReq( zAddrType_t *dstAddr, uint8 *IEEEAddr, uint8 RemoveChildren,
+   1286                           uint8 Rejoin, uint8 SecurityEnable )
+   1287          
+   1288          {
+   1289            (void)SecurityEnable;  // Intentionally unreferenced parameter
+   1290          
+   1291            osal_cpyExtAddr( ZDP_TmpBuf, IEEEAddr );
+   1292            ZDP_TmpBuf[Z_EXTADDR_LEN] = 0;
+   1293          
+   1294            if ( RemoveChildren == TRUE )
+   1295            {
+   1296              ZDP_TmpBuf[Z_EXTADDR_LEN] |= ZDP_MGMT_LEAVE_REQ_RC;
+   1297            }
+   1298            if ( Rejoin == TRUE )
+   1299            {
+   1300              ZDP_TmpBuf[Z_EXTADDR_LEN] |= ZDP_MGMT_LEAVE_REQ_REJOIN;
+   1301            }
+   1302          
+   1303            return fillAndSend( &ZDP_TransID, dstAddr, Mgmt_Leave_req, (Z_EXTADDR_LEN + 1) );
+   1304          }
+   1305          
+   1306          /*********************************************************************
+   1307           * @fn          ZDP_MgmtNwkUpdateReq
+   1308           *
+   1309           * @brief       This builds and send a Mgmt_NWK_Update_req message. This
+   1310           *              function sends a unicast or broadcast message.
+   1311           *
+   1312           * @param       dstAddr - destination address of the message
+   1313           * @param       ChannelMask - 32 bit address bit map
+   1314           * @param       ScanDuration - length of time to spend scanning each channel
+   1315           * @param       ScanCount - number of energy scans to be conducted
+   1316           * @param       NwkUpdateId - NWk Update Id value
+   1317           * @param       NwkManagerAddr - NWK address for device with Network Manager
+   1318           *                               bit set in its Node Descriptor
+   1319           *
+   1320           * @return      afStatus_t
+   1321           */
+   1322          afStatus_t ZDP_MgmtNwkUpdateReq( zAddrType_t *dstAddr,
+   1323                                           uint32 ChannelMask,
+   1324                                           uint8 ScanDuration,
+   1325                                           uint8 ScanCount,
+   1326                                           uint8 NwkUpdateId,
+   1327                                           uint16 NwkManagerAddr )
+   1328          {
+   1329            uint8 *pBuf = ZDP_TmpBuf;
+   1330            byte len = sizeof( uint32 ) + 1;  // ChannelMask + ScanDuration
+   1331          
+   1332            pBuf = osal_buffer_uint32( pBuf, ChannelMask );
+   1333          
+   1334            *pBuf++ = ScanDuration;
+   1335          
+   1336            if ( ScanDuration <= 0x05 )
+   1337            {
+   1338              // Request is to scan over channelMask
+   1339              len += sizeof( uint8 );
+   1340          
+   1341              *pBuf++ = ScanCount;
+   1342            }
+   1343            else if ( ( ScanDuration == 0xFE ) || ( ScanDuration == 0xFF ) )
+   1344            {
+   1345              // Request is to change Channel (0xFE) or apsChannelMask and NwkManagerAddr (0xFF)
+   1346              len += sizeof( uint8 );
+   1347          
+   1348              *pBuf++ = NwkUpdateId;
+   1349          
+   1350              if ( ScanDuration == 0xFF )
+   1351              {
+   1352                len += sizeof( uint16 );
+   1353          
+   1354                *pBuf++  = LO_UINT16( NwkManagerAddr );
+   1355                *pBuf++  = HI_UINT16( NwkManagerAddr );
+   1356              }
+   1357            }
+   1358          
+   1359            return fillAndSend( &ZDP_TransID, dstAddr, Mgmt_NWK_Update_req, len );
+   1360          }
+   1361          
+   1362          
+   1363          /*********************************************************************
+   1364           * Network Management Responses
+   1365           */
+   1366          
+   1367          /*********************************************************************
+   1368           * @fn          ZDP_MgmtNwkDiscRsp
+   1369           *
+   1370           * @brief       This builds and send a Mgmt_NWK_Disc_rsp message. This
+   1371           *              function sends a unicast message.
+   1372           *
+   1373           * @param       dstAddr - destination address of the message
+   1374           * @param       Status - message status (ZDP_SUCCESS or other)
+   1375           * @param       NetworkCount - Total number of networks found
+   1376           * @param       StartIndex - Starting index within the reporting network
+   1377           *                           list
+   1378           * @param       NetworkListCount - number of network lists included
+   1379           *                                 in this message
+   1380           * @param       NetworkList - List of network descriptors
+   1381           * @param       SecurityEnable - Security Options
+   1382           *
+   1383           * @return      afStatus_t
+   1384           */
+   1385          afStatus_t ZDP_MgmtNwkDiscRsp( byte TransSeq, zAddrType_t *dstAddr,
+   1386                                      byte Status,
+   1387                                      byte NetworkCount,
+   1388                                      byte StartIndex,
+   1389                                      byte NetworkListCount,
+   1390                                      networkDesc_t *NetworkList,
+   1391                                      byte SecurityEnable )
+   1392          {
+   1393            uint8 *buf;
+   1394            uint8 *pBuf;
+   1395            byte len = 1+1+1+1;  // Status + NetworkCount + StartIndex + NetworkCountList.
+   1396            byte idx;
+   1397          
+   1398            (void)SecurityEnable;  // Intentionally unreferenced parameter
+   1399          
+   1400            len += (NetworkListCount * ( ZDP_NETWORK_EXTENDED_DISCRIPTOR_SIZE - 2 ));
+   1401          
+   1402            buf = osal_mem_alloc( len+1 );
+   1403            if ( buf == NULL )
+   1404            {
+   1405              return afStatus_MEM_FAIL;
+   1406            }
+   1407          
+   1408            pBuf = buf+1;
+   1409          
+   1410            *pBuf++ = Status;
+   1411            *pBuf++ = NetworkCount;
+   1412            *pBuf++ = StartIndex;
+   1413            *pBuf++ = NetworkListCount;
+   1414          
+   1415            for ( idx = 0; idx < NetworkListCount; idx++ )
+   1416            {
+   1417              osal_cpyExtAddr( pBuf, NetworkList->extendedPANID);
+   1418              pBuf += Z_EXTADDR_LEN;
+   1419          
+   1420              *pBuf++  = NetworkList->logicalChannel;                // LogicalChannel
+   1421              *pBuf    = NetworkList->stackProfile;                  // Stack profile
+   1422              *pBuf++ |= (byte)(NetworkList->version << 4);          // ZigBee Version
+   1423              *pBuf    = NetworkList->beaconOrder;                   // Beacon Order
+   1424              *pBuf++ |= (byte)(NetworkList->superFrameOrder << 4);  // Superframe Order
+   1425          
+   1426              if ( NetworkList->chosenRouter != INVALID_NODE_ADDR )
+   1427              {
+   1428                *pBuf++ = TRUE;                         // Permit Joining
+   1429              }
+   1430              else
+   1431              {
+   1432                *pBuf++ = FALSE;
+   1433              }
+   1434          
+   1435              NetworkList = NetworkList->nextDesc;    // Move to next list entry
+   1436            }
+   1437          
+   1438            FillAndSendBuffer( &TransSeq, dstAddr, Mgmt_NWK_Disc_rsp, len, buf );
+   1439          }
+   1440          
+   1441          /*********************************************************************
+   1442           * @fn          ZDP_MgmtLqiRsp
+   1443           *
+   1444           * @brief       This builds and send a Mgmt_Lqi_rsp message. This
+   1445           *              function sends a unicast message.
+   1446           *
+   1447           * @param       dstAddr - destination address of the message
+   1448           * @param       Status - message status (ZDP_SUCCESS or other)
+   1449           * @param       NeighborLqiEntries - Total number of entries found
+   1450           * @param       StartIndex - Starting index within the reporting list
+   1451           * @param       NeighborLqiCount - number of lists included
+   1452           *                                 in this message
+   1453           * @param       NeighborLqiList - List of NeighborLqiItems.  This list
+   1454           *                is the list to be sent, not the entire list
+   1455           * @param       SecurityEnable - true if secure
+   1456           *
+   1457           * @return      ZStatus_t
+   1458           */
+   1459          ZStatus_t ZDP_MgmtLqiRsp( byte TransSeq, zAddrType_t *dstAddr,
+   1460                                    byte Status,
+   1461                                    byte NeighborLqiEntries,
+   1462                                    byte StartIndex,
+   1463                                    byte NeighborLqiCount,
+   1464                                    ZDP_MgmtLqiItem_t* NeighborList,
+   1465                                    byte SecurityEnable )
+   1466          {
+   1467            ZDP_MgmtLqiItem_t* list = NeighborList;
+   1468            uint8 *buf, *pBuf;
+   1469            byte len, x;
+   1470          
+   1471            (void)SecurityEnable;  // Intentionally unreferenced parameter
+   1472          
+   1473            if ( ZSuccess != Status )
+   1474            {
+   1475              ZDP_TmpBuf[0] = Status;
+   1476              return fillAndSend( &TransSeq, dstAddr, Mgmt_Lqi_rsp, 1 );
+   1477            }
+   1478          
+   1479            // (Status + NeighborLqiEntries + StartIndex + NeighborLqiCount) +
+   1480            //  neighbor LQI data.
+   1481            len = (1 + 1 + 1 + 1) + (NeighborLqiCount * ZDP_MGMTLQI_EXTENDED_SIZE);
+   1482          
+   1483            buf = osal_mem_alloc( len+1 );
+   1484            if ( buf == NULL )
+   1485            {
+   1486              return afStatus_MEM_FAIL;
+   1487            }
+   1488          
+   1489            pBuf = buf+1;
+   1490          
+   1491            *pBuf++ = Status;
+   1492            *pBuf++ = NeighborLqiEntries;
+   1493            *pBuf++ = StartIndex;
+   1494            *pBuf++ = NeighborLqiCount;
+   1495          
+   1496            for ( x = 0; x < NeighborLqiCount; x++ )
+   1497            {
+   1498              osal_cpyExtAddr( pBuf, list->extPanID);         // Extended PanID
+   1499              pBuf += Z_EXTADDR_LEN;
+   1500          
+   1501              // EXTADDR
+   1502              pBuf = osal_cpyExtAddr( pBuf, list->extAddr );
+   1503          
+   1504              // NWKADDR
+   1505              *pBuf++ = LO_UINT16( list->nwkAddr );
+   1506              *pBuf++ = HI_UINT16( list->nwkAddr );
+   1507          
+   1508              // DEVICETYPE
+   1509              *pBuf = list->devType;
+   1510          
+   1511              // RXONIDLE
+   1512              *pBuf |= (uint8)(list->rxOnIdle << 2);
+   1513          
+   1514              // RELATIONSHIP
+   1515              *pBuf++ |= (uint8)(list->relation << 4);
+   1516          
+   1517              // PERMITJOINING
+   1518              *pBuf++ = (uint8)(list->permit);
+   1519          
+   1520              // DEPTH
+   1521              *pBuf++ = list->depth;
+   1522          
+   1523              // LQI
+   1524              *pBuf++ = list->lqi;
+   1525          
+   1526              list++; // next list entry
+   1527            }
+   1528          
+   1529            FillAndSendBuffer( &TransSeq, dstAddr, Mgmt_Lqi_rsp, len, buf );
+   1530          }
+   1531          
+   1532          /*********************************************************************
+   1533           * @fn          ZDP_MgmtRtgRsp
+   1534           *
+   1535           * @brief       This builds and send a Mgmt_Rtg_rsp message. This
+   1536           *              function sends a unicast message.
+   1537           *
+   1538           * @param       dstAddr - destination address of the message
+   1539           * @param       Status - message status (ZDP_SUCCESS or other)
+   1540           * @param       RoutingTableEntries - Total number of entries
+   1541           * @param       StartIndex - Starting index within the reporting list
+   1542           * @param       RoutingTableListCount - number of entries included
+   1543           *                                      in this message
+   1544           * @param       RoutingTableList - List of Routing Table entries
+   1545           * @param       SecurityEnable - true to enable security for this message
+   1546           *
+   1547           * @return      ZStatus_t
+   1548           */
+   1549          ZStatus_t ZDP_MgmtRtgRsp( byte TransSeq, zAddrType_t *dstAddr,
+   1550                                      byte Status,
+   1551                                      byte RoutingTableEntries,
+   1552                                      byte StartIndex,
+   1553                                      byte RoutingListCount,
+   1554                                      rtgItem_t *RoutingTableList,
+   1555                                      byte SecurityEnable )
+   1556          {
+   1557            uint8 *buf;
+   1558            uint8 *pBuf;
+   1559            // Status + RoutingTableEntries + StartIndex + RoutingListCount.
+   1560            byte len = 1 + 1 + 1 + 1;
+   1561            byte x;
+   1562          
+   1563            (void)SecurityEnable;  // Intentionally unreferenced parameter
+   1564          
+   1565            // Add an array for Routing List data
+   1566            len += (RoutingListCount * ZDP_ROUTINGENTRY_SIZE);
+   1567          
+   1568            buf = osal_mem_alloc( (short)(len+1) );
+   1569            if ( buf == NULL )
+   1570            {
+   1571              return afStatus_MEM_FAIL;
+   1572            }
+   1573          
+   1574            pBuf = buf+1;
+   1575          
+   1576            *pBuf++ = Status;
+   1577            *pBuf++ = RoutingTableEntries;
+   1578            *pBuf++ = StartIndex;
+   1579            *pBuf++ = RoutingListCount;
+   1580          
+   1581            for ( x = 0; x < RoutingListCount; x++ )
+   1582            {
+   1583              *pBuf++ = LO_UINT16( RoutingTableList->dstAddress );  // Destination Address
+   1584              *pBuf++ = HI_UINT16( RoutingTableList->dstAddress );
+   1585              *pBuf++ = RoutingTableList->status;
+   1586              *pBuf++ = LO_UINT16( RoutingTableList->nextHopAddress );  // Next hop
+   1587              *pBuf++ = HI_UINT16( RoutingTableList->nextHopAddress );
+   1588              RoutingTableList++;    // Move to next list entry
+   1589            }
+   1590          
+   1591            FillAndSendBuffer( &TransSeq, dstAddr, Mgmt_Rtg_rsp, len, buf );
+   1592          }
+   1593          
+   1594          /*********************************************************************
+   1595           * @fn          ZDP_MgmtBindRsp
+   1596           *
+   1597           * @brief       This builds and send a Mgmt_Bind_rsp message. This
+   1598           *              function sends a unicast message.
+   1599           *
+   1600           * @param       dstAddr - destination address of the message
+   1601           * @param       Status - message status (ZDP_SUCCESS or other)
+   1602           * @param       BindingTableEntries - Total number of entries
+   1603           * @param       StartIndex - Starting index within the reporting list
+   1604           * @param       BindingTableListCount - number of entries included
+   1605           *                                 in this message
+   1606           * @param       BindingTableList - List of Binding Table entries
+   1607           * @param       SecurityEnable - Security Options
+   1608           *
+   1609           * @return      ZStatus_t
+   1610           */
+   1611          ZStatus_t ZDP_MgmtBindRsp( byte TransSeq, zAddrType_t *dstAddr,
+   1612                                      byte Status,
+   1613                                      byte BindingTableEntries,
+   1614                                      byte StartIndex,
+   1615                                      byte BindingTableListCount,
+   1616                                      apsBindingItem_t *BindingTableList,
+   1617                                      byte SecurityEnable )
+   1618          {
+   1619            uint8 *buf;
+   1620            uint8 *pBuf;
+   1621            uint8 maxLen; // maxLen is the maximum packet length to allocate enough memory space
+   1622            uint8 len;    // Actual length varies due to different addrMode
+   1623            uint8 x;
+   1624            byte extZdpBindEntrySize = ZDP_BINDINGENTRY_SIZE + 1 + 1; // One more byte for cluserID and DstAddrMode
+   1625            byte shortZdpBindEntrySize = ZDP_BINDINGENTRY_SIZE + 1 + 1 + 2 - 8 - 1; // clusterID + DstAddrMode + shortAddr - ExtAddr - DstEndpoint
+   1626          
+   1627            (void)SecurityEnable;  // Intentionally unreferenced parameter
+   1628          
+   1629            // Status + BindingTableEntries + StartIndex + BindingTableListCount.
+   1630            maxLen = 1 + 1 + 1 + 1;
+   1631            maxLen += (BindingTableListCount * extZdpBindEntrySize );  //max length
+   1632            buf = osal_mem_alloc( maxLen + 1 );  // +1 for transaction ID
+   1633          
+   1634            if ( buf == NULL )
+   1635            {
+   1636              return afStatus_MEM_FAIL;
+   1637            }
+   1638          
+   1639            pBuf = buf+1;
+   1640          
+   1641            *pBuf++ = Status;
+   1642            *pBuf++ = BindingTableEntries;
+   1643            *pBuf++ = StartIndex;
+   1644            *pBuf++ = BindingTableListCount;
+   1645          
+   1646            // Initial length = Status + BindingTableEntries + StartIndex + BindingTableListCount.
+   1647            // length += ZDP_BINDINGENTRY_SIZE   -- Version 1.0
+   1648            //           extZdpBindEntrySize     -- Version 1.1 extended address mode
+   1649            //           shortZdpBindEntrySize   -- Version 1.1 group address mode
+   1650          
+   1651            len = 1 + 1 + 1 + 1;
+   1652            for ( x = 0; x < BindingTableListCount; x++ )
+   1653            {
+   1654              pBuf = osal_cpyExtAddr( pBuf, BindingTableList->srcAddr );
+   1655              *pBuf++ = BindingTableList->srcEP;
+   1656          
+   1657              // Cluster ID
+   1658              *pBuf++ = LO_UINT16( BindingTableList->clusterID );
+   1659              *pBuf++ = HI_UINT16( BindingTableList->clusterID );
+   1660          
+   1661              *pBuf++ = BindingTableList->dstAddr.addrMode;
+   1662              if ( BindingTableList->dstAddr.addrMode == Addr64Bit )
+   1663              {
+   1664                len += extZdpBindEntrySize;
+   1665                pBuf = osal_cpyExtAddr( pBuf, BindingTableList->dstAddr.addr.extAddr );
+   1666                *pBuf++ = BindingTableList->dstEP;
+   1667              }
+   1668              else
+   1669              {
+   1670                len += shortZdpBindEntrySize;
+   1671                *pBuf++ = LO_UINT16( BindingTableList->dstAddr.addr.shortAddr );
+   1672                *pBuf++ = HI_UINT16( BindingTableList->dstAddr.addr.shortAddr );
+   1673              }
+   1674              BindingTableList++;    // Move to next list entry
+   1675            }
+   1676          
+   1677            FillAndSendBuffer( &TransSeq, dstAddr, Mgmt_Bind_rsp, len, buf );
+   1678          }
+   1679          
+   1680          /*********************************************************************
+   1681           * @fn          ZDP_MgmtNwkUpdateNotify
+   1682           *
+   1683           * @brief       This builds and send a Mgmt_NWK_Update_notify message. This
+   1684           *              function sends a unicast message.
+   1685           *
+   1686           * @param       dstAddr - destination address of the message
+   1687           * @param       status - message status (ZDP_SUCCESS or other)
+   1688           * @param       scannedChannels - List of channels scanned by the request
+   1689           * @param       totalTransmissions - Total transmissions
+   1690           * @param       transmissionFailures - Sum of transmission failures
+   1691           * @param       listCount - Number of records contained in the energyValues list
+   1692           * @param       energyValues - List of descriptors, one for each of ListCount,
+   1693           *                             of the enegry detect descriptors
+   1694           * @param       txOptions - Transmit options
+   1695           * @param       securityEnable - Security options
+   1696           *
+   1697           * @return      afStatus_t
+   1698           */
+   1699          afStatus_t ZDP_MgmtNwkUpdateNotify( uint8 TransSeq, zAddrType_t *dstAddr,
+   1700                                              uint8 status, uint32 scannedChannels,
+   1701                                              uint16 totalTransmissions, uint16 transmissionFailures,
+   1702                                              uint8 listCount, uint8 *energyValues, uint8 txOptions,
+   1703                                              uint8 securityEnable )
+   1704          {
+   1705            uint8 *buf;
+   1706            uint8 *pBuf;
+   1707            uint8 len;
+   1708          
+   1709            (void)securityEnable;  // Intentionally unreferenced parameter
+   1710          
+   1711            // Status + ScannedChannels + totalTransmissions + transmissionFailures + ListCount + energyValues
+   1712            len = 1 + 4 + 2 + 2 + 1 + listCount;
+   1713          
+   1714            buf = osal_mem_alloc( len+1 ); // +1 for transaction ID
+   1715            if ( buf == NULL )
+   1716            {
+   1717              return afStatus_MEM_FAIL;
+   1718            }
+   1719          
+   1720            pBuf = buf+1;
+   1721          
+   1722            *pBuf++ = status;
+   1723          
+   1724            pBuf = osal_buffer_uint32( pBuf, scannedChannels );
+   1725          
+   1726            *pBuf++ = LO_UINT16( totalTransmissions );
+   1727            *pBuf++ = HI_UINT16( totalTransmissions );
+   1728          
+   1729            *pBuf++ = LO_UINT16( transmissionFailures );
+   1730            *pBuf++ = HI_UINT16( transmissionFailures );
+   1731          
+   1732            *pBuf++ = listCount;
+   1733          
+   1734            if ( listCount > 0 )
+   1735              osal_memcpy( pBuf, energyValues, listCount );
+   1736          
+   1737            FillAndSendBufferTxOptions( &TransSeq, dstAddr, Mgmt_NWK_Update_notify, len, buf, txOptions );
+   1738          }
+   1739          
+   1740          /*********************************************************************
+   1741           * Functions to register for ZDO Over-the-air messages
+   1742           */
+   1743          
+   1744          /*********************************************************************
+   1745           * @fn          ZDO_RegisterForZDOMsg
+   1746           *
+   1747           * @brief       Call this function to register of an incoming over
+   1748           *              the air ZDO message - probably a response message
+   1749           *              but requests can also be received.
+   1750           *              Messages are delivered to the task with ZDO_CB_MSG
+   1751           *              as the message ID.
+   1752           *
+   1753           * @param       taskID - Where you would like the message delivered
+   1754           * @param       clusterID - What message?
+   1755           *
+   1756           * @return      ZSuccess - successful, ZMemError if not
+   1757           */
+   1758          ZStatus_t ZDO_RegisterForZDOMsg( uint8 taskID, uint16 clusterID )
+   1759          {
+   1760            ZDO_MsgCB_t *pList;
+   1761            ZDO_MsgCB_t *pLast;
+   1762            ZDO_MsgCB_t *pNew;
+   1763          
+   1764            // Look for duplicate
+   1765            pList = pLast = zdoMsgCBs;
+   1766            while ( pList )
+   1767            {
+   1768              if ( pList->taskID == taskID && pList->clusterID == clusterID )
+   1769                return ( ZSuccess );
+   1770              pLast = pList;
+   1771              pList = (ZDO_MsgCB_t *)pList->next;
+   1772            }
+   1773          
+   1774            // Add to the list
+   1775            pNew = (ZDO_MsgCB_t *)osal_mem_alloc( sizeof ( ZDO_MsgCB_t ) );
+   1776            if ( pNew )
+   1777            {
+   1778              pNew->taskID = taskID;
+   1779              pNew->clusterID = clusterID;
+   1780              pNew->next = NULL;
+   1781              if ( zdoMsgCBs )
+   1782              {
+   1783                pLast->next = pNew;
+   1784              }
+   1785              else
+   1786                zdoMsgCBs = pNew;
+   1787              return ( ZSuccess );
+   1788            }
+   1789            else
+   1790              return ( ZMemError );
+   1791          }
+   1792          
+   1793          /*********************************************************************
+   1794           * @fn          ZDO_RemoveRegisteredCB
+   1795           *
+   1796           * @brief       Call this function if you don't want to receive the
+   1797           *              incoming message.
+   1798           *
+   1799           * @param       taskID - Where the messages are being delivered.
+   1800           * @param       clusterID - What message?
+   1801           *
+   1802           * @return      ZSuccess - successful, ZFailure if not found
+   1803           */
+   1804          ZStatus_t ZDO_RemoveRegisteredCB( uint8 taskID, uint16 clusterID )
+   1805          {
+   1806            ZDO_MsgCB_t *pList;
+   1807            ZDO_MsgCB_t *pLast = NULL;
+   1808          
+   1809            pList = zdoMsgCBs;
+   1810            while ( pList )
+   1811            {
+   1812              if ( pList->taskID == taskID && pList->clusterID == clusterID )
+   1813              {
+   1814                if ( pLast )
+   1815                {
+   1816                  // remove this one from the linked list
+   1817                  pLast->next = pList->next;
+   1818                }
+   1819                else if ( pList->next )
+   1820                {
+   1821                  // remove the first one from the linked list
+   1822                  zdoMsgCBs = pList->next;
+   1823                }
+   1824                else
+   1825                {
+   1826                  // remove the only item from the list
+   1827                  zdoMsgCBs = (ZDO_MsgCB_t *)NULL;
+   1828                }
+   1829                osal_mem_free( pList );
+   1830                return ( ZSuccess );
+   1831              }
+   1832              pLast = pList;
+   1833              pList = pList->next;
+   1834            }
+   1835          
+   1836            return ( ZFailure );
+   1837          }
+   1838          
+   1839          /*********************************************************************
+   1840           * @fn          ZDO_SendMsgCBs
+   1841           *
+   1842           * @brief       This function sends messages to registered tasks.
+   1843           *              Local to ZDO and shouldn't be called outside of ZDO.
+   1844           *
+   1845           * @param       inMsg - incoming message
+   1846           *
+   1847           * @return      TRUE if sent to at least 1 task, FALSE if not
+   1848           */
+   1849          uint8 ZDO_SendMsgCBs( zdoIncomingMsg_t *inMsg )
+   1850          {
+   1851            uint8 ret = FALSE;
+   1852            ZDO_MsgCB_t *pList = zdoMsgCBs;
+   1853            while ( pList )
+   1854            {
+   1855              if ( pList->clusterID == inMsg->clusterID )
+   1856              {
+   1857                zdoIncomingMsg_t *msgPtr;
+   1858          
+   1859                // Send the address to the task
+   1860                msgPtr = (zdoIncomingMsg_t *)osal_msg_allocate( sizeof( zdoIncomingMsg_t ) + inMsg->asduLen );
+   1861                if ( msgPtr )
+   1862                {
+   1863                  // copy struct
+   1864                  osal_memcpy( msgPtr, inMsg, sizeof( zdoIncomingMsg_t ));
+   1865          
+   1866                  if ( inMsg->asduLen )
+   1867                  {
+   1868                    msgPtr->asdu = (byte*)(((byte*)msgPtr) + sizeof( zdoIncomingMsg_t ));
+   1869                    osal_memcpy( msgPtr->asdu, inMsg->asdu, inMsg->asduLen );
+   1870                  }
+   1871          
+   1872                  msgPtr->hdr.event = ZDO_CB_MSG;
+   1873                  osal_msg_send( pList->taskID, (uint8 *)msgPtr );
+   1874                  ret = TRUE;
+   1875                }
+   1876              }
+   1877              pList = (ZDO_MsgCB_t *)pList->next;
+   1878            }
+   1879            return ( ret );
+   1880          }
+   1881          
+   1882          /*********************************************************************
+   1883           * Incoming message processor
+   1884           */
+   1885          
+   1886          /*********************************************************************
+   1887           * @fn          ZDP_IncomingData
+   1888           *
+   1889           * @brief       This function indicates the transfer of a data PDU (ASDU)
+   1890           *              from the APS sub-layer to the ZDO.
+   1891           *
+   1892           * @param       pData - Incoming Message
+   1893           *
+   1894           * @return      none
+   1895           */
+   1896          void ZDP_IncomingData( afIncomingMSGPacket_t *pData )
+   1897          {
+   1898            uint8 x = 0;
+   1899            uint8 handled;
+   1900            zdoIncomingMsg_t inMsg;
+   1901          
+   1902            inMsg.srcAddr.addrMode = Addr16Bit;
+   1903            inMsg.srcAddr.addr.shortAddr = pData->srcAddr.addr.shortAddr;
+   1904            inMsg.wasBroadcast = pData->wasBroadcast;
+   1905            inMsg.clusterID = pData->clusterId;
+   1906            inMsg.SecurityUse = pData->SecurityUse;
+   1907          
+   1908            inMsg.asduLen = pData->cmd.DataLength-1;
+   1909            inMsg.asdu = pData->cmd.Data+1;
+   1910            inMsg.TransSeq = pData->cmd.Data[0];
+   1911            inMsg.macDestAddr = pData->macDestAddr;
+   1912          
+   1913            handled = ZDO_SendMsgCBs( &inMsg );
+   1914          
+   1915          #if (defined MT_ZDO_CB_FUNC)
+   1916          #if !defined MT_TASK
+   1917            if (zgZdoDirectCB)
+   1918          #endif
+   1919            {
+   1920              MT_ZdoDirectCB( pData, &inMsg );
+   1921            }
+   1922          #endif
+   1923          
+   1924            while ( zdpMsgProcs[x].clusterID != 0xFFFF )
+   1925            {
+   1926              if ( zdpMsgProcs[x].clusterID == inMsg.clusterID )
+   1927              {
+   1928                zdpMsgProcs[x].pFn( &inMsg );
+   1929                return;
+   1930              }
+   1931              x++;
+   1932            }
+   1933          
+   1934            // Handle unhandled messages
+   1935            if ( !handled )
+   1936              ZDApp_InMsgCB( &inMsg );
+   1937          }
+   1938          
+   1939          /*********************************************************************
+   1940          *********************************************************************/
+   1941          
+
+Errors: 1
+Warnings: none

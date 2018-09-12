@@ -1,0 +1,657 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V7.51A/W32 for 8051                08/Jun/2011  10:49:52 #
+# Copyright 2004-2009 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.3.1\Component #
+#                          s\hal\target\CC2530EB\hal_led.c                    #
+#    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.3.1\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\Too #
+#                          ls\CC2530DB\f8wCoord.cfg" (-DCPU32MHZ              #
+#                          -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRU #
+#                          E -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8       #
+#                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)    #
+#                          -f "C:\Texas Instruments\ZStack-CC2530-2.3.1\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\Too #
+#                          ls\CC2530DB\f8wConfig.cfg" (-DSECURE=0             #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.3.1\Components\hal\tar #
+#                          get\CC2530EB\hal_led.c" -D BUILD_ALL_DEVICES -D    #
+#                          HOLD_AUTO_START -D LCD_SUPPORTED -D                #
+#                          HAL_UART=FALSE -lC "C:\Texas                       #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\DemoEB\List\" -lA         #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects #
+#                          \zstack\Samples\SampleApp\CC2530DB\DemoEB\List\"   #
+#                          --diag_suppress Pe001,Pa010 -o "C:\Texas           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\DemoEB\Obj\" -e           #
+#                          --require_prototypes --debug --core=plain          #
+#                          --dptr=16,1 --data_model=large                     #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 16 -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\" -I "C:\Texas            #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\SOURCE\" -I "C:\Texas  #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\ZMAIN\TI2530DB\" #
+#                           -I "C:\Texas Instruments\ZStack-CC2530-2.3.1\Proj #
+#                          ects\zstack\Samples\SampleApp\CC2530DB\..\..\..\.. #
+#                          \..\COMPONENTS\MT\" -I "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \HAL\INCLUDE\" -I "C:\Texas                        #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \HAL\TARGET\CC2530EB\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \OSAL\MCU\CCSOC\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \OSAL\INCLUDE\" -I "C:\Texas                       #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\AF\" -I "C:\Texas                           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\NWK\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SEC\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SAPI\" -I "C:\Texas                         #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SYS\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\ZDO\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \ZMAC\F8W\" -I "C:\Texas                           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \ZMAC\" -I "C:\Texas Instruments\ZStack-CC2530-2.3 #
+#                          .1\Projects\zstack\Samples\SampleApp\CC2530DB\..\. #
+#                          .\..\..\..\COMPONENTS\SERVICES\SADDR\" -I          #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects #
+#                          \zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\ #
+#                          COMPONENTS\SERVICES\SDATA\" -I "C:\Texas           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\INCLUDE\" -I "C:\Texas                        #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\HIGH_LEVEL\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\LOW_LEVEL\srf04\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\LOW_LEVEL\srf04\SINGLE_CHIP\" -I "C:\Program  #
+#                          Files\IAR Systems\Embedded Workbench               #
+#                          5.3\8051\INC\" -I "C:\Program Files\IAR            #
+#                          Systems\Embedded Workbench 5.3\8051\INC\CLIB\"     #
+#                          -Ohz                                               #
+#    List file          =  C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects\ #
+#                          zstack\Samples\SampleApp\CC2530DB\DemoEB\List\hal_ #
+#                          led.lst                                            #
+#    Object file        =  C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects\ #
+#                          zstack\Samples\SampleApp\CC2530DB\DemoEB\Obj\hal_l #
+#                          ed.r51                                             #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Texas Instruments\ZStack-CC2530-2.3.1\Components\hal\target\CC2530EB\hal_led.c
+      1          /**************************************************************************************************
+      2            Filename:       hal_led.c
+      3            Revised:        $Date: 2009-03-13 05:45:44 -0700 (Fri, 13 Mar 2009) $
+      4            Revision:       $Revision: 19408 $
+      5          
+      6            Description:    This file contains the interface to the HAL LED Service.
+      7          
+      8          
+      9            Copyright 2006-2007 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com.
+     38          **************************************************************************************************/
+     39          
+     40          /***************************************************************************************************
+     41           *                                             INCLUDES
+     42           ***************************************************************************************************/
+     43          #include "hal_mcu.h"
+     44          #include "hal_defs.h"
+     45          #include "hal_types.h"
+     46          #include "hal_drivers.h"
+     47          #include "hal_led.h"
+     48          #include "osal.h"
+     49          #include "hal_board.h"
+     50          
+     51          /***************************************************************************************************
+     52           *                                             CONSTANTS
+     53           ***************************************************************************************************/
+     54          
+     55          /***************************************************************************************************
+     56           *                                              MACROS
+     57           ***************************************************************************************************/
+     58          
+     59          /***************************************************************************************************
+     60           *                                              TYPEDEFS
+     61           ***************************************************************************************************/
+     62          /* LED control structure */
+     63          typedef struct {
+     64            uint8 mode;       /* Operation mode */
+     65            uint8 todo;       /* Blink cycles left */
+     66            uint8 onPct;      /* On cycle percentage */
+     67            uint16 time;      /* On/off cycle time (msec) */
+     68            uint32 next;      /* Time for next change */
+     69          } HalLedControl_t;
+     70          
+     71          typedef struct
+     72          {
+     73            HalLedControl_t HalLedControlTable[HAL_LED_DEFAULT_MAX_LEDS];
+     74            uint8           sleepActive;
+     75          } HalLedStatus_t;
+     76          
+     77          
+     78          /***************************************************************************************************
+     79           *                                           GLOBAL VARIABLES
+     80           ***************************************************************************************************/
+     81          
+     82          
+     83          static uint8 HalLedState;              // LED state at last set/clr/blink update
+     84          
+     85          #if HAL_LED == TRUE
+     86          static uint8 HalSleepLedState;         // LED state at last set/clr/blink update
+     87          static uint8 preBlinkState;            // Original State before going to blink mode
+     88                                                 // bit 0, 1, 2, 3 represent led 0, 1, 2, 3
+     89          #endif
+     90          
+     91          #ifdef BLINK_LEDS
+     92            static HalLedStatus_t HalLedStatusControl;
+     93          #endif
+     94          
+     95          /***************************************************************************************************
+     96           *                                            LOCAL FUNCTION
+     97           ***************************************************************************************************/
+     98          #if (HAL_LED == TRUE)
+     99          void HalLedUpdate (void);
+    100          void HalLedOnOff (uint8 leds, uint8 mode);
+    101          #endif /* HAL_LED */
+    102          
+    103          /***************************************************************************************************
+    104           *                                            FUNCTIONS - API
+    105           ***************************************************************************************************/
+    106          
+    107          /***************************************************************************************************
+    108           * @fn      HalLedInit
+    109           *
+    110           * @brief   Initialize LED Service
+    111           *
+    112           * @param   init - pointer to void that contains the initialized value
+    113           *
+    114           * @return  None
+    115           ***************************************************************************************************/
+    116          void HalLedInit (void)
+    117          {
+    118          #if (HAL_LED == TRUE)
+    119            /* Initialize all LEDs to OFF */
+    120            HalLedSet (HAL_LED_ALL, HAL_LED_MODE_OFF);
+    121          #endif /* HAL_LED */
+    122          #ifdef BLINK_LEDS
+    123            /* Initialize sleepActive to FALSE */
+    124            HalLedStatusControl.sleepActive = FALSE;
+    125          #endif
+    126          }
+    127          
+    128          /***************************************************************************************************
+    129           * @fn      HalLedSet
+    130           *
+    131           * @brief   Tun ON/OFF/TOGGLE given LEDs
+    132           *
+    133           * @param   led - bit mask value of leds to be turned ON/OFF/TOGGLE
+    134           *          mode - BLINK, FLASH, TOGGLE, ON, OFF
+    135           * @return  None
+    136           ***************************************************************************************************/
+    137          uint8 HalLedSet (uint8 leds, uint8 mode)
+    138          {
+    139          
+    140          #if (defined (BLINK_LEDS)) && (HAL_LED == TRUE)
+    141            uint8 led;
+    142            HalLedControl_t *sts;
+    143          
+    144            switch (mode)
+    145            {
+    146              case HAL_LED_MODE_BLINK:
+    147                /* Default blink, 1 time, D% duty cycle */
+    148                HalLedBlink (leds, 1, HAL_LED_DEFAULT_DUTY_CYCLE, HAL_LED_DEFAULT_FLASH_TIME);
+    149                break;
+    150          
+    151              case HAL_LED_MODE_FLASH:
+    152                /* Default flash, N times, D% duty cycle */
+    153                HalLedBlink (leds, HAL_LED_DEFAULT_FLASH_COUNT, HAL_LED_DEFAULT_DUTY_CYCLE, HAL_LED_DEFAULT_FLASH_TIME);
+    154                break;
+    155          
+    156              case HAL_LED_MODE_ON:
+    157              case HAL_LED_MODE_OFF:
+    158              case HAL_LED_MODE_TOGGLE:
+    159          
+    160                led = HAL_LED_1;
+    161                leds &= HAL_LED_ALL;
+    162                sts = HalLedStatusControl.HalLedControlTable;
+    163          
+    164                while (leds)
+    165                {
+    166                  if (leds & led)
+    167                  {
+    168                    if (mode != HAL_LED_MODE_TOGGLE)
+    169                    {
+    170                      sts->mode = mode;  /* ON or OFF */
+    171                    }
+    172                    else
+    173                    {
+    174                      sts->mode ^= HAL_LED_MODE_ON;  /* Toggle */
+    175                    }
+    176                    HalLedOnOff (led, sts->mode);
+    177                    leds ^= led;
+    178                  }
+    179                  led <<= 1;
+    180                  sts++;
+    181                }
+    182                break;
+    183          
+    184              default:
+    185                break;
+    186            }
+    187          
+    188          #elif (HAL_LED == TRUE)
+    189            LedOnOff(leds, mode);
+    190          #else
+    191            // HAL LED is disabled, suppress unused argument warnings
+    192            (void) leds;
+    193            (void) mode;
+    194          #endif /* BLINK_LEDS && HAL_LED   */
+    195          
+    196            return ( HalLedState );
+    197          
+    198          }
+    199          
+    200          /***************************************************************************************************
+    201           * @fn      HalLedBlink
+    202           *
+    203           * @brief   Blink the leds
+    204           *
+    205           * @param   leds       - bit mask value of leds to be blinked
+    206           *          numBlinks  - number of blinks
+    207           *          percent    - the percentage in each period where the led
+    208           *                       will be on
+    209           *          period     - length of each cycle in milliseconds
+    210           *
+    211           * @return  None
+    212           ***************************************************************************************************/
+    213          void HalLedBlink (uint8 leds, uint8 numBlinks, uint8 percent, uint16 period)
+    214          {
+    215          #if (defined (BLINK_LEDS)) && (HAL_LED == TRUE)
+    216            uint8 led;
+    217            HalLedControl_t *sts;
+    218          
+    219            if (leds && percent && period)
+    220            {
+    221              if (percent < 100)
+    222              {
+    223                led = HAL_LED_1;
+    224                leds &= HAL_LED_ALL;
+    225                sts = HalLedStatusControl.HalLedControlTable;
+    226          
+    227                while (leds)
+    228                {
+    229                  if (leds & led)
+    230                  {
+    231                    /* Store the current state of the led before going to blinking */
+    232                    preBlinkState |= (led & HalLedState);
+    233          
+    234                    sts->mode  = HAL_LED_MODE_OFF;                    /* Stop previous blink */
+    235                    sts->time  = period;                              /* Time for one on/off cycle */
+    236                    sts->onPct = percent;                             /* % of cycle LED is on */
+    237                    sts->todo  = numBlinks;                           /* Number of blink cycles */
+    238                    if (!numBlinks) sts->mode |= HAL_LED_MODE_FLASH;  /* Continuous */
+    239                    sts->next = osal_GetSystemClock();                /* Start now */
+    240                    sts->mode |= HAL_LED_MODE_BLINK;                  /* Enable blinking */
+    241                    leds ^= led;
+    242                  }
+    243                  led <<= 1;
+    244                  sts++;
+    245                }
+    246                osal_set_event (Hal_TaskID, HAL_LED_BLINK_EVENT);
+    247              }
+    248              else
+    249              {
+    250                HalLedSet (leds, HAL_LED_MODE_ON);                    /* >= 100%, turn on */
+    251              }
+    252            }
+    253            else
+    254            {
+    255              HalLedSet (leds, HAL_LED_MODE_OFF);                     /* No on time, turn off */
+    256            }
+    257          #elif (HAL_LED == TRUE)
+    258            percent = (leds & HalLedState) ? HAL_LED_MODE_OFF : HAL_LED_MODE_ON;
+    259            HalLedOnOff (leds, percent);                              /* Toggle */
+    260          #else
+    261            // HAL LED is disabled, suppress unused argument warnings
+    262            (void) leds;
+    263            (void) numBlinks;
+    264            (void) percent;
+    265            (void) period;
+    266          #endif /* BLINK_LEDS && HAL_LED */
+    267          }
+    268          
+    269          #if (HAL_LED == TRUE)
+    270          /***************************************************************************************************
+    271           * @fn      HalLedUpdate
+    272           *
+    273           * @brief   Update leds to work with blink
+    274           *
+    275           * @param   none
+    276           *
+    277           * @return  none
+    278           ***************************************************************************************************/
+    279          void HalLedUpdate (void)
+    280          {
+    281            uint8 led;
+    282            uint8 pct;
+    283            uint8 leds;
+    284            HalLedControl_t *sts;
+    285            uint32 time;
+    286            uint16 next;
+    287            uint16 wait;
+    288          
+    289            next = 0;
+    290            led  = HAL_LED_1;
+    291            leds = HAL_LED_ALL;
+    292            sts = HalLedStatusControl.HalLedControlTable;
+    293          
+    294            /* Check if sleep is active or not */
+    295            if (!HalLedStatusControl.sleepActive)
+    296            {
+    297              while (leds)
+    298              {
+    299                if (leds & led)
+    300                {
+    301                  if (sts->mode & HAL_LED_MODE_BLINK)
+    302                  {
+    303                    time = osal_GetSystemClock();
+    304                    if (time >= sts->next)
+    305                    {
+    306                      if (sts->mode & HAL_LED_MODE_ON)
+    307                      {
+    308                        pct = 100 - sts->onPct;               /* Percentage of cycle for off */
+    309                        sts->mode &= ~HAL_LED_MODE_ON;        /* Say it's not on */
+    310                        HalLedOnOff (led, HAL_LED_MODE_OFF);  /* Turn it off */
+    311          
+    312                        if (!(sts->mode & HAL_LED_MODE_FLASH))
+    313                        {
+    314                          sts->todo--;                        /* Not continuous, reduce count */
+    315                          if (!sts->todo)
+    316                          {
+    317                            sts->mode ^= HAL_LED_MODE_BLINK;  /* No more blinks */
+    318                          }
+    319                        }
+    320                      }
+    321                      else
+    322                      {
+    323                        pct = sts->onPct;                     /* Percentage of cycle for on */
+    324                        sts->mode |= HAL_LED_MODE_ON;         /* Say it's on */
+    325                        HalLedOnOff (led, HAL_LED_MODE_ON);   /* Turn it on */
+    326                      }
+    327          
+    328                      if (sts->mode & HAL_LED_MODE_BLINK)
+    329                      {
+    330                        wait = (((uint32)pct * (uint32)sts->time) / 100);
+    331                        sts->next = time + wait;
+    332                      }
+    333                      else
+    334                      {
+    335                        /* no more blink, no more wait */
+    336                        wait = 0;
+    337                        /* After blinking, set the LED back to the state before it blinks */
+    338                        HalLedSet (led, ((preBlinkState & led)!=0)?HAL_LED_MODE_ON:HAL_LED_MODE_OFF);
+    339                        /* Clear the saved bit */
+    340                        preBlinkState &= (led ^ 0xFF);
+    341                      }
+    342                    }
+    343                    else
+    344                    {
+    345                      wait = sts->next - time;  /* Time left */
+    346                    }
+    347          
+    348                    if (!next || ( wait && (wait < next) ))
+    349                    {
+    350                      next = wait;
+    351                    }
+    352                  }
+    353                  leds ^= led;
+    354                }
+    355                led <<= 1;
+    356                sts++;
+    357              }
+    358          
+    359              if (next)
+    360              {
+    361                osal_start_timerEx(Hal_TaskID, HAL_LED_BLINK_EVENT, next);   /* Schedule event */
+    362              }
+    363            }
+    364          }
+    365          
+    366          /***************************************************************************************************
+    367           * @fn      HalLedOnOff
+    368           *
+    369           * @brief   Turns specified LED ON or OFF
+    370           *
+    371           * @param   leds - LED bit mask
+    372           *          mode - LED_ON,LED_OFF,
+    373           *
+    374           * @return  none
+    375           ***************************************************************************************************/
+    376          void HalLedOnOff (uint8 leds, uint8 mode)
+    377          {
+    378            if (leds & HAL_LED_1)
+    379            {
+    380              if (mode == HAL_LED_MODE_ON)
+    381              {
+    382                HAL_TURN_ON_LED1();
+    383              }
+    384              else
+    385              {
+    386                HAL_TURN_OFF_LED1();
+    387              }
+    388            }
+    389          
+    390            if (leds & HAL_LED_2)
+    391            {
+    392              if (mode == HAL_LED_MODE_ON)
+    393              {
+    394                HAL_TURN_ON_LED2();
+    395              }
+    396              else
+    397              {
+    398                HAL_TURN_OFF_LED2();
+    399              }
+    400            }
+    401          
+    402            if (leds & HAL_LED_3)
+    403            {
+    404              if (mode == HAL_LED_MODE_ON)
+    405              {
+    406                HAL_TURN_ON_LED3();
+    407              }
+    408              else
+    409              {
+    410                HAL_TURN_OFF_LED3();
+    411              }
+    412            }
+    413          
+    414            if (leds & HAL_LED_4)
+    415            {
+    416              if (mode == HAL_LED_MODE_ON)
+    417              {
+    418                HAL_TURN_ON_LED4();
+    419              }
+    420              else
+    421              {
+    422                HAL_TURN_OFF_LED4();
+    423              }
+    424            }
+    425          
+    426            /* Remember current state */
+    427            if (mode)
+    428            {
+    429              HalLedState |= leds;
+    430            }
+    431            else
+    432            {
+    433              HalLedState &= (leds ^ 0xFF);
+    434            }
+    435          }
+    436          #endif /* HAL_LED */
+    437          
+    438          /***************************************************************************************************
+    439           * @fn      HalGetLedState
+    440           *
+    441           * @brief   Dim LED2 - Dim (set level) of LED2
+    442           *
+    443           * @param   none
+    444           *
+    445           * @return  led state
+    446           ***************************************************************************************************/
+    447          uint8 HalLedGetState ()
+    448          {
+    449          #if (HAL_LED == TRUE)
+    450            return HalLedState;
+    451          #else
+    452            return 0;
+    453          #endif
+    454          }
+    455          
+    456          /***************************************************************************************************
+    457           * @fn      HalLedEnterSleep
+    458           *
+    459           * @brief   Store current LEDs state before sleep
+    460           *
+    461           * @param   none
+    462           *
+    463           * @return  none
+    464           ***************************************************************************************************/
+    465          void HalLedEnterSleep( void )
+    466          {
+    467          #ifdef BLINK_LEDS
+    468            /* Sleep ON */
+    469            HalLedStatusControl.sleepActive = TRUE;
+    470          #endif /* BLINK_LEDS */
+    471          
+    472          #if (HAL_LED == TRUE)
+    473            /* Save the state of each led */
+    474            HalSleepLedState = 0;
+    475            HalSleepLedState |= HAL_STATE_LED1();
+    476            HalSleepLedState |= HAL_STATE_LED2() << 1;
+    477            HalSleepLedState |= HAL_STATE_LED3() << 2;
+    478            HalSleepLedState |= HAL_STATE_LED4() << 3;
+    479          
+    480            /* TURN OFF all LEDs to save power */
+    481            HalLedOnOff (HAL_LED_ALL, HAL_LED_MODE_OFF);
+    482          #endif /* HAL_LED */
+    483          
+    484          }
+    485          
+    486          /***************************************************************************************************
+    487           * @fn      HalLedExitSleep
+    488           *
+    489           * @brief   Restore current LEDs state after sleep
+    490           *
+    491           * @param   none
+    492           *
+    493           * @return  none
+    494           ***************************************************************************************************/
+    495          void HalLedExitSleep( void )
+    496          {
+    497          #if (HAL_LED == TRUE)
+    498            /* Load back the saved state */
+    499            HalLedOnOff(HalSleepLedState, HAL_LED_MODE_ON);
+    500          
+    501            /* Restart - This takes care BLINKING LEDS */
+    502            HalLedUpdate();
+    503          #endif /* HAL_LED */
+    504          
+    505          #ifdef BLINK_LEDS
+    506            /* Sleep OFF */
+    507            HalLedStatusControl.sleepActive = FALSE;
+    508          #endif /* BLINK_LEDS */
+    509          }
+    510          
+    511          /***************************************************************************************************
+    512          ***************************************************************************************************/
+    513          
+    514          
+    515          
+    516          
+
+Errors: 1
+Warnings: none

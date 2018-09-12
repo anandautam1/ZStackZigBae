@@ -1,0 +1,73 @@
+graph TD;
+    A(Start) -->B{any events ?}
+    B --> C(Retrieve osal_msg_receive)
+    C -->|One| D{While MSGpkt}
+    D -->|true| E[switch for event]
+
+    E --> key{KEY_CHANGE}
+key --> |no| af_incoming{AF_INCOMING_MSG_CMD}
+key --> |yes| handlekey[handlekey]
+handlekey --> break
+
+af_incoming --> |no|zdo{ZDO_STATE_CHANGE}
+af_incoming --> |yes| message[SampleApp_MessageMGS]
+message --> break
+
+zdo --> |no| def[default] 
+zdo --> |yes|nwkstate[retrieve nwk state]   
+nwkstate --> nwkchange{is the network state changed}
+nwkchange --> |yes| sendperiodicOSAL(sendPeriodic)
+sendperiodicOSAL --> break
+nwkchange --> |no| break
+
+def --> break
+break --> deallocate[deallocate]
+
+deallocate --> getnext[getnextmessage ]
+getnext --> |yes next message|D
+getnext --> |no| return 
+
+classDef exClass text-align: center, font-size:60px, stroke-width:8px 
+class A exClass;
+class B exClass;
+class C exClass;
+class D exClass;
+class E exClass;
+class key exClass;
+class af_incoming exClass;
+class zdo exClass;
+class message exClass;
+class break exClass;
+class sendperiodicOSAL exClass;
+class nwkchange exClass;
+class def exClass;
+class deallocate exClass;
+class getnext exClass;
+class handlekey exClass;
+class nwkstate exClass;
+class return exClass;
+
+
+// key searching 
+
+graph LR;
+A(Start) -->E[look for key]
+
+E --> key1{keys & HAL_KEY_SW1}
+key1 --> |yes|action1
+action1 --> key2
+
+key1 --> |no| key2{keys & HAL_KEY_SW2}
+key2 --> |yes|action2
+action2 --> key3
+
+key2 --> |no|key3{keys & HAL_KEY_SW3}
+key3 --> |yes|action3
+action3 --> key4
+
+key3 --> |no| key4{keys & HAL_KEY_SW4} 
+key4 --> |yes|action4
+action4 --> return
+
+key4--> |no|return
+   

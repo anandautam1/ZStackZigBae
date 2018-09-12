@@ -1,0 +1,709 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V7.51A/W32 for 8051                08/Jun/2011  10:49:59 #
+# Copyright 2004-2009 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.3.1\Component #
+#                          s\stack\nwk\nwk_globals.c                          #
+#    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.3.1\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\Too #
+#                          ls\CC2530DB\f8wCoord.cfg" (-DCPU32MHZ              #
+#                          -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRU #
+#                          E -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8       #
+#                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)    #
+#                          -f "C:\Texas Instruments\ZStack-CC2530-2.3.1\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\Too #
+#                          ls\CC2530DB\f8wConfig.cfg" (-DSECURE=0             #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.3.1\Components\stack\n #
+#                          wk\nwk_globals.c" -D BUILD_ALL_DEVICES -D          #
+#                          HOLD_AUTO_START -D LCD_SUPPORTED -D                #
+#                          HAL_UART=FALSE -lC "C:\Texas                       #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\DemoEB\List\" -lA         #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects #
+#                          \zstack\Samples\SampleApp\CC2530DB\DemoEB\List\"   #
+#                          --diag_suppress Pe001,Pa010 -o "C:\Texas           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\DemoEB\Obj\" -e           #
+#                          --require_prototypes --debug --core=plain          #
+#                          --dptr=16,1 --data_model=large                     #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 16 -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\" -I "C:\Texas            #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\SOURCE\" -I "C:\Texas  #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\ZMAIN\TI2530DB\" #
+#                           -I "C:\Texas Instruments\ZStack-CC2530-2.3.1\Proj #
+#                          ects\zstack\Samples\SampleApp\CC2530DB\..\..\..\.. #
+#                          \..\COMPONENTS\MT\" -I "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \HAL\INCLUDE\" -I "C:\Texas                        #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \HAL\TARGET\CC2530EB\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \OSAL\MCU\CCSOC\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \OSAL\INCLUDE\" -I "C:\Texas                       #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\AF\" -I "C:\Texas                           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\NWK\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SEC\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SAPI\" -I "C:\Texas                         #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SYS\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\ZDO\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \ZMAC\F8W\" -I "C:\Texas                           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \ZMAC\" -I "C:\Texas Instruments\ZStack-CC2530-2.3 #
+#                          .1\Projects\zstack\Samples\SampleApp\CC2530DB\..\. #
+#                          .\..\..\..\COMPONENTS\SERVICES\SADDR\" -I          #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects #
+#                          \zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\ #
+#                          COMPONENTS\SERVICES\SDATA\" -I "C:\Texas           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\INCLUDE\" -I "C:\Texas                        #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\HIGH_LEVEL\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\LOW_LEVEL\srf04\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\LOW_LEVEL\srf04\SINGLE_CHIP\" -I "C:\Program  #
+#                          Files\IAR Systems\Embedded Workbench               #
+#                          5.3\8051\INC\" -I "C:\Program Files\IAR            #
+#                          Systems\Embedded Workbench 5.3\8051\INC\CLIB\"     #
+#                          -Ohz                                               #
+#    List file          =  C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects\ #
+#                          zstack\Samples\SampleApp\CC2530DB\DemoEB\List\nwk_ #
+#                          globals.lst                                        #
+#    Object file        =  C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects\ #
+#                          zstack\Samples\SampleApp\CC2530DB\DemoEB\Obj\nwk_g #
+#                          lobals.r51                                         #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Texas Instruments\ZStack-CC2530-2.3.1\Components\stack\nwk\nwk_globals.c
+      1          /**************************************************************************************************
+      2            Filename:       nwk_globals.c
+      3            Revised:        $Date: 2010-06-17 08:41:57 -0700 (Thu, 17 Jun 2010) $
+      4            Revision:       $Revision: 22772 $
+      5          
+      6            Description:    User definable Network Parameters.
+      7          
+      8          
+      9            Copyright 2004-2010 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com.
+     38          **************************************************************************************************/
+     39          
+     40          /*********************************************************************
+     41           * INCLUDES
+     42           */
+     43          #include "ZComdef.h"
+     44          #include "OSAL.h"
+     45          #include "AddrMgr.h"
+     46          #include "AssocList.h"
+     47          #include "BindingTable.h"
+     48          #include "nwk_util.h"
+     49          #include "nwk_globals.h"
+     50          #include "APS.h"
+     51          #include "ssp.h"
+     52          #include "rtg.h"
+     53          #include "ZDConfig.h"
+     54          #include "ZGlobals.h"
+     55          
+     56          #if defined ( LCD_SUPPORTED )
+     57            #include "OnBoard.h"
+     58          #endif
+     59          
+     60          /* HAL */
+     61          #include "hal_lcd.h"
+     62          
+     63          /*********************************************************************
+     64           * MACROS
+     65           */
+     66          
+     67          /*********************************************************************
+     68           * CONSTANTS
+     69           */
+     70          
+     71          // Maximums for the data buffer queue
+     72          #define NWK_MAX_DATABUFS_WAITING    8     // Waiting to be sent to MAC
+     73          #define NWK_MAX_DATABUFS_SCHEDULED  5     // Timed messages to be sent
+     74          #define NWK_MAX_DATABUFS_CONFIRMED  5     // Held after MAC confirms
+     75          #define NWK_MAX_DATABUFS_TOTAL      12    // Total number of buffers
+     76          
+     77          // 1-255 (0 -> 256) X RTG_TIMER_INTERVAL
+     78          // A known shortcoming is that when a message is enqueued as "hold" for a
+     79          // sleeping device, the timer tick may have counted down to 1, so that msg
+     80          // will not be held as long as expected. If NWK_INDIRECT_MSG_TIMEOUT is set to 1
+     81          // the hold time will vary randomly from 0 - CNT_RTG_TIMER ticks.
+     82          // So the hold time will vary within this interval:
+     83          // { (NWK_INDIRECT_MSG_TIMEOUT-1)*CNT_RTG_TIMER,
+     84          //                                    NWK_INDIRECT_MSG_TIMEOUT*CNT_RTG_TIMER }
+     85          #define NWK_INDIRECT_CNT_RTG_TMR    1
+     86          // To hold msg for sleeping end devices for 30 secs:
+     87          // #define CNT_RTG_TIMER            1
+     88          // #define NWK_INDIRECT_MSG_TIMEOUT 30
+     89          // To hold msg for sleeping end devices for 30 mins:
+     90          // #define CNT_RTG_TIMER            60
+     91          // #define NWK_INDIRECT_MSG_TIMEOUT 30
+     92          // To hold msg for sleeping end devices for 30 days:
+     93          // #define CNT_RTG_TIMER            60
+     94          // #define NWK_INDIRECT_MSG_TIMEOUT (30 * 24 * 60)
+     95          // Maximum msgs to hold per associated device.
+     96          #define NWK_INDIRECT_MSG_MAX_PER    3
+     97          // Maximum total msgs to hold for all associated devices.
+     98          #define NWK_INDIRECT_MSG_MAX_ALL    \
+     99                                      (NWK_MAX_DATABUFS_TOTAL - NWK_INDIRECT_MSG_MAX_PER)
+    100          
+    101          /*********************************************************************
+    102           * TYPEDEFS
+    103           */
+    104          
+    105          /*********************************************************************
+    106           * NWK GLOBAL VARIABLES
+    107           */
+    108          
+    109          // Variables for MAX list size
+    110          CONST uint16 gNWK_MAX_DEVICE_LIST = NWK_MAX_DEVICES;
+    111          
+    112          // Variables for MAX Sleeping End Devices
+    113          CONST uint8 gNWK_MAX_SLEEPING_END_DEVICES = NWK_MAX_DEVICES - NWK_MAX_ROUTERS;
+    114          
+    115          // Variables for MAX data buffer levels
+    116          CONST uint8 gNWK_MAX_DATABUFS_WAITING = NWK_MAX_DATABUFS_WAITING;
+    117          CONST uint8 gNWK_MAX_DATABUFS_SCHEDULED = NWK_MAX_DATABUFS_SCHEDULED;
+    118          CONST uint8 gNWK_MAX_DATABUFS_CONFIRMED = NWK_MAX_DATABUFS_CONFIRMED;
+    119          CONST uint8 gNWK_MAX_DATABUFS_TOTAL = NWK_MAX_DATABUFS_TOTAL;
+    120          
+    121          CONST uint8 gNWK_INDIRECT_CNT_RTG_TMR = NWK_INDIRECT_CNT_RTG_TMR;
+    122          CONST uint8 gNWK_INDIRECT_MSG_MAX_PER = NWK_INDIRECT_MSG_MAX_PER;
+    123          CONST uint8 gNWK_INDIRECT_MSG_MAX_ALL = NWK_INDIRECT_MSG_MAX_ALL;
+    124          
+    125          // change this if using a different stack profile...
+    126          // Cskip array
+    127          uint16 *Cskip;
+    128          
+    129          #if ( STACK_PROFILE_ID == ZIGBEEPRO_PROFILE )
+    130            uint8 CskipRtrs[1] = {0};
+    131            uint8 CskipChldrn[1] = {0};
+    132          #elif ( STACK_PROFILE_ID == HOME_CONTROLS )
+    133            uint8 CskipRtrs[MAX_NODE_DEPTH+1] = {6,6,6,6,6,0};
+    134            uint8 CskipChldrn[MAX_NODE_DEPTH+1] = {20,20,20,20,20,0};
+    135          #elif ( STACK_PROFILE_ID == GENERIC_STAR )
+    136            uint8 CskipRtrs[MAX_NODE_DEPTH+1] = {5,5,5,5,5,0};
+    137            uint8 CskipChldrn[MAX_NODE_DEPTH+1] = {5,5,5,5,5,0};
+    138          #elif ( STACK_PROFILE_ID == NETWORK_SPECIFIC )
+    139            uint8 CskipRtrs[MAX_NODE_DEPTH+1] = {5,5,5,5,5,0};
+    140            uint8 CskipChldrn[MAX_NODE_DEPTH+1] = {5,5,5,5,5,0};
+    141          #endif // STACK_PROFILE_ID
+    142          
+    143          // Minimum lqi value that is required for association
+    144          uint8 gMIN_TREE_LINK_COST = MIN_LQI_COST_3;
+    145          
+    146          // Statically defined Associated Device List
+    147          associated_devices_t AssociatedDevList[NWK_MAX_DEVICES];
+    148          
+    149          CONST uint16 gMAX_RTG_ENTRIES = MAX_RTG_ENTRIES;
+    150          CONST uint16 gMAX_RTG_SRC_ENTRIES = MAX_RTG_SRC_ENTRIES;
+    151          CONST uint8 gMAX_RREQ_ENTRIES = MAX_RREQ_ENTRIES;
+    152          
+    153          CONST uint8 gMAX_NEIGHBOR_ENTRIES = MAX_NEIGHBOR_ENTRIES;
+    154          
+    155           // Table of neighboring nodes (not including child nodes)
+    156          neighborEntry_t neighborTable[MAX_NEIGHBOR_ENTRIES];
+    157          
+    158          CONST uint8 gMAX_SOURCE_ROUTE = MAX_SOURCE_ROUTE;
+    159          
+    160          CONST uint8 gMAX_BROADCAST_QUEUED = MAX_BROADCAST_QUEUED;
+    161          
+    162          CONST uint8 gLINK_DOWN_TRIGGER = LINK_DOWN_TRIGGER;
+    163          
+    164          // Routing table
+    165          rtgEntry_t rtgTable[MAX_RTG_ENTRIES];
+    166          
+    167          #if defined ( ZIGBEE_SOURCE_ROUTING )
+    168            rtgSrcEntry_t rtgSrcTable[MAX_RTG_SRC_ENTRIES];
+    169            uint16 rtgSrcRelayList[MAX_SOURCE_ROUTE];
+    170          #endif
+    171          
+    172          // Table of current RREQ packets in the network
+    173          rtDiscEntry_t rtDiscTable[MAX_RREQ_ENTRIES];
+    174          
+    175          // Table of data broadcast packets currently in circulation.
+    176          bcastEntry_t bcastTable[MAX_BCAST];
+    177          
+    178          // These 2 arrays are to be used as an array of struct { uint8, uint32 }.
+    179          uint8 bcastHoldHandle[MAX_BCAST];
+    180          uint32 bcastHoldAckMask[MAX_BCAST];
+    181          
+    182          CONST uint8 gMAX_BCAST = MAX_BCAST;
+    183          
+    184          // For tree addressing, this switch allows the allocation of a
+    185          // router address to an end device when end device address are
+    186          // all used up.  If this option is enabled, address space
+    187          // could be limited.
+    188          CONST uint8 gNWK_TREE_ALLOCATE_ROUTERADDR_FOR_ENDDEVICE = FALSE;
+    189          
+    190          #if defined ( ZIGBEE_STOCHASTIC_ADDRESSING )
+    191          // number of link status periods after the last received address conflict report
+    192          // (network status command)
+    193          CONST uint8 gNWK_CONFLICTED_ADDR_EXPIRY_TIME = NWK_CONFLICTED_ADDR_EXPIRY_TIME;
+    194          #endif
+    195          
+    196          #if defined ( ZIGBEE_FREQ_AGILITY )
+    197          CONST uint8 gNWK_FREQ_AGILITY_ALL_MAC_ERRS = NWK_FREQ_AGILITY_ALL_MAC_ERRS;
+    198          #endif
+    199          
+    200          // The time limited to one MTO RReq (Concentrator Announce) in milliseconds.
+    201          CONST uint16 gMTO_RREQ_LIMIT_TIME = MTO_RREQ_LIMIT_TIME;
+    202          
+    203          // The number of seconds a MTO routing entry will last.
+    204          CONST uint8 gMTO_ROUTE_EXPIRY_TIME = MTO_ROUTE_EXPIRY_TIME;
+    205          
+    206          // Route Discovery Request Default Radius
+    207          CONST uint8 gDEFAULT_ROUTE_REQUEST_RADIUS = DEFAULT_ROUTE_REQUEST_RADIUS;
+    208          
+    209          // Network message radius
+    210          CONST uint8 gDEF_NWK_RADIUS = DEF_NWK_RADIUS;
+    211          
+    212          #if ( ZSTACK_ROUTER_BUILD )
+    213          CONST uint16 gLINK_STATUS_JITTER_MASK = LINK_STATUS_JITTER_MASK;
+    214          #endif
+    215          
+    216          /*********************************************************************
+    217           * APS GLOBAL VARIABLES
+    218           */
+    219          
+    220          // The Maximum number of binding records
+    221          // This number is defined in BindingTable.h - change it there.
+    222          CONST uint16 gNWK_MAX_BINDING_ENTRIES = NWK_MAX_BINDING_ENTRIES;
+    223          
+    224          #if defined ( REFLECTOR )
+    225            // The Maximum number of cluster IDs in a binding record
+    226            // This number is defined in BindingTable.h - change it there.
+    227            CONST uint8 gMAX_BINDING_CLUSTER_IDS = MAX_BINDING_CLUSTER_IDS;
+    228          
+    229            CONST uint16 gBIND_REC_SIZE = sizeof( BindingEntry_t );
+    230          
+    231            // Binding Table
+    232            BindingEntry_t BindingTable[NWK_MAX_BINDING_ENTRIES];
+    233          #endif
+    234          
+    235          // Maximum number allowed in the groups table.
+    236          CONST uint8 gAPS_MAX_GROUPS = APS_MAX_GROUPS;
+    237          
+    238          // APS End Device Broadcast Table
+    239          #if ( ZG_BUILD_ENDDEVICE_TYPE )
+    240            apsEndDeviceBroadcast_t apsEndDeviceBroadcastTable[APS_MAX_ENDDEVICE_BROADCAST_ENTRIES];
+    241            uint8 gAPS_MAX_ENDDEVICE_BROADCAST_ENTRIES = APS_MAX_ENDDEVICE_BROADCAST_ENTRIES;
+    242          #endif
+    243          
+    244          /*********************************************************************
+    245           * SECURITY GLOBAL VARIABLES
+    246           */
+    247          
+    248          // This is the default pre-configured key,
+    249          // change this to make a unique key
+    250          // SEC_KEY_LEN is defined in ssp.h.
+    251          
+    252          #if defined ( DEFAULT_KEY )
+    253          CONST uint8 defaultKey[SEC_KEY_LEN] = DEFAULT_KEY;
+    254          #else
+    255          CONST uint8 defaultKey[SEC_KEY_LEN] =
+    256          {
+    257          #if defined ( APP_TP ) || defined ( APP_TP2 )
+    258            // Key for ZigBee Conformance Testing
+    259            0xbb, 0xbb, 0xbb, 0xbb, 0xbb, 0xbb, 0xbb, 0xbb,
+    260            0xaa, 0xaa, 0xaa, 0xaa, 0xaa, 0xaa, 0xaa, 0xaa
+    261          #else
+    262            // Key for In-House Testing
+    263            0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
+    264            0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F
+    265          #endif
+    266          };
+    267          #endif
+    268          
+    269          // This is the default pre-configured Trust Center Link key,
+    270          // change this to make a unique key, SEC_KEY_LEN is defined in ssp.h.
+    271          CONST uint8 defaultTCLinkKey[SEC_KEY_LEN] =
+    272          {
+    273            0x56, 0x77, 0x77, 0x77, 0x77, 0x77, 0x77, 0x77,
+    274            0x77, 0x77, 0x77, 0x77, 0x77, 0x77, 0x77, 0x77
+    275          };
+    276          
+    277          /*********************************************************************
+    278           * GLOBAL VARIABLES - Statistics
+    279           */
+    280          
+    281          #if defined ( PACKET_FILTER_STATS )
+    282            uint32 apsInvalidPackets = 0;
+    283            uint32 apsSecurityFailures = 0;
+    284            uint32 nwkInvalidPackets = 0;
+    285            uint32 nwkSecurityFailures = 0;
+    286          #endif
+    287          
+    288          /*********************************************************************
+    289           * STATUS STRINGS
+    290           */
+    291          #if defined ( LCD_SUPPORTED )
+    292            const char PingStr[]         = "Ping Rcvd from";
+    293            const char AssocCnfStr[]     = "Assoc Cnf";
+    294            const char SuccessStr[]      = "Success";
+    295            const char EndDeviceStr[]    = "EndDevice:";
+    296            const char ParentStr[]       = "Parent:";
+    297            const char ZigbeeCoordStr[]  = "ZigBee Coord";
+    298            const char NetworkIDStr[]    = "Network ID:";
+    299            const char RouterStr[]       = "Router:";
+    300            const char OrphanRspStr[]    = "Orphan Response";
+    301            const char SentStr[]         = "Sent";
+    302            const char FailedStr[]       = "Failed";
+    303            const char AssocRspFailStr[] = "Assoc Rsp fail";
+    304            const char AssocIndStr[]     = "Assoc Ind";
+    305            const char AssocCnfFailStr[] = "Assoc Cnf fail";
+    306            const char EnergyLevelStr[]  = "Energy Level";
+    307            const char ScanFailedStr[]   = "Scan Failed";
+    308          #endif
+    309          
+    310          /*********************************************************************
+    311           * @fn       nwk_globals_init()
+    312           *
+    313           * @brief
+    314           *
+    315           *   Initialize nwk layer globals.  These are the system defaults and
+    316           *   should be changed by the user here.  The default definitions are
+    317           *   defined in nwk.h or NLMEDE.h.
+    318           *
+    319           * @param   none
+    320           *
+    321           * @return  none
+    322           */
+    323          void nwk_globals_init( void )
+    324          {
+    325            AddrMgrInit( NWK_MAX_ADDRESSES );
+    326          
+    327          #if !defined ( ZIGBEE_STOCHASTIC_ADDRESSING )
+    328            if ( ZSTACK_ROUTER_BUILD )
+    329            {
+    330              // Initialize the Cskip Table
+    331              Cskip = osal_mem_alloc(sizeof(uint16) *(MAX_NODE_DEPTH+1));
+    332              RTG_FillCSkipTable(CskipChldrn, CskipRtrs, MAX_NODE_DEPTH, Cskip);
+    333            }
+    334          #endif
+    335          
+    336            // To compile out the Link Status Feature, set NWK_LINK_STATUS_PERIOD
+    337            // to 0 (compiler flag).
+    338            if ( ZSTACK_ROUTER_BUILD && NWK_LINK_STATUS_PERIOD )
+    339            {
+    340              NLME_InitLinkStatus();
+    341            }
+    342          
+    343          #if defined ( ZIGBEE_FREQ_AGILITY )
+    344            NwkFreqAgilityInit();
+    345          #endif
+    346          }
+    347          
+    348          /*********************************************************************
+    349           * @fn       NIB_init()
+    350           *
+    351           * @brief
+    352           *
+    353           *   Initialize attribute values in NIB
+    354           *
+    355           * @param   none
+    356           *
+    357           * @return  none
+    358           */
+    359          void NIB_init()
+    360          {
+    361            _NIB.SequenceNum = LO_UINT16(osal_rand());
+    362          
+    363            _NIB.nwkProtocolVersion = ZB_PROT_VERS;
+    364            _NIB.MaxDepth = MAX_NODE_DEPTH;
+    365          
+    366          #if ( NWK_MODE == NWK_MODE_MESH )
+    367            _NIB.beaconOrder = BEACON_ORDER_NO_BEACONS;
+    368            _NIB.superFrameOrder = BEACON_ORDER_NO_BEACONS;
+    369          #endif
+    370          
+    371            // BROADCAST SETTINGS:
+    372            // *******************
+    373            //   Broadcast Delivery Time
+    374            //     - set to multiples of 100ms
+    375            //     - should be 500ms more than the retry time
+    376            //       -  "retry time" = PassiveAckTimeout * (MaxBroadcastRetries + 1)
+    377            //   Passive Ack Timeout
+    378            //     - set to multiples of 100ms
+    379            _NIB.BroadcastDeliveryTime = zgBcastDeliveryTime;
+    380            _NIB.PassiveAckTimeout     = zgPassiveAckTimeout;
+    381            _NIB.MaxBroadcastRetries   = zgMaxBcastRetires;
+    382          
+    383            _NIB.ReportConstantCost = 0;
+    384            _NIB.RouteDiscRetries = 0;
+    385            _NIB.SecureAllFrames = USE_NWK_SECURITY;
+    386            _NIB.nwkAllFresh = NWK_ALL_FRESH;
+    387          
+    388            if ( ZG_SECURE_ENABLED )
+    389            {
+    390              _NIB.SecurityLevel = SECURITY_LEVEL;
+    391            }
+    392            else
+    393            {
+    394              _NIB.SecurityLevel = 0;
+    395            }
+    396          
+    397          #if defined ( ZIGBEEPRO )
+    398            _NIB.SymLink = FALSE;
+    399          #else
+    400            _NIB.SymLink = TRUE;
+    401          #endif
+    402          
+    403            _NIB.CapabilityFlags = ZDO_Config_Node_Descriptor.CapabilityFlags;
+    404          
+    405            _NIB.TransactionPersistenceTime = zgIndirectMsgTimeout;
+    406          
+    407            _NIB.RouteDiscoveryTime = zgRouteDiscoveryTime;
+    408            _NIB.RouteExpiryTime = zgRouteExpiryTime;
+    409          
+    410            _NIB.nwkDevAddress = INVALID_NODE_ADDR;
+    411            _NIB.nwkLogicalChannel = 0;
+    412            _NIB.nwkCoordAddress = INVALID_NODE_ADDR;
+    413            osal_memset( _NIB.nwkCoordExtAddress, 0, Z_EXTADDR_LEN );
+    414            _NIB.nwkPanId = INVALID_NODE_ADDR;
+    415          
+    416            osal_cpyExtAddr( _NIB.extendedPANID, zgExtendedPANID );
+    417          
+    418            _NIB.nwkKeyLoaded = FALSE;
+    419          
+    420          #if defined ( ZIGBEE_STOCHASTIC_ADDRESSING )
+    421            _NIB.nwkAddrAlloc  = NWK_ADDRESSING_STOCHASTIC;
+    422            _NIB.nwkUniqueAddr = FALSE;
+    423          #else
+    424            _NIB.nwkAddrAlloc  = NWK_ADDRESSING_DISTRIBUTED;
+    425            _NIB.nwkUniqueAddr = TRUE;
+    426          #endif
+    427          
+    428            _NIB.nwkLinkStatusPeriod = NWK_LINK_STATUS_PERIOD;
+    429            _NIB.nwkRouterAgeLimit = NWK_ROUTE_AGE_LIMIT;
+    430          
+    431            //MTO and source routing
+    432            _NIB.nwkConcentratorDiscoveryTime = zgConcentratorDiscoveryTime;
+    433            _NIB.nwkIsConcentrator = zgConcentratorEnable;
+    434            _NIB.nwkConcentratorRadius = zgConcentratorRadius;
+    435          
+    436          #if defined ( ZIGBEE_MULTICAST )
+    437            _NIB.nwkUseMultiCast = TRUE;
+    438          #else
+    439            _NIB.nwkUseMultiCast = FALSE;
+    440          #endif
+    441            _NIB.nwkManagerAddr = 0x0000;
+    442            _NIB.nwkUpdateId = 0;
+    443            _NIB.nwkTotalTransmissions = 0;
+    444          
+    445            if ( ZSTACK_ROUTER_BUILD )
+    446            {
+    447          #if defined ( ZIGBEE_STOCHASTIC_ADDRESSING )
+    448              NLME_InitStochasticAddressing();
+    449          #else
+    450              NLME_InitTreeAddressing();
+    451          #endif
+    452            }
+    453          }
+    454          
+    455          /*********************************************************************
+    456           * @fn       nwk_Status()
+    457           *
+    458           * @brief
+    459           *
+    460           *   Status report.
+    461           *
+    462           * @param   statusCode
+    463           * @param   statusValue
+    464           *
+    465           * @return  none
+    466           */
+    467          void nwk_Status( uint16 statusCode, uint16 statusValue )
+    468          {
+    469          #if defined ( LCD_SUPPORTED )
+    470            switch ( statusCode )
+    471            {
+    472              case NWK_STATUS_COORD_ADDR:
+    473                if ( ZSTACK_ROUTER_BUILD )
+    474                {
+    475                  HalLcdWriteString( (char*)ZigbeeCoordStr, HAL_LCD_LINE_1 );
+    476                  HalLcdWriteStringValue( (char*)NetworkIDStr, statusValue, 16, HAL_LCD_LINE_2 );
+    477                  BuzzerControl( BUZZER_BLIP );
+    478                }
+    479                break;
+    480          
+    481              case NWK_STATUS_ROUTER_ADDR:
+    482                if ( ZSTACK_ROUTER_BUILD )
+    483                {
+    484                  HalLcdWriteStringValue( (char*)RouterStr, statusValue, 16, HAL_LCD_LINE_1 );
+    485                }
+    486                break;
+    487          
+    488              case NWK_STATUS_ORPHAN_RSP:
+    489                if ( ZSTACK_ROUTER_BUILD )
+    490                {
+    491                  if ( statusValue == ZSuccess )
+    492                    HalLcdWriteScreen( (char*)OrphanRspStr, (char*)SentStr );
+    493                  else
+    494                    HalLcdWriteScreen( (char*)OrphanRspStr, (char*)FailedStr );
+    495                }
+    496                break;
+    497          
+    498              case NWK_ERROR_ASSOC_RSP:
+    499                if ( ZSTACK_ROUTER_BUILD )
+    500                {
+    501                  HalLcdWriteString( (char*)AssocRspFailStr, HAL_LCD_LINE_1 );
+    502                  HalLcdWriteValue( (uint32)(statusValue), 16, HAL_LCD_LINE_2 );
+    503                }
+    504                break;
+    505          
+    506              case NWK_STATUS_ED_ADDR:
+    507                if ( ZSTACK_END_DEVICE_BUILD )
+    508                {
+    509                  HalLcdWriteStringValue( (char*)EndDeviceStr, statusValue, 16, HAL_LCD_LINE_1 );
+    510                }
+    511                break;
+    512          
+    513              case NWK_STATUS_PARENT_ADDR:
+    514                      HalLcdWriteStringValue( (char*)ParentStr, statusValue, 16, HAL_LCD_LINE_2 );
+    515                break;
+    516          
+    517              case NWK_STATUS_ASSOC_CNF:
+    518                HalLcdWriteScreen( (char*)AssocCnfStr, (char*)SuccessStr );
+    519                break;
+    520          
+    521              case NWK_ERROR_ASSOC_CNF_DENIED:
+    522                HalLcdWriteString((char*)AssocCnfFailStr, HAL_LCD_LINE_1 );
+    523                HalLcdWriteValue( (uint32)(statusValue), 16, HAL_LCD_LINE_2 );
+    524                break;
+    525          
+    526              case NWK_ERROR_ENERGY_SCAN_FAILED:
+    527                HalLcdWriteScreen( (char*)EnergyLevelStr, (char*)ScanFailedStr );
+    528                break;
+    529            }
+    530          #endif
+    531          }
+    532          
+    533          /*********************************************************************
+    534           * @fn       nwk_UpdateStatistics()
+    535           *
+    536           * @brief   Update network layer statistic counters
+    537           *
+    538           * @param   statisticCode
+    539           *
+    540           * @return  none
+    541           */
+    542          void nwk_UpdateStatistics( uint8 statisticCode )
+    543          {
+    544          #if defined ( PACKET_FILTER_STATS )
+    545            switch ( statisticCode )
+    546            {
+    547              case STAT_NWK_INVALID_PACKET:
+    548                nwkInvalidPackets++;
+    549                break;
+    550          
+    551              case STAT_NWK_SECURITY_FAILURE:
+    552                nwkInvalidPackets++;
+    553                nwkSecurityFailures++;
+    554                break;
+    555          
+    556              case STAT_APS_INVALID_PACKET:
+    557                apsInvalidPackets++;
+    558                break;
+    559          
+    560              case STAT_APS_SECURITY_FAILURE:
+    561                apsSecurityFailures++;
+    562                break;
+    563            }
+    564          #endif
+    565          }
+    566          
+    567          /*********************************************************************
+    568          *********************************************************************/
+
+Errors: 1
+Warnings: none

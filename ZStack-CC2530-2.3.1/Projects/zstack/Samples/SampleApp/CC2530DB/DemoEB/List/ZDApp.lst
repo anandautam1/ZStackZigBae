@@ -1,0 +1,2839 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V7.51A/W32 for 8051                08/Jun/2011  10:49:46 #
+# Copyright 2004-2009 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.3.1\Component #
+#                          s\stack\zdo\ZDApp.c                                #
+#    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.3.1\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\Too #
+#                          ls\CC2530DB\f8wCoord.cfg" (-DCPU32MHZ              #
+#                          -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRU #
+#                          E -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8       #
+#                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)    #
+#                          -f "C:\Texas Instruments\ZStack-CC2530-2.3.1\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\Too #
+#                          ls\CC2530DB\f8wConfig.cfg" (-DSECURE=0             #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.3.1\Components\stack\z #
+#                          do\ZDApp.c" -D BUILD_ALL_DEVICES -D                #
+#                          HOLD_AUTO_START -D LCD_SUPPORTED -D                #
+#                          HAL_UART=FALSE -lC "C:\Texas                       #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\DemoEB\List\" -lA         #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects #
+#                          \zstack\Samples\SampleApp\CC2530DB\DemoEB\List\"   #
+#                          --diag_suppress Pe001,Pa010 -o "C:\Texas           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\DemoEB\Obj\" -e           #
+#                          --require_prototypes --debug --core=plain          #
+#                          --dptr=16,1 --data_model=large                     #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 16 -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\" -I "C:\Texas            #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\SOURCE\" -I "C:\Texas  #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\ZMAIN\TI2530DB\" #
+#                           -I "C:\Texas Instruments\ZStack-CC2530-2.3.1\Proj #
+#                          ects\zstack\Samples\SampleApp\CC2530DB\..\..\..\.. #
+#                          \..\COMPONENTS\MT\" -I "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \HAL\INCLUDE\" -I "C:\Texas                        #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \HAL\TARGET\CC2530EB\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \OSAL\MCU\CCSOC\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \OSAL\INCLUDE\" -I "C:\Texas                       #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\AF\" -I "C:\Texas                           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\NWK\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SEC\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SAPI\" -I "C:\Texas                         #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SYS\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\ZDO\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \ZMAC\F8W\" -I "C:\Texas                           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \ZMAC\" -I "C:\Texas Instruments\ZStack-CC2530-2.3 #
+#                          .1\Projects\zstack\Samples\SampleApp\CC2530DB\..\. #
+#                          .\..\..\..\COMPONENTS\SERVICES\SADDR\" -I          #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects #
+#                          \zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\ #
+#                          COMPONENTS\SERVICES\SDATA\" -I "C:\Texas           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\INCLUDE\" -I "C:\Texas                        #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\HIGH_LEVEL\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\LOW_LEVEL\srf04\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\LOW_LEVEL\srf04\SINGLE_CHIP\" -I "C:\Program  #
+#                          Files\IAR Systems\Embedded Workbench               #
+#                          5.3\8051\INC\" -I "C:\Program Files\IAR            #
+#                          Systems\Embedded Workbench 5.3\8051\INC\CLIB\"     #
+#                          -Ohz                                               #
+#    List file          =  C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects\ #
+#                          zstack\Samples\SampleApp\CC2530DB\DemoEB\List\ZDAp #
+#                          p.lst                                              #
+#    Object file        =  C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects\ #
+#                          zstack\Samples\SampleApp\CC2530DB\DemoEB\Obj\ZDApp #
+#                          .r51                                               #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Texas Instruments\ZStack-CC2530-2.3.1\Components\stack\zdo\ZDApp.c
+      1          /**************************************************************************************************
+      2            Filename:       ZDApp.c
+      3            Revised:        $Date: 2010-08-20 15:30:00 -0700 (Fri, 20 Aug 2010) $
+      4            Revision:       $Revision: 23463 $
+      5          
+      6            Description:    This file contains the interface to the Zigbee Device Application. This is the
+      7                            Application part that the user can change. This also contains the Task functions.
+      8          
+      9          
+     10            Copyright 2004-2010 Texas Instruments Incorporated. All rights reserved.
+     11          
+     12            IMPORTANT: Your use of this Software is limited to those specific rights
+     13            granted under the terms of a software license agreement between the user
+     14            who downloaded the software, his/her employer (which must be your employer)
+     15            and Texas Instruments Incorporated (the "License").  You may not use this
+     16            Software unless you agree to abide by the terms of the License. The License
+     17            limits your use, and you acknowledge, that the Software may not be modified,
+     18            copied or distributed unless embedded on a Texas Instruments microcontroller
+     19            or used solely and exclusively in conjunction with a Texas Instruments radio
+     20            frequency transceiver, which is integrated into your product.  Other than for
+     21            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     22            works of, modify, distribute, perform, display or sell this Software and/or
+     23            its documentation for any purpose.
+     24          
+     25            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     26            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     27            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     28            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     29            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     30            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     31            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     32            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     33            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     34            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     35            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     36          
+     37            Should you have any questions regarding your right to use this Software,
+     38            contact Texas Instruments Incorporated at www.TI.com.
+     39          **************************************************************************************************/
+     40          
+     41          /*********************************************************************
+     42           * INCLUDES
+     43           */
+     44          
+     45          #include "ZComDef.h"
+     46          #include "ZMac.h"
+     47          #include "OSAL.h"
+     48          #include "OSAL_Tasks.h"
+     49          #include "OSAL_PwrMgr.h"
+     50          #include "OSAL_Nv.h"
+     51          #include "AF.h"
+     52          #include "APSMEDE.h"
+     53          #include "NLMEDE.h"
+     54          #include "AddrMgr.h"
+     55          #include "ZDProfile.h"
+     56          #include "ZDObject.h"
+     57          #include "ZDConfig.h"
+     58          #include "ZDSecMgr.h"
+     59          #include "ZDApp.h"
+     60          #include "DebugTrace.h"
+     61          #include "nwk_util.h"
+     62          #include "OnBoard.h"
+     63          #include "ZGlobals.h"
+     64          #include "ZDNwkMgr.h"
+     65          #include "rtg.h"
+     66          
+     67          #include "ssp.h"
+     68          
+     69          /* HAL */
+     70          #include "hal_led.h"
+     71          #include "hal_lcd.h"
+     72          #include "hal_key.h"
+     73          
+     74          #if defined( MT_MAC_FUNC ) || defined( MT_MAC_CB_FUNC )
+     75            #error "ERROR! MT_MAC functionalities should be disabled on ZDO devices"
+     76          #endif
+     77          
+     78          /*********************************************************************
+     79           * CONSTANTS
+     80           */
+     81          
+     82          #if !defined( NWK_START_DELAY )
+     83            #define NWK_START_DELAY             100   // in milliseconds
+     84          #endif
+     85          
+     86          #if !defined( EXTENDED_JOINING_RANDOM_MASK )
+     87            #define EXTENDED_JOINING_RANDOM_MASK 0x007F
+     88          #endif
+     89          
+     90          #if !defined( BEACON_REQUEST_DELAY )
+     91            #define BEACON_REQUEST_DELAY        100   // in milliseconds
+     92          #endif
+     93          
+     94          #if !defined( BEACON_REQ_DELAY_MASK )
+     95            #define BEACON_REQ_DELAY_MASK       0x007F
+     96          #endif
+     97          
+     98          #define MAX_RESUME_RETRY            3
+     99          
+    100          #define MAX_DEVICE_UNAUTH_TIMEOUT   5000  // 5 seconds
+    101          
+    102          // Beacon Order Settings (see NLMEDE.h)
+    103          #define DEFAULT_BEACON_ORDER        BEACON_ORDER_NO_BEACONS
+    104          #define DEFAULT_SUPERFRAME_ORDER    DEFAULT_BEACON_ORDER
+    105          
+    106          #if !defined( MAX_NWK_FRAMECOUNTER_CHANGES )
+    107            // The number of times the frame counter can change before
+    108            // saving to NV
+    109            #define MAX_NWK_FRAMECOUNTER_CHANGES    1000
+    110          #endif
+    111          
+    112          // Leave control bits
+    113          #define ZDAPP_LEAVE_CTRL_INIT 0
+    114          #define ZDAPP_LEAVE_CTRL_SET  1
+    115          #define ZDAPP_LEAVE_CTRL_RA   2
+    116          
+    117          // Address Manager Stub Implementation
+    118          #define ZDApp_NwkWriteNVRequest AddrMgrWriteNVRequest
+    119          
+    120          
+    121          #if !defined ZDO_NV_SAVE_RFDs
+    122          #define ZDO_NV_SAVE_RFDs  TRUE
+    123          #endif
+    124          
+    125          // Delay time before updating NWK NV data to force fewer writes during high activity.
+    126          #if ZDO_NV_SAVE_RFDs
+    127          #define ZDAPP_UPDATE_NWK_NV_TIME 700
+    128          #else
+    129          #define ZDAPP_UPDATE_NWK_NV_TIME 65000
+    130          #endif
+    131          
+    132          /*********************************************************************
+    133           * GLOBAL VARIABLES
+    134           */
+    135          
+    136          #if defined( LCD_SUPPORTED )
+    137            uint8 MatchRsps = 0;
+    138          #endif
+    139          
+    140          uint8 zdoDiscCounter = 1;
+    141          
+    142          zAddrType_t ZDAppNwkAddr;
+    143          
+    144          uint8 zdappMgmtNwkDiscRspTransSeq;
+    145          uint8 zdappMgmtNwkDiscReqInProgress = FALSE;
+    146          zAddrType_t zdappMgmtNwkDiscRspAddr;
+    147          uint8 zdappMgmtNwkDiscStartIndex;
+    148          uint8 zdappMgmtSavedNwkState;
+    149          
+    150          uint16 nwkFrameCounterChanges = 0;
+    151          uint8 continueJoining = TRUE;
+    152          
+    153          uint8  _tmpRejoinState;
+    154          
+    155          // The extended PanID used in ZDO layer for rejoin.
+    156          uint8 ZDO_UseExtendedPANID[Z_EXTADDR_LEN];
+    157          
+    158          pfnZdoCb zdoCBFunc[MAX_ZDO_CB_FUNC];
+    159          
+    160          /*********************************************************************
+    161           * EXTERNAL VARIABLES
+    162           */
+    163          
+    164          /*********************************************************************
+    165           * EXTERNAL FUNCTIONS
+    166           */
+    167          
+    168          /*********************************************************************
+    169           * LOCAL FUNCTIONS
+    170           */
+    171          
+    172          void ZDApp_NetworkStartEvt( void );
+    173          void ZDApp_DeviceAuthEvt( void );
+    174          void ZDApp_SaveNetworkStateEvt( void );
+    175          
+    176          uint8 ZDApp_ReadNetworkRestoreState( void );
+    177          uint8 ZDApp_RestoreNetworkState( void );
+    178          void ZDAppDetermineDeviceType( void );
+    179          void ZDApp_InitUserDesc( void );
+    180          void ZDAppCheckForHoldKey( void );
+    181          void ZDApp_ProcessOSALMsg( osal_event_hdr_t *msgPtr );
+    182          void ZDApp_ProcessNetworkJoin( void );
+    183          void ZDApp_SetCoordAddress( uint8 endPoint, uint8 dstEP );
+    184          void ZDApp_SaveNwkKey( void );
+    185          uint8 ZDApp_RestoreNwkKey( void );
+    186          
+    187          void ZDApp_SecInit( uint8 state );
+    188          UINT16 ZDApp_ProcessSecEvent( uint8 task_id, UINT16 events );
+    189          void ZDApp_ProcessSecMsg( osal_event_hdr_t *msgPtr );
+    190          
+    191          void ZDApp_SendMsg( uint8 taskID, uint8 cmd, uint8 len, uint8 *buf );
+    192          
+    193          void ZDApp_ResetTimerStart( uint16 delay );
+    194          void ZDApp_ResetTimerCancel( void );
+    195          void ZDApp_LeaveCtrlInit( void );
+    196          void ZDApp_LeaveCtrlSet( uint8 ra );
+    197          uint8 ZDApp_LeaveCtrlBypass( void );
+    198          void ZDApp_LeaveCtrlStartup( devStates_t* state, uint16* startDelay );
+    199          void ZDApp_LeaveReset( uint8 ra );
+    200          void ZDApp_LeaveUpdate( uint16 nwkAddr, uint8* extAddr,
+    201                                  uint8 removeChildren );
+    202          void ZDApp_NodeProfileSync( ZDO_NetworkDiscoveryCfm_t* cfm );
+    203          void ZDApp_ProcessMsgCBs( zdoIncomingMsg_t *inMsg );
+    204          void ZDApp_RegisterCBs( void );
+    205          
+    206          /*********************************************************************
+    207           * LOCAL VARIABLES
+    208           */
+    209          
+    210          uint8 ZDAppTaskID;
+    211          uint8 nwkStatus;
+    212          endPointDesc_t *ZDApp_AutoFindMode_epDesc = (endPointDesc_t *)NULL;
+    213          uint8 ZDApp_LeaveCtrl;
+    214          
+    215          #if defined( HOLD_AUTO_START )
+    216            devStates_t devState = DEV_HOLD;
+    217          #else
+    218            devStates_t devState = DEV_INIT;
+    219          #endif
+    220          
+    221          #if ( ZG_BUILD_RTRONLY_TYPE ) || ( ZG_BUILD_ENDDEVICE_TYPE )
+    222            devStartModes_t devStartMode = MODE_JOIN;     // Assume joining
+    223            //devStartModes_t devStartMode = MODE_RESUME; // if already "directly joined"
+    224                                  // to parent. Set to make the device do an Orphan scan.
+    225          #else
+    226            // Set the default to coodinator
+    227            devStartModes_t devStartMode = MODE_HARD;
+    228          #endif
+    229          
+    230          uint8 retryCnt;
+    231          
+    232          endPointDesc_t ZDApp_epDesc =
+    233          {
+    234            ZDO_EP,
+    235            &ZDAppTaskID,
+    236            (SimpleDescriptionFormat_t *)NULL,  // No Simple description for ZDO
+    237            (afNetworkLatencyReq_t)0            // No Network Latency req
+    238          };
+    239          
+    240          uint16 ZDApp_SavedPollRate = POLL_RATE;
+    241          
+    242          /*********************************************************************
+    243           * @fn      ZDApp_Init
+    244           *
+    245           * @brief   ZDApp Initialization function.
+    246           *
+    247           * @param   task_id - ZDApp Task ID
+    248           *
+    249           * @return  None
+    250           */
+    251          void ZDApp_Init( uint8 task_id )
+    252          {
+    253            // Save the task ID
+    254            ZDAppTaskID = task_id;
+    255          
+    256            // Initialize the ZDO global device short address storage
+    257            ZDAppNwkAddr.addrMode = Addr16Bit;
+    258            ZDAppNwkAddr.addr.shortAddr = INVALID_NODE_ADDR;
+    259            (void)NLME_GetExtAddr();  // Load the saveExtAddr pointer.
+    260          
+    261            // Check for manual "Hold Auto Start"
+    262            ZDAppCheckForHoldKey();
+    263          
+    264            // Initialize ZDO items and setup the device - type of device to create.
+    265            ZDO_Init();
+    266          
+    267            // Register the endpoint description with the AF
+    268            // This task doesn't have a Simple description, but we still need
+    269            // to register the endpoint.
+    270            afRegister( (endPointDesc_t *)&ZDApp_epDesc );
+    271          
+    272          #if defined( ZDO_USERDESC_RESPONSE )
+    273            ZDApp_InitUserDesc();
+    274          #endif // ZDO_USERDESC_RESPONSE
+    275          
+    276            // Start the device?
+    277            if ( devState != DEV_HOLD )
+    278            {
+    279              ZDOInitDevice( 0 );
+    280            }
+    281            else
+    282            {
+    283              // Blink LED to indicate HOLD_START
+    284              HalLedBlink ( HAL_LED_4, 0, 50, 500 );
+    285            }
+    286          
+    287            ZDApp_RegisterCBs();
+    288          } /* ZDApp_Init() */
+    289          
+    290          /*********************************************************************
+    291           * @fn          ZDApp_SecInit
+    292           *
+    293           * @brief       ZDApp initialize security.
+    294           *
+    295           * @param       state - device initialization state
+    296           *
+    297           * @return      none
+    298           */
+    299          void ZDApp_SecInit( uint8 state )
+    300          {
+    301            uint8 zgPreConfigKey[SEC_KEY_LEN];
+    302          
+    303            if ( ZG_SECURE_ENABLED && ZG_BUILD_COORDINATOR_TYPE && ZG_DEVICE_COORDINATOR_TYPE )
+    304            {
+    305              // Set the Trust Center bit
+    306              ZDO_Config_Node_Descriptor.ServerMask |= PRIM_TRUST_CENTER;
+    307            }
+    308          
+    309            if ( ZG_CHECK_SECURITY_MODE == ZG_SECURITY_PRO_HIGH )
+    310            {
+    311              ZDO_Config_Node_Descriptor.CapabilityFlags |= CAPINFO_SECURITY_CAPABLE;
+    312            }
+    313          
+    314            // Initialize ZigBee Device Security Manager
+    315            ZDSecMgrInit(state);
+    316          
+    317            if ( ZG_SECURE_ENABLED )
+    318            {
+    319              if ( state != ZDO_INITDEV_RESTORED_NETWORK_STATE )
+    320              {
+    321                nwkFrameCounter = 0;
+    322          
+    323                if( _NIB.nwkKeyLoaded == FALSE )
+    324                {
+    325                  if ( ( ZG_BUILD_COORDINATOR_TYPE && ZG_DEVICE_COORDINATOR_TYPE          ) ||
+    326                       ( ( zgSecurityMode == ZG_SECURITY_RESIDENTIAL ) && zgPreConfigKeys )    )
+    327                  {
+    328                      ZDSecMgrReadKeyFromNv(ZCD_NV_PRECFGKEY, zgPreConfigKey);
+    329                      SSP_UpdateNwkKey( zgPreConfigKey, 0);
+    330                      SSP_SwitchNwkKey( 0 );
+    331          
+    332                      // clear local copy of key
+    333                      osal_memset(zgPreConfigKey, 0x00, SEC_KEY_LEN);
+    334                  }
+    335                }
+    336              }
+    337            }
+    338          }
+    339          
+    340          /*********************************************************************
+    341           * @fn      ZDApp_event_loop()
+    342           *
+    343           * @brief   Main event loop for Zigbee device objects task. This function
+    344           *          should be called at periodic intervals.
+    345           *
+    346           * @param   task_id - Task ID
+    347           * @param   events  - Bitmap of events
+    348           *
+    349           * @return  none
+    350           */
+    351          UINT16 ZDApp_event_loop( uint8 task_id, UINT16 events )
+    352          {
+    353            uint8 *msg_ptr;
+    354          
+    355            if ( events & SYS_EVENT_MSG )
+    356            {
+    357              while ( (msg_ptr = osal_msg_receive( ZDAppTaskID )) )
+    358              {
+    359                ZDApp_ProcessOSALMsg( (osal_event_hdr_t *)msg_ptr );
+    360          
+    361                // Release the memory
+    362                osal_msg_deallocate( msg_ptr );
+    363              }
+    364          
+    365              // Return unprocessed events
+    366              return (events ^ SYS_EVENT_MSG);
+    367            }
+    368          
+    369            if ( events & ZDO_NETWORK_INIT )
+    370            {
+    371              // Initialize apps and start the network
+    372              devState = DEV_INIT;
+    373          
+    374              ZDO_StartDevice( (uint8)ZDO_Config_Node_Descriptor.LogicalType, devStartMode,
+    375                               DEFAULT_BEACON_ORDER, DEFAULT_SUPERFRAME_ORDER );
+    376          
+    377              // Return unprocessed events
+    378              return (events ^ ZDO_NETWORK_INIT);
+    379            }
+    380          
+    381            if ( ZSTACK_ROUTER_BUILD )
+    382            {
+    383              if ( events & ZDO_NETWORK_START )
+    384              {
+    385                ZDApp_NetworkStartEvt();
+    386          
+    387                // Return unprocessed events
+    388                return (events ^ ZDO_NETWORK_START);
+    389              }
+    390          
+    391              if ( events & ZDO_ROUTER_START )
+    392              {
+    393                if ( nwkStatus == ZSuccess )
+    394                {
+    395                  if ( devState == DEV_END_DEVICE )
+    396                    devState = DEV_ROUTER;
+    397          
+    398                  osal_pwrmgr_device( PWRMGR_ALWAYS_ON );
+    399                }
+    400                else
+    401                {
+    402                  // remain as end device!!
+    403                }
+    404                osal_set_event( ZDAppTaskID, ZDO_STATE_CHANGE_EVT );
+    405          
+    406                // Return unprocessed events
+    407                return (events ^ ZDO_ROUTER_START);
+    408              }
+    409            }
+    410          
+    411            if ( events & ZDO_STATE_CHANGE_EVT )
+    412            {
+    413              ZDO_UpdateNwkStatus( devState );
+    414          
+    415              // At start up, do one MTO route discovery if the device is a concentrator
+    416              if ( zgConcentratorEnable == TRUE )
+    417              {
+    418                // Start next event
+    419                osal_start_timerEx( NWK_TaskID, NWK_MTO_RTG_REQ_EVT, 100 );
+    420              }
+    421          
+    422              // Return unprocessed events
+    423              return (events ^ ZDO_STATE_CHANGE_EVT);
+    424            }
+    425          
+    426            if ( events & ZDO_COMMAND_CNF )
+    427            {
+    428              // User defined logic
+    429          
+    430              // Return unprocessed events
+    431              return (events ^ ZDO_COMMAND_CNF);
+    432            }
+    433          
+    434            if ( events & ZDO_NWK_UPDATE_NV )
+    435            {
+    436              ZDApp_SaveNetworkStateEvt();
+    437          
+    438              // Return unprocessed events
+    439              return (events ^ ZDO_NWK_UPDATE_NV);
+    440            }
+    441          
+    442            if ( events & ZDO_DEVICE_RESET )
+    443            {
+    444              // The device has been in the UNAUTH state, so reset
+    445              // Note: there will be no return from this call
+    446              SystemResetSoft();
+    447            }
+    448          
+    449            if ( ZG_SECURE_ENABLED )
+    450            {
+    451              return ( ZDApp_ProcessSecEvent( task_id, events ) );
+    452            }
+    453            else
+    454            {
+    455              // Discard or make more handlers
+    456              return 0;
+    457            }
+    458          }
+    459          
+    460          /*********************************************************************
+    461           * @fn      ZDApp_ProcessSecEvent()
+    462           *
+    463           * @brief   Process incoming security events.
+    464           *
+    465           * @param   task_id - Task ID
+    466           * @param   events  - Bitmap of events
+    467           *
+    468           * @return  none
+    469           */
+    470          UINT16 ZDApp_ProcessSecEvent( uint8 task_id, UINT16 events )
+    471          {
+    472            (void)task_id;  // Intentionally unreferenced parameter
+    473          
+    474            if ( ZSTACK_ROUTER_BUILD )
+    475            {
+    476              if ( events & ZDO_NEW_DEVICE )
+    477              {
+    478                // process the new device event
+    479                if ( ZDSecMgrNewDeviceEvent() == TRUE )
+    480                {
+    481                  osal_start_timerEx( ZDAppTaskID, ZDO_NEW_DEVICE, 1000 );
+    482                }
+    483          
+    484                // Return unprocessed events
+    485                return (events ^ ZDO_NEW_DEVICE);
+    486              }
+    487            }
+    488          
+    489            if ( (ZG_CHECK_SECURITY_MODE == ZG_SECURITY_PRO_HIGH)
+    490                || (ZG_CHECK_SECURITY_MODE == ZG_SECURITY_SE_STANDARD) )
+    491            {
+    492              if ( ZG_BUILD_COORDINATOR_TYPE && ZG_DEVICE_COORDINATOR_TYPE )
+    493              {
+    494                if ( events & ZDO_SECMGR_EVENT )
+    495                {
+    496                  ZDSecMgrEvent();
+    497          
+    498                  // Return unprocessed events
+    499                  return (events ^ ZDO_SECMGR_EVENT);
+    500                }
+    501              }
+    502            }
+    503          
+    504            if ( events & ZDO_DEVICE_AUTH )
+    505            {
+    506              ZDApp_DeviceAuthEvt();
+    507          
+    508              // Return unprocessed events
+    509              return (events ^ ZDO_DEVICE_AUTH);
+    510            }
+    511          
+    512            if ( events & ZDO_FRAMECOUNTER_CHANGE )
+    513            {
+    514              if ( nwkFrameCounterChanges++ > MAX_NWK_FRAMECOUNTER_CHANGES )
+    515              {
+    516                ZDApp_SaveNwkKey();
+    517              }
+    518          
+    519              // Return unprocessed events
+    520              return (events ^ ZDO_FRAMECOUNTER_CHANGE);
+    521            }
+    522          
+    523            if ( events & ZDO_APS_FRAMECOUNTER_CHANGE )
+    524            {
+    525          #if defined (NV_RESTORE)
+    526              ZDSecMgrSaveApsLinkKey();
+    527          #endif // (NV_RESTORE)
+    528              
+    529              // Return unprocessed events
+    530              return (events ^ ZDO_APS_FRAMECOUNTER_CHANGE);
+    531            }
+    532          
+    533            if ( events & ZDO_TCLK_FRAMECOUNTER_CHANGE )
+    534            {
+    535              ZDSecMgrSaveTCLinkKey();
+    536              
+    537              // Return unprocessed events
+    538              return (events ^ ZDO_TCLK_FRAMECOUNTER_CHANGE);
+    539            }
+    540            
+    541            // Discard or make more handlers
+    542            return 0;
+    543          }
+    544          
+    545          /*********************************************************************
+    546           * Application Functions
+    547           */
+    548          
+    549          /*********************************************************************
+    550           * @fn      ZDOInitDevice
+    551           *
+    552           * @brief   Start the device in the network.  This function will read
+    553           *   ZCD_NV_STARTUP_OPTION (NV item) to determine whether or not to
+    554           *   restore the network state of the device.
+    555           *
+    556           * @param   startDelay - timeDelay to start device (in milliseconds).
+    557           *      There is a jitter added to this delay:
+    558           *              ((NWK_START_DELAY + startDelay)
+    559           *              + (osal_rand() & EXTENDED_JOINING_RANDOM_MASK))
+    560           *
+    561           * NOTE:    If the application would like to force a "new" join, the
+    562           *          application should set the ZCD_STARTOPT_DEFAULT_NETWORK_STATE
+    563           *          bit in the ZCD_NV_STARTUP_OPTION NV item before calling
+    564           *          this function. "new" join means to not restore the network
+    565           *          state of the device. Use zgWriteStartupOptions() to set these
+    566           *          options.
+    567           *
+    568           * @return
+    569           *    ZDO_INITDEV_RESTORED_NETWORK_STATE  - The device's network state was
+    570           *          restored.
+    571           *    ZDO_INITDEV_NEW_NETWORK_STATE - The network state was initialized.
+    572           *          This could mean that ZCD_NV_STARTUP_OPTION said to not restore, or
+    573           *          it could mean that there was no network state to restore.
+    574           *    ZDO_INITDEV_LEAVE_NOT_STARTED - Before the reset, a network leave was issued
+    575           *          with the rejoin option set to TRUE.  So, the device was not
+    576           *          started in the network (one time only).  The next time this
+    577           *          function is called it will start.
+    578           */
+    579          uint8 ZDOInitDevice( uint16 startDelay )
+    580          {
+    581            uint8 networkStateNV = ZDO_INITDEV_NEW_NETWORK_STATE;
+    582            uint16 extendedDelay = 0;
+    583          
+    584            if ( devState == DEV_HOLD )
+    585            {
+    586              // Initialize the RAM items table, in case an NV item has been updated.
+    587              zgInitItems( FALSE );
+    588            }
+    589          
+    590            ZDConfig_InitDescriptors();
+    591            //devtag.071807.todo - fix this temporary solution
+    592            _NIB.CapabilityFlags = ZDO_Config_Node_Descriptor.CapabilityFlags;
+    593          
+    594            devState = DEV_INIT;    // Remove the Hold state
+    595          
+    596            // Initialize leave control logic
+    597            ZDApp_LeaveCtrlInit();
+    598          
+    599            // Check leave control reset settings
+    600            ZDApp_LeaveCtrlStartup( &devState, &startDelay );
+    601          
+    602            // Leave may make the hold state come back
+    603            if ( devState == DEV_HOLD )
+    604            {
+    605              // Set the NV startup option to force a "new" join.
+    606              zgWriteStartupOptions( ZG_STARTUP_SET, ZCD_STARTOPT_DEFAULT_NETWORK_STATE );
+    607          
+    608              // Notify the applications
+    609              osal_set_event( ZDAppTaskID, ZDO_STATE_CHANGE_EVT );
+    610          
+    611              return ( ZDO_INITDEV_LEAVE_NOT_STARTED );   // Don't join - (one time).
+    612            }
+    613          
+    614          #if defined ( NV_RESTORE )
+    615            // Get Keypad directly to see if a reset nv is needed.
+    616            // Hold down the SW_BYPASS_NV key (defined in OnBoard.h)
+    617            // while booting to skip past NV Restore.
+    618            if ( HalKeyRead() == SW_BYPASS_NV )
+    619              networkStateNV = ZDO_INITDEV_NEW_NETWORK_STATE;
+    620            else
+    621            {
+    622              // Determine if NV should be restored
+    623              networkStateNV = ZDApp_ReadNetworkRestoreState();
+    624            }
+    625          
+    626            if ( networkStateNV == ZDO_INITDEV_RESTORED_NETWORK_STATE )
+    627            {
+    628              networkStateNV = ZDApp_RestoreNetworkState();
+    629            }
+    630            else
+    631            {
+    632              // Wipe out the network state in NV
+    633              NLME_InitNV();
+    634              NLME_SetDefaultNV();
+    635              // clear NWK key values
+    636              ZDSecMgrClearNVKeyValues();
+    637            }
+    638          #endif
+    639          
+    640            if ( networkStateNV == ZDO_INITDEV_NEW_NETWORK_STATE )
+    641            {
+    642              ZDAppDetermineDeviceType();
+    643          
+    644              // Only delay if joining network - not restoring network state
+    645              extendedDelay = (uint16)((NWK_START_DELAY + startDelay)
+    646                        + (osal_rand() & EXTENDED_JOINING_RANDOM_MASK));
+    647            }
+    648          
+    649            // Initialize the security for type of device
+    650            ZDApp_SecInit( networkStateNV );
+    651          
+    652            // Trigger the network start
+    653            ZDApp_NetworkInit( extendedDelay );
+    654          
+    655            // set broadcast address mask to support broadcast filtering
+    656            NLME_SetBroadcastFilter( ZDO_Config_Node_Descriptor.CapabilityFlags );
+    657          
+    658            return ( networkStateNV );
+    659          }
+    660          
+    661          /*********************************************************************
+    662           * @fn      ZDApp_ReadNetworkRestoreState
+    663           *
+    664           * @brief   Read the ZCD_NV_STARTUP_OPTION NV Item to state whether
+    665           *          or not to restore the network state.
+    666           *          If the read value has the ZCD_STARTOPT_DEFAULT_NETWORK_STATE
+    667           *          bit set return the ZDO_INITDEV_NEW_NETWORK_STATE.
+    668           *
+    669           * @param   none
+    670           *
+    671           * @return  ZDO_INITDEV_NEW_NETWORK_STATE
+    672           *          or ZDO_INITDEV_RESTORED_NETWORK_STATE based on whether or
+    673           *          not ZCD_STARTOPT_DEFAULT_NETWORK_STATE bit is set in
+    674           *          ZCD_NV_STARTUP_OPTION
+    675           */
+    676          uint8 ZDApp_ReadNetworkRestoreState( void )
+    677          {
+    678            uint8 networkStateNV = ZDO_INITDEV_RESTORED_NETWORK_STATE;
+    679          
+    680            // Look for the New Network State option.
+    681            if ( zgReadStartupOptions() & ZCD_STARTOPT_DEFAULT_NETWORK_STATE )
+    682            {
+    683              networkStateNV = ZDO_INITDEV_NEW_NETWORK_STATE;
+    684            }
+    685          
+    686            return ( networkStateNV );
+    687          }
+    688          
+    689          /*********************************************************************
+    690           * @fn      ZDAppDetermineDeviceType()
+    691           *
+    692           * @brief   Determines the type of device to start.
+    693           *
+    694           *          Looks at zgDeviceLogicalType and determines what type of
+    695           *          device to start.  The types are:
+    696           *            ZG_DEVICETYPE_COORDINATOR
+    697           *            ZG_DEVICETYPE_ROUTER
+    698           *            ZG_DEVICETYPE_ENDDEVICE
+    699           *
+    700           * @param   none
+    701           *
+    702           * @return  none
+    703           */
+    704          void ZDAppDetermineDeviceType( void )
+    705          {
+    706            if ( zgDeviceLogicalType == ZG_DEVICETYPE_COORDINATOR )
+    707            {
+    708              devStartMode = MODE_HARD;     // Start as a coordinator
+    709              ZDO_Config_Node_Descriptor.LogicalType = NODETYPE_COORDINATOR;
+    710            }
+    711            else
+    712            {
+    713              if ( zgDeviceLogicalType == ZG_DEVICETYPE_ROUTER  )
+    714                ZDO_Config_Node_Descriptor.LogicalType = NODETYPE_ROUTER;
+    715              else if ( zgDeviceLogicalType == ZG_DEVICETYPE_ENDDEVICE )
+    716                ZDO_Config_Node_Descriptor.LogicalType = NODETYPE_DEVICE;
+    717          
+    718              // If AIB_apsUseExtendedPANID is set to a non-zero value by commissioning
+    719              // The device shall do rejoin the network. Otherwise, do normal join
+    720              if ( nwk_ExtPANIDValid( AIB_apsUseExtendedPANID ) == false )
+    721              {
+    722                devStartMode = MODE_JOIN;     // Assume joining
+    723              }
+    724              else
+    725              {
+    726                devStartMode = MODE_REJOIN;
+    727              }
+    728            }
+    729          }
+    730          
+    731          /*********************************************************************
+    732           * @fn      ZDApp_NetworkStartEvt()
+    733           *
+    734           * @brief   Process the Network Start Event
+    735           *
+    736           * @param   none
+    737           *
+    738           * @return  none
+    739           */
+    740          void ZDApp_NetworkStartEvt( void )
+    741          {
+    742            if ( nwkStatus == ZSuccess )
+    743            {
+    744              // Successfully started a ZigBee network
+    745              if ( devState == DEV_COORD_STARTING )
+    746              {
+    747                devState = DEV_ZB_COORD;
+    748              }
+    749          
+    750              osal_pwrmgr_device( PWRMGR_ALWAYS_ON );
+    751              osal_set_event( ZDAppTaskID, ZDO_STATE_CHANGE_EVT );
+    752            }
+    753            else
+    754            {
+    755              // Try again with a higher energy threshold !!
+    756              if ( ( NLME_GetEnergyThreshold() + ENERGY_SCAN_INCREMENT ) < 0xff )
+    757              {
+    758                NLME_SetEnergyThreshold( (uint8)(NLME_GetEnergyThreshold() + ENERGY_SCAN_INCREMENT) );
+    759                osal_set_event( ZDAppTaskID, ZDO_NETWORK_INIT );
+    760              }
+    761              else
+    762              {
+    763                // Failed to start network. Enter a dormant state (until user intervenes)
+    764                devState = DEV_INIT;
+    765                osal_set_event( ZDAppTaskID, ZDO_STATE_CHANGE_EVT );
+    766              }
+    767            }
+    768          }
+    769          
+    770          /*********************************************************************
+    771           * @fn      ZDApp_DeviceAuthEvt()
+    772           *
+    773           * @brief   Process the Device Authentic Event
+    774           *
+    775           * @param   none
+    776           *
+    777           * @return  none
+    778           */
+    779          void ZDApp_DeviceAuthEvt( void )
+    780          {
+    781            // received authentication from trust center
+    782            if ( devState == DEV_END_DEVICE_UNAUTH )
+    783            {
+    784              // Stop the reset timer so it doesn't reset
+    785              ZDApp_ResetTimerCancel();
+    786          
+    787              devState = DEV_END_DEVICE;
+    788              osal_set_event( ZDAppTaskID, ZDO_STATE_CHANGE_EVT );
+    789          
+    790              // Set the Power Manager Device
+    791          #if defined ( POWER_SAVING )
+    792              osal_pwrmgr_device( PWRMGR_BATTERY );
+    793          #endif
+    794          
+    795              if ( ZSTACK_ROUTER_BUILD )
+    796              {
+    797                if ( ZDO_Config_Node_Descriptor.LogicalType != NODETYPE_DEVICE )
+    798                {
+    799                  // NOTE: first two parameters are not used, see NLMEDE.h for details
+    800                  NLME_StartRouterRequest( 0, 0, false );
+    801                }
+    802              }
+    803          
+    804              // Notify to save info into NV
+    805              ZDApp_NVUpdate();
+    806          
+    807              // Save off the security
+    808              ZDApp_SaveNwkKey();
+    809          
+    810              ZDApp_AnnounceNewAddress();
+    811          
+    812              if ( (ZDO_Config_Node_Descriptor.CapabilityFlags & CAPINFO_RCVR_ON_IDLE) == 0 )
+    813              {
+    814                NLME_SetPollRate( ZDApp_SavedPollRate );
+    815              }
+    816            }
+    817            else
+    818            {
+    819              ZDApp_NVUpdate();
+    820            }
+    821          }
+    822          
+    823          /*********************************************************************
+    824           * @fn      ZDApp_SaveNetworkStateEvt()
+    825           *
+    826           * @brief   Process the Save the Network State Event
+    827           *
+    828           * @param   none
+    829           *
+    830           * @return  none
+    831           */
+    832          void ZDApp_SaveNetworkStateEvt( void )
+    833          {
+    834          #if defined ( NV_RESTORE )
+    835           #if defined ( NV_TURN_OFF_RADIO )
+    836            // Turn off the radio's receiver during an NV update
+    837            uint8 RxOnIdle;
+    838            uint8 x = false;
+    839            ZMacGetReq( ZMacRxOnIdle, &RxOnIdle );
+    840            ZMacSetReq( ZMacRxOnIdle, &x );
+    841           #endif
+    842          
+    843            // Update the Network State in NV
+    844            NLME_UpdateNV( NWK_NV_NIB_ENABLE        |
+    845                           NWK_NV_DEVICELIST_ENABLE |
+    846                           NWK_NV_BINDING_ENABLE    |
+    847                           NWK_NV_ADDRMGR_ENABLE );
+    848          
+    849            // Reset the NV startup option to resume from NV by
+    850            // clearing the "New" join option.
+    851            zgWriteStartupOptions( FALSE, ZCD_STARTOPT_DEFAULT_NETWORK_STATE );
+    852          
+    853           #if defined ( NV_TURN_OFF_RADIO )
+    854            ZMacSetReq( ZMacRxOnIdle, &RxOnIdle );
+    855           #endif
+    856          #endif  // NV_RESTORE
+    857          }
+    858          
+    859          /*********************************************************************
+    860           * @fn      ZDApp_RestoreNetworkState()
+    861           *
+    862           * @brief   This function will restore the network state of the
+    863           *          device if the network state is stored in NV.
+    864           *
+    865           * @param   none
+    866           *
+    867           * @return
+    868           *    ZDO_INITDEV_RESTORED_NETWORK_STATE  - The device's network state was
+    869           *          restored.
+    870           *    ZDO_INITDEV_NEW_NETWORK_STATE - The network state was not used.
+    871           *          This could mean that zgStartupOption said to not restore, or
+    872           *          it could mean that there was no network state to restore.
+    873           *
+    874           */
+    875          uint8 ZDApp_RestoreNetworkState( void )
+    876          {
+    877            uint8 nvStat;
+    878          
+    879            // Initialize NWK NV items
+    880            nvStat = NLME_InitNV();
+    881          
+    882            if ( nvStat != NV_OPER_FAILED )
+    883            {
+    884              if ( NLME_RestoreFromNV() )
+    885              {
+    886                // Are we a coordinator
+    887                ZDAppNwkAddr.addr.shortAddr = NLME_GetShortAddr();
+    888                if ( ZDAppNwkAddr.addr.shortAddr == 0 )
+    889                  ZDO_Config_Node_Descriptor.LogicalType = NODETYPE_COORDINATOR;
+    890                devStartMode = MODE_RESUME;
+    891                osal_cpyExtAddr( ZDO_UseExtendedPANID, _NIB.extendedPANID );
+    892              }
+    893              else
+    894                nvStat = NV_ITEM_UNINIT;
+    895          
+    896              if ( ZG_SECURE_ENABLED )
+    897              {
+    898                nwkFrameCounterChanges = 0;
+    899          
+    900                if ( ZG_BUILD_COORDINATOR_TYPE && ZG_DEVICE_COORDINATOR_TYPE )
+    901                {
+    902                  ZDApp_RestoreNwkKey();
+    903                }
+    904              }
+    905          
+    906              // The default for RxOnWhenIdle is true for Routers and false for end devices
+    907              // [setup in the NLME_RestoreFromNV()].  Change it here if you want something
+    908              // other than default.
+    909            }
+    910          
+    911            if ( nvStat == ZSUCCESS )
+    912              return ( ZDO_INITDEV_RESTORED_NETWORK_STATE );
+    913            else
+    914              return ( ZDO_INITDEV_NEW_NETWORK_STATE );
+    915          }
+    916          
+    917          /*********************************************************************
+    918           * @fn      ZDApp_InitUserDesc()
+    919           *
+    920           * @brief   Initialize the User Descriptor, the descriptor is read from NV
+    921           *          when needed.  If you want to initialize the User descriptor to
+    922           *          something other than all zero, do it here.
+    923           *
+    924           * @param   none
+    925           *
+    926           * @return  none
+    927           */
+    928          void ZDApp_InitUserDesc( void )
+    929          {
+    930            UserDescriptorFormat_t ZDO_DefaultUserDescriptor;
+    931          
+    932            // Initialize the User Descriptor, the descriptor is read from NV
+    933            // when needed.  If you want to initialize the User descriptor to something
+    934            // other than all zero, do it here.
+    935            osal_memset( &ZDO_DefaultUserDescriptor, 0, sizeof( UserDescriptorFormat_t ) );
+    936            if ( ZSUCCESS == osal_nv_item_init( ZCD_NV_USERDESC,
+    937                   sizeof(UserDescriptorFormat_t), (void*)&ZDO_DefaultUserDescriptor ) )
+    938            {
+    939              if ( ZSUCCESS == osal_nv_read( ZCD_NV_USERDESC, 0,
+    940                   sizeof(UserDescriptorFormat_t), (void*)&ZDO_DefaultUserDescriptor ) )
+    941              {
+    942                if ( ZDO_DefaultUserDescriptor.len != 0 )
+    943                {
+    944                  ZDO_Config_Node_Descriptor.UserDescAvail = TRUE;
+    945                }
+    946              }
+    947            }
+    948          }
+    949          
+    950          /*********************************************************************
+    951           * @fn      ZDAppCheckForHoldKey()
+    952           *
+    953           * @brief   Check for key to set the device into Hold Auto Start
+    954           *
+    955           * @param   none
+    956           *
+    957           * @return  none
+    958           */
+    959          void ZDAppCheckForHoldKey( void )
+    960          {
+    961          #if (defined HAL_KEY) && (HAL_KEY == TRUE)
+    962            // Get Keypad directly to see if a HOLD_START is needed.
+    963            // Hold down the SW_BYPASS_START key (see OnBoard.h)
+    964            // while booting to avoid starting up the device.
+    965            if ( HalKeyRead () == SW_BYPASS_START)
+    966            {
+    967              // Change the device state to HOLD on start up
+    968              devState = DEV_HOLD;
+    969            }
+    970          #endif // HAL_KEY
+    971          }
+    972          
+    973          /*********************************************************************
+    974           * @fn      ZDApp_ProcessOSALMsg()
+    975           *
+    976           * @brief   Process the incoming task message.
+    977           *
+    978           * @param   msgPtr - message to process
+    979           *
+    980           * @return  none
+    981           */
+    982          void ZDApp_ProcessOSALMsg( osal_event_hdr_t *msgPtr )
+    983          {
+    984            // Data Confirmation message fields
+    985            uint8 sentEP;       // This should always be 0
+    986            uint8 sentStatus;
+    987            afDataConfirm_t *afDataConfirm;
+    988            uint8 tmp;
+    989          
+    990            switch ( msgPtr->event )
+    991            {
+    992              // Incoming ZDO Message
+    993              case AF_INCOMING_MSG_CMD:
+    994                ZDP_IncomingData( (afIncomingMSGPacket_t *)msgPtr );
+    995                break;
+    996          
+    997              case ZDO_CB_MSG:
+    998                ZDApp_ProcessMsgCBs( (zdoIncomingMsg_t *)msgPtr );
+    999                break;
+   1000          
+   1001              case AF_DATA_CONFIRM_CMD:
+   1002                // This message is received as a confirmation of a data packet sent.
+   1003                // The status is of ZStatus_t type [defined in NLMEDE.h]
+   1004                // The message fields are defined in AF.h
+   1005                afDataConfirm = (afDataConfirm_t *)msgPtr;
+   1006                sentEP = afDataConfirm->endpoint;
+   1007                sentStatus = afDataConfirm->hdr.status;
+   1008          
+   1009                // Action taken when confirmation is received.
+   1010          #if defined ( ZIGBEE_FREQ_AGILITY )
+   1011                if ( pZDNwkMgr_ProcessDataConfirm )
+   1012                  pZDNwkMgr_ProcessDataConfirm( afDataConfirm );
+   1013          #endif
+   1014                (void)sentEP;
+   1015                (void)sentStatus;
+   1016                break;
+   1017          
+   1018              case ZDO_NWK_DISC_CNF:
+   1019                if (devState != DEV_NWK_DISC)
+   1020                  break;
+   1021          
+   1022                if ( ZG_BUILD_JOINING_TYPE && ZG_DEVICE_JOINING_TYPE )
+   1023                {
+   1024                  if ( (((ZDO_NetworkDiscoveryCfm_t *)msgPtr)->hdr.status == ZDO_SUCCESS) && (zdoDiscCounter > NUM_DISC_ATTEMPTS) )
+   1025                  {
+   1026                    if ( devStartMode == MODE_JOIN )
+   1027                    {
+   1028                      devState = DEV_NWK_JOINING;
+   1029          
+   1030                      ZDApp_NodeProfileSync((ZDO_NetworkDiscoveryCfm_t *)msgPtr);
+   1031          
+   1032                      if ( NLME_JoinRequest( ((ZDO_NetworkDiscoveryCfm_t *)msgPtr)->extendedPANID,
+   1033                           BUILD_UINT16( ((ZDO_NetworkDiscoveryCfm_t *)msgPtr)->panIdLSB, ((ZDO_NetworkDiscoveryCfm_t *)msgPtr)->panIdMSB ),
+   1034                           ((ZDO_NetworkDiscoveryCfm_t *)msgPtr)->logicalChannel,
+   1035                           ZDO_Config_Node_Descriptor.CapabilityFlags ) != ZSuccess )
+   1036                      {
+   1037                        ZDApp_NetworkInit( (uint16)(NWK_START_DELAY
+   1038                            + ((uint16)(osal_rand()& EXTENDED_JOINING_RANDOM_MASK))) );
+   1039                      }
+   1040                    }
+   1041                    else if ( devStartMode == MODE_REJOIN )
+   1042                    {
+   1043                      devState = DEV_NWK_REJOIN;
+   1044          
+   1045                      // Before trying to do rejoin, check if the device has a valid short address
+   1046                      // If not, generate a random short address for itself
+   1047                      if ( _NIB.nwkDevAddress == INVALID_NODE_ADDR )
+   1048                      {
+   1049                        _NIB.nwkDevAddress = osal_rand();
+   1050                        ZMacSetReq( ZMacShortAddress, (byte*)&_NIB.nwkDevAddress );
+   1051                      }
+   1052          
+   1053                      if ( ZG_SECURE_ENABLED )
+   1054                      {
+   1055                        ZDApp_RestoreNwkKey();
+   1056                      }
+   1057          
+   1058                      // Check if the device has a valid PanID, if not, set it to the discovered Pan
+   1059                      if ( _NIB.nwkPanId == INVALID_PAN_ID )
+   1060                      {
+   1061                        _NIB.nwkPanId = BUILD_UINT16( ((ZDO_NetworkDiscoveryCfm_t *)msgPtr)->panIdLSB, ((ZDO_NetworkDiscoveryCfm_t *)msgPtr)->panIdMSB );
+   1062                        ZMacSetReq( ZMacPanId, (byte*)&(_NIB.nwkPanId) );
+   1063                      }
+   1064          
+   1065                      tmp = true;
+   1066                      ZMacSetReq( ZMacRxOnIdle, &tmp ); // Set receiver always on during rejoin
+   1067                      if ( NLME_ReJoinRequest( ZDO_UseExtendedPANID, ((ZDO_NetworkDiscoveryCfm_t *)msgPtr)->logicalChannel) != ZSuccess )
+   1068                      {
+   1069                        ZDApp_NetworkInit( (uint16)(NWK_START_DELAY
+   1070                            + ((uint16)(osal_rand()& EXTENDED_JOINING_RANDOM_MASK))) );
+   1071                      }
+   1072                    }
+   1073          
+   1074                    if ( ZDO_Config_Node_Descriptor.CapabilityFlags & CAPINFO_RCVR_ON_IDLE )
+   1075                    {
+   1076                      // The receiver is on, turn network layer polling off.
+   1077                      NLME_SetPollRate( 0 );
+   1078                      NLME_SetQueuedPollRate( 0 );
+   1079                      NLME_SetResponseRate( 0 );
+   1080                    }
+   1081                    else
+   1082                    {
+   1083                      if ( (ZG_SECURE_ENABLED) && (devStartMode == MODE_JOIN) )
+   1084                      {
+   1085                        ZDApp_SavedPollRate = zgPollRate;
+   1086                        NLME_SetPollRate( zgRejoinPollRate );
+   1087                      }
+   1088                    }
+   1089                  }
+   1090                  else
+   1091                  {
+   1092                    if ( continueJoining )
+   1093                    {
+   1094              #if defined ( MANAGED_SCAN )
+   1095                      ZDApp_NetworkInit( MANAGEDSCAN_DELAY_BETWEEN_SCANS );
+   1096              #else
+   1097                      zdoDiscCounter++;
+   1098                      ZDApp_NetworkInit( (uint16)(BEACON_REQUEST_DELAY
+   1099                            + ((uint16)(osal_rand()& BEACON_REQ_DELAY_MASK))) );
+   1100              #endif
+   1101                    }
+   1102                  }
+   1103                }
+   1104                break;
+   1105          
+   1106              case ZDO_NWK_JOIN_IND:
+   1107                if ( ZG_BUILD_JOINING_TYPE && ZG_DEVICE_JOINING_TYPE )
+   1108                {
+   1109                  ZDApp_ProcessNetworkJoin();
+   1110                }
+   1111                break;
+   1112          
+   1113              case ZDO_NWK_JOIN_REQ:
+   1114                if ( ZG_BUILD_JOINING_TYPE && ZG_DEVICE_JOINING_TYPE )
+   1115                {
+   1116                  retryCnt = 0;
+   1117                  devStartMode = MODE_RESUME;
+   1118                  _tmpRejoinState = true;
+   1119                  osal_cpyExtAddr( ZDO_UseExtendedPANID, _NIB.extendedPANID );
+   1120                  zgDefaultStartingScanDuration = BEACON_ORDER_60_MSEC;
+   1121                  ZDApp_NetworkInit( 0 );
+   1122                }
+   1123                break;
+   1124          
+   1125              default:
+   1126                if ( ZG_SECURE_ENABLED )
+   1127                  ZDApp_ProcessSecMsg( msgPtr );
+   1128                break;
+   1129            }
+   1130          
+   1131          }
+   1132          
+   1133          /*********************************************************************
+   1134           * @fn      ZDApp_ProcessMsgCBs()
+   1135           *
+   1136           * @brief   Process response messages
+   1137           *
+   1138           * @param   none
+   1139           *
+   1140           * @return  none
+   1141           */
+   1142          void ZDApp_ProcessMsgCBs( zdoIncomingMsg_t *inMsg )
+   1143          {
+   1144            switch ( inMsg->clusterID )
+   1145            {
+   1146          #if defined ( ZDO_NWKADDR_REQUEST ) || defined ( ZDO_IEEEADDR_REQUEST ) || defined ( REFLECTOR )
+   1147              case NWK_addr_rsp:
+   1148              case IEEE_addr_rsp:
+   1149                {
+   1150                  ZDO_NwkIEEEAddrResp_t *pAddrRsp;
+   1151                  pAddrRsp = ZDO_ParseAddrRsp( inMsg );
+   1152                  if ( pAddrRsp )
+   1153                  {
+   1154                    if ( pAddrRsp->status == ZSuccess )
+   1155                    {
+   1156                      ZDO_UpdateAddrManager( pAddrRsp->nwkAddr, pAddrRsp->extAddr );
+   1157                    }
+   1158                    osal_mem_free( pAddrRsp );
+   1159                  }
+   1160                }
+   1161                break;
+   1162          #endif
+   1163          
+   1164          #if defined ( REFLECTOR )
+   1165              case Bind_req:
+   1166              case Unbind_req:
+   1167                {
+   1168                  ZDO_BindUnbindReq_t bindReq;
+   1169                  ZDO_ParseBindUnbindReq( inMsg, &bindReq );
+   1170                  ZDO_ProcessBindUnbindReq( inMsg, &bindReq );
+   1171                }
+   1172                break;
+   1173          #endif
+   1174          
+   1175          #if ( ZG_BUILD_COORDINATOR_TYPE )
+   1176              case Bind_rsp:
+   1177              case Unbind_rsp:
+   1178                if (ZG_DEVICE_COORDINATOR_TYPE && matchED)
+   1179                {
+   1180                  ZDMatchSendState(
+   1181                       (uint8)((inMsg->clusterID == Bind_rsp) ? ZDMATCH_REASON_BIND_RSP : ZDMATCH_REASON_UNBIND_RSP),
+   1182                       ZDO_ParseBindRsp(inMsg), inMsg->TransSeq );
+   1183                }
+   1184                break;
+   1185          
+   1186              case End_Device_Bind_req:
+   1187                if (ZG_DEVICE_COORDINATOR_TYPE)
+   1188                {
+   1189                  ZDEndDeviceBind_t bindReq;
+   1190                  ZDO_ParseEndDeviceBindReq( inMsg, &bindReq );
+   1191                  ZDO_MatchEndDeviceBind( &bindReq );
+   1192          
+   1193                  // Freeing the cluster lists - if allocated.
+   1194                  if ( bindReq.numInClusters )
+   1195                    osal_mem_free( bindReq.inClusters );
+   1196                  if ( bindReq.numOutClusters )
+   1197                    osal_mem_free( bindReq.outClusters );
+   1198                }
+   1199                break;
+   1200          #endif
+   1201            }
+   1202          }
+   1203          
+   1204          /*********************************************************************
+   1205           * @fn      ZDApp_RegisterCBs()
+   1206           *
+   1207           * @brief   Process response messages
+   1208           *
+   1209           * @param   none
+   1210           *
+   1211           * @return  none
+   1212           */
+   1213          void ZDApp_RegisterCBs( void )
+   1214          {
+   1215          #if defined ( ZDO_IEEEADDR_REQUEST ) || defined ( REFLECTOR )
+   1216            ZDO_RegisterForZDOMsg( ZDAppTaskID, IEEE_addr_rsp );
+   1217          #endif
+   1218          #if defined ( ZDO_NWKADDR_REQUEST ) || defined ( REFLECTOR )
+   1219            ZDO_RegisterForZDOMsg( ZDAppTaskID, NWK_addr_rsp );
+   1220          #endif
+   1221          #if ZG_BUILD_COORDINATOR_TYPE
+   1222            ZDO_RegisterForZDOMsg( ZDAppTaskID, Bind_rsp );
+   1223            ZDO_RegisterForZDOMsg( ZDAppTaskID, Unbind_rsp );
+   1224            ZDO_RegisterForZDOMsg( ZDAppTaskID, End_Device_Bind_req );
+   1225          #endif
+   1226          #if defined ( REFLECTOR )
+   1227            ZDO_RegisterForZDOMsg( ZDAppTaskID, Bind_req );
+   1228            ZDO_RegisterForZDOMsg( ZDAppTaskID, Unbind_req );
+   1229          #endif
+   1230          }
+   1231          
+   1232          /*********************************************************************
+   1233           * @fn      ZDApp_ProcessSecMsg()
+   1234           *
+   1235           * @brief   Process the incoming security message.
+   1236           *
+   1237           * @param   msgPtr - message to process
+   1238           *
+   1239           * @return  none
+   1240           */
+   1241          void ZDApp_ProcessSecMsg( osal_event_hdr_t *msgPtr )
+   1242          {
+   1243            switch ( msgPtr->event )
+   1244            {
+   1245              case ZDO_ESTABLISH_KEY_CFM:
+   1246                if ( ZG_CHECK_SECURITY_MODE == ZG_SECURITY_PRO_HIGH )
+   1247                {
+   1248                  ZDSecMgrEstablishKeyCfm( (ZDO_EstablishKeyCfm_t*)msgPtr );
+   1249                }
+   1250                break;
+   1251          
+   1252              case ZDO_ESTABLISH_KEY_IND:
+   1253                if ( ZG_CHECK_SECURITY_MODE == ZG_SECURITY_PRO_HIGH )
+   1254                {
+   1255                  if ( ZG_BUILD_JOINING_TYPE && ZG_DEVICE_JOINING_TYPE )
+   1256                  {
+   1257                    ZDSecMgrEstablishKeyInd( (ZDO_EstablishKeyInd_t*)msgPtr );
+   1258                  }
+   1259                }
+   1260                break;
+   1261          
+   1262              case ZDO_TRANSPORT_KEY_IND:
+   1263                if ( ZG_BUILD_JOINING_TYPE && ZG_DEVICE_JOINING_TYPE )
+   1264                {
+   1265                  ZDSecMgrTransportKeyInd( (ZDO_TransportKeyInd_t*)msgPtr );
+   1266                }
+   1267                break;
+   1268          
+   1269              case ZDO_UPDATE_DEVICE_IND:
+   1270                if ( ZG_BUILD_COORDINATOR_TYPE && ZG_DEVICE_COORDINATOR_TYPE )
+   1271                {
+   1272                  ZDSecMgrUpdateDeviceInd( (ZDO_UpdateDeviceInd_t*)msgPtr );
+   1273                }
+   1274                break;
+   1275          
+   1276              case ZDO_REMOVE_DEVICE_IND:
+   1277                if ( ZG_BUILD_RTRONLY_TYPE && ( zgDeviceLogicalType == ZG_DEVICETYPE_ROUTER ) )
+   1278                {
+   1279                  ZDSecMgrRemoveDeviceInd( (ZDO_RemoveDeviceInd_t*)msgPtr );
+   1280                }
+   1281                break;
+   1282          
+   1283              case ZDO_REQUEST_KEY_IND:
+   1284                if ( ZG_CHECK_SECURITY_MODE == ZG_SECURITY_PRO_HIGH )
+   1285                {
+   1286                  if ( ZG_BUILD_COORDINATOR_TYPE && ZG_DEVICE_COORDINATOR_TYPE )
+   1287                  {
+   1288                    ZDSecMgrRequestKeyInd( (ZDO_RequestKeyInd_t*)msgPtr );
+   1289                  }
+   1290                }
+   1291                break;
+   1292          
+   1293              case ZDO_SWITCH_KEY_IND:
+   1294                if ( ZG_BUILD_JOINING_TYPE && ZG_DEVICE_JOINING_TYPE )
+   1295                {
+   1296                  ZDSecMgrSwitchKeyInd( (ZDO_SwitchKeyInd_t*)msgPtr );
+   1297                }
+   1298                break;
+   1299          
+   1300              case ZDO_AUTHENTICATE_IND:
+   1301                if ( ZG_CHECK_SECURITY_MODE == ZG_SECURITY_PRO_HIGH )
+   1302                {
+   1303                  ZDSecMgrAuthenticateInd( (ZDO_AuthenticateInd_t*)msgPtr );
+   1304                }
+   1305                break;
+   1306          
+   1307              case ZDO_AUTHENTICATE_CFM:
+   1308                if ( ZG_CHECK_SECURITY_MODE == ZG_SECURITY_PRO_HIGH )
+   1309                {
+   1310                  ZDSecMgrAuthenticateCfm( (ZDO_AuthenticateCfm_t*)msgPtr );
+   1311                }
+   1312                break;
+   1313          
+   1314              default:
+   1315                // Unsupported messages
+   1316                break;
+   1317            }
+   1318          }
+   1319          
+   1320          /*********************************************************************
+   1321           * @fn      ZDApp_ProcessNetworkJoin()
+   1322           *
+   1323           * @brief
+   1324           *
+   1325           *   Save off the Network key information.
+   1326           *
+   1327           * @param   none
+   1328           *
+   1329           * @return  none
+   1330           */
+   1331          void ZDApp_ProcessNetworkJoin( void )
+   1332          {
+   1333            if ( (devState == DEV_NWK_JOINING) ||
+   1334                ((devState == DEV_NWK_ORPHAN)  &&
+   1335                 (ZDO_Config_Node_Descriptor.LogicalType == NODETYPE_ROUTER)) )
+   1336            {
+   1337              // Result of a Join attempt by this device.
+   1338              if ( nwkStatus == ZSuccess )
+   1339              {
+   1340                osal_set_event( ZDAppTaskID, ZDO_STATE_CHANGE_EVT );
+   1341          
+   1342          #if defined ( POWER_SAVING )
+   1343                osal_pwrmgr_device( PWRMGR_BATTERY );
+   1344          #endif
+   1345          
+   1346                if ( ZG_SECURE_ENABLED && ( ZDApp_RestoreNwkKey() == false ) )
+   1347                {
+   1348                  // wait for auth from trust center!!
+   1349                  devState = DEV_END_DEVICE_UNAUTH;
+   1350          
+   1351                  // Start the reset timer for MAX UNAUTH time
+   1352                  ZDApp_ResetTimerStart( 10000 );//MAX_DEVICE_UNAUTH_TIMEOUT );
+   1353                }
+   1354                else
+   1355                {
+   1356                  if ( ZSTACK_ROUTER_BUILD )
+   1357                  {
+   1358                    if ( devState == DEV_NWK_ORPHAN
+   1359                      && ZDO_Config_Node_Descriptor.LogicalType != NODETYPE_DEVICE )
+   1360                    {
+   1361                      // Change NIB state to router for restore
+   1362                      _NIB.nwkState = NWK_ROUTER;
+   1363                    }
+   1364                  }
+   1365          
+   1366                  if ( devState == DEV_NWK_JOINING )
+   1367                  {
+   1368                    ZDApp_AnnounceNewAddress();
+   1369                  }
+   1370          
+   1371                  devState = DEV_END_DEVICE;
+   1372                  if ( ZSTACK_ROUTER_BUILD )
+   1373                  {
+   1374                    // NOTE: first two parameters are not used, see NLMEDE.h for details
+   1375                    if ( ZDO_Config_Node_Descriptor.LogicalType != NODETYPE_DEVICE )
+   1376                    {
+   1377                      NLME_StartRouterRequest( 0, 0, false );
+   1378                    }
+   1379                  }
+   1380                }
+   1381              }
+   1382              else
+   1383              {
+   1384                if ( (devStartMode == MODE_RESUME) && (++retryCnt >= MAX_RESUME_RETRY) )
+   1385                {
+   1386                  if ( _NIB.nwkPanId == 0xFFFF || _NIB.nwkPanId == INVALID_PAN_ID )
+   1387                    devStartMode = MODE_JOIN;
+   1388                  else
+   1389                  {
+   1390                    devStartMode = MODE_REJOIN;
+   1391                    _tmpRejoinState = true;
+   1392                  }
+   1393                }
+   1394          
+   1395                if ( (NLME_GetShortAddr() != INVALID_NODE_ADDR) ||
+   1396                     (_NIB.nwkDevAddress != INVALID_NODE_ADDR) )
+   1397                {
+   1398                  uint16 addr = INVALID_NODE_ADDR;
+   1399                  // Invalidate nwk addr so end device does not use in its data reqs.
+   1400                  _NIB.nwkDevAddress = INVALID_NODE_ADDR;
+   1401                  ZMacSetReq( ZMacShortAddress, (uint8 *)&addr );
+   1402                }
+   1403          
+   1404                // Clear the neighbor Table and network discovery tables.
+   1405                nwkNeighborInitTable();
+   1406                NLME_NwkDiscTerm();
+   1407          
+   1408                zdoDiscCounter = 1;
+   1409          
+   1410          //      ZDApp_NetworkInit( (uint16)
+   1411          //                         ((NWK_START_DELAY * (osal_rand() & 0x0F)) +
+   1412          //                          (NWK_START_DELAY * 5)) );
+   1413                ZDApp_NetworkInit( (uint16)(NWK_START_DELAY
+   1414                     + ((uint16)(osal_rand()& EXTENDED_JOINING_RANDOM_MASK))) );
+   1415              }
+   1416            }
+   1417            else if ( devState == DEV_NWK_ORPHAN || devState == DEV_NWK_REJOIN )
+   1418            {
+   1419              // results of an orphaning attempt by this device
+   1420              if (nwkStatus == ZSuccess)
+   1421              {
+   1422                if ( ZG_SECURE_ENABLED )
+   1423                {
+   1424                  ZDApp_RestoreNwkKey();
+   1425                }
+   1426          
+   1427                devState = DEV_END_DEVICE;
+   1428                osal_set_event( ZDAppTaskID, ZDO_STATE_CHANGE_EVT );
+   1429                // setup Power Manager Device
+   1430          #if defined ( POWER_SAVING )
+   1431                osal_pwrmgr_device( PWRMGR_BATTERY );
+   1432          #endif
+   1433          
+   1434                if ( ZDO_Config_Node_Descriptor.CapabilityFlags & CAPINFO_RCVR_ON_IDLE )
+   1435                {
+   1436                  // The receiver is on, turn network layer polling off.
+   1437                  NLME_SetPollRate( 0 );
+   1438                  NLME_SetQueuedPollRate( 0 );
+   1439                  NLME_SetResponseRate( 0 );
+   1440                }
+   1441          
+   1442                if ( ZSTACK_ROUTER_BUILD )
+   1443                {
+   1444                  // NOTE: first two parameters are not used, see NLMEDE.h for details
+   1445                  if ( ZDO_Config_Node_Descriptor.LogicalType != NODETYPE_DEVICE )
+   1446                  {
+   1447                    NLME_StartRouterRequest( 0, 0, false );
+   1448                  }
+   1449                }
+   1450          
+   1451                ZDApp_AnnounceNewAddress();
+   1452              }
+   1453              else
+   1454              {
+   1455                if ( devStartMode == MODE_RESUME )
+   1456                {
+   1457                  if ( ++retryCnt <= MAX_RESUME_RETRY )
+   1458                  {
+   1459                    if ( _NIB.nwkPanId == 0xFFFF || _NIB.nwkPanId == INVALID_PAN_ID )
+   1460                      devStartMode = MODE_JOIN;
+   1461                    else
+   1462                    {
+   1463                      devStartMode = MODE_REJOIN;
+   1464                      _tmpRejoinState = true;
+   1465                    }
+   1466                  }
+   1467                  // Do a normal join to the network after certain times of rejoin retries
+   1468                  else if( AIB_apsUseInsecureJoin == true )
+   1469                  {
+   1470                    devStartMode = MODE_JOIN;
+   1471                  }
+   1472                }
+   1473          
+   1474                // Clear the neighbor Table and network discovery tables.
+   1475                nwkNeighborInitTable();
+   1476                NLME_NwkDiscTerm();
+   1477          
+   1478                // setup a retry for later...
+   1479                ZDApp_NetworkInit( (uint16)(NWK_START_DELAY
+   1480                     + (osal_rand()& EXTENDED_JOINING_RANDOM_MASK)) );
+   1481              }
+   1482            }
+   1483          #if defined ( ZIGBEE_STOCHASTIC_ADDRESSING )
+   1484            else
+   1485            {
+   1486              // Assume from address conflict
+   1487              if ( _NIB.nwkAddrAlloc == NWK_ADDRESSING_STOCHASTIC )
+   1488              {
+   1489                // Notify the network
+   1490                ZDApp_AnnounceNewAddress();
+   1491          
+   1492                // Notify apps
+   1493                osal_set_event( ZDAppTaskID, ZDO_STATE_CHANGE_EVT );
+   1494              }
+   1495            }
+   1496          #endif
+   1497          }
+   1498          
+   1499          /*********************************************************************
+   1500           * @fn      ZDApp_SaveNwkKey()
+   1501           *
+   1502           * @brief   Save off the Network key information.
+   1503           *
+   1504           * @param   none
+   1505           *
+   1506           * @return  none
+   1507           */
+   1508          void ZDApp_SaveNwkKey( void )
+   1509          {
+   1510            nwkActiveKeyItems keyItems;
+   1511          
+   1512            SSP_ReadNwkActiveKey( &keyItems );
+   1513            keyItems.frameCounter++;
+   1514          
+   1515            osal_nv_write( ZCD_NV_NWKKEY, 0, sizeof( nwkActiveKeyItems ),
+   1516                          (void *)&keyItems );
+   1517          
+   1518            nwkFrameCounterChanges = 0;
+   1519          
+   1520            // Clear copy in RAM before return.
+   1521            osal_memset( &keyItems, 0x00, sizeof(keyItems) );
+   1522          
+   1523          }
+   1524          
+   1525          /*********************************************************************
+   1526           * @fn      ZDApp_ResetNwkKey()
+   1527           *
+   1528           * @brief   Reset the Network key information in NV.
+   1529           *
+   1530           * @param   none
+   1531           *
+   1532           * @return  none
+   1533           */
+   1534          void ZDApp_ResetNwkKey( void )
+   1535          {
+   1536            nwkActiveKeyItems keyItems;
+   1537          
+   1538            osal_memset( &keyItems, 0, sizeof( nwkActiveKeyItems ) );
+   1539            osal_nv_write( ZCD_NV_NWKKEY, 0, sizeof( nwkActiveKeyItems ),
+   1540                          (void *)&keyItems );
+   1541          }
+   1542          
+   1543          /*********************************************************************
+   1544           * @fn      ZDApp_RestoreNwkKey()
+   1545           *
+   1546           * @brief
+   1547           *
+   1548           *   Save off the Network key information.
+   1549           *
+   1550           * @param   none
+   1551           *
+   1552           * @return  true if restored from NV, false if not
+   1553           */
+   1554          uint8 ZDApp_RestoreNwkKey( void )
+   1555          {
+   1556            nwkActiveKeyItems keyItems;
+   1557            uint8 ret = false;
+   1558          
+   1559            if ( osal_nv_read( ZCD_NV_NWKKEY, 0, sizeof(nwkActiveKeyItems), (void*)&keyItems )
+   1560                == ZSUCCESS )
+   1561            {
+   1562              if ( keyItems.frameCounter > 0 )
+   1563              {
+   1564                // Restore the key information
+   1565                keyItems.frameCounter += MAX_NWK_FRAMECOUNTER_CHANGES;
+   1566                nwkFrameCounter = keyItems.frameCounter;
+   1567                ret = true;
+   1568              }
+   1569          
+   1570              // Force a save for the first frame counter increment
+   1571              nwkFrameCounterChanges = MAX_NWK_FRAMECOUNTER_CHANGES + 1;
+   1572            }
+   1573            // Clear copy in RAM before return.
+   1574            osal_memset( &keyItems, 0x00, sizeof(keyItems) );
+   1575          
+   1576            return ( ret );
+   1577          }
+   1578          
+   1579          /*********************************************************************
+   1580           * @fn      ZDApp_ResetTimerStart
+   1581           *
+   1582           * @brief   Start the reset timer.
+   1583           *
+   1584           * @param   delay - delay time(ms) before reset
+   1585           *
+   1586           * @return  none
+   1587           */
+   1588          void ZDApp_ResetTimerStart( uint16 delay )
+   1589          {
+   1590            // Start the rest timer
+   1591            osal_start_timerEx( ZDAppTaskID, ZDO_DEVICE_RESET, delay );
+   1592          }
+   1593          
+   1594          /*********************************************************************
+   1595           * @fn      ZDApp_ResetTimerCancel
+   1596           *
+   1597           * @brief   Cancel the reset timer.
+   1598           *
+   1599           * @param   none
+   1600           *
+   1601           * @return  none
+   1602           */
+   1603          void ZDApp_ResetTimerCancel( void )
+   1604          {
+   1605            // Cancel the reset timer
+   1606            osal_stop_timerEx( ZDAppTaskID, ZDO_DEVICE_RESET );
+   1607          }
+   1608          
+   1609          /*********************************************************************
+   1610           * @fn      ZDApp_LeaveCtrlInit
+   1611           *
+   1612           * @brief   Initialize the leave control logic.
+   1613           *
+   1614           * @param   none
+   1615           *
+   1616           * @return  none
+   1617           */
+   1618          void ZDApp_LeaveCtrlInit( void )
+   1619          {
+   1620            uint8 status;
+   1621          
+   1622          
+   1623            // Initialize control state
+   1624            ZDApp_LeaveCtrl = ZDAPP_LEAVE_CTRL_INIT;
+   1625          
+   1626            status = osal_nv_item_init( ZCD_NV_LEAVE_CTRL,
+   1627                                        sizeof(ZDApp_LeaveCtrl),
+   1628                                        &ZDApp_LeaveCtrl );
+   1629          
+   1630            if ( status == ZSUCCESS )
+   1631            {
+   1632              // Read saved control
+   1633              osal_nv_read( ZCD_NV_LEAVE_CTRL,
+   1634                            0,
+   1635                            sizeof( uint8 ),
+   1636                            &ZDApp_LeaveCtrl);
+   1637            }
+   1638          }
+   1639          
+   1640          /*********************************************************************
+   1641           * @fn      ZDApp_LeaveCtrlSet
+   1642           *
+   1643           * @brief   Set the leave control logic.
+   1644           *
+   1645           * @param   ra - reassociate flag
+   1646           *
+   1647           * @return  none
+   1648           */
+   1649          void ZDApp_LeaveCtrlSet( uint8 ra )
+   1650          {
+   1651            ZDApp_LeaveCtrl = ZDAPP_LEAVE_CTRL_SET;
+   1652          
+   1653            if ( ra == TRUE )
+   1654            {
+   1655              ZDApp_LeaveCtrl |= ZDAPP_LEAVE_CTRL_RA;
+   1656            }
+   1657          
+   1658            // Write the leave control
+   1659            osal_nv_write( ZCD_NV_LEAVE_CTRL,
+   1660                           0,
+   1661                           sizeof( uint8 ),
+   1662                           &ZDApp_LeaveCtrl);
+   1663          }
+   1664          
+   1665          /*********************************************************************
+   1666           * @fn      ZDApp_LeaveCtrlBypass
+   1667           *
+   1668           * @brief   Check if NV restore should be skipped during a leave reset.
+   1669           *
+   1670           * @param   none
+   1671           *
+   1672           * @return  uint8 - (TRUE bypass:FALSE do not bypass)
+   1673           */
+   1674          uint8 ZDApp_LeaveCtrlBypass( void )
+   1675          {
+   1676            uint8 bypass;
+   1677          
+   1678            if ( ZDApp_LeaveCtrl & ZDAPP_LEAVE_CTRL_SET )
+   1679            {
+   1680              bypass = TRUE;
+   1681            }
+   1682            else
+   1683            {
+   1684              bypass = FALSE;
+   1685            }
+   1686          
+   1687            return bypass;
+   1688          }
+   1689          
+   1690          /*********************************************************************
+   1691           * @fn      ZDApp_LeaveCtrlStartup
+   1692           *
+   1693           * @brief   Check for startup conditions during a leave reset.
+   1694           *
+   1695           * @param   state      - devState_t determined by leave control logic
+   1696           * @param   startDelay - startup delay
+   1697           *
+   1698           * @return  none
+   1699           */
+   1700          void ZDApp_LeaveCtrlStartup( devStates_t* state, uint16* startDelay )
+   1701          {
+   1702            *startDelay = 0;
+   1703          
+   1704            if ( ZDApp_LeaveCtrl & ZDAPP_LEAVE_CTRL_SET )
+   1705            {
+   1706              if ( ZDApp_LeaveCtrl & ZDAPP_LEAVE_CTRL_RA )
+   1707              {
+   1708                *startDelay = 5000;
+   1709              }
+   1710              else
+   1711              {
+   1712                *state = DEV_HOLD;
+   1713              }
+   1714          
+   1715              // Set leave control to initialized state
+   1716              ZDApp_LeaveCtrl = ZDAPP_LEAVE_CTRL_INIT;
+   1717          
+   1718              // Write initialized control
+   1719              osal_nv_write( ZCD_NV_LEAVE_CTRL,
+   1720                            0,
+   1721                            sizeof( uint8 ),
+   1722                            &ZDApp_LeaveCtrl);
+   1723            }
+   1724          }
+   1725          
+   1726          /*********************************************************************
+   1727           * @fn      ZDApp_LeaveReset
+   1728           *
+   1729           * @brief   Setup a device reset due to a leave indication/confirm.
+   1730           *
+   1731           * @param   ra - reassociate flag
+   1732           *
+   1733           * @return  none
+   1734           */
+   1735          void ZDApp_LeaveReset( uint8 ra )
+   1736          {
+   1737            ZDApp_LeaveCtrlSet( ra );
+   1738          
+   1739            ZDApp_ResetTimerStart( 5000 );
+   1740          }
+   1741          
+   1742          /*********************************************************************
+   1743           * @fn      ZDApp_LeaveUpdate
+   1744           *
+   1745           * @brief   Update local device data related to leaving device.
+   1746           *
+   1747           * @param   nwkAddr        - NWK address of leaving device
+   1748           * @param   extAddr        - EXT address of leaving device
+   1749           * @param   removeChildren - remove children of leaving device
+   1750           *
+   1751           * @return  none
+   1752           */
+   1753          void ZDApp_LeaveUpdate( uint16 nwkAddr, uint8* extAddr,
+   1754                                  uint8 removeChildren )
+   1755          {
+   1756            /*
+   1757            AddrMgrEntry_t entry;
+   1758            */
+   1759            (void)nwkAddr;  // Intentionally unreferenced parameter
+   1760          
+   1761            // Remove if child
+   1762            if ( ZSTACK_ROUTER_BUILD )
+   1763            {
+   1764              NLME_RemoveChild( extAddr, removeChildren );
+   1765            }
+   1766          
+   1767            /*
+   1768            // Set NWK address to invalid
+   1769            entry.user    = ADDRMGR_USER_DEFAULT;
+   1770            entry.nwkAddr = INVALID_NODE_ADDR;
+   1771            AddrMgrExtAddrSet( entry.extAddr, extAddr );
+   1772            AddrMgrEntryUpdate( &entry );
+   1773          
+   1774            // Check
+   1775            if ( removeChildren == TRUE )
+   1776            {
+   1777              // Set index to INVALID_NODE_ADDR to start search
+   1778              entry.index = INVALID_NODE_ADDR;
+   1779          
+   1780              // Get first entry
+   1781              AddrMgrEntryGetNext( &entry );
+   1782          
+   1783              // Remove all descendents
+   1784              while ( entry.index != INVALID_NODE_ADDR )
+   1785              {
+   1786                // Check NWK address allocation algorithm
+   1787                if ( RTG_ANCESTOR( entry.nwkAddr, thisAddr ) != 0 )
+   1788                {
+   1789                  // Set NWK address to invalid
+   1790                  entry.nwkAddr = INVALID_NODE_ADDR;
+   1791                  AddrMgrEntryUpdate( &entry );
+   1792                }
+   1793          
+   1794                // Get next entry
+   1795                AddrMgrEntryGetNext( &entry );
+   1796              }
+   1797            }
+   1798            */
+   1799          }
+   1800          
+   1801          /*********************************************************************
+   1802           * CALLBACK FUNCTIONS
+   1803           */
+   1804          
+   1805          
+   1806          /*********************************************************************
+   1807           * @fn      ZDApp_SendEventMsg()
+   1808           *
+   1809           * @brief
+   1810           *
+   1811           *   Sends a Network Join message
+   1812           *
+   1813           * @param  cmd - command ID
+   1814           * @param  len - length (in bytes) of the buf field
+   1815           * @param  buf - buffer for the rest of the message.
+   1816           *
+   1817           * @return  none
+   1818           */
+   1819          void ZDApp_SendEventMsg( uint8 cmd, uint8 len, uint8 *buf )
+   1820          {
+   1821            ZDApp_SendMsg( ZDAppTaskID, cmd, len, buf );
+   1822          }
+   1823          
+   1824          /*********************************************************************
+   1825           * @fn      ZDApp_SendMsg()
+   1826           *
+   1827           * @brief   Sends a OSAL message
+   1828           *
+   1829           * @param  taskID - Where to send the message
+   1830           * @param  cmd - command ID
+   1831           * @param  len - length (in bytes) of the buf field
+   1832           * @param  buf - buffer for the rest of the message.
+   1833           *
+   1834           * @return  none
+   1835           */
+   1836          void ZDApp_SendMsg( uint8 taskID, uint8 cmd, uint8 len, uint8 *buf )
+   1837          {
+   1838            osal_event_hdr_t *msgPtr;
+   1839          
+   1840            // Send the address to the task
+   1841            msgPtr = (osal_event_hdr_t *)osal_msg_allocate( len );
+   1842            if ( msgPtr )
+   1843            {
+   1844              if ( (len > 0) && (buf != NULL) )
+   1845                osal_memcpy( msgPtr, buf, len );
+   1846          
+   1847              msgPtr->event = cmd;
+   1848              osal_msg_send( taskID, (uint8 *)msgPtr );
+   1849            }
+   1850          }
+   1851          
+   1852          /*********************************************************************
+   1853           * Call Back Functions from NWK  - API
+   1854           */
+   1855          
+   1856          /*********************************************************************
+   1857           * @fn          ZDO_NetworkDiscoveryConfirmCB
+   1858           *
+   1859           * @brief       This function returns a choice of PAN to join.
+   1860           *
+   1861           * @param       ResultCount - Number of routers discovered
+   1862           * @param               NetworkList - Pointer to list of network descriptors
+   1863           *
+   1864           * @return      ZStatus_t
+   1865           */
+   1866          #define STACK_PROFILE_MAX 2
+   1867          ZStatus_t ZDO_NetworkDiscoveryConfirmCB( uint8 ResultCount,
+   1868                                                   networkDesc_t *NetworkList )
+   1869          {
+   1870            networkDesc_t *pNwkDesc = NetworkList;
+   1871            ZDO_NetworkDiscoveryCfm_t msg;
+   1872            uint8 i = ResultCount;
+   1873            uint8 stackProfile;
+   1874            uint8 stackProfilePro;
+   1875            uint8 selected;
+   1876          
+   1877          #if defined ( ZDO_MGMT_NWKDISC_RESPONSE )
+   1878            if ( zdappMgmtNwkDiscReqInProgress )
+   1879            {
+   1880              zdappMgmtNwkDiscReqInProgress = false;
+   1881              ZDO_FinishProcessingMgmtNwkDiscReq( ResultCount, NetworkList );
+   1882              return ( ZSuccess );
+   1883            }
+   1884          #endif
+   1885          
+   1886            // process discovery results
+   1887            stackProfilePro = FALSE;
+   1888            selected = FALSE;
+   1889          
+   1890            for ( stackProfile = 0; stackProfile < STACK_PROFILE_MAX; stackProfile++ )
+   1891            {
+   1892              pNwkDesc = NetworkList;
+   1893              for ( i = 0; i < ResultCount; i++, pNwkDesc = pNwkDesc->nextDesc )
+   1894              {
+   1895                if ( zgConfigPANID != 0xFFFF )
+   1896                {
+   1897                  // PAN Id is preconfigured. check if it matches
+   1898                  if ( pNwkDesc->panId != zgConfigPANID )
+   1899                    continue;
+   1900                }
+   1901          
+   1902          
+   1903                if ( nwk_ExtPANIDValid( ZDO_UseExtendedPANID) == true )
+   1904                {
+   1905                  // If the extended Pan ID is commissioned to a non zero value
+   1906                  // Only join the Pan that has match EPID
+   1907                  if ( osal_ExtAddrEqual( ZDO_UseExtendedPANID, pNwkDesc->extendedPANID) == false )
+   1908                    continue;
+   1909          
+   1910                }
+   1911          
+   1912          
+   1913                  // check that network is allowing joining
+   1914                  if ( ZSTACK_ROUTER_BUILD )
+   1915                  {
+   1916                    if ( stackProfilePro == FALSE )
+   1917                    {
+   1918                      if ( !pNwkDesc->routerCapacity )
+   1919                      {
+   1920                        continue;
+   1921                      }
+   1922                    }
+   1923                    else
+   1924                    {
+   1925                      if ( !pNwkDesc->deviceCapacity )
+   1926                      {
+   1927                        continue;
+   1928                      }
+   1929                    }
+   1930                  }
+   1931                  else if ( ZSTACK_END_DEVICE_BUILD )
+   1932                  {
+   1933                    if ( !pNwkDesc->deviceCapacity )
+   1934                    {
+   1935                      continue;
+   1936                    }
+   1937                  }
+   1938          
+   1939                  // check version of zigbee protocol
+   1940                  if ( pNwkDesc->version != _NIB.nwkProtocolVersion )
+   1941                    continue;
+   1942          
+   1943                  // check version of stack profile
+   1944                  if ( pNwkDesc->stackProfile != zgStackProfile  )
+   1945                  {
+   1946                    if ( ((zgStackProfile == HOME_CONTROLS) && (pNwkDesc->stackProfile == ZIGBEEPRO_PROFILE))
+   1947                        || ((zgStackProfile == ZIGBEEPRO_PROFILE) && (pNwkDesc->stackProfile == HOME_CONTROLS))  )
+   1948                      stackProfilePro = TRUE;
+   1949          
+   1950                    if ( stackProfile == 0 )
+   1951                    {
+   1952                      continue;
+   1953                    }
+   1954                  }
+   1955          
+   1956                // check if beacon order is the right value..
+   1957                //  if ( pNwkDesc->beaconOrder < ZDO_CONFIG_MAX_BO )
+   1958                //    continue;
+   1959          
+   1960                // choose this pan for joining
+   1961                break;
+   1962              }
+   1963              if (i < ResultCount)
+   1964              {
+   1965               selected = TRUE;
+   1966                break;
+   1967              }
+   1968          
+   1969              // break if selected or stack profile pro wasn't found
+   1970              if ( (selected == TRUE) || (stackProfilePro == FALSE) )
+   1971              {
+   1972                break;
+   1973              }
+   1974            }
+   1975          
+   1976            if ( i == ResultCount )
+   1977            {
+   1978              msg.hdr.status = ZDO_FAIL;   // couldn't find appropriate PAN to join !
+   1979            }
+   1980            else
+   1981            {
+   1982              msg.hdr.status = ZDO_SUCCESS;
+   1983              msg.panIdLSB = LO_UINT16( pNwkDesc->panId );
+   1984              msg.panIdMSB = HI_UINT16( pNwkDesc->panId );
+   1985              msg.logicalChannel = pNwkDesc->logicalChannel;
+   1986              msg.version = pNwkDesc->version;
+   1987              osal_cpyExtAddr( msg.extendedPANID, pNwkDesc->extendedPANID );
+   1988            }
+   1989          
+   1990            ZDApp_SendMsg( ZDAppTaskID, ZDO_NWK_DISC_CNF, sizeof(ZDO_NetworkDiscoveryCfm_t), (uint8 *)&msg );
+   1991          
+   1992            return (ZSuccess);
+   1993          }  // ZDO_NetworkDiscoveryConfirmCB
+   1994          
+   1995          /*********************************************************************
+   1996           * @fn          ZDO_NetworkFormationConfirmCB
+   1997           *
+   1998           * @brief       This function reports the results of the request to
+   1999           *              initialize a coordinator in a network.
+   2000           *
+   2001           * @param       Status - Result of NLME_NetworkFormationRequest()
+   2002           *
+   2003           * @return      none
+   2004           */
+   2005          void ZDO_NetworkFormationConfirmCB( ZStatus_t Status )
+   2006          {
+   2007            nwkStatus = (byte)Status;
+   2008          
+   2009            if ( Status == ZSUCCESS )
+   2010            {
+   2011              // LED on shows Coordinator started
+   2012              HalLedSet ( HAL_LED_3, HAL_LED_MODE_ON );
+   2013          
+   2014              // LED off forgets HOLD_AUTO_START
+   2015              HalLedSet (HAL_LED_4, HAL_LED_MODE_OFF);
+   2016          
+   2017          #if defined ( ZBIT )
+   2018              SIM_SetColor(0xd0ffd0);
+   2019          #endif
+   2020          
+   2021              if ( devState == DEV_HOLD )
+   2022              {
+   2023                // Began with HOLD_AUTO_START
+   2024                devState = DEV_COORD_STARTING;
+   2025              }
+   2026            }
+   2027          #if defined(BLINK_LEDS)
+   2028            else
+   2029            {
+   2030              HalLedSet ( HAL_LED_3, HAL_LED_MODE_FLASH );  // Flash LED to show failure
+   2031            }
+   2032          #endif
+   2033          
+   2034            osal_set_event( ZDAppTaskID, ZDO_NETWORK_START );
+   2035          }
+   2036          
+   2037          /*********************************************************************
+   2038           * @fn          ZDO_StartRouterConfirmCB
+   2039           *
+   2040           * @brief       This function reports the results of the request to
+   2041           *              start functioning as a router in a network.
+   2042           *
+   2043           * @param       Status - Result of NLME_StartRouterRequest()
+   2044           *
+   2045           * @return      none
+   2046           */
+   2047          void ZDO_StartRouterConfirmCB( ZStatus_t Status )
+   2048          {
+   2049            nwkStatus = (byte)Status;
+   2050          
+   2051            if ( Status == ZSUCCESS )
+   2052            {
+   2053              // LED on shows Router started
+   2054              HalLedSet ( HAL_LED_3, HAL_LED_MODE_ON );
+   2055              // LED off forgets HOLD_AUTO_START
+   2056              HalLedSet ( HAL_LED_4, HAL_LED_MODE_OFF);
+   2057              if ( devState == DEV_HOLD )
+   2058              {
+   2059                // Began with HOLD_AUTO_START
+   2060                devState = DEV_END_DEVICE;
+   2061              }
+   2062            }
+   2063          #if defined(BLINK_LEDS)
+   2064            else
+   2065            {
+   2066              HalLedSet( HAL_LED_3, HAL_LED_MODE_FLASH );  // Flash LED to show failure
+   2067            }
+   2068          #endif
+   2069          
+   2070            osal_set_event( ZDAppTaskID, ZDO_ROUTER_START );
+   2071          }
+   2072          
+   2073          /*********************************************************************
+   2074           * @fn          ZDO_JoinConfirmCB
+   2075           *
+   2076           * @brief       This function allows the next hight layer to be notified
+   2077           *              of the results of its request to join itself or another
+   2078           *              device to a network.
+   2079           *
+   2080           * @param       Status - Result of NLME_JoinRequest()
+   2081           *
+   2082           * @return      none
+   2083           */
+   2084          void ZDO_JoinConfirmCB( uint16 PanId, ZStatus_t Status )
+   2085          {
+   2086            (void)PanId;  // remove if this parameter is used.
+   2087          
+   2088            nwkStatus = (byte)Status;
+   2089          
+   2090            if ( Status == ZSUCCESS )
+   2091            {
+   2092              // LED on shows device joined
+   2093              HalLedSet ( HAL_LED_3, HAL_LED_MODE_ON );
+   2094              // LED off forgets HOLD_AUTO_START
+   2095              HalLedSet ( HAL_LED_4, HAL_LED_MODE_OFF);
+   2096              if ( (devState == DEV_HOLD) )
+   2097              {
+   2098                // Began with HOLD_AUTO_START
+   2099                devState = DEV_NWK_JOINING;
+   2100              }
+   2101          
+   2102              if ( !ZG_SECURE_ENABLED )
+   2103              {
+   2104                // Notify to save info into NV
+   2105                ZDApp_NVUpdate();
+   2106              }
+   2107            }
+   2108            else
+   2109            {
+   2110          #if defined(BLINK_LEDS)
+   2111              HalLedSet ( HAL_LED_3, HAL_LED_MODE_FLASH );  // Flash LED to show failure
+   2112          #endif
+   2113            }
+   2114          
+   2115            // Notify ZDApp
+   2116            ZDApp_SendMsg( ZDAppTaskID, ZDO_NWK_JOIN_IND, sizeof(osal_event_hdr_t), (byte*)NULL );
+   2117          }
+   2118          
+   2119          /*********************************************************************
+   2120           * @fn          ZDO_AddrChangeIndicationCB
+   2121           *
+   2122           * @brief       This function notifies the application that this
+   2123           *              device's address has changed.  Could happen in
+   2124           *              a network with stochastic addressing (PRO).
+   2125           *
+   2126           * @param       newAddr - the new address
+   2127           *
+   2128           * @return      none
+   2129           */
+   2130          void ZDO_AddrChangeIndicationCB( uint16 newAddr )
+   2131          {
+   2132            (void)newAddr;  // remove if this parameter is used
+   2133          
+   2134            // Notify to save info into NV
+   2135            ZDApp_NVUpdate();
+   2136          
+   2137            // Notify the applications
+   2138            osal_set_event( ZDAppTaskID, ZDO_STATE_CHANGE_EVT );
+   2139          
+   2140            // Send out a device announce
+   2141            ZDApp_AnnounceNewAddress();
+   2142          }
+   2143          
+   2144          /*********************************************************************
+   2145           * @fn          ZDO_JoinIndicationCB
+   2146           *
+   2147           * @brief       This function allows the next higher layer of a
+   2148           *              coordinator to be notified of a remote join request.
+   2149           *
+   2150           * @param       ShortAddress - 16-bit address
+   2151           * @param       ExtendedAddress - IEEE (64-bit) address
+   2152           * @param       CapabilityFlags - Association Capability Flags
+   2153           * @param       type - of joining -
+   2154           *                          NWK_ASSOC_JOIN
+   2155           *                          NWK_ASSOC_REJOIN_UNSECURE
+   2156           *                          NWK_ASSOC_REJOIN_SECURE
+   2157           *
+   2158           * @return      ZStatus_t
+   2159           */
+   2160          ZStatus_t ZDO_JoinIndicationCB(uint16 ShortAddress, uint8 *ExtendedAddress,
+   2161                                          uint8 CapabilityFlags, uint8 type)
+   2162          {
+   2163            (void)ShortAddress;
+   2164            (void)ExtendedAddress;
+   2165          #if ZDO_NV_SAVE_RFDs
+   2166            (void)CapabilityFlags;
+   2167          
+   2168          #else  // if !ZDO_NV_SAVE_RFDs
+   2169            if (CapabilityFlags & CAPINFO_DEVICETYPE_FFD)
+   2170          #endif
+   2171            {
+   2172              ZDApp_NVUpdate();  // Notify to save info into NV.
+   2173            }
+   2174          
+   2175            if (ZG_SECURE_ENABLED)  // Send notification to TC of new device.
+   2176            {
+   2177              if (type == NWK_ASSOC_JOIN || type == NWK_ASSOC_REJOIN_UNSECURE)
+   2178              {
+   2179                osal_start_timerEx( ZDAppTaskID, ZDO_NEW_DEVICE, 600 );
+   2180              }
+   2181            }
+   2182          
+   2183            return ZSuccess;
+   2184          }
+   2185          
+   2186          /*********************************************************************
+   2187           * @fn          ZDO_ConcentratorIndicationCB
+   2188           *
+   2189           * @brief       This function allows the next higher layer of a
+   2190           *              device to be notified of existence of the concentrator.
+   2191           *
+   2192           * @param       nwkAddr - 16-bit NWK address of the concentrator
+   2193           * @param       extAddr - pointer to extended Address
+   2194           *                        NULL if not available
+   2195           * @param       pktCost - PktCost from RREQ
+   2196           *
+   2197           * @return      void
+   2198           */
+   2199          void ZDO_ConcentratorIndicationCB( uint16 nwkAddr, uint8 *extAddr, uint8 pktCost )
+   2200          {
+   2201            zdoConcentratorInd_t conInd;
+   2202          
+   2203            conInd.nwkAddr = nwkAddr;
+   2204            conInd.extAddr = extAddr;
+   2205            conInd.pktCost = pktCost;
+   2206          
+   2207            if( zdoCBFunc[ZDO_CONCENTRATOR_IND_CBID] != NULL )
+   2208          {
+   2209              zdoCBFunc[ZDO_CONCENTRATOR_IND_CBID]( (void*)&conInd );
+   2210            }
+   2211          }
+   2212          
+   2213          /*********************************************************************
+   2214           * @fn          ZDO_LeaveCnf
+   2215           *
+   2216           * @brief       This function allows the next higher layer to be
+   2217           *              notified of the results of its request for this or
+   2218           *              a child device to leave the network.
+   2219           *
+   2220           * @param       cnf - NLME_LeaveCnf_t
+   2221           *
+   2222           * @return      none
+   2223           */
+   2224          void ZDO_LeaveCnf( NLME_LeaveCnf_t* cnf )
+   2225          {
+   2226            // Check for this device
+   2227            if ( osal_ExtAddrEqual( cnf->extAddr,
+   2228                                    NLME_GetExtAddr() ) == TRUE )
+   2229            {
+   2230              // Prepare to leave with reset
+   2231              ZDApp_LeaveReset( cnf->rejoin );
+   2232            }
+   2233            else if ( ZSTACK_ROUTER_BUILD )
+   2234            {
+   2235              // Remove device address(optionally descendents) from data
+   2236              ZDApp_LeaveUpdate( cnf->dstAddr,
+   2237                                 cnf->extAddr,
+   2238                                 cnf->removeChildren );
+   2239            }
+   2240          }
+   2241          
+   2242          /*********************************************************************
+   2243           * @fn          ZDO_LeaveInd
+   2244           *
+   2245           * @brief       This function allows the next higher layer of a
+   2246           *              device to be notified of a remote leave request or
+   2247           *              indication.
+   2248           *
+   2249           * @param       ind - NLME_LeaveInd_t
+   2250           *
+   2251           * @return      none
+   2252           */
+   2253          void ZDO_LeaveInd( NLME_LeaveInd_t* ind )
+   2254          {
+   2255            uint8 leave;
+   2256          
+   2257          
+   2258            // Parent is requesting the leave - NWK layer filters out illegal
+   2259            // requests
+   2260            if ( ind->request == TRUE )
+   2261            {
+   2262              // Notify network of leave
+   2263              if ( ZSTACK_ROUTER_BUILD )
+   2264              {
+   2265                NLME_LeaveRsp_t rsp;
+   2266                rsp.rejoin         = ind->rejoin;
+   2267                rsp.removeChildren = ind->removeChildren;
+   2268                NLME_LeaveRsp( &rsp );
+   2269              }
+   2270          
+   2271              // Prepare to leave with reset
+   2272              ZDApp_LeaveReset( ind->rejoin );
+   2273            }
+   2274            else
+   2275            {
+   2276              leave = FALSE;
+   2277          
+   2278              // Check if this device needs to leave as a child or descendent
+   2279              if ( ind->srcAddr == NLME_GetCoordShortAddr() )
+   2280              {
+   2281                if ( ( ind->removeChildren == TRUE               ) ||
+   2282                     ( ZDO_Config_Node_Descriptor.LogicalType ==
+   2283                       NODETYPE_DEVICE                           )    )
+   2284                {
+   2285                  leave = TRUE;
+   2286                }
+   2287              }
+   2288              else if ( ind->removeChildren == TRUE )
+   2289              {
+   2290                // Check NWK address allocation algorithm
+   2291                //leave = RTG_ANCESTOR(nwkAddr,thisAddr);
+   2292              }
+   2293          
+   2294              if ( leave == TRUE )
+   2295              {
+   2296                // Prepare to leave with reset
+   2297                ZDApp_LeaveReset( ind->rejoin );
+   2298              }
+   2299              else
+   2300              {
+   2301                // Remove device address(optionally descendents) from data
+   2302                ZDApp_LeaveUpdate( ind->srcAddr,
+   2303                                   ind->extAddr,
+   2304                                   ind->removeChildren );
+   2305              }
+   2306            }
+   2307          }
+   2308          
+   2309          /*********************************************************************
+   2310           * @fn          ZDO_SyncIndicationCB
+   2311           *
+   2312           * @brief       This function allows the next higher layer of a
+   2313           *              coordinator to be notified of a loss of synchronization
+   2314           *                          with the parent/child device.
+   2315           *
+   2316           * @param       type: 0 - child; 1 - parent
+   2317           *
+   2318           *
+   2319           * @return      none
+   2320           */
+   2321          void ZDO_SyncIndicationCB( uint8 type, uint16 shortAddr )
+   2322          {
+   2323            (void)shortAddr;  // Remove this line if this parameter is used.
+   2324          
+   2325            if ( ZSTACK_END_DEVICE_BUILD
+   2326              || (ZSTACK_ROUTER_BUILD && ((_NIB.CapabilityFlags & ZMAC_ASSOC_CAPINFO_FFD_TYPE) == 0)))
+   2327            {
+   2328              if ( type == 1 )
+   2329              {
+   2330                // We lost contact with our parent.  Clear the neighbor Table.
+   2331                nwkNeighborInitTable();
+   2332          
+   2333                // Start the rejoin process.
+   2334                ZDApp_SendMsg( ZDAppTaskID, ZDO_NWK_JOIN_REQ, sizeof(osal_event_hdr_t), NULL );
+   2335              }
+   2336            }
+   2337          }
+   2338          
+   2339          /*********************************************************************
+   2340           * @fn          ZDO_ManytoOneFailureIndicationCB
+   2341           *
+   2342           * @brief       This function allows the next higher layer of a
+   2343           *              concentrator to be notified of a many-to-one route
+   2344           *              failure.
+   2345           *
+   2346           * @param       none
+   2347           *
+   2348           *
+   2349           * @return      none
+   2350           */
+   2351          void ZDO_ManytoOneFailureIndicationCB()
+   2352          {
+   2353            // By default, the concentrator automatically redo many-to-one route
+   2354            // discovery to update all many-to-one routes in the network
+   2355            // If you want anything processing other than the default,
+   2356            // please replace the following code.
+   2357          
+   2358            RTG_MTORouteReq();
+   2359          }
+   2360          
+   2361          /*********************************************************************
+   2362           * @fn          ZDO_PollConfirmCB
+   2363           *
+   2364           * @brief       This function allows the next higher layer to be
+   2365           *              notified of a Poll Confirm.
+   2366           *
+   2367           * @param       none
+   2368           *
+   2369           * @return      none
+   2370           */
+   2371          void ZDO_PollConfirmCB( uint8 status )
+   2372          {
+   2373            (void)status;  // Remove this line if this parameter is used.
+   2374            return;
+   2375          }
+   2376          
+   2377          /******************************************************************************
+   2378           * @fn          ZDApp_NwkWriteNVRequest (stubs AddrMgrWriteNVRequest)
+   2379           *
+   2380           * @brief       Stub routine implemented by NHLE. NHLE should call
+   2381           *              <AddrMgrWriteNV> when appropriate.
+   2382           *
+   2383           * @param       none
+   2384           *
+   2385           * @return      none
+   2386           */
+   2387          void ZDApp_NwkWriteNVRequest( void )
+   2388          {
+   2389          #if defined ( NV_RESTORE )
+   2390            if ( !osal_get_timeoutEx( ZDAppTaskID, ZDO_NWK_UPDATE_NV ) )
+   2391            {
+   2392              // Trigger to save info into NV
+   2393              ZDApp_NVUpdate();
+   2394            }
+   2395          #endif
+   2396          }
+   2397          
+   2398          /*********************************************************************
+   2399           * Call Back Functions from Security  - API
+   2400           */
+   2401          
+   2402           /*********************************************************************
+   2403           * @fn          ZDO_UpdateDeviceIndication
+   2404           *
+   2405           * @brief       This function notifies the "Trust Center" of a
+   2406           *              network when a device joins or leaves the network.
+   2407           *
+   2408           * @param       extAddr - pointer to 64 bit address of new device
+   2409           * @param       status  - 0 if a new device joined securely
+   2410           *                      - 1 if a new device joined un-securely
+   2411           *                      - 2 if a device left the network
+   2412           *
+   2413           * @return      true if newly joined device should be allowed to
+   2414           *                                              remain on network
+   2415           */
+   2416          ZStatus_t ZDO_UpdateDeviceIndication( uint8 *extAddr, uint8 status )
+   2417          {
+   2418            // can implement a network access policy based on the
+   2419            // IEEE address of newly joining devices...
+   2420            (void)extAddr;
+   2421            (void)status;
+   2422          
+   2423            return ZSuccess;
+   2424          }
+   2425          
+   2426          /*********************************************************************
+   2427           * @fn          ZDApp_InMsgCB
+   2428           *
+   2429           * @brief       This function is called to pass up any message that is
+   2430           *              not yet supported.  This allows for the developer to
+   2431           *              support features themselves..
+   2432           *
+   2433           * @return      none
+   2434           */
+   2435          void ZDApp_InMsgCB( zdoIncomingMsg_t *inMsg )
+   2436          {
+   2437            if ( inMsg->clusterID & ZDO_RESPONSE_BIT )
+   2438            {
+   2439              // Handle the response message
+   2440            }
+   2441            else
+   2442            {
+   2443              // Handle the request message by sending a generic "not supported".
+   2444              // Device Announce doesn't have a response.
+   2445              if ( !(inMsg->wasBroadcast) && inMsg->clusterID != Device_annce )
+   2446              {
+   2447                ZDP_GenericRsp( inMsg->TransSeq, &(inMsg->srcAddr), ZDP_NOT_SUPPORTED, 0,
+   2448                                (uint16)(inMsg->clusterID | ZDO_RESPONSE_BIT), inMsg->SecurityUse );
+   2449              }
+   2450            }
+   2451          }
+   2452          
+   2453          
+   2454          /*********************************************************************
+   2455           * @fn      ZDApp_ChangeMatchDescRespPermission()
+   2456           *
+   2457           * @brief   Changes the Match Descriptor Response permission.
+   2458           *
+   2459           * @param   endpoint - endpoint to allow responses
+   2460           * @param   action - true to allow responses, false to not
+   2461           *
+   2462           * @return  none
+   2463           */
+   2464          void ZDApp_ChangeMatchDescRespPermission( uint8 endpoint, uint8 action )
+   2465          {
+   2466            // Store the action
+   2467            afSetMatch( endpoint, action );
+   2468          }
+   2469          
+   2470          /*********************************************************************
+   2471           * @fn      ZDApp_NetworkInit()
+   2472           *
+   2473           * @brief   Used to start the network joining process
+   2474           *
+   2475           * @param   delay - mSec delay to wait before starting
+   2476           *
+   2477           * @return  none
+   2478           */
+   2479          void ZDApp_NetworkInit( uint16 delay )
+   2480          {
+   2481            if ( delay )
+   2482            {
+   2483              // Wait awhile before starting the device
+   2484              osal_start_timerEx( ZDAppTaskID, ZDO_NETWORK_INIT, delay );
+   2485            }
+   2486            else
+   2487            {
+   2488              osal_set_event( ZDAppTaskID, ZDO_NETWORK_INIT );
+   2489            }
+   2490          }
+   2491          
+   2492          /*********************************************************************
+   2493           * @fn      ZDApp_NwkStateUpdateCB()
+   2494           *
+   2495           * @brief   This function notifies that this device's network
+   2496           *          state info has been changed.
+   2497           *
+   2498           * @param   none
+   2499           *
+   2500           * @return  none
+   2501           */
+   2502          void ZDApp_NwkStateUpdateCB( void )
+   2503          {
+   2504            // Notify to save info into NV
+   2505            if ( !osal_get_timeoutEx( ZDAppTaskID, ZDO_NWK_UPDATE_NV ) )
+   2506            {
+   2507              // Trigger to save info into NV
+   2508              ZDApp_NVUpdate();
+   2509            }
+   2510          }
+   2511          
+   2512          /*********************************************************************
+   2513           * @fn      ZDApp_NodeProfileSync()
+   2514           *
+   2515           * @brief   Sync node with stack profile.
+   2516           *
+   2517           * @param   cfm - ZDO_NetworkDiscoveryCfm_t
+   2518           *
+   2519           * @return  none
+   2520           */
+   2521          void ZDApp_NodeProfileSync( ZDO_NetworkDiscoveryCfm_t* cfm )
+   2522          {
+   2523            networkDesc_t* desc;
+   2524            uint16         panID;
+   2525          
+   2526            if ( ZDO_Config_Node_Descriptor.CapabilityFlags & CAPINFO_DEVICETYPE_FFD  )
+   2527            {
+   2528              panID = BUILD_UINT16( cfm->panIdLSB, cfm->panIdMSB );
+   2529          
+   2530              desc = nwk_getNetworkDesc( cfm->extendedPANID, panID, cfm->logicalChannel );
+   2531          
+   2532              if (desc != NULL)
+   2533              {
+   2534                if ( desc->stackProfile != zgStackProfile )
+   2535                {
+   2536                  ZDO_Config_Node_Descriptor.LogicalType = NODETYPE_DEVICE;
+   2537                  ZDO_Config_Node_Descriptor.CapabilityFlags = CAPINFO_DEVICETYPE_RFD | CAPINFO_POWER_AC | CAPINFO_RCVR_ON_IDLE;
+   2538                  NLME_SetBroadcastFilter( ZDO_Config_Node_Descriptor.CapabilityFlags );
+   2539                }
+   2540              }
+   2541            }
+   2542          }
+   2543          
+   2544          /*********************************************************************
+   2545           * @fn      ZDApp_StartJoiningCycle()
+   2546           *
+   2547           * @brief   Starts the joining cycle of a device.  This will only
+   2548           *          continue an already started (or stopped) joining cycle.
+   2549           *
+   2550           * @param   none
+   2551           *
+   2552           * @return  TRUE if joining stopped, FALSE if joining or rejoining
+   2553           */
+   2554          uint8 ZDApp_StartJoiningCycle( void )
+   2555          {
+   2556            if ( devState == DEV_INIT || devState == DEV_NWK_DISC )
+   2557            {
+   2558              continueJoining = TRUE;
+   2559              ZDApp_NetworkInit( 0 );
+   2560          
+   2561              return ( TRUE );
+   2562            }
+   2563            else
+   2564              return ( FALSE );
+   2565          }
+   2566          
+   2567          /*********************************************************************
+   2568           * @fn      ZDApp_StopJoiningCycle()
+   2569           *
+   2570           * @brief   Stops the joining or rejoining process of a device.
+   2571           *
+   2572           * @param   none
+   2573           *
+   2574           * @return  TRUE if joining stopped, FALSE if joining or rejoining
+   2575           */
+   2576          uint8 ZDApp_StopJoiningCycle( void )
+   2577          {
+   2578            if ( devState == DEV_INIT || devState == DEV_NWK_DISC )
+   2579            {
+   2580              continueJoining = FALSE;
+   2581              return ( TRUE );
+   2582            }
+   2583            else
+   2584              return ( FALSE );
+   2585          }
+   2586          
+   2587          /*********************************************************************
+   2588           * @fn      ZDApp_AnnounceNewAddress()
+   2589           *
+   2590           * @brief   Send Device Announce and hold all transmissions for
+   2591           *          new address timeout.
+   2592           *
+   2593           * @param   none
+   2594           *
+   2595           * @return  none
+   2596           */
+   2597          void ZDApp_AnnounceNewAddress( void )
+   2598          {
+   2599          #if defined ( ZIGBEE_NWK_UNIQUE_ADDR_CHECK )
+   2600            // Turn off data request hold
+   2601            APSME_HoldDataRequests( 0 );
+   2602          #endif
+   2603          
+   2604            ZDP_DeviceAnnce( NLME_GetShortAddr(), NLME_GetExtAddr(),
+   2605                               ZDO_Config_Node_Descriptor.CapabilityFlags, 0 );
+   2606          
+   2607          #if defined ( ZIGBEE_NWK_UNIQUE_ADDR_CHECK )
+   2608            // Setup the timeout
+   2609            APSME_HoldDataRequests( ZDAPP_HOLD_DATA_REQUESTS_TIMEOUT );
+   2610          #endif
+   2611          }
+   2612          
+   2613          /*********************************************************************
+   2614           * @fn          ZDApp_NVUpdate
+   2615           *
+   2616           * @brief       Set the NV Update Timer.
+   2617           *
+   2618           * @param       none
+   2619           *
+   2620           * @return      none
+   2621           */
+   2622          void ZDApp_NVUpdate( void )
+   2623          {
+   2624          #if defined ( NV_RESTORE )
+   2625            osal_start_timerEx( ZDAppTaskID, ZDO_NWK_UPDATE_NV, ZDAPP_UPDATE_NWK_NV_TIME );
+   2626          #endif
+   2627          }
+   2628          
+   2629          /*********************************************************************
+   2630           * @fn      ZDApp_CoordStartPANIDConflictCB()
+   2631           *
+   2632           * @brief   Returns a PAN ID for the network layer to use during
+   2633           *          a coordinator start and there is another network with
+   2634           *          the intended PANID.
+   2635           *
+   2636           * @param   panid - the intended PAN ID
+   2637           *
+   2638           * @return  PANID to try
+   2639           */
+   2640          uint16 ZDApp_CoordStartPANIDConflictCB( uint16 panid )
+   2641          {
+   2642            return ( panid + 1 );
+   2643          }
+   2644          
+   2645          /*********************************************************************
+   2646           * @fn          ZDO_SrcRtgIndCB
+   2647           *
+   2648           * @brief       This function notifies the ZDO available src route record received.
+   2649           *
+   2650           * @param       srcAddr - source address of the source route
+   2651           * @param       relayCnt - number of devices in the relay list
+   2652           * @param       relayList - relay list of the source route
+   2653           *
+   2654           * @return      none
+   2655           */
+   2656          void ZDO_SrcRtgIndCB (uint16 srcAddr, uint8 relayCnt, uint16* pRelayList )
+   2657          {
+   2658            zdoSrcRtg_t srcRtg;
+   2659          
+   2660            srcRtg.srcAddr = srcAddr;
+   2661            srcRtg.relayCnt = relayCnt;
+   2662            srcRtg.pRelayList = pRelayList;
+   2663          
+   2664            if( zdoCBFunc[ZDO_SRC_RTG_IND_CBID] != NULL )
+   2665            {
+   2666              zdoCBFunc[ZDO_SRC_RTG_IND_CBID]( (void*)&srcRtg );
+   2667            }
+   2668          }
+   2669          
+   2670          
+   2671          /*********************************************************************
+   2672           * @fn          ZDO_RegisterForZdoCB
+   2673           *
+   2674           * @brief       Call this function to register the higher layer (for
+   2675           *              example, the Application layer or MT layer) with ZDO
+   2676           *              callbacks to get notified of some ZDO indication like
+   2677           *              existence of a concentrator or receipt of a source
+   2678           *              route record.
+   2679           *
+   2680           * @param       indID - ZDO Indication ID
+   2681           * @param       pFn   - Callback function pointer
+   2682           *
+   2683           * @return      ZSuccess - successful, ZInvalidParameter if not
+   2684           */
+   2685          ZStatus_t ZDO_RegisterForZdoCB( uint8 indID, pfnZdoCb pFn )
+   2686          {
+   2687            // Check the range of the indication ID
+   2688            if ( indID < MAX_ZDO_CB_FUNC )
+   2689            {
+   2690              zdoCBFunc[indID] = pFn;
+   2691              return ZSuccess;
+   2692            }
+   2693          
+   2694            return ZInvalidParameter;
+   2695          }
+   2696          
+   2697          /*********************************************************************
+   2698          *********************************************************************/
+
+Errors: 1
+Warnings: none

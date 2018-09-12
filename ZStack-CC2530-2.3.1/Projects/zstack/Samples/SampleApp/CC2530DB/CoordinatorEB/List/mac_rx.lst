@@ -1,0 +1,3237 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V10.20.1.5333 for 8051               12/Sep/2018  03:56:54
+# Copyright 2004-2018 IAR Systems AB.
+# Evaluation license - IAR Embedded Workbench for 8051, Evaluation version 10.20
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        C:\Users\Ananda
+#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Components\mac\low_level\srf04\mac_rx.c
+#    Command line       =  
+#        -f C:\Users\ANANDA~1\AppData\Local\Temp\EW54FD.tmp ("C:\Users\Ananda
+#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Components\mac\low_level\srf04\mac_rx.c"
+#        -D ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC -D MT_ZDO_FUNC -D
+#        LCD_SUPPORTED=DEBUG -lC "C:\Users\Ananda
+#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\CoordinatorEB\List"
+#        -lA "C:\Users\Ananda
+#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\CoordinatorEB\List"
+#        --diag_suppress Pe001,Pa010 -o "C:\Users\Ananda
+#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\CoordinatorEB\Obj"
+#        -e --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 16 -f "C:\Users\Ananda
+#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\Tools\CC2530DB\f8wCoord.cfg"
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRUE
+#        -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8 -DMAC_CFG_RX_MAX=5
+#        -DZDO_COORDINATOR -DRTR_NWK) -f "C:\Users\Ananda
+#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg"
+#        (-DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440) -I "C:\Users\Ananda
+#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\"
+#        -I "C:\Users\Ananda
+#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\SOURCE\"
+#        -I "C:\Users\Ananda
+#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\ZMAIN\TI2530DB\"
+#        -I "C:\Users\Ananda
+#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\MT\"
+#        -I "C:\Users\Ananda
+#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\HAL\INCLUDE\"
+#        -I "C:\Users\Ananda
+#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\HAL\TARGET\CC2530EB\"
+#        -I "C:\Users\Ananda
+#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\OSAL\MCU\CCSOC\"
+#        -I "C:\Users\Ananda
+#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\OSAL\INCLUDE\"
+#        -I "C:\Users\Ananda
+#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\AF\"
+#        -I "C:\Users\Ananda
+#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\NWK\"
+#        -I "C:\Users\Ananda
+#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\SEC\"
+#        -I "C:\Users\Ananda
+#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\SAPI\"
+#        -I "C:\Users\Ananda
+#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\SYS\"
+#        -I "C:\Users\Ananda
+#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\ZDO\"
+#        -I "C:\Users\Ananda
+#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\ZMAC\F8W\"
+#        -I "C:\Users\Ananda
+#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\ZMAC\"
+#        -I "C:\Users\Ananda
+#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\SERVICES\SADDR\"
+#        -I "C:\Users\Ananda
+#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\SERVICES\SDATA\"
+#        -I "C:\Users\Ananda
+#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\INCLUDE\"
+#        -I "C:\Users\Ananda
+#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\HIGH_LEVEL\"
+#        -I "C:\Users\Ananda
+#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\LOW_LEVEL\srf04\"
+#        -I "C:\Users\Ananda
+#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\LOW_LEVEL\srf04\SINGLE_CHIP\"
+#        -Ohz --require_prototypes)
+#    Locale             =  English_USA.1252
+#    List file          =  
+#        C:\Users\Ananda
+#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\CoordinatorEB\List\mac_rx.lst
+#    Object file        =  
+#        C:\Users\Ananda
+#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\CoordinatorEB\Obj\mac_rx.r51
+#
+###############################################################################
+
+C:\Users\Ananda Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Components\mac\low_level\srf04\mac_rx.c
+      1          /**************************************************************************************************
+      2            Filename:       mac_rx.c
+      3            Revised:        $Date: 2007-10-08 14:05:36 -0700 (Mon, 08 Oct 2007) $
+      4            Revision:       $Revision: 15624 $
+      5          
+      6            Description:    Describe the purpose and contents of the file.
+      7          
+      8          
+      9            Copyright 2006-2010 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com.
+     38          **************************************************************************************************/
+     39          
+     40          /* ------------------------------------------------------------------------------------------------
+     41           *                                          Includes
+     42           * ------------------------------------------------------------------------------------------------
+     43           */
+     44          
+     45          /* hal */
+     46          #include "hal_defs.h"
+     47          #include "hal_types.h"
+     48          
+     49          /* high-level */
+     50          #include "mac_high_level.h"
+     51          #include "mac_spec.h"
+     52          
+     53          /* exported low-level */
+     54          #include "mac_low_level.h"
+     55          
+     56          /* low-level specific */
+     57          #include "mac_rx.h"
+     58          #include "mac_tx.h"
+     59          #include "mac_rx_onoff.h"
+     60          #include "mac_radio.h"
+     61          
+     62          /* target specific */
+     63          #include "mac_radio_defs.h"
+
+   \                                 In  segment SFR_AN, at 0x91
+   \   unsigned char volatile __sfr RFIRQF1
+   \                     RFIRQF1:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x9b
+   \   unsigned char volatile __sfr S1CON
+   \                     S1CON:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xa8
+   \   union <unnamed> volatile __sfr _A_IEN0
+   \                     _A_IEN0:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xe1
+   \   unsigned char volatile __sfr RFST
+   \                     RFST:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xe9
+   \   unsigned char volatile __sfr RFIRQF0
+   \                     RFIRQF0:
+   \   000000                DS 1
+     64          #include "mac_autopend.h"
+     65          
+     66          /* debug */
+     67          #include "mac_assert.h"
+     68          
+     69          
+     70          /* ------------------------------------------------------------------------------------------------
+     71           *                                            Defines
+     72           * ------------------------------------------------------------------------------------------------
+     73           */
+     74          #define MAX_PAYLOAD_BYTES_READ_PER_INTERRUPT   16   /* adjustable to tune performance */
+     75          
+     76          /* receive FIFO bytes needed to start a valid receive (see function rxStartIsr for details) */
+     77          #define RX_THRESHOLD_START_LEN    (MAC_PHY_PHR_LEN        +  \
+     78                                             MAC_FCF_FIELD_LEN      +  \
+     79                                             MAC_SEQ_NUM_FIELD_LEN  +  \
+     80                                             MAC_FCS_FIELD_LEN)
+     81          
+     82          /* maximum size of addressing fields (note: command frame identifier processed as part of address) */
+     83          #define MAX_ADDR_FIELDS_LEN  ((MAC_EXT_ADDR_FIELD_LEN + MAC_PAN_ID_FIELD_LEN) * 2)
+     84          
+     85          /* addressing mode reserved value */
+     86          #define ADDR_MODE_RESERVERED  1
+     87          
+     88          /* length of command frame identifier */
+     89          #define CMD_FRAME_ID_LEN      1
+     90          
+     91          /* packet size mask is equal to the maximum value */
+     92          #define PHY_PACKET_SIZE_MASK  0x7F
+     93          
+     94          /* value for promiscuous off, must not conflict with other mode variants from separate include files */
+     95          #define PROMISCUOUS_MODE_OFF  0x00
+     96          
+     97          /* bit of proprietary FCS format that indicates if the CRC is OK */
+     98          #define PROPRIETARY_FCS_CRC_OK_BIT  0x80
+     99          
+    100          /* dummy length value for unused entry in lookup table */
+    101          #define DUMMY_LEN   0xBE
+    102          
+    103          /* value for rxThresholdIntState */
+    104          #define RX_THRESHOLD_INT_STATE_INACTIVE   0
+    105          #define RX_THRESHOLD_INT_STATE_ACTIVE     1
+    106          #define RX_THRESHOLD_INT_STATE_RESET      2
+    107          
+    108          
+    109          /* ------------------------------------------------------------------------------------------------
+    110           *                                             Macros
+    111           * ------------------------------------------------------------------------------------------------
+    112           */
+    113          #define MEM_ALLOC(x)   macDataRxMemAlloc(x)
+    114          #define MEM_FREE(x)    macDataRxMemFree((uint8 **)x)
+    115          
+    116          /*
+    117           *  Macro for encoding frame control information into internal flags format.
+    118           *  Parameter is pointer to the frame.  NOTE!  If either the internal frame
+    119           *  format *or* the specification changes, this macro will need to be modified.
+    120           */
+    121          #define INTERNAL_FCF_FLAGS(p)  ((((p)[1] >> 4) & 0x03) | ((p)[0] & 0x78))
+    122          
+    123          /*
+    124           *  The radio replaces the actual FCS with different information.  This proprietary FCS is
+    125           *  the same length as the original and includes:
+    126           *    1) the RSSI value
+    127           *    2) the average correlation value (used for LQI)
+    128           *    3) a CRC passed bit
+    129           *
+    130           *  These macros decode the proprietary FCS.  The macro parameter is a pointer to the two byte FCS.
+    131           */
+    132          #define PROPRIETARY_FCS_RSSI(p)                 ((int8)((p)[0]))
+    133          #define PROPRIETARY_FCS_CRC_OK(p)               ((p)[1] & PROPRIETARY_FCS_CRC_OK_BIT)
+    134          #define PROPRIETARY_FCS_CORRELATION_VALUE(p)    ((p)[1] & ~PROPRIETARY_FCS_CRC_OK_BIT)
+    135          
+    136          
+    137          /* ------------------------------------------------------------------------------------------------
+    138           *                                       Global Variables
+    139           * ------------------------------------------------------------------------------------------------
+    140           */
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    141          uint8 macRxActive;
+   \                     macRxActive:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    142          uint8 macRxFilter;
+   \                     macRxFilter:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    143          uint8 macRxOutgoingAckFlag;
+   \                     macRxOutgoingAckFlag:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+    144          
+    145          
+    146          /* ------------------------------------------------------------------------------------------------
+    147           *                                       Local Constants
+    148           * ------------------------------------------------------------------------------------------------
+    149           */
+
+   \                                 In  segment CODE_C, align 1
+    150          static const uint8 CODE macRxAddrLen[] =
+   \                     macRxAddrLen:
+   \   000000   00           DB 0
+   \   000001   BE           DB 190
+   \   000002   04           DB 4
+   \   000003   0A           DB 10
+    151          {
+    152            0,                                                /* no address */
+    153            DUMMY_LEN,                                        /* reserved */
+    154            MAC_PAN_ID_FIELD_LEN + MAC_SHORT_ADDR_FIELD_LEN,  /* short address + pan id */
+    155            MAC_PAN_ID_FIELD_LEN + MAC_EXT_ADDR_FIELD_LEN     /* extended address + pan id */
+    156          };
+    157          
+    158          
+    159          /* ------------------------------------------------------------------------------------------------
+    160           *                                       Local Prototypes
+    161           * ------------------------------------------------------------------------------------------------
+    162           */
+    163          static void rxHaltCleanupFinalStep(void);
+    164          
+    165          static void rxStartIsr(void);
+    166          static void rxAddrIsr(void);
+    167          static void rxPayloadIsr(void);
+    168          static void rxDiscardIsr(void);
+    169          static void rxFcsIsr(void);
+    170          
+    171          static void rxPrepPayload(void);
+    172          static void rxDiscardFrame(void);
+    173          static void rxDone(void);
+    174          static void rxPostRxUpdates(void);
+    175          
+    176          
+    177          /* ------------------------------------------------------------------------------------------------
+    178           *                                         Local Variables
+    179           * ------------------------------------------------------------------------------------------------
+    180           */
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    181          static void    (* pFuncRxState)(void);
+   \                     pFuncRxState:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    182          static macRx_t  * pRxBuf;
+   \                     pRxBuf:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+    183          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    184          static uint8  rxBuf[MAC_PHY_PHR_LEN + MAC_FCF_FIELD_LEN + MAC_SEQ_NUM_FIELD_LEN];
+   \                     rxBuf:
+   \   000000                DS 4
+   \   000004                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    185          static uint8  rxUnreadLen;
+   \                     rxUnreadLen:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    186          static uint8  rxNextLen;
+   \                     rxNextLen:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    187          static uint8  rxPayloadLen;
+   \                     rxPayloadLen:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    188          static uint8  rxFilter;
+   \                     rxFilter:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    189          static uint8  rxPromiscuousMode;
+   \                     rxPromiscuousMode:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    190          static uint8  rxIsrActiveFlag;
+   \                     rxIsrActiveFlag:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    191          static uint8  rxResetFlag;
+   \                     rxResetFlag:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    192          static uint8  rxFifoOverflowCount;
+   \                     rxFifoOverflowCount:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+    193          
+    194          #ifdef PACKET_FILTER_STATS
+    195            uint32      rxCrcFailure = 0;
+    196            uint32      rxCrcSuccess = 0;
+    197          #endif /* PACKET_FILTER_STATS */
+    198          
+    199          
+    200          /**************************************************************************************************
+    201           * @fn          macRxInit
+    202           *
+    203           * @brief       Initialize receive variable states.
+    204           *
+    205           * @param       none
+    206           *
+    207           * @return      none
+    208           **************************************************************************************************
+    209           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    210          MAC_INTERNAL_API void macRxInit(void)
+   \                     macRxInit:
+    211          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    212            macRxFilter          = RX_FILTER_OFF;
+   \   000004   90....       MOV       DPTR,#macRxFilter
+   \   000007   E4           CLR       A
+   \   000008   F0           MOVX      @DPTR,A
+    213            rxPromiscuousMode    = PROMISCUOUS_MODE_OFF;
+   \   000009   90....       MOV       DPTR,#rxPromiscuousMode
+   \   00000C   F0           MOVX      @DPTR,A
+    214            pRxBuf               = NULL; /* required for macRxReset() to function correctly */
+   \   00000D   90....       MOV       DPTR,#pRxBuf
+   \   000010   F0           MOVX      @DPTR,A
+   \   000011   A3           INC       DPTR
+   \   000012   F0           MOVX      @DPTR,A
+    215            macRxActive          = MAC_RX_ACTIVE_NO_ACTIVITY;
+   \   000013   90....       MOV       DPTR,#macRxActive
+   \   000016   12....       LCALL     ?Subroutine4 & 0xFFFF
+    216            pFuncRxState         = &rxStartIsr;
+    217            macRxOutgoingAckFlag = 0;
+   \                     ??CrossCallReturnLabel_7:
+   \   000019   90....       MOV       DPTR,#macRxOutgoingAckFlag
+   \   00001C   E4           CLR       A
+   \   00001D   F0           MOVX      @DPTR,A
+    218            rxIsrActiveFlag      = 0;
+   \   00001E   90....       MOV       DPTR,#rxIsrActiveFlag
+   \   000021   F0           MOVX      @DPTR,A
+    219            rxResetFlag          = 0;
+   \   000022   90....       MOV       DPTR,#rxResetFlag
+   \   000025   F0           MOVX      @DPTR,A
+    220            rxFifoOverflowCount  = 0;
+   \   000026   90....       MOV       DPTR,#rxFifoOverflowCount
+   \   000029   02....       LJMP      ?Subroutine0 & 0xFFFF
+    221          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine4:
+   \   000000   12....       LCALL     ?Subroutine18 & 0xFFFF
+   \                     ??CrossCallReturnLabel_31:
+   \   000003   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine18:
+   \   000000   F0           MOVX      @DPTR,A
+   \   000001   90....       MOV       DPTR,#pFuncRxState
+   \   000004   74..         MOV       A,#`??rxStartIsr::?relay` & 0xff
+   \   000006   F0           MOVX      @DPTR,A
+   \   000007   A3           INC       DPTR
+   \   000008   74..         MOV       A,#(`??rxStartIsr::?relay` >> 8) & 0xff
+   \   00000A   F0           MOVX      @DPTR,A
+   \   00000B   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   F0           MOVX      @DPTR,A
+   \   000001                REQUIRE ??Subroutine23_0
+   \   000001                ; // Fall through to label ??Subroutine23_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine23_0:
+   \   000000   D083         POP       DPH
+   \   000002   D082         POP       DPL
+   \   000004   02....       LJMP      ?BRET
+    222          
+    223          
+    224          /**************************************************************************************************
+    225           * @fn          macRxRadioPowerUpInit
+    226           *
+    227           * @brief       Initialization for after radio first powers up.
+    228           *
+    229           * @param       none
+    230           *
+    231           * @return      none
+    232           **************************************************************************************************
+    233           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    234          MAC_INTERNAL_API void macRxRadioPowerUpInit(void)
+   \                     macRxRadioPowerUpInit:
+    235          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    236            /* set threshold at initial value */
+    237            MAC_RADIO_SET_RX_THRESHOLD(RX_THRESHOLD_START_LEN);
+   \   000004   906194       MOV       DPTR,#0x6194
+   \   000007   7405         MOV       A,#0x5
+   \   000009   12....       LCALL     ?Subroutine7 & 0xFFFF
+    238          
+    239            /* clear any accidental threshold interrupt that happened as part of power up sequence */
+    240            MAC_RADIO_CLEAR_RX_THRESHOLD_INTERRUPT_FLAG();
+   \                     ??CrossCallReturnLabel_13:
+   \   00000C   75E9FB       MOV       0xe9,#-0x5
+   \   00000F   E8           MOV       A,R0
+   \   000010   A2E7         MOV       C,0xE0 /* A   */.7
+   \   000012   92AF         MOV       0xa8.7,C
+    241          
+    242            /* enable threshold interrupts */
+    243            MAC_RADIO_ENABLE_RX_THRESHOLD_INTERRUPT();
+   \   000014   9061A3       MOV       DPTR,#0x61a3
+   \   000017   E0           MOVX      A,@DPTR
+   \   000018   D2E2         SETB      0xE0 /* A   */.2
+   \   00001A   02....       LJMP      ?Subroutine0 & 0xFFFF
+   \   00001D                REQUIRE _A_IEN0
+   \   00001D                REQUIRE S1CON
+   \   00001D                REQUIRE RFIRQF0
+    244          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine7:
+   \   000000   F0           MOVX      @DPTR,A
+   \   000001   A8A8         MOV       R0,0xa8+0x0
+   \   000003   C2AF         CLR       0xa8.7
+   \   000005   759B00       MOV       0x9b,#0x0
+   \   000008   22           RET
+    245          
+    246          
+    247          /**************************************************************************************************
+    248           * @fn          macRxTxReset
+    249           *
+    250           * @brief       Reset the receive state.
+    251           *
+    252           * @param       none
+    253           *
+    254           * @return      none
+    255           **************************************************************************************************
+    256           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    257          MAC_INTERNAL_API void macRxTxReset(void)
+   \                     macRxTxReset:
+    258          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    259            /* forces receiver off, cleans up by calling macRxHaltCleanup() and macTxHaltCleanup() */
+    260            macRxHardDisable();
+   \   000004                ; Setup parameters for call to function macRxHardDisable
+   \   000004   12....       LCALL     `??macRxHardDisable::?relay`; Banked call to: macRxHardDisable
+    261          
+    262            /*
+    263             *   Note : transmit does not require any reset logic
+    264             *          beyond what macRxHardDisable() provides.
+    265             */
+    266          
+    267            /* restore deault filter mode to off */
+    268            macRxFilter = RX_FILTER_OFF;
+   \   000007   90....       MOV       DPTR,#macRxFilter
+   \   00000A   E4           CLR       A
+   \   00000B   F0           MOVX      @DPTR,A
+    269          
+    270            /* return promiscuous mode to default off state */
+    271            macRxPromiscuousMode(MAC_PROMISCUOUS_MODE_OFF);
+   \   00000C                ; Setup parameters for call to function macRxPromiscuousMode
+   \   00000C   F9           MOV       R1,A
+   \   00000D   12....       LCALL     `??macRxPromiscuousMode::?relay`; Banked call to: macRxPromiscuousMode
+    272          }
+   \   000010   02....       LJMP      ??Subroutine23_0 & 0xFFFF
+    273          
+    274          
+    275          /**************************************************************************************************
+    276           * @fn          macRxHaltCleanup
+    277           *
+    278           * @brief       Cleanup up the receive logic after receiver is forced off.
+    279           *
+    280           * @param       none
+    281           *
+    282           * @return      none
+    283           **************************************************************************************************
+    284           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    285          MAC_INTERNAL_API void macRxHaltCleanup(void)
+   \                     macRxHaltCleanup:
+    286          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    287            rxResetFlag = 1;
+   \   000004   90....       MOV       DPTR,#rxResetFlag
+   \   000007   7401         MOV       A,#0x1
+   \   000009   F0           MOVX      @DPTR,A
+    288            if (!rxIsrActiveFlag)
+   \   00000A   90....       MOV       DPTR,#rxIsrActiveFlag
+   \   00000D   E0           MOVX      A,@DPTR
+   \   00000E   7003         JNZ       ??CrossCallReturnLabel_29
+    289            {
+    290              rxHaltCleanupFinalStep();
+   \   000010                ; Setup parameters for call to function rxHaltCleanupFinalStep
+   \   000010   12....       LCALL     ?Subroutine17 & 0xFFFF
+    291              rxResetFlag = 0;
+    292            }
+    293          }
+   \                     ??CrossCallReturnLabel_29:
+   \   000013   02....       LJMP      ??Subroutine23_0 & 0xFFFF
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine17:
+   \   000000   12....       LCALL     `??rxHaltCleanupFinalStep::?relay`; Banked call to: rxHaltCleanupFinalStep
+   \   000003   90....       MOV       DPTR,#rxResetFlag
+   \   000006   E4           CLR       A
+   \   000007   F0           MOVX      @DPTR,A
+   \   000008   22           RET
+    294          
+    295          
+    296          /*=================================================================================================
+    297           * @fn          rxHaltCleanupFinalStep
+    298           *
+    299           * @brief       Required cleanup if receiver is halted in the middle of a receive.
+    300           *
+    301           * @param       none
+    302           *
+    303           * @return      none
+    304           *=================================================================================================
+    305           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    306          static void rxHaltCleanupFinalStep(void)
+   \                     rxHaltCleanupFinalStep:
+    307          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    308            /* cancel any upcoming ACK transmit complete callback */
+    309            MAC_RADIO_CANCEL_ACK_TX_DONE_CALLBACK();
+   \   000004   9061A4       MOV       DPTR,#0x61a4
+   \   000007   E0           MOVX      A,@DPTR
+   \   000008   C2E0         CLR       0xE0 /* A   */.0
+   \   00000A   F0           MOVX      @DPTR,A
+    310          
+    311            /* set start of frame threshold */
+    312            MAC_RADIO_SET_RX_THRESHOLD(RX_THRESHOLD_START_LEN);
+   \   00000B   906194       MOV       DPTR,#0x6194
+   \   00000E   7405         MOV       A,#0x5
+   \   000010   F0           MOVX      @DPTR,A
+    313          
+    314            /* flush the receive FIFO */
+    315            MAC_RADIO_FLUSH_RX_FIFO();
+   \   000011   75E1ED       MOV       0xe1,#-0x13
+   \   000014   75E1ED       MOV       0xe1,#-0x13
+    316          
+    317            /* clear any receive interrupt that happened to squeak through */
+    318            MAC_RADIO_CLEAR_RX_THRESHOLD_INTERRUPT_FLAG();
+   \   000017   A8A8         MOV       R0,0xa8+0x0
+   \   000019   C2AF         CLR       0xa8.7
+   \   00001B   759B00       MOV       0x9b,#0x0
+   \   00001E   75E9FB       MOV       0xe9,#-0x5
+   \   000021   E8           MOV       A,R0
+   \   000022   A2E7         MOV       C,0xE0 /* A   */.7
+   \   000024   92AF         MOV       0xa8.7,C
+    319          
+    320            /* if data buffer has been allocated, free it */
+    321            if (pRxBuf != NULL)
+   \   000026   90....       MOV       DPTR,#pRxBuf
+   \   000029   E0           MOVX      A,@DPTR
+   \   00002A   F8           MOV       R0,A
+   \   00002B   A3           INC       DPTR
+   \   00002C   E0           MOVX      A,@DPTR
+   \   00002D   F9           MOV       R1,A
+   \   00002E   E8           MOV       A,R0
+   \   00002F   49           ORL       A,R1
+   \   000030   6007         JZ        ??rxHaltCleanupFinalStep_0
+    322            {
+    323              MEM_FREE((uint8 **)&pRxBuf);
+   \   000032                ; Setup parameters for call to function macDataRxMemFree
+   \   000032   7A..         MOV       R2,#pRxBuf & 0xff
+   \   000034   7B..         MOV       R3,#(pRxBuf >> 8) & 0xff
+   \   000036   12....       LCALL     `??macDataRxMemFree::?relay`; Banked call to: macDataRxMemFree
+    324            }
+    325            pRxBuf = NULL; /* needed to indicate buffer is no longer allocated */
+   \                     ??rxHaltCleanupFinalStep_0:
+   \   000039   90....       MOV       DPTR,#pRxBuf
+   \   00003C   E4           CLR       A
+   \   00003D   F0           MOVX      @DPTR,A
+   \   00003E   A3           INC       DPTR
+   \   00003F   12....       LCALL     ?Subroutine4 & 0xFFFF
+    326          
+    327            pFuncRxState = &rxStartIsr;
+    328          
+    329            /* if receive was active, perform the post receive updates */
+    330            if (macRxActive || macRxOutgoingAckFlag)
+   \                     ??CrossCallReturnLabel_8:
+   \   000042   90....       MOV       DPTR,#macRxActive
+   \   000045   E0           MOVX      A,@DPTR
+   \   000046   7006         JNZ       ??rxHaltCleanupFinalStep_1
+   \   000048   90....       MOV       DPTR,#macRxOutgoingAckFlag
+   \   00004B   E0           MOVX      A,@DPTR
+   \   00004C   600C         JZ        ??rxHaltCleanupFinalStep_2
+    331            {
+    332              macRxActive = MAC_RX_ACTIVE_NO_ACTIVITY;
+   \                     ??rxHaltCleanupFinalStep_1:
+   \   00004E   90....       MOV       DPTR,#macRxActive
+   \   000051   E4           CLR       A
+   \   000052   F0           MOVX      @DPTR,A
+    333              macRxOutgoingAckFlag = 0;
+   \   000053   90....       MOV       DPTR,#macRxOutgoingAckFlag
+   \   000056   F0           MOVX      @DPTR,A
+    334          
+    335              rxPostRxUpdates();
+   \   000057                ; Setup parameters for call to function rxPostRxUpdates
+   \   000057   12....       LCALL     `??rxPostRxUpdates::?relay`; Banked call to: rxPostRxUpdates
+    336            }
+    337          }
+   \                     ??rxHaltCleanupFinalStep_2:
+   \   00005A   02....       LJMP      ??Subroutine23_0 & 0xFFFF
+   \   00005D                REQUIRE RFST
+   \   00005D                REQUIRE _A_IEN0
+   \   00005D                REQUIRE S1CON
+   \   00005D                REQUIRE RFIRQF0
+    338          
+    339          
+    340          /**************************************************************************************************
+    341           * @fn          macRxThresholdIsr
+    342           *
+    343           * @brief       Interrupt service routine called when bytes in FIFO reach threshold value.
+    344           *              It implements a state machine for receiving a packet.
+    345           *
+    346           * @param       none
+    347           *
+    348           * @return      none
+    349           **************************************************************************************************
+    350           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    351          MAC_INTERNAL_API void macRxThresholdIsr(void)
+   \                     macRxThresholdIsr:
+    352          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    353            /* if currently reseting, do not execute receive ISR logic */
+    354            if (rxResetFlag)
+   \   000004   90....       MOV       DPTR,#rxResetFlag
+   \   000007   E0           MOVX      A,@DPTR
+   \   000008   701D         JNZ       ??CrossCallReturnLabel_30
+    355            {
+    356              return;
+    357            }
+    358          
+    359            /*
+    360             *  Call the function that handles the current receive state.
+    361             *  A flag is set for the duration of the call to indicate
+    362             *  the ISR is executing.  This is necessary for the reset
+    363             *  logic so it does not perform a reset in the middle of
+    364             *  executing the ISR.
+    365             */
+    366            rxIsrActiveFlag = 1;
+   \   00000A   90....       MOV       DPTR,#rxIsrActiveFlag
+   \   00000D   7401         MOV       A,#0x1
+   \   00000F   F0           MOVX      @DPTR,A
+    367            (*pFuncRxState)();
+   \   000010                ; Setup parameters for indirect call
+   \   000010   90....       MOV       DPTR,#pFuncRxState
+   \   000013   12....       LCALL     ?Subroutine14 & 0xFFFF
+   \                     ??CrossCallReturnLabel_25:
+   \   000016   12....       LCALL     ?CALL_IND
+    368            rxIsrActiveFlag = 0;
+   \   000019   90....       MOV       DPTR,#rxIsrActiveFlag
+   \   00001C   E4           CLR       A
+   \   00001D   F0           MOVX      @DPTR,A
+    369          
+    370            /* if a reset occurred during the ISR, peform cleanup here */
+    371            if (rxResetFlag)
+   \   00001E   90....       MOV       DPTR,#rxResetFlag
+   \   000021   E0           MOVX      A,@DPTR
+   \   000022   6003         JZ        ??CrossCallReturnLabel_30
+    372            {
+    373              rxHaltCleanupFinalStep();
+   \   000024                ; Setup parameters for call to function rxHaltCleanupFinalStep
+   \   000024   12....       LCALL     ?Subroutine17 & 0xFFFF
+    374              rxResetFlag = 0;
+    375            }
+    376          }
+   \                     ??CrossCallReturnLabel_30:
+   \   000027   02....       LJMP      ??Subroutine23_0 & 0xFFFF
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine14:
+   \   000000   12....       LCALL     ?Subroutine20 & 0xFFFF
+   \                     ??CrossCallReturnLabel_34:
+   \   000003   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine20:
+   \   000000   E0           MOVX      A,@DPTR
+   \   000001   F8           MOV       R0,A
+   \   000002   A3           INC       DPTR
+   \   000003   E0           MOVX      A,@DPTR
+   \   000004   F583         MOV       DPH,A
+   \   000006   8882         MOV       DPL,R0
+   \   000008   22           RET
+    377          
+    378          
+    379          /*=================================================================================================
+    380           * @fn          rxStartIsr
+    381           *
+    382           * @brief       First ISR state for receiving a packet - compute packet length, allocate
+    383           *              buffer, initialize buffer.  Acknowledgements are handled immediately without
+    384           *              allocating a buffer.
+    385           *
+    386           * @param       none
+    387           *
+    388           * @return      none
+    389           *=================================================================================================
+    390           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    391          static void rxStartIsr(void)
+   \                     rxStartIsr:
+    392          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000   74F4         MOV       A,#-0xc
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 2
+   \   000005   74FE         MOV       A,#-0x2
+   \   000007   12....       LCALL     ?ALLOC_XSTACK8
+    393            uint8  addrLen;
+    394            uint8  ackWithPending;
+    395            uint8  dstAddrMode;
+    396            uint8  srcAddrMode;
+    397          
+    398            MAC_ASSERT(!macRxActive); /* receive on top of receive */
+   \   00000A   90....       MOV       DPTR,#macRxActive
+   \   00000D   E0           MOVX      A,@DPTR
+   \   00000E   6003         JZ        ??rxStartIsr_0
+   \   000010                ; Setup parameters for call to function halAssertHandler
+   \   000010   12....       LCALL     `??halAssertHandler::?relay`; Banked call to: halAssertHandler
+    399          
+    400            /* indicate rx is active */
+    401            macRxActive = MAC_RX_ACTIVE_STARTED;
+   \                     ??rxStartIsr_0:
+   \   000013   90....       MOV       DPTR,#macRxActive
+   \   000016   7481         MOV       A,#-0x7f
+   \   000018   F0           MOVX      @DPTR,A
+    402          
+    403            /*
+    404             *  For bullet proof functionality, need to see if the receiver was just turned off.
+    405             *  The logic to request turning off the receiver, disables interrupts and then checks
+    406             *  the value of macRxActive.  If it is TRUE, the receiver will not be turned off.
+    407             *
+    408             *  There is a small hole though.  It's possible to attempt turning off the receiver
+    409             *  in the window from when the receive interrupt fires and the point where macRxActive
+    410             *  is set to TRUE.  To plug this hole, the on/off status must be tested *after*
+    411             *  macRxActive has been set.  If the receiver is off at this point, there is nothing
+    412             *  in the RX fifo and the receive is simply aborted.
+    413             *
+    414             *  Also, there are some considerations in case a hard disable just happened.  Usually,
+    415             *  the receiver will just be off at this point after a hard disable.  The check described
+    416             *  above will account for this case too.  However, if a hard disable were immediately
+    417             *  followed by an enable, the receiver would be on.  To catch this case, the receive
+    418             *  FIFO is also tested to see if it is empty.  Recovery is identical to the other cases.
+    419             */
+    420            if (!macRxOnFlag || MAC_RADIO_RX_FIFO_IS_EMPTY())
+   \   000019   90....       MOV       DPTR,#macRxOnFlag
+   \   00001C   E0           MOVX      A,@DPTR
+   \   00001D   600D         JZ        ??rxStartIsr_1
+   \   00001F   906193       MOV       DPTR,#0x6193
+   \   000022   E0           MOVX      A,@DPTR
+   \   000023   A2E7         MOV       C,0xE0 /* A   */.7
+   \   000025   4010         JC        ??rxStartIsr_2
+   \   000027   E0           MOVX      A,@DPTR
+   \   000028   A2E6         MOV       C,0xE0 /* A   */.6
+   \   00002A   400B         JC        ??rxStartIsr_2
+    421            {
+    422              /* reset active flag */
+    423              macRxActive = MAC_RX_ACTIVE_NO_ACTIVITY;
+   \                     ??rxStartIsr_1:
+   \   00002C   90....       MOV       DPTR,#macRxActive
+   \   00002F   E4           CLR       A
+   \   000030   F0           MOVX      @DPTR,A
+    424          
+    425              /*
+    426               *  To be absolutely bulletproof, must make sure no transmit queue'ed up during
+    427               *  the tiny, tiny window when macRxActive was not zero.
+    428               */
+    429              rxPostRxUpdates();
+   \   000031                ; Setup parameters for call to function rxPostRxUpdates
+   \   000031   12....       LCALL     `??rxPostRxUpdates::?relay`; Banked call to: rxPostRxUpdates
+    430          
+    431              /* return immediately from here */
+    432              return;
+   \   000034   02....       LJMP      ??rxStartIsr_3 & 0xFFFF
+    433            }
+    434          
+    435            /*
+    436             *  If interrupts are held off for too long it's possible the previous "transmit done"
+    437             *  callback is pending.  If this is the case, it needs to be completed before
+    438             *  continuing with the receive logic.
+    439             */
+    440            MAC_RADIO_FORCE_TX_DONE_IF_PENDING();
+   \                     ??rxStartIsr_2:
+   \   000037                ; Setup parameters for call to function macCspForceTxDoneIfPending
+   \   000037   12....       LCALL     `??macCspForceTxDoneIfPending::?relay`; Banked call to: macCspForceTxDoneIfPending
+    441          
+    442            /*
+    443             *  It's possible receive logic is still waiting for confirmation of an ACK that went out
+    444             *  for the previous receive.  This is OK but the callback needs to be canceled at this point.
+    445             *  That callback execute receive cleanup logic that will run at the completion
+    446             *  of *this* receive.  Also, it is important the flag for the outgoing ACK to be cleared.
+    447             */
+    448            MAC_RADIO_CANCEL_ACK_TX_DONE_CALLBACK();
+   \   00003A   12....       LCALL     ?Subroutine12 & 0xFFFF
+    449            macRxOutgoingAckFlag = 0;
+    450          
+    451            /*
+    452             *  Make a module-local copy of macRxFilter.  This prevents the selected
+    453             *  filter from changing in the middle of a receive.
+    454             */
+    455            rxFilter = macRxFilter;
+   \                     ??CrossCallReturnLabel_23:
+   \   00003D   90....       MOV       DPTR,#macRxFilter
+   \   000040   E0           MOVX      A,@DPTR
+   \   000041   90....       MOV       DPTR,#rxFilter
+   \   000044   F0           MOVX      @DPTR,A
+    456          
+    457            /*-------------------------------------------------------------------------------
+    458             *  Read initial frame information from FIFO.
+    459             *
+    460             *   This code is not triggered until the following are in the RX FIFO:
+    461             *     frame length          - one byte containing length of MAC frame (excludes this field)
+    462             *     frame control field   - two bytes defining frame type, addressing fields, control flags
+    463             *     sequence number       - one byte unique sequence identifier
+    464             *     additional two bytes  - these bytes are available in case the received frame is an ACK,
+    465             *                             if so, the frame can be verified and responded to immediately,
+    466             *                             if not an ACK, these bytes will be processed normally
+    467             */
+    468          
+    469            /* read frame length, frame control field, and sequence number from FIFO */
+    470            MAC_RADIO_READ_RX_FIFO(rxBuf, MAC_PHY_PHR_LEN + MAC_FCF_FIELD_LEN + MAC_SEQ_NUM_FIELD_LEN);
+   \   000045                ; Setup parameters for call to function macMemReadRxFifo
+   \   000045   7904         MOV       R1,#0x4
+   \   000047   7A..         MOV       R2,#rxBuf & 0xff
+   \   000049   7B..         MOV       R3,#(rxBuf >> 8) & 0xff
+   \   00004B   12....       LCALL     `??macMemReadRxFifo::?relay`; Banked call to: macMemReadRxFifo
+    471          
+    472            /* bytes to read from FIFO equals frame length minus length of MHR fields just read from FIFO */
+    473            rxUnreadLen = (rxBuf[0] & PHY_PACKET_SIZE_MASK) - MAC_FCF_FIELD_LEN - MAC_SEQ_NUM_FIELD_LEN;
+   \   00004E   90....       MOV       DPTR,#rxBuf
+   \   000051   E0           MOVX      A,@DPTR
+   \   000052   547F         ANL       A,#0x7f
+   \   000054   24FD         ADD       A,#-0x3
+   \   000056   90....       MOV       DPTR,#rxUnreadLen
+   \   000059   F0           MOVX      @DPTR,A
+    474          
+    475            /*
+    476             *  Workaround for chip bug #1547.  The receive buffer can sometimes be corrupted by hardware.
+    477             *  This usually occurs under heavy traffic.  If a corrupted receive buffer is detected
+    478             *  the entire receive buffer is flushed.
+    479             *
+    480             *  In the case that this workaround is not needed, an assert is used to make sure the
+    481             *  receive length field is not corrupted.  This is important because a corrupted receive
+    482             *  length field is utterly fatal and, if not caught here, extremely hard to track down.
+    483             */
+    484            if (macChipVersion == REV_A)
+   \   00005A   90....       MOV       DPTR,#macChipVersion
+   \   00005D   E0           MOVX      A,@DPTR
+   \   00005E   90....       MOV       DPTR,#rxUnreadLen
+   \   000061   7017         JNZ       ??rxStartIsr_4
+    485            {
+    486              if ((rxUnreadLen > (MAC_A_MAX_PHY_PACKET_SIZE - MAC_FCF_FIELD_LEN - MAC_SEQ_NUM_FIELD_LEN)) ||
+    487                  (MAC_FRAME_TYPE(&rxBuf[1]) > MAC_FRAME_TYPE_MAX_VALID))
+   \   000063   E0           MOVX      A,@DPTR
+   \   000064   C3           CLR       C
+   \   000065   947D         SUBB      A,#0x7d
+   \   000067   4003         JC        $+5
+   \   000069   02....       LJMP      ??rxStartIsr_5 & 0xFFFF
+   \   00006C   90....       MOV       DPTR,#rxBuf + 1
+   \   00006F   E0           MOVX      A,@DPTR
+   \   000070   5407         ANL       A,#0x7
+   \   000072   C3           CLR       C
+   \   000073   9404         SUBB      A,#0x4
+   \   000075   400C         JC        ??rxStartIsr_6
+   \   000077   02....       LJMP      ??rxStartIsr_5 & 0xFFFF
+    488              {
+    489                MAC_RADIO_FLUSH_RX_FIFO();
+    490                rxDone();
+    491                return;
+    492              }
+    493            }
+    494            else
+    495            {
+    496              /* radio supplied a corrupted receive buffer length */
+    497              MAC_ASSERT(rxUnreadLen <= (MAC_A_MAX_PHY_PACKET_SIZE - MAC_FCF_FIELD_LEN - MAC_SEQ_NUM_FIELD_LEN));
+   \                     ??rxStartIsr_4:
+   \   00007A   E0           MOVX      A,@DPTR
+   \   00007B   C3           CLR       C
+   \   00007C   947D         SUBB      A,#0x7d
+   \   00007E   4003         JC        ??rxStartIsr_6
+   \   000080                ; Setup parameters for call to function halAssertHandler
+   \   000080   12....       LCALL     `??halAssertHandler::?relay`; Banked call to: halAssertHandler
+    498            }
+    499          
+    500          
+    501          
+    502            /*-------------------------------------------------------------------------------
+    503             *  Process ACKs.
+    504             *
+    505             *  If this frame is an ACK, process it immediately and exit from here.
+    506             *  If this frame is not an ACK and transmit is listening for an ACK, let
+    507             *  the transmit logic know an non-ACK was received so transmit can complete.
+    508             *
+    509             *  In promiscuous mode ACKs are treated like any other frame.
+    510             */
+    511            if ((MAC_FRAME_TYPE(&rxBuf[1]) == MAC_FRAME_TYPE_ACK) && (rxPromiscuousMode == PROMISCUOUS_MODE_OFF))
+   \                     ??rxStartIsr_6:
+   \   000083   90....       MOV       DPTR,#rxBuf + 1
+   \   000086   E0           MOVX      A,@DPTR
+   \   000087   5407         ANL       A,#0x7
+   \   000089   6402         XRL       A,#0x2
+   \   00008B   6003         JZ        $+5
+   \   00008D   02....       LJMP      ??rxStartIsr_7 & 0xFFFF
+   \   000090   90....       MOV       DPTR,#rxPromiscuousMode
+   \   000093   E0           MOVX      A,@DPTR
+   \   000094   6003         JZ        $+5
+   \   000096   02....       LJMP      ??rxStartIsr_7 & 0xFFFF
+    512            {
+    513              halIntState_t  s;
+    514              uint8 fcsBuf[MAC_FCF_FIELD_LEN];
+    515              /*
+    516               *  There are guaranteed to be two unread bytes in the FIFO.  By defintion, for ACK frames
+    517               *  these two bytes will be the FCS.
+    518               */
+    519          
+    520              /* read FCS from FIFO (threshold set so bytes are guaranteed to be there) */
+    521              MAC_RADIO_READ_RX_FIFO(fcsBuf, MAC_FCS_FIELD_LEN);
+   \   000099                ; Setup parameters for call to function macMemReadRxFifo
+   \   000099   7902         MOV       R1,#0x2
+   \   00009B   AA..         MOV       R2,?XSP + 0
+   \   00009D   AB..         MOV       R3,?XSP + 1
+   \   00009F   12....       LCALL     `??macMemReadRxFifo::?relay`; Banked call to: macMemReadRxFifo
+    522          
+    523              /*
+    524               *  This critical section ensures that the ACK timeout won't be triggered in the
+    525               *  millde of receiving the ACK frame.
+    526               */
+    527              HAL_ENTER_CRITICAL_SECTION(s);
+   \   0000A2   A2AF         MOV       C,0xa8.7
+   \   0000A4   E4           CLR       A
+   \   0000A5   33           RLC       A
+   \   0000A6   F5..         MOV       ?V0,A
+   \   0000A8   C2AF         CLR       0xa8.7
+    528          
+    529              /* see if transmit is listening for an ACK */
+    530              if (macTxActive == MAC_TX_ACTIVE_LISTEN_FOR_ACK)
+   \   0000AA   90....       MOV       DPTR,#macTxActive
+   \   0000AD   E0           MOVX      A,@DPTR
+   \   0000AE   6486         XRL       A,#0x86
+   \   0000B0   7076         JNZ       ??rxStartIsr_8
+    531              {
+    532                MAC_ASSERT(pMacDataTx != NULL); /* transmit buffer must be present */
+   \   0000B2   90....       MOV       DPTR,#pMacDataTx
+   \   0000B5   E0           MOVX      A,@DPTR
+   \   0000B6   F8           MOV       R0,A
+   \   0000B7   A3           INC       DPTR
+   \   0000B8   E0           MOVX      A,@DPTR
+   \   0000B9   F9           MOV       R1,A
+   \   0000BA   E8           MOV       A,R0
+   \   0000BB   49           ORL       A,R1
+   \   0000BC   7003         JNZ       ??rxStartIsr_9
+   \   0000BE                ; Setup parameters for call to function halAssertHandler
+   \   0000BE   12....       LCALL     `??halAssertHandler::?relay`; Banked call to: halAssertHandler
+    533          
+    534                /* record link quality metrics for the receive ACK */
+    535                {
+    536                  int8 rssiDbm;
+    537                  uint8 corr;
+    538          
+    539                  rssiDbm = PROPRIETARY_FCS_RSSI(fcsBuf) + MAC_RADIO_RSSI_OFFSET;
+   \                     ??rxStartIsr_9:
+   \   0000C1   85..82       MOV       DPL,?XSP + 0
+   \   0000C4   85..83       MOV       DPH,?XSP + 1
+   \   0000C7   E0           MOVX      A,@DPTR
+   \   0000C8   24B7         ADD       A,#-0x49
+   \   0000CA   FE           MOV       R6,A
+    540                  MAC_RADIO_RSSI_LNA_OFFSET(rssiDbm);
+    541                  corr = PROPRIETARY_FCS_CORRELATION_VALUE(fcsBuf);
+   \   0000CB   7401         MOV       A,#0x1
+   \   0000CD   12....       LCALL     ?XSTACK_DISP0_8
+   \   0000D0   E0           MOVX      A,@DPTR
+   \   0000D1   547F         ANL       A,#0x7f
+   \   0000D3   FF           MOV       R7,A
+    542          
+    543                  pMacDataTx->internal.mpduLinkQuality = macRadioComputeLQI(rssiDbm, corr);
+   \   0000D4                ; Setup parameters for call to function macRadioComputeLQI
+   \   0000D4   FA           MOV       R2,A
+   \   0000D5   EE           MOV       A,R6
+   \   0000D6   F9           MOV       R1,A
+   \   0000D7   12....       LCALL     `??macRadioComputeLQI::?relay`; Banked call to: macRadioComputeLQI
+   \   0000DA   90....       MOV       DPTR,#pMacDataTx
+   \   0000DD   12....       LCALL     ??Subroutine24_0 & 0xFFFF
+    544                  pMacDataTx->internal.correlation = corr;
+    545                  pMacDataTx->internal.rssi= rssiDbm;
+    546                }
+   \                     ??CrossCallReturnLabel_41:
+   \   0000E0   2414         ADD       A,#0x14
+   \   0000E2   F582         MOV       DPL,A
+   \   0000E4   E4           CLR       A
+   \   0000E5   38           ADDC      A,R0
+   \   0000E6   F583         MOV       DPH,A
+   \   0000E8   E9           MOV       A,R1
+   \   0000E9   12....       LCALL     ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_11:
+   \   0000EC   2415         ADD       A,#0x15
+   \   0000EE   F582         MOV       DPL,A
+   \   0000F0   E4           CLR       A
+   \   0000F1   38           ADDC      A,R0
+   \   0000F2   F583         MOV       DPH,A
+   \   0000F4   EF           MOV       A,R7
+   \   0000F5   12....       LCALL     ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_12:
+   \   0000F8   2416         ADD       A,#0x16
+   \   0000FA   F582         MOV       DPL,A
+   \   0000FC   E4           CLR       A
+   \   0000FD   38           ADDC      A,R0
+   \   0000FE   F583         MOV       DPH,A
+   \   000100   EE           MOV       A,R6
+   \   000101   F0           MOVX      @DPTR,A
+    547          
+    548                /*
+    549                 *  It's okay if the ACK timeout is triggered here. The callbacks for ACK received
+    550                 *  or ACK not received will check "macTxActive" flag before taking any actions.
+    551                 */
+    552                HAL_EXIT_CRITICAL_SECTION(s);
+   \   000102   E5..         MOV       A,?V0
+   \   000104   A2E0         MOV       C,0xE0 /* A   */.0
+   \   000106   92AF         MOV       0xa8.7,C
+    553          
+    554                /*
+    555                 *  An ACK was received so transmit logic needs to know.  If the FCS failed,
+    556                 *  the transmit logic still needs to know.  In that case, treat the frame
+    557                 *  as a non-ACK to complete the active transmit.
+    558                 */
+    559                if (PROPRIETARY_FCS_CRC_OK(fcsBuf))
+   \   000108   7401         MOV       A,#0x1
+   \   00010A   12....       LCALL     ?XSTACK_DISP0_8
+   \   00010D   E0           MOVX      A,@DPTR
+   \   00010E   A2E7         MOV       C,0xE0 /* A   */.7
+   \   000110   5011         JNC       ??rxStartIsr_10
+    560                {
+    561                  /* call transmit logic to indicate ACK was received */
+    562                  macTxAckReceivedCallback(MAC_SEQ_NUMBER(&rxBuf[1]), MAC_FRAME_PENDING(&rxBuf[1]));
+   \   000112                ; Setup parameters for call to function macTxAckReceivedCallback
+   \   000112   90....       MOV       DPTR,#rxBuf + 1
+   \   000115   E0           MOVX      A,@DPTR
+   \   000116   5410         ANL       A,#0x10
+   \   000118   FA           MOV       R2,A
+   \   000119   90....       MOV       DPTR,#rxBuf + 3
+   \   00011C   E0           MOVX      A,@DPTR
+   \   00011D   F9           MOV       R1,A
+   \   00011E   12....       LCALL     `??macTxAckReceivedCallback::?relay`; Banked call to: macTxAckReceivedCallback
+   \   000121   807A         SJMP      ??rxStartIsr_11
+    563                }
+    564                else
+    565                {
+    566                  macTxAckNotReceivedCallback();
+   \                     ??rxStartIsr_10:
+   \   000123                ; Setup parameters for call to function macTxAckNotReceivedCallback
+   \   000123   12....       LCALL     `??macTxAckNotReceivedCallback::?relay`; Banked call to: macTxAckNotReceivedCallback
+   \   000126   8075         SJMP      ??rxStartIsr_11
+    567                }
+    568              }
+    569              else
+    570              {
+    571                HAL_EXIT_CRITICAL_SECTION(s);
+   \                     ??rxStartIsr_8:
+   \   000128   E5..         MOV       A,?V0
+   \   00012A   A2E0         MOV       C,0xE0 /* A   */.0
+   \   00012C   92AF         MOV       0xa8.7,C
+    572              }
+    573          
+    574              /* receive is done, exit from here */
+    575              rxDone();
+   \   00012E                ; Setup parameters for call to function rxDone
+   \   00012E   806D         SJMP      ??rxStartIsr_11
+    576              return;
+    577            }
+    578            else if (macTxActive == MAC_TX_ACTIVE_LISTEN_FOR_ACK)
+   \                     ??rxStartIsr_7:
+   \   000130   90....       MOV       DPTR,#macTxActive
+   \   000133   E0           MOVX      A,@DPTR
+   \   000134   6486         XRL       A,#0x86
+   \   000136   7003         JNZ       ??rxStartIsr_12
+    579            {
+    580              macTxAckNotReceivedCallback();
+   \   000138                ; Setup parameters for call to function macTxAckNotReceivedCallback
+   \   000138   12....       LCALL     `??macTxAckNotReceivedCallback::?relay`; Banked call to: macTxAckNotReceivedCallback
+    581            }
+    582          
+    583            /*-------------------------------------------------------------------------------
+    584             *  Apply filtering.
+    585             *
+    586             *  For efficiency, see if filtering is even 'on' before processing.  Also test
+    587             *  to make sure promiscuous mode is disabled.  If promiscuous mode is enabled,
+    588             *  do not apply filtering.
+    589             */
+    590            if ((rxFilter != RX_FILTER_OFF) && !rxPromiscuousMode)
+   \                     ??rxStartIsr_12:
+   \   00013B   90....       MOV       DPTR,#rxFilter
+   \   00013E   E0           MOVX      A,@DPTR
+   \   00013F   602F         JZ        ??rxStartIsr_13
+   \   000141   90....       MOV       DPTR,#rxPromiscuousMode
+   \   000144   E0           MOVX      A,@DPTR
+   \   000145   7029         JNZ       ??rxStartIsr_13
+    591            {
+    592              if (/* filter all frames */
+    593                   (rxFilter == RX_FILTER_ALL) ||
+    594          
+    595                   /* filter non-beacon frames */
+    596                   ((rxFilter == RX_FILTER_NON_BEACON_FRAMES) &&
+    597                    (MAC_FRAME_TYPE(&rxBuf[1]) != MAC_FRAME_TYPE_BEACON)) ||
+    598          
+    599                   /* filter non-command frames */
+    600                   ((rxFilter == RX_FILTER_NON_COMMAND_FRAMES) &&
+    601                    ((MAC_FRAME_TYPE(&rxBuf[1]) != MAC_FRAME_TYPE_COMMAND))))
+   \   000147   90....       MOV       DPTR,#rxFilter
+   \   00014A   E0           MOVX      A,@DPTR
+   \   00014B   6401         XRL       A,#0x1
+   \   00014D   7003         JNZ       $+5
+   \   00014F   02....       LJMP      ??rxStartIsr_14 & 0xFFFF
+   \   000152   90....       MOV       DPTR,#rxBuf + 1
+   \   000155   E0           MOVX      A,@DPTR
+   \   000156   5407         ANL       A,#0x7
+   \   000158   F8           MOV       R0,A
+   \   000159   90....       MOV       DPTR,#rxFilter
+   \   00015C   E0           MOVX      A,@DPTR
+   \   00015D   6402         XRL       A,#0x2
+   \   00015F   7005         JNZ       ??rxStartIsr_15
+   \   000161   E8           MOV       A,R0
+   \   000162   7074         JNZ       ??rxStartIsr_14
+   \   000164   800A         SJMP      ??rxStartIsr_13
+   \                     ??rxStartIsr_15:
+   \   000166   E0           MOVX      A,@DPTR
+   \   000167   6403         XRL       A,#0x3
+   \   000169   7005         JNZ       ??rxStartIsr_13
+   \   00016B   7403         MOV       A,#0x3
+   \   00016D   68           XRL       A,R0
+   \   00016E   7068         JNZ       ??rxStartIsr_14
+    602              {
+    603                /* discard rest of frame */
+    604                rxDiscardFrame();
+    605                return;
+    606              }
+    607            }
+    608          
+    609            /*-------------------------------------------------------------------------------
+    610             *  Compute length of addressing fields.  Compute payload length.
+    611             */
+    612          
+    613            /* decode addressing modes */
+    614            dstAddrMode = MAC_DEST_ADDR_MODE(&rxBuf[1]);
+   \                     ??rxStartIsr_13:
+   \   000170   90....       MOV       DPTR,#rxBuf + 2
+   \   000173   E0           MOVX      A,@DPTR
+   \   000174   F8           MOV       R0,A
+   \   000175   13           RRC       A
+   \   000176   13           RRC       A
+   \   000177   543F         ANL       A,#0x3f
+   \   000179   5403         ANL       A,#0x3
+   \   00017B   F5..         MOV       ?V0,A
+    615            srcAddrMode = MAC_SRC_ADDR_MODE(&rxBuf[1]);
+   \   00017D   E8           MOV       A,R0
+   \   00017E   C4           SWAP      A
+   \   00017F   13           RRC       A
+   \   000180   13           RRC       A
+   \   000181   5403         ANL       A,#0x3
+   \   000183   F5..         MOV       ?V1,A
+    616          
+    617            /*
+    618            *  Workaround for chip bug #1547.  The receive buffer can sometimes be corrupted by hardware.
+    619             *  This usually occurs under heavy traffic.  If a corrupted receive buffer is detected
+    620             *  the entire receive buffer is flushed.
+    621             */
+    622            if (macChipVersion == REV_A)
+   \   000185   90....       MOV       DPTR,#macChipVersion
+   \   000188   E0           MOVX      A,@DPTR
+   \   000189   7018         JNZ       ??rxStartIsr_16
+    623            {
+    624              if ((srcAddrMode == ADDR_MODE_RESERVERED) || (dstAddrMode == ADDR_MODE_RESERVERED))
+   \   00018B   7401         MOV       A,#0x1
+   \   00018D   65..         XRL       A,?V1
+   \   00018F   6006         JZ        ??rxStartIsr_5
+   \   000191   7401         MOV       A,#0x1
+   \   000193   65..         XRL       A,?V0
+   \   000195   700C         JNZ       ??rxStartIsr_16
+    625              {
+    626                MAC_RADIO_FLUSH_RX_FIFO();
+   \                     ??rxStartIsr_5:
+   \   000197   75E1ED       MOV       0xe1,#-0x13
+   \   00019A   75E1ED       MOV       0xe1,#-0x13
+    627                rxDone();
+   \   00019D                ; Setup parameters for call to function rxDone
+   \                     ??rxStartIsr_11:
+   \   00019D   12....       LCALL     `??rxDone::?relay`; Banked call to: rxDone
+    628                return;
+   \   0001A0   02....       LJMP      ??rxStartIsr_3 & 0xFFFF
+    629              }
+    630            }
+    631          
+    632            /*
+    633             *  Compute the addressing field length.  A lookup table based on addressing
+    634             *  mode is used for efficiency.  If the source address is present and the
+    635             *  frame is intra-PAN, the PAN Id is not repeated.  In this case, the address
+    636             *  length is adjusted to match the smaller length.
+    637             */
+    638            addrLen = macRxAddrLen[dstAddrMode] + macRxAddrLen[srcAddrMode];
+   \                     ??rxStartIsr_16:
+   \   0001A3   A8..         MOV       R0,?V1
+   \   0001A5   12....       LCALL     ?Subroutine16 & 0xFFFF
+   \                     ??CrossCallReturnLabel_27:
+   \   0001A8   FA           MOV       R2,A
+   \   0001A9   A8..         MOV       R0,?V0
+   \   0001AB   12....       LCALL     ?Subroutine16 & 0xFFFF
+   \                     ??CrossCallReturnLabel_28:
+   \   0001AE   2A           ADD       A,R2
+   \   0001AF   FF           MOV       R7,A
+    639            if ((srcAddrMode != SADDR_MODE_NONE) && MAC_INTRA_PAN(&rxBuf[1]))
+   \   0001B0   E5..         MOV       A,?V1
+   \   0001B2   600A         JZ        ??rxStartIsr_17
+   \   0001B4   90....       MOV       DPTR,#rxBuf + 1
+   \   0001B7   E0           MOVX      A,@DPTR
+   \   0001B8   A2E6         MOV       C,0xE0 /* A   */.6
+   \   0001BA   5002         JNC       ??rxStartIsr_17
+    640            {
+    641              addrLen -= MAC_PAN_ID_FIELD_LEN;
+   \   0001BC   1F           DEC       R7
+   \   0001BD   1F           DEC       R7
+    642            }
+    643          
+    644            /*
+    645             *  If there are not enough unread bytes to include the computed address
+    646             *  plus FCS field, the frame is corrupted and must be discarded.
+    647             */
+    648            if ((addrLen + MAC_FCS_FIELD_LEN) > rxUnreadLen)
+   \                     ??rxStartIsr_17:
+   \   0001BE   90....       MOV       DPTR,#rxUnreadLen
+   \   0001C1   E0           MOVX      A,@DPTR
+   \   0001C2   FA           MOV       R2,A
+   \   0001C3   EF           MOV       A,R7
+   \   0001C4   7900         MOV       R1,#0x0
+   \   0001C6   2402         ADD       A,#0x2
+   \   0001C8   F8           MOV       R0,A
+   \   0001C9   5001         JNC       ??rxStartIsr_18
+   \   0001CB   09           INC       R1
+   \                     ??rxStartIsr_18:
+   \   0001CC   C3           CLR       C
+   \   0001CD   EA           MOV       A,R2
+   \   0001CE   98           SUBB      A,R0
+   \   0001CF   E4           CLR       A
+   \   0001D0   99           SUBB      A,R1
+   \   0001D1   A2D2         MOV       C,0xD0 /* PSW */.2
+   \   0001D3   65D0         XRL       A,PSW
+   \   0001D5   33           RLC       A
+   \   0001D6   5006         JNC       ??rxStartIsr_19
+    649            {
+    650              /* discard frame and exit */
+    651              rxDiscardFrame();
+   \                     ??rxStartIsr_14:
+   \   0001D8                ; Setup parameters for call to function rxDiscardFrame
+   \   0001D8   12....       LCALL     `??rxDiscardFrame::?relay`; Banked call to: rxDiscardFrame
+    652              return;
+   \   0001DB   02....       LJMP      ??rxStartIsr_3 & 0xFFFF
+    653            }
+    654          
+    655            /* payload length is equal to unread bytes minus address length, minus the FCS */
+    656            rxPayloadLen = rxUnreadLen - addrLen - MAC_FCS_FIELD_LEN;
+   \                     ??rxStartIsr_19:
+   \   0001DE   E0           MOVX      A,@DPTR
+   \   0001DF   C3           CLR       C
+   \   0001E0   9F           SUBB      A,R7
+   \   0001E1   24FE         ADD       A,#-0x2
+   \   0001E3   90....       MOV       DPTR,#rxPayloadLen
+   \   0001E6   F0           MOVX      @DPTR,A
+    657          
+    658            /*-------------------------------------------------------------------------------
+    659             *  Allocate memory for the incoming frame.
+    660             */
+    661            pRxBuf = (macRx_t *) MEM_ALLOC(sizeof(macRx_t) + rxPayloadLen);
+   \   0001E7                ; Setup parameters for call to function macDataRxMemAlloc
+   \   0001E7   2432         ADD       A,#0x32
+   \   0001E9   FA           MOV       R2,A
+   \   0001EA   E4           CLR       A
+   \   0001EB   3400         ADDC      A,#0x0
+   \   0001ED   FB           MOV       R3,A
+   \   0001EE   12....       LCALL     `??macDataRxMemAlloc::?relay`; Banked call to: macDataRxMemAlloc
+   \   0001F1   90....       MOV       DPTR,#pRxBuf
+   \   0001F4   EA           MOV       A,R2
+   \   0001F5   F0           MOVX      @DPTR,A
+   \   0001F6   A3           INC       DPTR
+   \   0001F7   EB           MOV       A,R3
+   \   0001F8   F0           MOVX      @DPTR,A
+    662            if (pRxBuf == NULL)
+   \   0001F9   F9           MOV       R1,A
+   \   0001FA   EA           MOV       A,R2
+   \   0001FB   49           ORL       A,R1
+   \   0001FC   7005         JNZ       ??rxStartIsr_20
+    663            {
+    664              /* Cancel the outgoing TX ACK */
+    665              MAC_RADIO_CANCEL_TX_ACK();
+   \   0001FE   75E1E8       MOV       0xe1,#-0x18
+   \   000201   80D5         SJMP      ??rxStartIsr_14
+    666          
+    667              /* buffer allocation failed, discard the frame and exit*/
+    668              rxDiscardFrame();
+    669              return;
+    670            }
+    671          
+    672            /*-------------------------------------------------------------------------------
+    673             *  Set up to process ACK request.  Do not ACK if in promiscuous mode.
+    674             */
+    675            ackWithPending = 0;
+   \                     ??rxStartIsr_20:
+   \   000203   7E00         MOV       R6,#0x0
+    676            if (!rxPromiscuousMode)
+   \   000205   90....       MOV       DPTR,#rxBuf + 1
+   \   000208   E0           MOVX      A,@DPTR
+   \   000209   F8           MOV       R0,A
+   \   00020A   90....       MOV       DPTR,#rxPromiscuousMode
+   \   00020D   E0           MOVX      A,@DPTR
+   \   00020E   7007         JNZ       ??rxStartIsr_21
+    677            {
+    678              macRxOutgoingAckFlag = MAC_ACK_REQUEST(&rxBuf[1]);
+   \   000210   7420         MOV       A,#0x20
+   \   000212   58           ANL       A,R0
+   \   000213   90....       MOV       DPTR,#macRxOutgoingAckFlag
+   \   000216   F0           MOVX      @DPTR,A
+    679            }
+    680          
+    681            /*-------------------------------------------------------------------------------
+    682             *  Process any ACK request.
+    683             */
+    684            if (macRxOutgoingAckFlag)
+   \                     ??rxStartIsr_21:
+   \   000217   90....       MOV       DPTR,#macRxOutgoingAckFlag
+   \   00021A   E0           MOVX      A,@DPTR
+   \   00021B   604A         JZ        ??rxStartIsr_22
+    685            {
+    686              halIntState_t  s;
+    687          
+    688              /*
+    689               *  This critical section ensures that the callback ISR is initiated within time
+    690               *  to guarantee correlation with the strobe.
+    691               */
+    692              HAL_ENTER_CRITICAL_SECTION(s);
+   \   00021D   A2AF         MOV       C,0xa8.7
+   \   00021F   E4           CLR       A
+   \   000220   33           RLC       A
+   \   000221   F5..         MOV       ?V2,A
+   \   000223   C2AF         CLR       0xa8.7
+    693          
+    694              /* Do not ack data packet with pending more data */
+    695              if( MAC_FRAME_TYPE(&rxBuf[1]) == MAC_FRAME_TYPE_COMMAND )
+   \   000225   7407         MOV       A,#0x7
+   \   000227   58           ANL       A,R0
+   \   000228   6403         XRL       A,#0x3
+   \   00022A   701D         JNZ       ??rxStartIsr_23
+    696              {
+    697                if( macRxCheckMACPendingCallback())
+   \   00022C                ; Setup parameters for call to function macRxCheckMACPendingCallback
+   \   00022C   12....       LCALL     `??macRxCheckMACPendingCallback::?relay`; Banked call to: macRxCheckMACPendingCallback
+   \   00022F   E9           MOV       A,R1
+   \   000230   6003         JZ        $+5
+   \   000232   02....       LJMP      ??rxStartIsr_24 & 0xFFFF
+    698                {
+    699                  /* Check is any mac data pending for end devices */
+    700                  ackWithPending = MAC_RX_FLAG_ACK_PENDING;
+    701                }
+    702                else
+    703                {
+    704                  if( macSrcMatchIsEnabled )
+   \   000235   90....       MOV       DPTR,#macSrcMatchIsEnabled
+   \   000238   E0           MOVX      A,@DPTR
+   \   000239   7003         JNZ       $+5
+   \   00023B   02....       LJMP      ??rxStartIsr_25 & 0xFFFF
+    705                  {
+    706                    /* When autopend is enabled, check if allpending is set to true */
+    707                    if( MAC_SrcMatchCheckAllPending() == MAC_AUTOACK_PENDING_ALL_ON )
+   \   00023E                ; Setup parameters for call to function MAC_SrcMatchCheckAllPending
+   \   00023E   12....       LCALL     `??MAC_SrcMatchCheckAllPending::?relay`; Banked call to: MAC_SrcMatchCheckAllPending
+   \   000241   E9           MOV       A,R1
+   \   000242   64FE         XRL       A,#0xfe
+   \   000244   7003         JNZ       $+5
+   \   000246   02....       LJMP      ??rxStartIsr_24 & 0xFFFF
+    708                    {
+    709                      ackWithPending = MAC_RX_FLAG_ACK_PENDING;
+    710                    }
+    711                  }
+    712                  else
+    713                  {
+    714                    /* When autopend is disabled, check the application pending callback */
+    715                    if( macRxCheckPendingCallback() )
+    716                    {
+    717                      ackWithPending = MAC_RX_FLAG_ACK_PENDING;
+    718                    }
+    719                  }
+    720                }
+    721              }
+    722          
+    723              if( ackWithPending == MAC_RX_FLAG_ACK_PENDING )
+    724              {
+    725                MAC_RADIO_TX_ACK_PEND();
+    726              }
+    727              else
+    728              {
+    729                MAC_RADIO_TX_ACK();
+   \                     ??rxStartIsr_23:
+   \   000249   90618A       MOV       DPTR,#0x618a
+   \   00024C   E0           MOVX      A,@DPTR
+   \   00024D   C2E2         CLR       0xE0 /* A   */.2
+    730              }
+   \                     ??rxStartIsr_26:
+   \   00024F   12....       LCALL     ?Subroutine7 & 0xFFFF
+    731          
+    732          
+    733              /* request a callback to macRxAckTxDoneCallback() when the ACK transmit has finished */
+    734              MAC_RADIO_REQUEST_ACK_TX_DONE_CALLBACK();
+   \                     ??CrossCallReturnLabel_14:
+   \   000252   7591FE       MOV       0x91,#-0x2
+   \   000255   E8           MOV       A,R0
+   \   000256   A2E7         MOV       C,0xE0 /* A   */.7
+   \   000258   92AF         MOV       0xa8.7,C
+   \   00025A   9061A4       MOV       DPTR,#0x61a4
+   \   00025D   E0           MOVX      A,@DPTR
+   \   00025E   D2E0         SETB      0xE0 /* A   */.0
+   \   000260   F0           MOVX      @DPTR,A
+    735              HAL_EXIT_CRITICAL_SECTION(s);
+   \   000261   E5..         MOV       A,?V2
+   \   000263   A2E0         MOV       C,0xE0 /* A   */.0
+   \   000265   92AF         MOV       0xa8.7,C
+    736            }
+    737          
+    738           /*-------------------------------------------------------------------------------
+    739            *  Populate the receive buffer going up to high-level.
+    740            */
+    741          
+    742            /* configure the payload buffer */
+    743            pRxBuf->msdu.p = (uint8 *) (pRxBuf + 1);
+   \                     ??rxStartIsr_22:
+   \   000267   12....       LCALL     ?Subroutine8 & 0xFFFF
+    744            pRxBuf->msdu.len = rxPayloadLen;
+   \                     ??CrossCallReturnLabel_15:
+   \   00026A   90....       MOV       DPTR,#rxPayloadLen
+   \   00026D   E0           MOVX      A,@DPTR
+   \   00026E   C0E0         PUSH      A
+   \   000270   12....       LCALL     ?Subroutine10 & 0xFFFF
+   \                     ??CrossCallReturnLabel_19:
+   \   000273   D0E0         POP       A
+   \   000275   12....       LCALL     ?Subroutine2 & 0xFFFF
+    745          
+    746            /* set internal values */
+    747            pRxBuf->mac.srcAddr.addrMode  = srcAddrMode;
+   \                     ??CrossCallReturnLabel_0:
+   \   000278   241A         ADD       A,#0x1a
+   \   00027A   F582         MOV       DPL,A
+   \   00027C   E4           CLR       A
+   \   00027D   38           ADDC      A,R0
+   \   00027E   F583         MOV       DPH,A
+   \   000280   E5..         MOV       A,?V1
+   \   000282   12....       LCALL     ?Subroutine2 & 0xFFFF
+    748            pRxBuf->mac.dstAddr.addrMode  = dstAddrMode;
+   \                     ??CrossCallReturnLabel_1:
+   \   000285   2423         ADD       A,#0x23
+   \   000287   F582         MOV       DPL,A
+   \   000289   E4           CLR       A
+   \   00028A   38           ADDC      A,R0
+   \   00028B   F583         MOV       DPH,A
+   \   00028D   E5..         MOV       A,?V0
+   \   00028F   F0           MOVX      @DPTR,A
+    749            pRxBuf->mac.timestamp         = MAC_RADIO_BACKOFF_CAPTURE();
+   \   000290                ; Setup parameters for call to function macMcuOverflowCapture
+   \   000290   12....       LCALL     `??macMcuOverflowCapture::?relay`; Banked call to: macMcuOverflowCapture
+   \   000293   8A..         MOV       ?V0,R2
+   \   000295   8B..         MOV       ?V1,R3
+   \   000297   8C..         MOV       ?V2,R4
+   \   000299   8D..         MOV       ?V3,R5
+   \   00029B   12....       LCALL     ?Subroutine13 & 0xFFFF
+   \                     ??CrossCallReturnLabel_42:
+   \   00029E   2424         ADD       A,#0x24
+   \   0002A0   F582         MOV       DPL,A
+   \   0002A2   E4           CLR       A
+   \   0002A3   38           ADDC      A,R0
+   \   0002A4   F583         MOV       DPH,A
+   \   0002A6   78..         MOV       R0,#?V0
+   \   0002A8   12....       LCALL     ?L_MOV_TO_X
+    750            pRxBuf->mac.timestamp2        = MAC_RADIO_TIMER_CAPTURE();
+   \   0002AB                ; Setup parameters for call to function macMcuTimerCapture
+   \   0002AB   12....       LCALL     `??macMcuTimerCapture::?relay`; Banked call to: macMcuTimerCapture
+   \   0002AE   8A..         MOV       ?V0,R2
+   \   0002B0   12....       LCALL     ??Subroutine21_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_37:
+   \   0002B3   CA           XCH       A,R2
+   \   0002B4   2428         ADD       A,#0x28
+   \   0002B6   F582         MOV       DPL,A
+   \   0002B8   E4           CLR       A
+   \   0002B9   3A           ADDC      A,R2
+   \   0002BA   F583         MOV       DPH,A
+   \   0002BC   E5..         MOV       A,?V0
+   \   0002BE   F0           MOVX      @DPTR,A
+   \   0002BF   A3           INC       DPTR
+   \   0002C0   EB           MOV       A,R3
+   \   0002C1   F0           MOVX      @DPTR,A
+    751            pRxBuf->internal.frameType    = MAC_FRAME_TYPE(&rxBuf[1]);
+   \   0002C2   90....       MOV       DPTR,#rxBuf + 1
+   \   0002C5   E0           MOVX      A,@DPTR
+   \   0002C6   5407         ANL       A,#0x7
+   \   0002C8   C0E0         PUSH      A
+   \   0002CA   12....       LCALL     ?Subroutine10 & 0xFFFF
+   \                     ??CrossCallReturnLabel_20:
+   \   0002CD   A3           INC       DPTR
+   \   0002CE   D0E0         POP       A
+   \   0002D0   F0           MOVX      @DPTR,A
+    752            pRxBuf->mac.dsn               = MAC_SEQ_NUMBER(&rxBuf[1]);
+   \   0002D1   90....       MOV       DPTR,#rxBuf + 3
+   \   0002D4   E0           MOVX      A,@DPTR
+   \   0002D5   C0E0         PUSH      A
+   \   0002D7   12....       LCALL     ?Subroutine13 & 0xFFFF
+   \                     ??CrossCallReturnLabel_43:
+   \   0002DA   2431         ADD       A,#0x31
+   \   0002DC   F582         MOV       DPL,A
+   \   0002DE   E4           CLR       A
+   \   0002DF   38           ADDC      A,R0
+   \   0002E0   F583         MOV       DPH,A
+   \   0002E2   D0E0         POP       A
+   \   0002E4   F0           MOVX      @DPTR,A
+    753            pRxBuf->internal.flags        = INTERNAL_FCF_FLAGS(&rxBuf[1]) | ackWithPending;
+   \   0002E5   90....       MOV       DPTR,#rxBuf + 1
+   \   0002E8   E0           MOVX      A,@DPTR
+   \   0002E9   5478         ANL       A,#0x78
+   \   0002EB   F8           MOV       R0,A
+   \   0002EC   A3           INC       DPTR
+   \   0002ED   E0           MOVX      A,@DPTR
+   \   0002EE   C4           SWAP      A
+   \   0002EF   540F         ANL       A,#0xf
+   \   0002F1   5403         ANL       A,#0x3
+   \   0002F3   48           ORL       A,R0
+   \   0002F4   4E           ORL       A,R6
+   \   0002F5   C0E0         PUSH      A
+   \   0002F7   12....       LCALL     ?Subroutine9 & 0xFFFF
+   \                     ??CrossCallReturnLabel_17:
+   \   0002FA   D0E0         POP       A
+   \   0002FC   12....       LCALL     ?Subroutine2 & 0xFFFF
+    754            pRxBuf->sec.securityLevel     = MAC_SEC_LEVEL_NONE;
+   \                     ??CrossCallReturnLabel_2:
+   \   0002FF   240F         ADD       A,#0xf
+   \   000301   F582         MOV       DPL,A
+   \   000303   E4           CLR       A
+   \   000304   38           ADDC      A,R0
+   \   000305   F583         MOV       DPH,A
+   \   000307   E4           CLR       A
+   \   000308   F0           MOVX      @DPTR,A
+    755          
+    756            /*-------------------------------------------------------------------------------
+    757             *  If the processing the addressing fields does not require more bytes from
+    758             *  the FIFO go directly address processing function.  Otherwise, configure
+    759             *  interrupt to jump there once bytes are received.
+    760             */
+    761            if (addrLen == 0)
+   \   000309   EF           MOV       A,R7
+   \   00030A   7019         JNZ       ??rxStartIsr_27
+    762            {
+    763              /* no addressing fields to read, prepare for payload interrupts */
+    764              pFuncRxState = &rxPayloadIsr;
+   \   00030C   12....       LCALL     ?Subroutine5 & 0xFFFF
+    765              rxPrepPayload();
+    766            }
+   \                     ??CrossCallReturnLabel_9:
+   \   00030F   8027         SJMP      ??rxStartIsr_3
+   \                     ??rxStartIsr_25:
+   \   000311                ; Setup parameters for call to function macRxCheckPendingCallback
+   \   000311   12....       LCALL     `??macRxCheckPendingCallback::?relay`; Banked call to: macRxCheckPendingCallback
+   \   000314   E9           MOV       A,R1
+   \   000315   7003         JNZ       $+5
+   \   000317   02....       LJMP      ??rxStartIsr_23 & 0xFFFF
+   \                     ??rxStartIsr_24:
+   \   00031A   7E04         MOV       R6,#0x4
+   \   00031C   90618A       MOV       DPTR,#0x618a
+   \   00031F   E0           MOVX      A,@DPTR
+   \   000320   D2E2         SETB      0xE0 /* A   */.2
+   \   000322   02....       LJMP      ??rxStartIsr_26 & 0xFFFF
+    767            else
+    768            {
+    769              /* need to read and process addressing fields, prepare for address interrupt */
+    770              rxNextLen = addrLen;
+   \                     ??rxStartIsr_27:
+   \   000325   90....       MOV       DPTR,#rxNextLen
+   \   000328   F0           MOVX      @DPTR,A
+    771              MAC_RADIO_SET_RX_THRESHOLD(rxNextLen);
+   \   000329   14           DEC       A
+   \   00032A   906194       MOV       DPTR,#0x6194
+   \   00032D   F0           MOVX      @DPTR,A
+    772              pFuncRxState = &rxAddrIsr;
+   \   00032E   90....       MOV       DPTR,#pFuncRxState
+   \   000331   74..         MOV       A,#`??rxAddrIsr::?relay` & 0xff
+   \   000333   F0           MOVX      @DPTR,A
+   \   000334   A3           INC       DPTR
+   \   000335   74..         MOV       A,#(`??rxAddrIsr::?relay` >> 8) & 0xff
+   \   000337   F0           MOVX      @DPTR,A
+    773            }
+    774          }
+   \                     ??rxStartIsr_3:
+   \   000338   7402         MOV       A,#0x2
+   \   00033A   12....       LCALL     ?DEALLOC_XSTACK8
+   \   00033D   7F04         MOV       R7,#0x4
+   \   00033F   02....       LJMP      ?BANKED_LEAVE_XDATA
+   \   000342                REQUIRE RFST
+   \   000342                REQUIRE _A_IEN0
+   \   000342                REQUIRE S1CON
+   \   000342                REQUIRE RFIRQF1
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine16:
+   \   000000   74..         MOV       A,#macRxAddrLen & 0xff
+   \   000002   28           ADD       A,R0
+   \   000003   F582         MOV       DPL,A
+   \   000005   E4           CLR       A
+   \   000006   34..         ADDC      A,#(macRxAddrLen >> 8) & 0xff
+   \   000008   F583         MOV       DPH,A
+   \   00000A   E4           CLR       A
+   \   00000B   93           MOVC      A,@A+DPTR
+   \   00000C   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine21_0:
+   \   000000   90....       MOV       DPTR,#pRxBuf
+   \   000003                REQUIRE ??Subroutine22_0
+   \   000003                ; // Fall through to label ??Subroutine22_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine22_0:
+   \   000000   E0           MOVX      A,@DPTR
+   \   000001   FA           MOV       R2,A
+   \   000002   A3           INC       DPTR
+   \   000003   E0           MOVX      A,@DPTR
+   \   000004   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine10:
+   \   000000   90....       MOV       DPTR,#pRxBuf
+   \   000003   12....       LCALL     ?Subroutine20 & 0xFFFF
+   \                     ??CrossCallReturnLabel_33:
+   \   000006   A3           INC       DPTR
+   \   000007   A3           INC       DPTR
+   \   000008   A3           INC       DPTR
+   \   000009   A3           INC       DPTR
+   \   00000A   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine6:
+   \   000000   F0           MOVX      @DPTR,A
+   \   000001   90....       MOV       DPTR,#pMacDataTx
+   \   000004   12....       LCALL     ??Subroutine25_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_45:
+   \   000007   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine9:
+   \   000000   12....       LCALL     ?Subroutine19 & 0xFFFF
+   \                     ??CrossCallReturnLabel_47:
+   \   000003   2406         ADD       A,#0x6
+   \   000005   F582         MOV       DPL,A
+   \   000007   E4           CLR       A
+   \   000008   38           ADDC      A,R0
+   \   000009   F583         MOV       DPH,A
+   \   00000B   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine5:
+   \   000000   90....       MOV       DPTR,#pFuncRxState
+   \   000003   74..         MOV       A,#`??rxPayloadIsr::?relay` & 0xff
+   \   000005   F0           MOVX      @DPTR,A
+   \   000006   A3           INC       DPTR
+   \   000007   74..         MOV       A,#(`??rxPayloadIsr::?relay` >> 8) & 0xff
+   \   000009   F0           MOVX      @DPTR,A
+   \   00000A                ; Setup parameters for call to function rxPrepPayload
+   \   00000A                ; Setup parameters for call to function rxPrepPayload
+   \   00000A   12....       LCALL     `??rxPrepPayload::?relay`; Banked call to: rxPrepPayload
+   \   00000D   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine13:
+   \   000000   90....       MOV       DPTR,#pRxBuf
+   \   000003                REQUIRE ??Subroutine24_0
+   \   000003                ; // Fall through to label ??Subroutine24_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine24_0:
+   \   000000   12....       LCALL     ??Subroutine25_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_48:
+   \   000003   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine12:
+   \   000000   9061A4       MOV       DPTR,#0x61a4
+   \   000003   E0           MOVX      A,@DPTR
+   \   000004   C2E0         CLR       0xE0 /* A   */.0
+   \   000006   F0           MOVX      @DPTR,A
+   \   000007   90....       MOV       DPTR,#macRxOutgoingAckFlag
+   \   00000A   E4           CLR       A
+   \   00000B   F0           MOVX      @DPTR,A
+   \   00000C   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine8:
+   \   000000   90....       MOV       DPTR,#pRxBuf
+   \   000003   E0           MOVX      A,@DPTR
+   \   000004   2432         ADD       A,#0x32
+   \   000006   F8           MOV       R0,A
+   \   000007   A3           INC       DPTR
+   \   000008   E0           MOVX      A,@DPTR
+   \   000009   3400         ADDC      A,#0x0
+   \   00000B   F9           MOV       R1,A
+   \   00000C   90....       MOV       DPTR,#pRxBuf
+   \   00000F   E0           MOVX      A,@DPTR
+   \   000010   FA           MOV       R2,A
+   \   000011   A3           INC       DPTR
+   \   000012   E0           MOVX      A,@DPTR
+   \   000013   F583         MOV       DPH,A
+   \   000015   8A82         MOV       DPL,R2
+   \   000017   A3           INC       DPTR
+   \   000018   A3           INC       DPTR
+   \   000019   E8           MOV       A,R0
+   \   00001A   F0           MOVX      @DPTR,A
+   \   00001B   A3           INC       DPTR
+   \   00001C   E9           MOV       A,R1
+   \   00001D   F0           MOVX      @DPTR,A
+   \   00001E   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   F0           MOVX      @DPTR,A
+   \   000001   12....       LCALL     ?Subroutine19 & 0xFFFF
+   \                     ??CrossCallReturnLabel_46:
+   \   000004   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine19:
+   \   000000   90....       MOV       DPTR,#pRxBuf
+   \   000003                REQUIRE ??Subroutine25_0
+   \   000003                ; // Fall through to label ??Subroutine25_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine25_0:
+   \   000000   E0           MOVX      A,@DPTR
+   \   000001   F8           MOV       R0,A
+   \   000002   A3           INC       DPTR
+   \   000003   E0           MOVX      A,@DPTR
+   \   000004   C8           XCH       A,R0
+   \   000005   22           RET
+    775          
+    776          
+    777          /*=================================================================================================
+    778           * @fn          rxAddrIsr
+    779           *
+    780           * @brief       Receive ISR state for decoding address.  Reads and stores the address information
+    781           *              from the incoming packet.
+    782           *
+    783           * @param       none
+    784           *
+    785           * @return      none
+    786           *=================================================================================================
+    787           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine15:
+   \   000000   F8           MOV       R0,A
+   \   000001                REQUIRE ??Subroutine21_0
+   \   000001                ; // Fall through to label ??Subroutine21_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    788          static void rxAddrIsr(void)
+   \                     rxAddrIsr:
+    789          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000   74F6         MOV       A,#-0xa
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 20
+   \   000005   74EC         MOV       A,#-0x14
+   \   000007   12....       LCALL     ?ALLOC_XSTACK8
+    790            uint8 buf[MAX_ADDR_FIELDS_LEN];
+    791            uint8 dstAddrMode;
+    792            uint8 srcAddrMode;
+    793            uint8  * p;
+    794          
+    795            MAC_ASSERT(rxNextLen != 0); /* logic assumes at least one address byte in buffer */
+   \   00000A   90....       MOV       DPTR,#rxNextLen
+   \   00000D   E0           MOVX      A,@DPTR
+   \   00000E   7003         JNZ       ??rxAddrIsr_0
+   \   000010                ; Setup parameters for call to function halAssertHandler
+   \   000010   12....       LCALL     `??halAssertHandler::?relay`; Banked call to: halAssertHandler
+    796          
+    797            /*  read out address fields into local buffer in one shot */
+    798            MAC_RADIO_READ_RX_FIFO(buf, rxNextLen);
+   \                     ??rxAddrIsr_0:
+   \   000013                ; Setup parameters for call to function macMemReadRxFifo
+   \   000013   12....       LCALL     ?Subroutine11 & 0xFFFF
+    799          
+    800            /* set pointer to buffer with addressing fields */
+    801            p = buf;
+   \                     ??CrossCallReturnLabel_21:
+   \   000016   A8..         MOV       R0,?XSP + 0
+   \   000018   A9..         MOV       R1,?XSP + 1
+   \   00001A   88..         MOV       ?V0,R0
+   \   00001C   89..         MOV       ?V1,R1
+   \   00001E   AC..         MOV       R4,?V0
+   \   000020   AD..         MOV       R5,?V1
+    802          
+    803            /* destination address */
+    804            dstAddrMode = MAC_DEST_ADDR_MODE(&rxBuf[1]);
+   \   000022   90....       MOV       DPTR,#rxBuf + 2
+   \   000025   E0           MOVX      A,@DPTR
+   \   000026   13           RRC       A
+   \   000027   13           RRC       A
+   \   000028   543F         ANL       A,#0x3f
+   \   00002A   5403         ANL       A,#0x3
+   \   00002C   FE           MOV       R6,A
+    805            if (dstAddrMode != SADDR_MODE_NONE)
+   \   00002D   607B         JZ        ??rxAddrIsr_1
+    806            {
+    807              pRxBuf->mac.srcPanId = pRxBuf->mac.dstPanId = BUILD_UINT16(p[0], p[1]);
+   \   00002F   90....       MOV       DPTR,#pRxBuf
+   \   000032   E0           MOVX      A,@DPTR
+   \   000033   242C         ADD       A,#0x2c
+   \   000035   F8           MOV       R0,A
+   \   000036   A3           INC       DPTR
+   \   000037   E0           MOVX      A,@DPTR
+   \   000038   3400         ADDC      A,#0x0
+   \   00003A   F9           MOV       R1,A
+   \   00003B   85..82       MOV       DPL,?XSP + 0
+   \   00003E   85..83       MOV       DPH,?XSP + 1
+   \   000041   E0           MOVX      A,@DPTR
+   \   000042   FC           MOV       R4,A
+   \   000043   7401         MOV       A,#0x1
+   \   000045   12....       LCALL     ?XSTACK_DISP0_8
+   \   000048   E0           MOVX      A,@DPTR
+   \   000049   FB           MOV       R3,A
+   \   00004A   EC           MOV       A,R4
+   \   00004B   8882         MOV       DPL,R0
+   \   00004D   8983         MOV       DPH,R1
+   \   00004F   F0           MOVX      @DPTR,A
+   \   000050   A3           INC       DPTR
+   \   000051   EB           MOV       A,R3
+   \   000052   F0           MOVX      @DPTR,A
+   \   000053   8882         MOV       DPL,R0
+   \   000055   8983         MOV       DPH,R1
+   \   000057   E0           MOVX      A,@DPTR
+   \   000058   12....       LCALL     ?Subroutine15 & 0xFFFF
+   \                     ??CrossCallReturnLabel_39:
+   \   00005B   CA           XCH       A,R2
+   \   00005C   242A         ADD       A,#0x2a
+   \   00005E   F582         MOV       DPL,A
+   \   000060   E4           CLR       A
+   \   000061   3A           ADDC      A,R2
+   \   000062   F583         MOV       DPH,A
+   \   000064   E8           MOV       A,R0
+   \   000065   F0           MOVX      @DPTR,A
+   \   000066   A3           INC       DPTR
+   \   000067   EB           MOV       A,R3
+   \   000068   F0           MOVX      @DPTR,A
+    808              p += MAC_PAN_ID_FIELD_LEN;
+    809              if (dstAddrMode == SADDR_MODE_EXT)
+   \   000069   90....       MOV       DPTR,#pRxBuf
+   \   00006C   E0           MOVX      A,@DPTR
+   \   00006D   241B         ADD       A,#0x1b
+   \   00006F   FA           MOV       R2,A
+   \   000070   A3           INC       DPTR
+   \   000071   E0           MOVX      A,@DPTR
+   \   000072   3400         ADDC      A,#0x0
+   \   000074   FB           MOV       R3,A
+   \   000075   7403         MOV       A,#0x3
+   \   000077   6E           XRL       A,R6
+   \   000078   7010         JNZ       ??rxAddrIsr_2
+    810              {
+    811                sAddrExtCpy(pRxBuf->mac.dstAddr.addr.extAddr, p);
+   \   00007A                ; Setup parameters for call to function sAddrExtCpy
+   \   00007A   7402         MOV       A,#0x2
+   \   00007C   12....       LCALL     ?XSTACK_DISP0_8
+   \   00007F   AC82         MOV       R4,DPL
+   \   000081   AD83         MOV       R5,DPH
+   \   000083   12....       LCALL     `??sAddrExtCpy::?relay`; Banked call to: sAddrExtCpy
+    812                p += MAC_EXT_ADDR_FIELD_LEN;
+   \   000086   740A         MOV       A,#0xa
+   \   000088   8019         SJMP      ??rxAddrIsr_3
+    813              }
+    814              else
+    815              {
+    816                pRxBuf->mac.dstAddr.addr.shortAddr = BUILD_UINT16(p[0], p[1]);
+   \                     ??rxAddrIsr_2:
+   \   00008A   7402         MOV       A,#0x2
+   \   00008C   12....       LCALL     ?XSTACK_DISP0_8
+   \   00008F   E0           MOVX      A,@DPTR
+   \   000090   FC           MOV       R4,A
+   \   000091   7403         MOV       A,#0x3
+   \   000093   12....       LCALL     ?XSTACK_DISP0_8
+   \   000096   E0           MOVX      A,@DPTR
+   \   000097   F9           MOV       R1,A
+   \   000098   EC           MOV       A,R4
+   \   000099   8A82         MOV       DPL,R2
+   \   00009B   8B83         MOV       DPH,R3
+   \   00009D   F0           MOVX      @DPTR,A
+   \   00009E   A3           INC       DPTR
+   \   00009F   E9           MOV       A,R1
+   \   0000A0   F0           MOVX      @DPTR,A
+    817                p += MAC_SHORT_ADDR_FIELD_LEN;
+   \   0000A1   7404         MOV       A,#0x4
+   \                     ??rxAddrIsr_3:
+   \   0000A3   12....       LCALL     ?XSTACK_DISP0_8
+   \   0000A6   AC82         MOV       R4,DPL
+   \   0000A8   AD83         MOV       R5,DPH
+    818              }
+    819            }
+    820          
+    821            /* sources address */
+    822            srcAddrMode = MAC_SRC_ADDR_MODE(&rxBuf[1]);
+   \                     ??rxAddrIsr_1:
+   \   0000AA   90....       MOV       DPTR,#rxBuf + 2
+   \   0000AD   E0           MOVX      A,@DPTR
+   \   0000AE   C4           SWAP      A
+   \   0000AF   13           RRC       A
+   \   0000B0   13           RRC       A
+   \   0000B1   5403         ANL       A,#0x3
+   \   0000B3   FA           MOV       R2,A
+    823            if (srcAddrMode != SADDR_MODE_NONE)
+   \   0000B4   605D         JZ        ??rxAddrIsr_4
+    824            {
+    825              if (!(pRxBuf->internal.flags & MAC_RX_FLAG_INTRA_PAN))
+   \   0000B6   12....       LCALL     ?Subroutine9 & 0xFFFF
+   \                     ??CrossCallReturnLabel_18:
+   \   0000B9   E0           MOVX      A,@DPTR
+   \   0000BA   A2E6         MOV       C,0xE0 /* A   */.6
+   \   0000BC   4025         JC        ??rxAddrIsr_5
+    826              {
+    827                pRxBuf->mac.srcPanId = BUILD_UINT16(p[0], p[1]);
+   \   0000BE   8C82         MOV       DPL,R4
+   \   0000C0   8D83         MOV       DPH,R5
+   \   0000C2   E0           MOVX      A,@DPTR
+   \   0000C3   FE           MOV       R6,A
+   \   0000C4   A3           INC       DPTR
+   \   0000C5   E0           MOVX      A,@DPTR
+   \   0000C6   F9           MOV       R1,A
+   \   0000C7   90....       MOV       DPTR,#pRxBuf
+   \   0000CA   E0           MOVX      A,@DPTR
+   \   0000CB   FB           MOV       R3,A
+   \   0000CC   A3           INC       DPTR
+   \   0000CD   E0           MOVX      A,@DPTR
+   \   0000CE   CB           XCH       A,R3
+   \   0000CF   242A         ADD       A,#0x2a
+   \   0000D1   F582         MOV       DPL,A
+   \   0000D3   E4           CLR       A
+   \   0000D4   3B           ADDC      A,R3
+   \   0000D5   F583         MOV       DPH,A
+   \   0000D7   EE           MOV       A,R6
+   \   0000D8   F0           MOVX      @DPTR,A
+   \   0000D9   A3           INC       DPTR
+   \   0000DA   E9           MOV       A,R1
+   \   0000DB   F0           MOVX      @DPTR,A
+    828                p += MAC_PAN_ID_FIELD_LEN;
+   \   0000DC   EC           MOV       A,R4
+   \   0000DD   2402         ADD       A,#0x2
+   \   0000DF   FC           MOV       R4,A
+   \   0000E0   5001         JNC       ??rxAddrIsr_5
+   \   0000E2   0D           INC       R5
+    829              }
+    830              if (srcAddrMode == SADDR_MODE_EXT)
+   \                     ??rxAddrIsr_5:
+   \   0000E3   7403         MOV       A,#0x3
+   \   0000E5   6A           XRL       A,R2
+   \   0000E6   7011         JNZ       ??rxAddrIsr_6
+    831              {
+    832                sAddrExtCpy(pRxBuf->mac.srcAddr.addr.extAddr, p);
+   \   0000E8                ; Setup parameters for call to function sAddrExtCpy
+   \   0000E8   90....       MOV       DPTR,#pRxBuf
+   \   0000EB   E0           MOVX      A,@DPTR
+   \   0000EC   2412         ADD       A,#0x12
+   \   0000EE   FA           MOV       R2,A
+   \   0000EF   A3           INC       DPTR
+   \   0000F0   E0           MOVX      A,@DPTR
+   \   0000F1   3400         ADDC      A,#0x0
+   \   0000F3   FB           MOV       R3,A
+   \   0000F4   12....       LCALL     `??sAddrExtCpy::?relay`; Banked call to: sAddrExtCpy
+   \   0000F7   801A         SJMP      ??rxAddrIsr_4
+    833              }
+    834              else
+    835              {
+    836                pRxBuf->mac.srcAddr.addr.shortAddr = BUILD_UINT16(p[0], p[1]);
+   \                     ??rxAddrIsr_6:
+   \   0000F9   8C82         MOV       DPL,R4
+   \   0000FB   8D83         MOV       DPH,R5
+   \   0000FD   12....       LCALL     ??Subroutine22_0 & 0xFFFF
+    837              }
+    838            }
+   \                     ??CrossCallReturnLabel_35:
+   \   000100   F9           MOV       R1,A
+   \   000101   EA           MOV       A,R2
+   \   000102   12....       LCALL     ?Subroutine15 & 0xFFFF
+   \                     ??CrossCallReturnLabel_40:
+   \   000105   CA           XCH       A,R2
+   \   000106   2412         ADD       A,#0x12
+   \   000108   F582         MOV       DPL,A
+   \   00010A   E4           CLR       A
+   \   00010B   3A           ADDC      A,R2
+   \   00010C   F583         MOV       DPH,A
+   \   00010E   E8           MOV       A,R0
+   \   00010F   F0           MOVX      @DPTR,A
+   \   000110   A3           INC       DPTR
+   \   000111   E9           MOV       A,R1
+   \   000112   F0           MOVX      @DPTR,A
+    839          
+    840            /*-------------------------------------------------------------------------------
+    841             *  Prepare for payload interrupts.
+    842             */
+    843            pFuncRxState = &rxPayloadIsr;
+   \                     ??rxAddrIsr_4:
+   \   000113   12....       LCALL     ?Subroutine5 & 0xFFFF
+    844            rxPrepPayload();
+    845          }
+   \                     ??CrossCallReturnLabel_10:
+   \   000116   7414         MOV       A,#0x14
+   \   000118   12....       LCALL     ?DEALLOC_XSTACK8
+   \   00011B                REQUIRE ?Subroutine1
+   \   00011B                ; // Fall through to label ?Subroutine1
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   7F02         MOV       R7,#0x2
+   \   000002   02....       LJMP      ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine11:
+   \   000000   90....       MOV       DPTR,#rxNextLen
+   \   000003   E0           MOVX      A,@DPTR
+   \   000004   F9           MOV       R1,A
+   \   000005   AA..         MOV       R2,?XSP + 0
+   \   000007   AB..         MOV       R3,?XSP + 1
+   \   000009   12....       LCALL     `??macMemReadRxFifo::?relay`; Banked call to: macMemReadRxFifo
+   \   00000C   22           RET
+    846          
+    847          
+    848          /*=================================================================================================
+    849           * @fn          rxPrepPayload
+    850           *
+    851           * @brief       Common code to prepare for the payload ISR.
+    852           *
+    853           * @param       none
+    854           *
+    855           * @return      none
+    856           *=================================================================================================
+    857           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    858          static void rxPrepPayload(void)
+   \                     rxPrepPayload:
+    859          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    860            if (rxPayloadLen == 0)
+   \   000004   90....       MOV       DPTR,#rxPayloadLen
+   \   000007   E0           MOVX      A,@DPTR
+   \   000008   7011         JNZ       ??rxPrepPayload_0
+    861            {
+    862              MAC_RADIO_SET_RX_THRESHOLD(MAC_FCS_FIELD_LEN);
+   \   00000A   906194       MOV       DPTR,#0x6194
+   \   00000D   7401         MOV       A,#0x1
+   \   00000F   F0           MOVX      @DPTR,A
+    863              pFuncRxState = &rxFcsIsr;
+   \   000010   90....       MOV       DPTR,#pFuncRxState
+   \   000013   74..         MOV       A,#`??rxFcsIsr::?relay` & 0xff
+   \   000015   F0           MOVX      @DPTR,A
+   \   000016   A3           INC       DPTR
+   \   000017   74..         MOV       A,#(`??rxFcsIsr::?relay` >> 8) & 0xff
+   \   000019   8016         SJMP      ??rxPrepPayload_1
+    864            }
+    865            else
+    866            {
+    867              rxNextLen = MIN(rxPayloadLen, MAX_PAYLOAD_BYTES_READ_PER_INTERRUPT);
+   \                     ??rxPrepPayload_0:
+   \   00001B   C3           CLR       C
+   \   00001C   9410         SUBB      A,#0x10
+   \   00001E   5006         JNC       ??rxPrepPayload_2
+   \   000020   E0           MOVX      A,@DPTR
+   \   000021   90....       MOV       DPTR,#rxNextLen
+   \   000024   8005         SJMP      ??rxPrepPayload_3
+   \                     ??rxPrepPayload_2:
+   \   000026   90....       MOV       DPTR,#rxNextLen
+   \   000029   7410         MOV       A,#0x10
+   \                     ??rxPrepPayload_3:
+   \   00002B   F0           MOVX      @DPTR,A
+    868              MAC_RADIO_SET_RX_THRESHOLD(rxNextLen);
+   \   00002C   E0           MOVX      A,@DPTR
+   \   00002D   14           DEC       A
+   \   00002E   906194       MOV       DPTR,#0x6194
+    869            }
+   \                     ??rxPrepPayload_1:
+   \   000031   80..         SJMP      ?Subroutine0
+    870          }
+    871          
+    872          
+    873          /*=================================================================================================
+    874           * @fn          rxPayloadIsr
+    875           *
+    876           * @brief       Receive ISR state for reading out and storing the packet payload.
+    877           *
+    878           * @param       none
+    879           *
+    880           * @return      none
+    881           *=================================================================================================
+    882           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    883          static void rxPayloadIsr(void)
+   \                     rxPayloadIsr:
+    884          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    885            MAC_RADIO_READ_RX_FIFO(pRxBuf->msdu.p, rxNextLen);
+   \   000004                ; Setup parameters for call to function macMemReadRxFifo
+   \   000004   90....       MOV       DPTR,#rxNextLen
+   \   000007   E0           MOVX      A,@DPTR
+   \   000008   F9           MOV       R1,A
+   \   000009   90....       MOV       DPTR,#pRxBuf
+   \   00000C   12....       LCALL     ?Subroutine14 & 0xFFFF
+   \                     ??CrossCallReturnLabel_26:
+   \   00000F   A3           INC       DPTR
+   \   000010   A3           INC       DPTR
+   \   000011   12....       LCALL     ??Subroutine22_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_36:
+   \   000014   FB           MOV       R3,A
+   \   000015   12....       LCALL     `??macMemReadRxFifo::?relay`; Banked call to: macMemReadRxFifo
+    886            pRxBuf->msdu.p += rxNextLen;
+   \   000018   90....       MOV       DPTR,#pRxBuf
+   \   00001B   E0           MOVX      A,@DPTR
+   \   00001C   2402         ADD       A,#0x2
+   \   00001E   F8           MOV       R0,A
+   \   00001F   A3           INC       DPTR
+   \   000020   E0           MOVX      A,@DPTR
+   \   000021   3400         ADDC      A,#0x0
+   \   000023   F9           MOV       R1,A
+   \   000024   90....       MOV       DPTR,#rxNextLen
+   \   000027   E0           MOVX      A,@DPTR
+   \   000028   FA           MOV       R2,A
+   \   000029   8882         MOV       DPL,R0
+   \   00002B   8983         MOV       DPH,R1
+   \   00002D   E0           MOVX      A,@DPTR
+   \   00002E   2A           ADD       A,R2
+   \   00002F   FA           MOV       R2,A
+   \   000030   A3           INC       DPTR
+   \   000031   E0           MOVX      A,@DPTR
+   \   000032   3400         ADDC      A,#0x0
+   \   000034   FB           MOV       R3,A
+   \   000035   8882         MOV       DPL,R0
+   \   000037   8983         MOV       DPH,R1
+   \   000039   EA           MOV       A,R2
+   \   00003A   F0           MOVX      @DPTR,A
+   \   00003B   A3           INC       DPTR
+   \   00003C   EB           MOV       A,R3
+   \   00003D   F0           MOVX      @DPTR,A
+    887            rxPayloadLen -= rxNextLen;
+   \   00003E   90....       MOV       DPTR,#rxNextLen
+   \   000041   E0           MOVX      A,@DPTR
+   \   000042   F8           MOV       R0,A
+   \   000043   90....       MOV       DPTR,#rxPayloadLen
+   \   000046   E0           MOVX      A,@DPTR
+   \   000047   C3           CLR       C
+   \   000048   98           SUBB      A,R0
+   \   000049   F0           MOVX      @DPTR,A
+    888          
+    889            rxPrepPayload();
+   \   00004A                ; Setup parameters for call to function rxPrepPayload
+   \   00004A   12....       LCALL     `??rxPrepPayload::?relay`; Banked call to: rxPrepPayload
+    890          }
+   \   00004D   80..         SJMP      ??Subroutine23_0
+    891          
+    892          
+    893          /*=================================================================================================
+    894           * @fn          rxFcsIsr
+    895           *
+    896           * @brief       Receive ISR state for handling the FCS.
+    897           *
+    898           * @param       none
+    899           *
+    900           * @return      none
+    901           *=================================================================================================
+    902           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    903          static void rxFcsIsr(void)
+   \                     rxFcsIsr:
+    904          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000   74F6         MOV       A,#-0xa
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+    905            uint8 crcOK;
+    906            uint8 ackWithPending = 0;
+   \   000005   7E00         MOV       R6,#0x0
+    907          
+    908            /* read FCS, rxBuf is now available storage */
+    909            MAC_RADIO_READ_RX_FIFO(rxBuf, MAC_FCS_FIELD_LEN);
+   \   000007                ; Setup parameters for call to function macMemReadRxFifo
+   \   000007   7902         MOV       R1,#0x2
+   \   000009   7A..         MOV       R2,#rxBuf & 0xff
+   \   00000B   7B..         MOV       R3,#(rxBuf >> 8) & 0xff
+   \   00000D   12....       LCALL     `??macMemReadRxFifo::?relay`; Banked call to: macMemReadRxFifo
+    910          
+    911            /*
+    912             *  The FCS has actually been replaced within the radio by a proprietary version of the FCS.
+    913             *  This proprietary FCS is two bytes (same length as the real FCS) and contains:
+    914             *    1) the RSSI value
+    915             *    2) the average correlation value (used for LQI)
+    916             *    3) a CRC passed bit
+    917             */
+    918          
+    919            /* save the "CRC-is-OK" status */
+    920            crcOK = PROPRIETARY_FCS_CRC_OK(rxBuf);
+   \   000010   90....       MOV       DPTR,#rxBuf + 1
+   \   000013   E0           MOVX      A,@DPTR
+   \   000014   5480         ANL       A,#0x80
+   \   000016   F5..         MOV       ?V1,A
+    921          
+    922            /*
+    923             *  See if the frame should be passed up to high-level MAC.  If the CRC is OK, the
+    924             *  the frame is always passed up.  Frames with a bad CRC are also passed up *if*
+    925             *  a special variant of promiscuous mode is active.
+    926             */
+    927            if (crcOK || (rxPromiscuousMode == MAC_PROMISCUOUS_MODE_WITH_BAD_CRC))
+   \   000018   7008         JNZ       ??rxFcsIsr_0
+   \   00001A   90....       MOV       DPTR,#rxPromiscuousMode
+   \   00001D   E0           MOVX      A,@DPTR
+   \   00001E   6402         XRL       A,#0x2
+   \   000020   7074         JNZ       ??rxFcsIsr_1
+    928            {
+    929              int8 rssiDbm;
+    930              uint8 corr;
+    931          
+    932          #ifdef PACKET_FILTER_STATS
+    933              rxCrcSuccess++;
+    934          #endif /* PACKET_FILTER_STATS */
+    935          
+    936              /*
+    937               *  As power saving optimization, set state variable to indicate physical receive
+    938               *  has completed and then request turning of the receiver.  This means the receiver
+    939               *  can be off (if other conditions permit) during execution of the callback function.
+    940               *
+    941               *  The receiver will be requested to turn off once again at the end of the receive
+    942               *  logic.  There is no harm in doing this.
+    943               */
+    944              macRxActive = MAC_RX_ACTIVE_DONE;
+   \                     ??rxFcsIsr_0:
+   \   000022   90....       MOV       DPTR,#macRxActive
+   \   000025   7402         MOV       A,#0x2
+   \   000027   F0           MOVX      @DPTR,A
+    945              macRxOffRequest();
+   \   000028                ; Setup parameters for call to function macRxOffRequest
+   \   000028   12....       LCALL     `??macRxOffRequest::?relay`; Banked call to: macRxOffRequest
+    946          
+    947              /* decode RSSI and correlation values */
+    948              rssiDbm = PROPRIETARY_FCS_RSSI(rxBuf) + MAC_RADIO_RSSI_OFFSET;
+   \   00002B   90....       MOV       DPTR,#rxBuf
+   \   00002E   E0           MOVX      A,@DPTR
+   \   00002F   24B7         ADD       A,#-0x49
+   \   000031   F5..         MOV       ?V0,A
+    949              MAC_RADIO_RSSI_LNA_OFFSET(rssiDbm);
+    950              corr = PROPRIETARY_FCS_CORRELATION_VALUE(rxBuf);
+   \   000033   A3           INC       DPTR
+   \   000034   E0           MOVX      A,@DPTR
+   \   000035   547F         ANL       A,#0x7f
+   \   000037   FF           MOV       R7,A
+    951          
+    952              /* Read the source matching result back */
+    953              if( macSrcMatchIsEnabled && MAC_RADIO_SRC_MATCH_RESULT() )
+   \   000038   90....       MOV       DPTR,#macSrcMatchIsEnabled
+   \   00003B   E0           MOVX      A,@DPTR
+   \   00003C   6008         JZ        ??rxFcsIsr_2
+   \   00003E                ; Setup parameters for call to function MAC_SrcMatchCheckResult
+   \   00003E   12....       LCALL     `??MAC_SrcMatchCheckResult::?relay`; Banked call to: MAC_SrcMatchCheckResult
+   \   000041   E9           MOV       A,R1
+   \   000042   6002         JZ        ??rxFcsIsr_2
+    954              {
+    955                /* This result will not overwrite the previously determined pRxBuf->internal.flags */
+    956                ackWithPending = MAC_RX_FLAG_ACK_PENDING;
+   \   000044   7E04         MOV       R6,#0x4
+    957              }
+    958          
+    959              /* record parameters that get passed up to high-level */
+    960              pRxBuf->internal.flags |= ( crcOK | ackWithPending );
+   \                     ??rxFcsIsr_2:
+   \   000046   E5..         MOV       A,?V1
+   \   000048   4E           ORL       A,R6
+   \   000049   F8           MOV       R0,A
+   \   00004A   90....       MOV       DPTR,#pRxBuf
+   \   00004D   E0           MOVX      A,@DPTR
+   \   00004E   F9           MOV       R1,A
+   \   00004F   A3           INC       DPTR
+   \   000050   E0           MOVX      A,@DPTR
+   \   000051   C9           XCH       A,R1
+   \   000052   2406         ADD       A,#0x6
+   \   000054   F582         MOV       DPL,A
+   \   000056   E4           CLR       A
+   \   000057   39           ADDC      A,R1
+   \   000058   F583         MOV       DPH,A
+   \   00005A   E0           MOVX      A,@DPTR
+   \   00005B   48           ORL       A,R0
+   \   00005C   F0           MOVX      @DPTR,A
+    961              pRxBuf->mac.mpduLinkQuality = macRadioComputeLQI(rssiDbm, corr);
+   \   00005D                ; Setup parameters for call to function macRadioComputeLQI
+   \   00005D   EF           MOV       A,R7
+   \   00005E   FA           MOV       R2,A
+   \   00005F   A9..         MOV       R1,?V0
+   \   000061   12....       LCALL     `??macRadioComputeLQI::?relay`; Banked call to: macRadioComputeLQI
+   \   000064   12....       LCALL     ?Subroutine13 & 0xFFFF
+   \                     ??CrossCallReturnLabel_44:
+   \   000067   242E         ADD       A,#0x2e
+   \   000069   F582         MOV       DPL,A
+   \   00006B   E4           CLR       A
+   \   00006C   38           ADDC      A,R0
+   \   00006D   F583         MOV       DPH,A
+   \   00006F   E9           MOV       A,R1
+   \   000070   12....       LCALL     ?Subroutine2 & 0xFFFF
+    962              pRxBuf->mac.rssi = rssiDbm;
+   \                     ??CrossCallReturnLabel_3:
+   \   000073   2430         ADD       A,#0x30
+   \   000075   F582         MOV       DPL,A
+   \   000077   E4           CLR       A
+   \   000078   38           ADDC      A,R0
+   \   000079   F583         MOV       DPH,A
+   \   00007B   E5..         MOV       A,?V0
+   \   00007D   12....       LCALL     ?Subroutine2 & 0xFFFF
+    963              pRxBuf->mac.correlation = corr;
+   \                     ??CrossCallReturnLabel_4:
+   \   000080   242F         ADD       A,#0x2f
+   \   000082   F582         MOV       DPL,A
+   \   000084   E4           CLR       A
+   \   000085   38           ADDC      A,R0
+   \   000086   F583         MOV       DPH,A
+   \   000088   EF           MOV       A,R7
+   \   000089   F0           MOVX      @DPTR,A
+    964          
+    965              /* set the MSDU pointer to point at start of data */
+    966              pRxBuf->msdu.p = (uint8 *) (pRxBuf + 1);
+   \   00008A   12....       LCALL     ?Subroutine8 & 0xFFFF
+    967          
+    968              /* finally... execute callback function */
+    969              macRxCompleteCallback(pRxBuf);
+   \                     ??CrossCallReturnLabel_16:
+   \   00008D                ; Setup parameters for call to function macRxCompleteCallback
+   \   00008D   12....       LCALL     ??Subroutine21_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_38:
+   \   000090   FB           MOV       R3,A
+   \   000091   12....       LCALL     `??macRxCompleteCallback::?relay`; Banked call to: macRxCompleteCallback
+    970              pRxBuf = NULL; /* needed to indicate buffer is no longer allocated */
+   \   000094   800A         SJMP      ??rxFcsIsr_3
+    971            }
+    972            else
+    973            {
+    974          #ifdef PACKET_FILTER_STATS
+    975              rxCrcFailure++;
+    976          #endif /* PACKET_FILTER_STATS */
+    977          
+    978              /*
+    979               *  The CRC is bad so no ACK was sent.  Cancel any callback and clear the flag.
+    980               *  (It's OK to cancel the outgoing ACK even if an ACK was not requested.  It's
+    981               *  slightly more efficient to do so.)
+    982               */
+    983              MAC_RADIO_CANCEL_ACK_TX_DONE_CALLBACK();
+   \                     ??rxFcsIsr_1:
+   \   000096   12....       LCALL     ?Subroutine12 & 0xFFFF
+    984              macRxOutgoingAckFlag = 0;
+    985          
+    986              /* the CRC failed so the packet must be discarded */
+    987              MEM_FREE((uint8 **)&pRxBuf);
+   \                     ??CrossCallReturnLabel_24:
+   \   000099                ; Setup parameters for call to function macDataRxMemFree
+   \   000099   7A..         MOV       R2,#pRxBuf & 0xff
+   \   00009B   7B..         MOV       R3,#(pRxBuf >> 8) & 0xff
+   \   00009D   12....       LCALL     `??macDataRxMemFree::?relay`; Banked call to: macDataRxMemFree
+    988              pRxBuf = NULL;  /* needed to indicate buffer is no longer allocated */
+   \                     ??rxFcsIsr_3:
+   \   0000A0   90....       MOV       DPTR,#pRxBuf
+   \   0000A3   E4           CLR       A
+   \   0000A4   F0           MOVX      @DPTR,A
+   \   0000A5   A3           INC       DPTR
+   \   0000A6   F0           MOVX      @DPTR,A
+    989            }
+    990          
+    991            /* reset threshold level, reset receive state, and complete receive logic */
+    992            MAC_RADIO_SET_RX_THRESHOLD(RX_THRESHOLD_START_LEN);
+   \   0000A7   12....       LCALL     ?Subroutine3 & 0xFFFF
+    993            pFuncRxState = &rxStartIsr;
+    994            rxDone();
+    995          }
+   \                     ??CrossCallReturnLabel_5:
+   \   0000AA   02....       LJMP      ?Subroutine1 & 0xFFFF
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   906194       MOV       DPTR,#0x6194
+   \   000003   7405         MOV       A,#0x5
+   \   000005   12....       LCALL     ?Subroutine18 & 0xFFFF
+   \                     ??CrossCallReturnLabel_32:
+   \   000008                ; Setup parameters for call to function rxDone
+   \   000008                ; Setup parameters for call to function rxDone
+   \   000008   12....       LCALL     `??rxDone::?relay`; Banked call to: rxDone
+   \   00000B   22           RET
+    996          
+    997          
+    998          /*=================================================================================================
+    999           * @fn          rxDone
+   1000           *
+   1001           * @brief       Common exit point for receive.
+   1002           *
+   1003           * @param       none
+   1004           *
+   1005           * @return      none
+   1006           *=================================================================================================
+   1007           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   1008          static void rxDone(void)
+   \                     rxDone:
+   1009          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+   1010            /* if the receive FIFO has overflowed, flush it here */
+   1011            if (MAC_RADIO_RX_FIFO_HAS_OVERFLOWED())
+   \   000004   906193       MOV       DPTR,#0x6193
+   \   000007   E0           MOVX      A,@DPTR
+   \   000008   A2E6         MOV       C,0xE0 /* A   */.6
+   \   00000A   500B         JNC       ??rxDone_0
+   \   00000C   E0           MOVX      A,@DPTR
+   \   00000D   A2E7         MOV       C,0xE0 /* A   */.7
+   \   00000F   4006         JC        ??rxDone_0
+   1012            {
+   1013              MAC_RADIO_FLUSH_RX_FIFO();
+   \   000011   75E1ED       MOV       0xe1,#-0x13
+   \   000014   75E1ED       MOV       0xe1,#-0x13
+   1014            }
+   1015          
+   1016            /* mark receive as inactive */
+   1017            macRxActive = MAC_RX_ACTIVE_NO_ACTIVITY;
+   \                     ??rxDone_0:
+   \   000017   90....       MOV       DPTR,#macRxActive
+   \   00001A   E4           CLR       A
+   \   00001B   F0           MOVX      @DPTR,A
+   1018          
+   1019            /* if there is no outgoing ACK, run the post receive updates */
+   1020            if (!macRxOutgoingAckFlag)
+   \   00001C   90....       MOV       DPTR,#macRxOutgoingAckFlag
+   \   00001F   E0           MOVX      A,@DPTR
+   \   000020   7003         JNZ       ??rxDone_1
+   1021            {
+   1022              rxPostRxUpdates();
+   \   000022                ; Setup parameters for call to function rxPostRxUpdates
+   \   000022   12....       LCALL     `??rxPostRxUpdates::?relay`; Banked call to: rxPostRxUpdates
+   1023            }
+   1024          }
+   \                     ??rxDone_1:
+   \   000025   02....       LJMP      ??Subroutine23_0 & 0xFFFF
+   \   000028                REQUIRE RFST
+   1025          
+   1026          
+   1027          /**************************************************************************************************
+   1028           * @fn          macRxAckTxDoneCallback
+   1029           *
+   1030           * @brief       Function called when the outoing ACK has completed transmitting.
+   1031           *
+   1032           * @param       none
+   1033           *
+   1034           * @return      none
+   1035           **************************************************************************************************
+   1036           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   1037          void macRxAckTxDoneCallback(void)
+   \                     macRxAckTxDoneCallback:
+   1038          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+   1039            macRxOutgoingAckFlag = 0;
+   \   000004   90....       MOV       DPTR,#macRxOutgoingAckFlag
+   \   000007   E4           CLR       A
+   \   000008   F0           MOVX      @DPTR,A
+   1040          
+   1041            /*
+   1042             *  With certain interrupt priorities and timing conditions, it is possible this callback
+   1043             *  could be executed before the primary receive logic completes.  To prevent this, the
+   1044             *  post updates are only executed if receive logic is no longer active.  In the case the
+   1045             *  post updates are not executed here, they will execute when the main receive logic
+   1046             *  completes.
+   1047             */
+   1048            if (!macRxActive)
+   \   000009   90....       MOV       DPTR,#macRxActive
+   \   00000C   E0           MOVX      A,@DPTR
+   \   00000D   7003         JNZ       ??macRxAckTxDoneCallback_0
+   1049            {
+   1050              rxPostRxUpdates();
+   \   00000F                ; Setup parameters for call to function rxPostRxUpdates
+   \   00000F   12....       LCALL     `??rxPostRxUpdates::?relay`; Banked call to: rxPostRxUpdates
+   1051            }
+   1052          }
+   \                     ??macRxAckTxDoneCallback_0:
+   \   000012   02....       LJMP      ??Subroutine23_0 & 0xFFFF
+   1053          
+   1054          
+   1055          /*=================================================================================================
+   1056           * @fn          rxPostRxUpdates
+   1057           *
+   1058           * @brief       Updates that need to be performed once receive is complete.
+   1059           *
+   1060           *              It is not fatal to execute this function if somehow receive is active.  Under
+   1061           *              certain timing/interrupt conditions a new receive may have started before this
+   1062           *              function executes.  This should happen very rarely (if it happens at all) and
+   1063           *              would cause no problems.
+   1064           *
+   1065           * @param       none
+   1066           *
+   1067           * @return      none
+   1068           *=================================================================================================
+   1069           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   1070          static void rxPostRxUpdates(void)
+   \                     rxPostRxUpdates:
+   1071          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+   1072            /* turn off receiver if permitted */
+   1073            macRxOffRequest();
+   \   000004                ; Setup parameters for call to function macRxOffRequest
+   \   000004   12....       LCALL     `??macRxOffRequest::?relay`; Banked call to: macRxOffRequest
+   1074          
+   1075            /* update the transmit power, update may have been blocked by transmit of outgoing ACK */
+   1076            macRadioUpdateTxPower();
+   \   000007                ; Setup parameters for call to function macRadioUpdateTxPower
+   \   000007   12....       LCALL     `??macRadioUpdateTxPower::?relay`; Banked call to: macRadioUpdateTxPower
+   1077          
+   1078            /* initiate and transmit that was queued during receive */
+   1079            macTxStartQueuedFrame();
+   \   00000A                ; Setup parameters for call to function macTxStartQueuedFrame
+   \   00000A   12....       LCALL     `??macTxStartQueuedFrame::?relay`; Banked call to: macTxStartQueuedFrame
+   1080          }
+   \   00000D   02....       LJMP      ??Subroutine23_0 & 0xFFFF
+   1081          
+   1082          
+   1083          /*=================================================================================================
+   1084           * @fn          rxDiscardFrame
+   1085           *
+   1086           * @brief       Initializes for discarding a packet.  Must be called before ACK is strobed.
+   1087           *
+   1088           * @param       none
+   1089           *
+   1090           * @return      none
+   1091           *=================================================================================================
+   1092           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   1093          static void rxDiscardFrame(void)
+   \                     rxDiscardFrame:
+   1094          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+   1095            MAC_ASSERT(pFuncRxState == &rxStartIsr); /* illegal state for calling discard frame function */
+   \   000004   90....       MOV       DPTR,#pFuncRxState
+   \   000007   E0           MOVX      A,@DPTR
+   \   000008   64..         XRL       A,#`??rxStartIsr::?relay` & 0xff
+   \   00000A   7004         JNZ       ??rxDiscardFrame_0
+   \   00000C   A3           INC       DPTR
+   \   00000D   E0           MOVX      A,@DPTR
+   \   00000E   64..         XRL       A,#(`??rxStartIsr::?relay` >> 8) & 0xff
+   \                     ??rxDiscardFrame_0:
+   \   000010   6003         JZ        ??rxDiscardFrame_1
+   \   000012                ; Setup parameters for call to function halAssertHandler
+   \   000012   12....       LCALL     `??halAssertHandler::?relay`; Banked call to: halAssertHandler
+   1096          
+   1097            if (rxUnreadLen == 0)
+   \                     ??rxDiscardFrame_1:
+   \   000015   90....       MOV       DPTR,#rxUnreadLen
+   \   000018   E0           MOVX      A,@DPTR
+   \   000019   7005         JNZ       ??rxDiscardFrame_2
+   1098            {
+   1099              rxDone();
+   \   00001B                ; Setup parameters for call to function rxDone
+   \   00001B   12....       LCALL     `??rxDone::?relay`; Banked call to: rxDone
+   \   00001E   8021         SJMP      ??rxDiscardFrame_3
+   1100            }
+   1101            else
+   1102            {
+   1103              rxNextLen = MIN(rxUnreadLen, MAX_PAYLOAD_BYTES_READ_PER_INTERRUPT);
+   \                     ??rxDiscardFrame_2:
+   \   000020   C3           CLR       C
+   \   000021   9410         SUBB      A,#0x10
+   \   000023   5006         JNC       ??rxDiscardFrame_4
+   \   000025   E0           MOVX      A,@DPTR
+   \   000026   90....       MOV       DPTR,#rxNextLen
+   \   000029   8005         SJMP      ??rxDiscardFrame_5
+   \                     ??rxDiscardFrame_4:
+   \   00002B   90....       MOV       DPTR,#rxNextLen
+   \   00002E   7410         MOV       A,#0x10
+   \                     ??rxDiscardFrame_5:
+   \   000030   F0           MOVX      @DPTR,A
+   1104              MAC_RADIO_SET_RX_THRESHOLD(rxNextLen);
+   \   000031   E0           MOVX      A,@DPTR
+   \   000032   14           DEC       A
+   \   000033   906194       MOV       DPTR,#0x6194
+   \   000036   F0           MOVX      @DPTR,A
+   1105              pFuncRxState = &rxDiscardIsr;
+   \   000037   90....       MOV       DPTR,#pFuncRxState
+   \   00003A   74..         MOV       A,#`??rxDiscardIsr::?relay` & 0xff
+   \   00003C   F0           MOVX      @DPTR,A
+   \   00003D   A3           INC       DPTR
+   \   00003E   74..         MOV       A,#(`??rxDiscardIsr::?relay` >> 8) & 0xff
+   \   000040   F0           MOVX      @DPTR,A
+   1106            }
+   1107          }
+   \                     ??rxDiscardFrame_3:
+   \   000041   02....       LJMP      ??Subroutine23_0 & 0xFFFF
+   1108          
+   1109          
+   1110          /*=================================================================================================
+   1111           * @fn          rxDiscardIsr
+   1112           *
+   1113           * @brief       Receive ISR state for discarding a packet.
+   1114           *
+   1115           * @param       none
+   1116           *
+   1117           * @return      none
+   1118           *=================================================================================================
+   1119           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   1120          static void rxDiscardIsr(void)
+   \                     rxDiscardIsr:
+   1121          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 16
+   \   000004   74F0         MOV       A,#-0x10
+   \   000006   12....       LCALL     ?ALLOC_XSTACK8
+   1122            uint8 buf[MAX_PAYLOAD_BYTES_READ_PER_INTERRUPT];
+   1123          
+   1124            MAC_RADIO_READ_RX_FIFO(buf, rxNextLen);
+   \   000009                ; Setup parameters for call to function macMemReadRxFifo
+   \   000009   12....       LCALL     ?Subroutine11 & 0xFFFF
+   1125            rxUnreadLen -= rxNextLen;
+   \                     ??CrossCallReturnLabel_22:
+   \   00000C   90....       MOV       DPTR,#rxNextLen
+   \   00000F   E0           MOVX      A,@DPTR
+   \   000010   F8           MOV       R0,A
+   \   000011   90....       MOV       DPTR,#rxUnreadLen
+   \   000014   E0           MOVX      A,@DPTR
+   \   000015   C3           CLR       C
+   \   000016   98           SUBB      A,R0
+   \   000017   F0           MOVX      @DPTR,A
+   1126          
+   1127            /* read out and discard bytes until all bytes of packet are disposed of */
+   1128            if (rxUnreadLen != 0)
+   \   000018   6011         JZ        ??rxDiscardIsr_0
+   1129            {
+   1130              if (rxUnreadLen < MAX_PAYLOAD_BYTES_READ_PER_INTERRUPT)
+   \   00001A   C3           CLR       C
+   \   00001B   9410         SUBB      A,#0x10
+   \   00001D   500F         JNC       ??CrossCallReturnLabel_6
+   1131              {
+   1132                rxNextLen = rxUnreadLen;
+   \   00001F   E0           MOVX      A,@DPTR
+   \   000020   90....       MOV       DPTR,#rxNextLen
+   \   000023   F0           MOVX      @DPTR,A
+   1133                MAC_RADIO_SET_RX_THRESHOLD(rxNextLen);
+   \   000024   14           DEC       A
+   \   000025   906194       MOV       DPTR,#0x6194
+   \   000028   F0           MOVX      @DPTR,A
+   \   000029   8003         SJMP      ??CrossCallReturnLabel_6
+   1134              }
+   1135            }
+   1136            else
+   1137            {
+   1138              /* reset threshold level, reset receive state, and complete receive logic */
+   1139              MAC_RADIO_SET_RX_THRESHOLD(RX_THRESHOLD_START_LEN);
+   \                     ??rxDiscardIsr_0:
+   \   00002B   12....       LCALL     ?Subroutine3 & 0xFFFF
+   1140              pFuncRxState = &rxStartIsr;
+   1141              rxDone();
+   1142            }
+   1143          }
+   \                     ??CrossCallReturnLabel_6:
+   \   00002E   7410         MOV       A,#0x10
+   \   000030   12....       LCALL     ?DEALLOC_XSTACK8
+   \   000033   02....       LJMP      ??Subroutine23_0 & 0xFFFF
+   1144          
+   1145          
+   1146          /**************************************************************************************************
+   1147           * @fn          maxRxRifoOverflowIsr
+   1148           *
+   1149           * @brief       This interrupt service routine is called when RX FIFO overflow. Note that this
+   1150           *              exception does not retrieve the good frames that are trapped in the RX FIFO.
+   1151           *              It simply halts and cleanup the RX.
+   1152           *
+   1153           * @param       none
+   1154           *
+   1155           * @return      none
+   1156           **************************************************************************************************
+   1157           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   1158          MAC_INTERNAL_API void macRxFifoOverflowIsr(void)
+   \                     macRxFifoOverflowIsr:
+   1159          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+   1160            rxFifoOverflowCount++; /* This flag is used for debug purpose only */
+   \   000004   90....       MOV       DPTR,#rxFifoOverflowCount
+   \   000007   E0           MOVX      A,@DPTR
+   \   000008   04           INC       A
+   \   000009   F0           MOVX      @DPTR,A
+   1161            macRxHaltCleanup();
+   \   00000A                ; Setup parameters for call to function macRxHaltCleanup
+   \   00000A   12....       LCALL     `??macRxHaltCleanup::?relay`; Banked call to: macRxHaltCleanup
+   1162          }
+   \   00000D   02....       LJMP      ??Subroutine23_0 & 0xFFFF
+   1163          
+   1164          
+   1165          /**************************************************************************************************
+   1166           * @fn          macRxPromiscuousMode
+   1167           *
+   1168           * @brief       Sets promiscuous mode - enabling or disabling it.
+   1169           *
+   1170           * @param       none
+   1171           *
+   1172           * @return      none
+   1173           **************************************************************************************************
+   1174           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   1175          MAC_INTERNAL_API void macRxPromiscuousMode(uint8 mode)
+   \                     macRxPromiscuousMode:
+   1176          {
+   \   000000   74F7         MOV       A,#-0x9
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV       A,R1
+   \   000006   FE           MOV       R6,A
+   1177            rxPromiscuousMode = mode;
+   \   000007   90....       MOV       DPTR,#rxPromiscuousMode
+   \   00000A   F0           MOVX      @DPTR,A
+   1178          
+   1179            if (rxPromiscuousMode == MAC_PROMISCUOUS_MODE_OFF)
+   \   00000B   700A         JNZ       ??macRxPromiscuousMode_0
+   1180            {
+   1181                MAC_RADIO_TURN_ON_RX_FRAME_FILTERING();
+   \   00000D   906180       MOV       DPTR,#0x6180
+   \   000010   E4           CLR       A
+   \   000011   F0           MOVX      @DPTR,A
+   \   000012   E0           MOVX      A,@DPTR
+   \   000013   4405         ORL       A,#0x5
+   \   000015   8013         SJMP      ??macRxPromiscuousMode_1
+   1182            }
+   1183            else
+   1184            {
+   1185              MAC_ASSERT((mode == MAC_PROMISCUOUS_MODE_WITH_BAD_CRC)   ||
+   1186                         (mode == MAC_PROMISCUOUS_MODE_COMPLIANT));  /* invalid mode */
+   \                     ??macRxPromiscuousMode_0:
+   \   000017   7402         MOV       A,#0x2
+   \   000019   6E           XRL       A,R6
+   \   00001A   6008         JZ        ??macRxPromiscuousMode_2
+   \   00001C   7401         MOV       A,#0x1
+   \   00001E   6E           XRL       A,R6
+   \   00001F   6003         JZ        ??macRxPromiscuousMode_2
+   \   000021                ; Setup parameters for call to function halAssertHandler
+   \   000021   12....       LCALL     `??halAssertHandler::?relay`; Banked call to: halAssertHandler
+   1187          
+   1188              MAC_RADIO_TURN_OFF_RX_FRAME_FILTERING();
+   \                     ??macRxPromiscuousMode_2:
+   \   000024   906180       MOV       DPTR,#0x6180
+   \   000027   E0           MOVX      A,@DPTR
+   \   000028   C2E0         CLR       0xE0 /* A   */.0
+   \                     ??macRxPromiscuousMode_1:
+   \   00002A   F0           MOVX      @DPTR,A
+   1189            }
+   1190          }
+   \   00002B   7F01         MOV       R7,#0x1
+   \   00002D   02....       LJMP      ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??macRxInit::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    macRxInit
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??macRxRadioPowerUpInit::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    macRxRadioPowerUpInit
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??macRxTxReset::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    macRxTxReset
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??macRxHaltCleanup::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    macRxHaltCleanup
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??rxHaltCleanupFinalStep::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    rxHaltCleanupFinalStep
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??macRxThresholdIsr::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    macRxThresholdIsr
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??rxStartIsr::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    rxStartIsr
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??rxAddrIsr::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    rxAddrIsr
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??rxPrepPayload::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    rxPrepPayload
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??rxPayloadIsr::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    rxPayloadIsr
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??rxFcsIsr::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    rxFcsIsr
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??rxDone::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    rxDone
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??macRxAckTxDoneCallback::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    macRxAckTxDoneCallback
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??rxPostRxUpdates::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    rxPostRxUpdates
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??rxDiscardFrame::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    rxDiscardFrame
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??rxDiscardIsr::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    rxDiscardIsr
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??macRxFifoOverflowIsr::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    macRxFifoOverflowIsr
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??macRxPromiscuousMode::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    macRxPromiscuousMode
+   1191          
+   1192          
+   1193          
+   1194          /**************************************************************************************************
+   1195           *                                  Compile Time Integrity Checks
+   1196           **************************************************************************************************
+   1197           */
+   1198          
+   1199          /* check for changes to the spec that would affect the source code */
+   1200          #if ((MAC_A_MAX_PHY_PACKET_SIZE   !=  0x7F )   ||  \
+   1201               (MAC_FCF_FIELD_LEN           !=  2    )   ||  \
+   1202               (MAC_FCF_FRAME_TYPE_POS      !=  0    )   ||  \
+   1203               (MAC_FCF_FRAME_PENDING_POS   !=  4    )   ||  \
+   1204               (MAC_FCF_ACK_REQUEST_POS     !=  5    )   ||  \
+   1205               (MAC_FCF_INTRA_PAN_POS       !=  6    )   ||  \
+   1206               (MAC_FCF_DST_ADDR_MODE_POS   !=  10   )   ||  \
+   1207               (MAC_FCF_FRAME_VERSION_POS   !=  12   )   ||  \
+   1208               (MAC_FCF_SRC_ADDR_MODE_POS   !=  14   ))
+   1209          #error "ERROR!  Change to the spec that requires modification of source code."
+   1210          #endif
+   1211          
+   1212          /* check for changes to the internal flags format */
+   1213          #if ((MAC_RX_FLAG_VERSION      !=  0x03)  ||  \
+   1214               (MAC_RX_FLAG_ACK_PENDING  !=  0x04)  ||  \
+   1215               (MAC_RX_FLAG_SECURITY     !=  0x08)  ||  \
+   1216               (MAC_RX_FLAG_PENDING      !=  0x10)  ||  \
+   1217               (MAC_RX_FLAG_ACK_REQUEST  !=  0x20)  ||  \
+   1218               (MAC_RX_FLAG_INTRA_PAN    !=  0x40))
+   1219          #error "ERROR!  Change to the internal RX flags format.  Requires modification of source code."
+   1220          #endif
+   1221          
+   1222          /* validate CRC OK bit optimization */
+   1223          #if (MAC_RX_FLAG_CRC_OK != PROPRIETARY_FCS_CRC_OK_BIT)
+   1224          #error "ERROR!  Optimization relies on these bits having the same position."
+   1225          #endif
+   1226          
+   1227          #if (MAC_RX_ACTIVE_NO_ACTIVITY != 0x00)
+   1228          #error "ERROR! Zero is reserved value of macRxActive. Allows boolean operations, e.g !macRxActive."
+   1229          #endif
+   1230          
+   1231          #if (MAC_PROMISCUOUS_MODE_OFF != 0x00)
+   1232          #error "ERROR! Zero is reserved value of rxPromiscuousMode. Allows boolean operations, e.g !rxPromiscuousMode."
+   1233          #endif
+   1234          
+   1235          
+   1236          /**************************************************************************************************
+   1237          */
+
+   Maximum stack usage in bytes:
+
+   ISTACK XSTACK Function
+   ------ ------ --------
+      2      0   macRxAckTxDoneCallback
+        2      0   -> rxPostRxUpdates
+      2      0   macRxFifoOverflowIsr
+        2      0   -> macRxHaltCleanup
+      2      0   macRxHaltCleanup
+        2      0   -> rxHaltCleanupFinalStep
+      2      0   macRxInit
+      0      9   macRxPromiscuousMode
+        0      9   -> halAssertHandler
+      2      0   macRxRadioPowerUpInit
+      2      0   macRxThresholdIsr
+        2      0   -> rxHaltCleanupFinalStep
+      2      0   macRxTxReset
+        2      0   -> macRxHardDisable
+        2      0   -> macRxPromiscuousMode
+      0     30   rxAddrIsr
+        0     30   -> halAssertHandler
+        0     30   -> macMemReadRxFifo
+        0     30   -> rxPrepPayload
+        0     30   -> sAddrExtCpy
+      2     14   rxDiscardFrame
+        2      0   -> halAssertHandler
+        2      0   -> rxDone
+      2     16   rxDiscardIsr
+        2     16   -> macMemReadRxFifo
+        2     16   -> rxDone
+      2     16   rxDone
+        2      0   -> rxPostRxUpdates
+      1     10   rxFcsIsr
+        0     10   -> MAC_SrcMatchCheckResult
+        0     10   -> macDataRxMemFree
+        0     10   -> macMemReadRxFifo
+        0     10   -> macRadioComputeLQI
+        0     10   -> macRxCompleteCallback
+        0     10   -> macRxOffRequest
+        0     10   -> rxDone
+      2      0   rxHaltCleanupFinalStep
+        2      0   -> macDataRxMemFree
+        2      0   -> rxPostRxUpdates
+      2      0   rxPayloadIsr
+        2      0   -> macMemReadRxFifo
+        2      0   -> rxPrepPayload
+      2     14   rxPostRxUpdates
+        2      0   -> macRadioUpdateTxPower
+        2      0   -> macRxOffRequest
+        2      0   -> macTxStartQueuedFrame
+      2     30   rxPrepPayload
+      1     14   rxStartIsr
+        0     14   -> MAC_SrcMatchCheckAllPending
+        0     14   -> halAssertHandler
+        0     14   -> macCspForceTxDoneIfPending
+        0     14   -> macDataRxMemAlloc
+        0     14   -> macMcuOverflowCapture
+        0     14   -> macMcuTimerCapture
+        0     14   -> macMemReadRxFifo
+        0     14   -> macRadioComputeLQI
+        0     14   -> macRxCheckMACPendingCallback
+        0     14   -> macRxCheckPendingCallback
+        0     14   -> macTxAckNotReceivedCallback
+        0     14   -> macTxAckReceivedCallback
+        0     14   -> rxDiscardFrame
+        0     14   -> rxDone
+        0     14   -> rxPostRxUpdates
+        0     14   -> rxPrepPayload
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       3  ??Subroutine21_0
+       5  ??Subroutine22_0
+       7  ??Subroutine23_0
+       4  ??Subroutine24_0
+       6  ??Subroutine25_0
+       1  ?Subroutine0
+       5  ?Subroutine1
+      11  ?Subroutine10
+      13  ?Subroutine11
+      13  ?Subroutine12
+       3  ?Subroutine13
+       4  ?Subroutine14
+       1  ?Subroutine15
+      13  ?Subroutine16
+       9  ?Subroutine17
+      12  ?Subroutine18
+       3  ?Subroutine19
+       5  ?Subroutine2
+       9  ?Subroutine20
+      12  ?Subroutine3
+       4  ?Subroutine4
+      14  ?Subroutine5
+       8  ?Subroutine6
+       9  ?Subroutine7
+      31  ?Subroutine8
+      12  ?Subroutine9
+       1  RFIRQF0
+       1  RFIRQF1
+       1  RFST
+       1  S1CON
+       1  _A_IEN0
+      21  macRxAckTxDoneCallback
+       6  macRxAckTxDoneCallback::?relay
+       1  macRxActive
+       4  macRxAddrLen
+      16  macRxFifoOverflowIsr
+       6  macRxFifoOverflowIsr::?relay
+       1  macRxFilter
+      22  macRxHaltCleanup
+       6  macRxHaltCleanup::?relay
+      44  macRxInit
+       6  macRxInit::?relay
+       1  macRxOutgoingAckFlag
+      48  macRxPromiscuousMode
+       6  macRxPromiscuousMode::?relay
+      29  macRxRadioPowerUpInit
+       6  macRxRadioPowerUpInit::?relay
+      42  macRxThresholdIsr
+       6  macRxThresholdIsr::?relay
+      19  macRxTxReset
+       6  macRxTxReset::?relay
+       2  pFuncRxState
+       2  pRxBuf
+     283  rxAddrIsr
+       6  rxAddrIsr::?relay
+       4  rxBuf
+      68  rxDiscardFrame
+       6  rxDiscardFrame::?relay
+      54  rxDiscardIsr
+       6  rxDiscardIsr::?relay
+      40  rxDone
+       6  rxDone::?relay
+     173  rxFcsIsr
+       6  rxFcsIsr::?relay
+       1  rxFifoOverflowCount
+       1  rxFilter
+      93  rxHaltCleanupFinalStep
+       6  rxHaltCleanupFinalStep::?relay
+       1  rxIsrActiveFlag
+       1  rxNextLen
+      79  rxPayloadIsr
+       6  rxPayloadIsr::?relay
+       1  rxPayloadLen
+      16  rxPostRxUpdates
+       6  rxPostRxUpdates::?relay
+      51  rxPrepPayload
+       6  rxPrepPayload::?relay
+       1  rxPromiscuousMode
+       1  rxResetFlag
+     834  rxStartIsr
+       6  rxStartIsr::?relay
+       1  rxUnreadLen
+
+ 
+ 2 149 bytes in segment BANKED_CODE
+   108 bytes in segment BANK_RELAYS
+     4 bytes in segment CODE_C
+     5 bytes in segment SFR_AN
+    19 bytes in segment XDATA_Z
+ 
+   112 bytes of CODE     memory
+     0 bytes of DATA     memory (+ 5 bytes shared)
+ 2 149 bytes of HUGECODE memory
+    19 bytes of XDATA    memory
+
+Errors: none
+Warnings: none

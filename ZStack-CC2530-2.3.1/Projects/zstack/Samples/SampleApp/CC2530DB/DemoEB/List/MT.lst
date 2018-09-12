@@ -1,0 +1,669 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V7.51A/W32 for 8051                08/Jun/2011  10:49:37 #
+# Copyright 2004-2009 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.3.1\Component #
+#                          s\mt\MT.c                                          #
+#    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.3.1\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\Too #
+#                          ls\CC2530DB\f8wCoord.cfg" (-DCPU32MHZ              #
+#                          -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRU #
+#                          E -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8       #
+#                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)    #
+#                          -f "C:\Texas Instruments\ZStack-CC2530-2.3.1\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\Too #
+#                          ls\CC2530DB\f8wConfig.cfg" (-DSECURE=0             #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.3.1\Components\mt\MT.c #
+#                          " -D BUILD_ALL_DEVICES -D HOLD_AUTO_START -D       #
+#                          LCD_SUPPORTED -D HAL_UART=FALSE -lC "C:\Texas      #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\DemoEB\List\" -lA         #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects #
+#                          \zstack\Samples\SampleApp\CC2530DB\DemoEB\List\"   #
+#                          --diag_suppress Pe001,Pa010 -o "C:\Texas           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\DemoEB\Obj\" -e           #
+#                          --require_prototypes --debug --core=plain          #
+#                          --dptr=16,1 --data_model=large                     #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 16 -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\" -I "C:\Texas            #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\SOURCE\" -I "C:\Texas  #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\ZMAIN\TI2530DB\" #
+#                           -I "C:\Texas Instruments\ZStack-CC2530-2.3.1\Proj #
+#                          ects\zstack\Samples\SampleApp\CC2530DB\..\..\..\.. #
+#                          \..\COMPONENTS\MT\" -I "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \HAL\INCLUDE\" -I "C:\Texas                        #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \HAL\TARGET\CC2530EB\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \OSAL\MCU\CCSOC\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \OSAL\INCLUDE\" -I "C:\Texas                       #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\AF\" -I "C:\Texas                           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\NWK\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SEC\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SAPI\" -I "C:\Texas                         #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SYS\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\ZDO\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \ZMAC\F8W\" -I "C:\Texas                           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \ZMAC\" -I "C:\Texas Instruments\ZStack-CC2530-2.3 #
+#                          .1\Projects\zstack\Samples\SampleApp\CC2530DB\..\. #
+#                          .\..\..\..\COMPONENTS\SERVICES\SADDR\" -I          #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects #
+#                          \zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\ #
+#                          COMPONENTS\SERVICES\SDATA\" -I "C:\Texas           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\INCLUDE\" -I "C:\Texas                        #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\HIGH_LEVEL\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\LOW_LEVEL\srf04\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\LOW_LEVEL\srf04\SINGLE_CHIP\" -I "C:\Program  #
+#                          Files\IAR Systems\Embedded Workbench               #
+#                          5.3\8051\INC\" -I "C:\Program Files\IAR            #
+#                          Systems\Embedded Workbench 5.3\8051\INC\CLIB\"     #
+#                          -Ohz                                               #
+#    List file          =  C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects\ #
+#                          zstack\Samples\SampleApp\CC2530DB\DemoEB\List\MT.l #
+#                          st                                                 #
+#    Object file        =  C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects\ #
+#                          zstack\Samples\SampleApp\CC2530DB\DemoEB\Obj\MT.r5 #
+#                          1                                                  #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Texas Instruments\ZStack-CC2530-2.3.1\Components\mt\MT.c
+      1          /***************************************************************************************************
+      2            Filename:       MTEL.c
+      3            Revised:        $Date: 2009-10-28 00:05:19 -0700 (Wed, 28 Oct 2009) $
+      4            Revision:       $Revision: 20998 $
+      5          
+      6            Description:    MonitorTest Event Loop functions.  Everything in the
+      7                            MonitorTest Task (except the serial driver).
+      8          
+      9            Copyright 2007 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com.
+     38          
+     39           ***************************************************************************************************/
+     40          
+     41          
+     42          /***************************************************************************************************
+     43           * INCLUDES
+     44           ***************************************************************************************************/
+     45          #include "ZComDef.h"
+     46          #include "MT.h"
+     47          #include "MT_APP.h"
+     48          #include "MT_DEBUG.h"
+     49          #include "MT_UTIL.h"
+     50          #include "MT_SYS.h"
+     51          #include "MT_SAPI.h"
+     52          #include "AF.h"
+     53          
+     54          #include "OnBoard.h"
+     55          #include "OSAL.h"
+     56          #include "OSAL_Memory.h"
+     57          #include "OSAL_Nv.h"
+     58          
+     59          #include "DebugTrace.h"
+     60          #include "ZMAC.h"
+     61          
+     62          #if !defined ( NONWK )
+     63            #include "NLMEDE.h"
+     64            #include "nwk_bufs.h"
+     65            #include "ZDObject.h"
+     66            #include "ssp.h"
+     67            #include "nwk_util.h"
+     68          #endif
+     69          
+     70          #if defined( MT_MAC_FUNC ) || defined( MT_MAC_CB_FUNC )
+     71            #include "MT_MAC.h"
+     72          #endif
+     73          #if defined( MT_NWK_FUNC ) || defined( MT_NWK_CB_FUNC )
+     74            #include "MT_NWK.h"
+     75            #include "nwk.h"
+     76            #include "nwk_bufs.h"
+     77          #endif
+     78          #if defined( MT_AF_FUNC ) || defined( MT_AF_CB_FUNC )
+     79            #include "MT_AF.h"
+     80          #endif
+     81          #if defined( MT_USER_TEST_FUNC )
+     82            #include "AF.h"
+     83          #endif
+     84          #if defined( MT_ZDO_FUNC )
+     85            #include "MT_ZDO.h"
+     86          #endif
+     87          #if defined (MT_SAPI_FUNC)
+     88          	#include "MT_SAPI.h"
+     89          #endif
+     90          #if defined( APP_TP )
+     91           #include "TestProfile.h"
+     92          #endif
+     93          #if defined( APP_TP2 )
+     94           #include "TestProfile2.h"
+     95          #endif
+     96          
+     97          #if defined(APP_TGEN)
+     98            #include "TrafficGenApp.h"
+     99          #endif
+    100          #if defined(APP_DEBUG)
+    101          	#include "DebugApp.h"
+    102          #endif
+    103          #if defined (NWK_TEST)
+    104          	#include "HWTTApp.h"
+    105          #endif
+    106          
+    107          /* HAL */
+    108          #include "hal_uart.h"
+    109          #include "hal_led.h"
+    110          #include "hal_key.h"
+    111          #include "MT_UART.h"
+    112          
+    113          /***************************************************************************************************
+    114           * MACROS
+    115           ***************************************************************************************************/
+    116          #define MTEL_DEBUG_INFO( nParams, p1, p2, p3 ) DEBUG_INFO( COMPID_MTEL, nParams, p1, p2, p3 )
+    117          
+    118          #define MT_ERROR_SRSP_LEN   3
+    119          
+    120          /***************************************************************************************************
+    121           * CONSTANTS
+    122           ***************************************************************************************************/
+    123          mtProcessMsg_t mtProcessIncoming[] =
+    124          {
+    125            NULL,
+    126          
+    127          #if defined (MT_SYS_FUNC)
+    128            MT_SysCommandProcessing,
+    129          #else
+    130            NULL,
+    131          #endif
+    132          
+    133          #if defined (MT_MAC_FUNC)
+    134            MT_MacCommandProcessing,
+    135          #else
+    136            NULL,
+    137          #endif
+    138          
+    139          #if defined (MT_NWK_FUNC)
+    140            MT_NwkCommandProcessing,
+    141          #else
+    142            NULL,
+    143          #endif
+    144          
+    145          #if defined (MT_AF_FUNC)
+    146            MT_AfCommandProcessing,
+    147          #else
+    148            NULL,
+    149          #endif
+    150          
+    151          #if defined (MT_ZDO_FUNC)
+    152            MT_ZdoCommandProcessing,
+    153          #else
+    154            NULL,
+    155          #endif
+    156          
+    157          #if defined (MT_SAPI_FUNC)
+    158            MT_SapiCommandProcessing,
+    159          #else
+    160            NULL,
+    161          #endif
+    162          
+    163          #if defined (MT_UTIL_FUNC)
+    164            MT_UtilCommandProcessing,
+    165          #else
+    166            NULL,
+    167          #endif
+    168          
+    169          #if defined (MT_DEBUG_FUNC)
+    170            MT_DebugCommandProcessing,
+    171          #else
+    172            NULL,
+    173          #endif
+    174          
+    175          #if defined (MT_APP_FUNC)
+    176            MT_AppCommandProcessing,
+    177          #else
+    178            NULL,
+    179          #endif
+    180          
+    181          };
+    182          
+    183          /***************************************************************************************************
+    184           * TYPEDEFS
+    185           ***************************************************************************************************/
+    186          
+    187          /***************************************************************************************************
+    188           * GLOBAL VARIABLES
+    189           ***************************************************************************************************/
+    190          UINT16 save_cmd;
+    191          
+    192          byte MT_TaskID;
+    193          byte debugThreshold;
+    194          byte debugCompId;
+    195          
+    196          /***************************************************************************************************
+    197           * EXTERNAL FUNCTIONS
+    198           ***************************************************************************************************/
+    199          extern unsigned int mac_sim_eventLoop( void );
+    200          
+    201          #ifdef MACSIM
+    202          extern void MACSIM_TranslateMsg( byte *buf, byte bLen );  /*  Used to pass Zignet message */
+    203          #endif
+    204          
+    205          
+    206          /***************************************************************************************************
+    207           * LOCAL VARIABLES
+    208           ***************************************************************************************************/
+    209          
+    210          /***************************************************************************************************
+    211           * LOCAL FUNCTIONS
+    212           ***************************************************************************************************/
+    213          void MT_MsgQueueInit( void );
+    214          void MT_ResetMsgQueue( void );
+    215          byte MT_QueueMsg( byte *msg , byte len );
+    216          void MT_ProcessQueue( void );
+    217          
+    218          #if defined ( MT_USER_TEST_FUNC )
+    219          void MT_ProcessAppUserCmd( byte *pData );
+    220          #endif
+    221          
+    222          /***************************************************************************************************
+    223           * @fn      MT_Init()
+    224           *
+    225           * @brief   Initialize MT.
+    226           *
+    227           * @param   uint8 taskId - taskId
+    228           *
+    229           * @return  void
+    230           ***************************************************************************************************/
+    231          void MT_Init(uint8 taskID)
+    232          {
+    233            MT_TaskID = taskID;
+    234            debugThreshold = 0;
+    235            debugCompId = 0;
+    236            
+    237          #if defined (MT_ZDO_FUNC)
+    238            MT_ZdoInit();
+    239          #endif
+    240            MT_SysResetInd();
+    241          }
+    242          
+    243          /***************************************************************************************************
+    244           * @fn      MT_BuildSPIMsg
+    245           *
+    246           * @brief
+    247           *
+    248           *   Format an SPI message.
+    249           *
+    250           * @param   UINT16 cmd - command id
+    251           * @param   byte *msg - pointer to message buffer
+    252           * @param   byte dataLen - length of data field
+    253           * @param   byte *pData - pointer to data field
+    254           *
+    255           * @return  void
+    256           ***************************************************************************************************/
+    257          void MT_BuildSPIMsg( uint8 cmdType, uint8 cmdId, byte *msg, byte dataLen, byte *pData )
+    258          {
+    259            /* Fill in the CMD and Data Length */
+    260            *msg++ = dataLen;
+    261            *msg++ = cmdType;
+    262            *msg++ = cmdId;
+    263          
+    264            /* Fill in the data */
+    265            if ( pData )
+    266            {
+    267              osal_memcpy( msg, pData, dataLen );
+    268            }
+    269          }
+    270          
+    271          /***************************************************************************************************
+    272           * @fn      MT_BuildAndSendZToolResponse
+    273           *
+    274           * @brief   Build and send a ZTOOL msg
+    275           * @param   uint8 cmdType - include type and subsystem
+    276           *          uint8 cmdId - command ID
+    277           *          byte dataLen
+    278           *          byte *pData
+    279           *
+    280           * @return  void
+    281           ***************************************************************************************************/
+    282          void MT_BuildAndSendZToolResponse(uint8 cmdType, uint8 cmdId, uint8 dataLen, uint8 *pData)
+    283          {
+    284            uint8 *msg_ptr;
+    285          
+    286            /* Allocate memory including SOP and FCS */
+    287            msg_ptr = MT_TransportAlloc((mtRpcCmdType_t)(cmdType & 0xE0), dataLen);
+    288          
+    289            if (msg_ptr)
+    290            {
+    291              /* Build the message */
+    292              MT_BuildSPIMsg(cmdType, cmdId, msg_ptr, dataLen, pData);
+    293              /* Send out the msg */
+    294              MT_TransportSend(msg_ptr);
+    295            }
+    296          }
+    297          
+    298          /***************************************************************************************************
+    299           * @fn      MT_ProcessIncoming
+    300           *
+    301           * @brief  Process Incoming Message.
+    302           *
+    303           * @param   byte *pBuf - pointer to event message
+    304           *
+    305           * @return  void
+    306           ***************************************************************************************************/
+    307          void MT_ProcessIncoming(uint8 *pBuf)
+    308          {
+    309            mtProcessMsg_t  func;
+    310            uint8           rsp[MT_ERROR_SRSP_LEN];
+    311          
+    312            /* pre-build response message:  | status | cmd0 | cmd1 | */
+    313            rsp[1] = pBuf[MT_RPC_POS_CMD0];
+    314            rsp[2] = pBuf[MT_RPC_POS_CMD1];
+    315          
+    316            /* check length */
+    317            if (pBuf[MT_RPC_POS_LEN] > MT_RPC_DATA_MAX)
+    318            {
+    319              rsp[0] = MT_RPC_ERR_LENGTH;
+    320            }
+    321            /* check subsystem range */
+    322            else if ((rsp[1] & MT_RPC_SUBSYSTEM_MASK) < MT_RPC_SYS_MAX)
+    323            {
+    324              /* look up processing function */
+    325              func = mtProcessIncoming[rsp[1] & MT_RPC_SUBSYSTEM_MASK];
+    326              if (func)
+    327              {
+    328                /* execute processing function */
+    329                rsp[0] = (*func)(pBuf);
+    330              }
+    331              else
+    332              {
+    333                rsp[0] = MT_RPC_ERR_SUBSYSTEM;
+    334              }
+    335            }
+    336            else
+    337            {
+    338              rsp[0] = MT_RPC_ERR_SUBSYSTEM;
+    339            }
+    340          
+    341            /* if error and this was an SREQ, send error message */
+    342            if ((rsp[0] != MT_RPC_SUCCESS) && ((rsp[1] & MT_RPC_CMD_TYPE_MASK) == MT_RPC_CMD_SREQ))
+    343            {
+    344              MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_RES0), 0, MT_ERROR_SRSP_LEN, rsp);
+    345            }
+    346          }
+    347          
+    348          
+    349          /***************************************************************************************************
+    350           * @fn      MTProcessAppRspMsg
+    351           *
+    352           * @brief   Process the User App Response Message
+    353           *
+    354           * @param   data - output serial buffer.  The first byte must be the
+    355           *          endpoint that send this message.
+    356           * @param   len - data length
+    357           *
+    358           * @return  none
+    359           ***************************************************************************************************/
+    360          void MTProcessAppRspMsg( byte *pData, byte len )
+    361          {
+    362            /* Send out Reset Response message */
+    363            MT_BuildAndSendZToolResponse( ((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_APP), MT_APP_RSP, len, pData );
+    364          }
+    365          
+    366          
+    367          /***************************************************************************************************
+    368           * @fn      MT_ReverseBytes
+    369           *
+    370           * @brief
+    371           *
+    372           *   Reverses bytes within an array
+    373           *
+    374           * @param   data - ptr to data buffer to reverse
+    375           * @param    len - number of bytes in buffer
+    376           *
+    377           * @return  void
+    378           ***************************************************************************************************/
+    379          void MT_ReverseBytes( byte *pData, byte len )
+    380          {
+    381            byte i,j;
+    382            byte temp;
+    383          
+    384            for ( i = 0, j = len-1; len > 1; len-=2 )
+    385            {
+    386              temp = pData[i];
+    387              pData[i++] = pData[j];
+    388              pData[j--] = temp;
+    389            }
+    390          }
+    391          
+    392          
+    393          /***************************************************************************************************
+    394           * @fn      MT_Word2Buf
+    395           *
+    396           * @brief   Copy a uint16 array to a byte array, little endian.
+    397           *
+    398           * @param   pBuf - byte array
+    399           * @param   pWord - uint16 array
+    400           * @param   len - length of uint16 array
+    401           *
+    402           * @return  pointer to end of byte array
+    403           ***************************************************************************************************/
+    404          uint8 *MT_Word2Buf( uint8 *pBuf, uint16 *pWord, uint8 len )
+    405          {
+    406            while ( len-- > 0 )
+    407            {
+    408              *pBuf++ = LO_UINT16( *pWord );
+    409              *pBuf++ = HI_UINT16( *pWord );
+    410              pWord++;
+    411            }
+    412          
+    413            return pBuf;
+    414          }
+    415          /***************************************************************************************************
+    416           * @fn      MT_BuildEndpointDesc
+    417           *
+    418           * @brief   Build endpoint descriptor and simple descriptor structure from incoming buffer
+    419           *
+    420           * @param   pBuf - byte array
+    421           *
+    422           * @return  epDesc - pointer to the endpoint descriptor
+    423           ***************************************************************************************************/
+    424          uint8 MT_BuildEndpointDesc( uint8 *pBuf, void *param )
+    425          {
+    426            uint8 i;
+    427            uint8 ret = ZSuccess;
+    428            endPointDesc_t *epDesc;
+    429          
+    430            epDesc = (endPointDesc_t *)param;
+    431            /* check if this endpoint is already registered */
+    432            if ( afFindEndPointDesc( *pBuf ) != NULL )
+    433            {
+    434              ret = ZApsDuplicateEntry;
+    435            }
+    436            else if ( epDesc )
+    437            {
+    438              epDesc->endPoint = *pBuf;
+    439          
+    440              /* Ignore the latency reqs */
+    441              epDesc->latencyReq = noLatencyReqs;
+    442          
+    443              /* allocate memory for the simple descriptor */
+    444              epDesc->simpleDesc = (SimpleDescriptionFormat_t *) osal_mem_alloc(sizeof(SimpleDescriptionFormat_t));
+    445              if (epDesc->simpleDesc)
+    446              {
+    447                /* Endpoint */
+    448                epDesc->simpleDesc->EndPoint = *pBuf++;
+    449          
+    450                /* AppProfId */
+    451                epDesc->simpleDesc->AppProfId = BUILD_UINT16(pBuf[0], pBuf[1]);
+    452                pBuf += sizeof(uint16);
+    453          
+    454                /* AppDeviceId */
+    455                epDesc->simpleDesc->AppDeviceId = BUILD_UINT16(pBuf[0],pBuf[1]);
+    456                pBuf += sizeof(uint16);
+    457          
+    458                /* AppDevVer */
+    459                epDesc->simpleDesc->AppDevVer = (*pBuf++) & AF_APP_DEV_VER_MASK ;
+    460          
+    461                /* LatencyReq */
+    462                pBuf++;
+    463          
+    464                /* AppNumInClusters */
+    465                epDesc->simpleDesc->AppNumInClusters = *pBuf++;
+    466                if (epDesc->simpleDesc->AppNumInClusters)
+    467                {
+    468                  epDesc->simpleDesc->pAppInClusterList = (uint16 *)
+    469                            osal_mem_alloc((epDesc->simpleDesc->AppNumInClusters)*sizeof(uint16));
+    470                  if ( epDesc->simpleDesc->pAppInClusterList )
+    471                  {
+    472                    for (i=0; i<(epDesc->simpleDesc->AppNumInClusters); i++)
+    473                    {
+    474                      epDesc->simpleDesc->pAppInClusterList[i] = BUILD_UINT16(*pBuf, *(pBuf+1));
+    475                      pBuf += 2;
+    476                    }
+    477                  }
+    478                  else
+    479                  {
+    480                    ret = ZMemError;
+    481                  }
+    482                }
+    483          
+    484                /* AppNumOutClusters */
+    485                epDesc->simpleDesc->AppNumOutClusters = *pBuf++;
+    486                if (epDesc->simpleDesc->AppNumOutClusters)
+    487                {
+    488                  epDesc->simpleDesc->pAppOutClusterList = (uint16 *)
+    489                                    osal_mem_alloc((epDesc->simpleDesc->AppNumOutClusters)*sizeof(uint16));
+    490                  if (epDesc->simpleDesc->pAppOutClusterList)
+    491                  {
+    492                    for (i=0; i<(epDesc->simpleDesc->AppNumOutClusters); i++)
+    493                    {
+    494                      epDesc->simpleDesc->pAppOutClusterList[i] = BUILD_UINT16(*pBuf, *(pBuf+1));
+    495                      pBuf += 2;
+    496                    }
+    497                  }
+    498                  else
+    499                  {
+    500                    ret = ZMemError;
+    501                  }
+    502                }
+    503          
+    504                /* if any list cannot be allocated...free all */
+    505                if ( ret == ZMemError )
+    506                {
+    507                  if (epDesc->simpleDesc->pAppInClusterList)
+    508                  {
+    509                    osal_mem_free(epDesc->simpleDesc->pAppInClusterList);
+    510                  }
+    511          
+    512                  if (epDesc->simpleDesc->AppNumOutClusters)
+    513                  {
+    514                    osal_mem_free(epDesc->simpleDesc->pAppOutClusterList);
+    515                  }
+    516          
+    517                  osal_mem_free(epDesc->simpleDesc);
+    518                }
+    519              }
+    520              else
+    521              {
+    522                ret = ZMemError;
+    523              }
+    524            }
+    525          
+    526            return ret;
+    527          }
+    528          /***************************************************************************************************
+    529          ***************************************************************************************************/
+
+Errors: 1
+Warnings: none

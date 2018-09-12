@@ -1,0 +1,1049 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V7.51A/W32 for 8051                08/Jun/2011  10:49:37 #
+# Copyright 2004-2009 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\Texas Instruments\ZStack-CC2530-2.3.1\Component #
+#                          s\mt\MT_AF.c                                       #
+#    Command line       =  -f "C:\Texas Instruments\ZStack-CC2530-2.3.1\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\Too #
+#                          ls\CC2530DB\f8wCoord.cfg" (-DCPU32MHZ              #
+#                          -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRU #
+#                          E -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8       #
+#                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)    #
+#                          -f "C:\Texas Instruments\ZStack-CC2530-2.3.1\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\Too #
+#                          ls\CC2530DB\f8wConfig.cfg" (-DSECURE=0             #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.3.1\Components\mt\MT_A #
+#                          F.c" -D BUILD_ALL_DEVICES -D HOLD_AUTO_START -D    #
+#                          LCD_SUPPORTED -D HAL_UART=FALSE -lC "C:\Texas      #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\DemoEB\List\" -lA         #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects #
+#                          \zstack\Samples\SampleApp\CC2530DB\DemoEB\List\"   #
+#                          --diag_suppress Pe001,Pa010 -o "C:\Texas           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\DemoEB\Obj\" -e           #
+#                          --require_prototypes --debug --core=plain          #
+#                          --dptr=16,1 --data_model=large                     #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 16 -I "C:\Texas                  #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\" -I "C:\Texas            #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\SOURCE\" -I "C:\Texas  #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\ZMAIN\TI2530DB\" #
+#                           -I "C:\Texas Instruments\ZStack-CC2530-2.3.1\Proj #
+#                          ects\zstack\Samples\SampleApp\CC2530DB\..\..\..\.. #
+#                          \..\COMPONENTS\MT\" -I "C:\Texas                   #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \HAL\INCLUDE\" -I "C:\Texas                        #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \HAL\TARGET\CC2530EB\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \OSAL\MCU\CCSOC\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \OSAL\INCLUDE\" -I "C:\Texas                       #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\AF\" -I "C:\Texas                           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\NWK\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SEC\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SAPI\" -I "C:\Texas                         #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SYS\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\ZDO\" -I "C:\Texas                          #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \ZMAC\F8W\" -I "C:\Texas                           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \ZMAC\" -I "C:\Texas Instruments\ZStack-CC2530-2.3 #
+#                          .1\Projects\zstack\Samples\SampleApp\CC2530DB\..\. #
+#                          .\..\..\..\COMPONENTS\SERVICES\SADDR\" -I          #
+#                          "C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects #
+#                          \zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\ #
+#                          COMPONENTS\SERVICES\SDATA\" -I "C:\Texas           #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\INCLUDE\" -I "C:\Texas                        #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\HIGH_LEVEL\" -I "C:\Texas                     #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\LOW_LEVEL\srf04\" -I "C:\Texas                #
+#                          Instruments\ZStack-CC2530-2.3.1\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\LOW_LEVEL\srf04\SINGLE_CHIP\" -I "C:\Program  #
+#                          Files\IAR Systems\Embedded Workbench               #
+#                          5.3\8051\INC\" -I "C:\Program Files\IAR            #
+#                          Systems\Embedded Workbench 5.3\8051\INC\CLIB\"     #
+#                          -Ohz                                               #
+#    List file          =  C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects\ #
+#                          zstack\Samples\SampleApp\CC2530DB\DemoEB\List\MT_A #
+#                          F.lst                                              #
+#    Object file        =  C:\Texas Instruments\ZStack-CC2530-2.3.1\Projects\ #
+#                          zstack\Samples\SampleApp\CC2530DB\DemoEB\Obj\MT_AF #
+#                          .r51                                               #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Texas Instruments\ZStack-CC2530-2.3.1\Components\mt\MT_AF.c
+      1          /**************************************************************************************************
+      2            Filename:       MT_AF.c
+      3            Revised:        $Date: 2010-08-13 18:14:16 -0700 (Fri, 13 Aug 2010) $
+      4            Revision:       $Revision: 23411 $
+      5          
+      6          
+      7            Description:    MonitorTest functions for the AF layer.
+      8          
+      9          
+     10            Copyright 2007-2010 Texas Instruments Incorporated. All rights reserved.
+     11          
+     12            IMPORTANT: Your use of this Software is limited to those specific rights
+     13            granted under the terms of a software license agreement between the user
+     14            who downloaded the software, his/her employer (which must be your employer)
+     15            and Texas Instruments Incorporated (the "License").  You may not use this
+     16            Software unless you agree to abide by the terms of the License. The License
+     17            limits your use, and you acknowledge, that the Software may not be modified,
+     18            copied or distributed unless embedded on a Texas Instruments microcontroller
+     19            or used solely and exclusively in conjunction with a Texas Instruments radio
+     20            frequency transceiver, which is integrated into your product.  Other than for
+     21            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     22            works of, modify, distribute, perform, display or sell this Software and/or
+     23            its documentation for any purpose.
+     24          
+     25            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     26            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     27            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     28            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     29            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     30            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     31            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     32            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     33            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     34            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     35            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     36          
+     37            Should you have any questions regarding your right to use this Software,
+     38            contact Texas Instruments Incorporated at www.TI.com.
+     39          
+     40          **************************************************************************************************/
+     41          
+     42          /***************************************************************************************************
+     43           * INCLUDES
+     44           ***************************************************************************************************/
+     45          #include "ZComDef.h"
+     46          #include "OSAL.h"
+     47          #include "MT.h"
+     48          #include "MT_AF.h"
+     49          #include "MT_ZDO.h"
+     50          #include "nwk.h"
+     51          #include "OnBoard.h"
+     52          #include "MT_UART.h"
+     53          
+     54          #if defined INTER_PAN
+     55          #include "stub_aps.h"
+     56          #endif
+     57          
+     58          /* ------------------------------------------------------------------------------------------------
+     59           *                                          Constants
+     60           * ------------------------------------------------------------------------------------------------
+     61           */
+     62          
+     63          #if !defined MT_AF_EXEC_CNT
+     64          #define MT_AF_EXEC_CNT  15
+     65          #endif
+     66          
+     67          #if !defined MT_AF_EXEC_DLY
+     68          #define MT_AF_EXEC_DLY  1000
+     69          #endif
+     70          
+     71          /* ------------------------------------------------------------------------------------------------
+     72           *                                           Typedefs
+     73           * ------------------------------------------------------------------------------------------------
+     74           */
+     75          
+     76          /*
+     77          typedef struct
+     78          {
+     79            union
+     80            {
+     81              uint16      shortAddr;
+     82              ZLongAddr_t extAddr;
+     83            } addr;
+     84            afAddrMode_t addrMode;
+     85            byte endPoint;
+     86            uint16 panId;  // used for the INTER_PAN feature
+     87          } afAddrType_t;
+     88          
+     89          typedef struct
+     90          {
+     91            byte   TransSeqNumber;
+     92            uint16 DataLength;               // Number of bytes in TransData
+     93            byte  *Data;
+     94          } afMSGCommandFormat_t;
+     95           */
+     96          
+     97          typedef struct
+     98          {
+     99            uint8 *data;
+    100            afAddrType_t dstAddr;
+    101            endPointDesc_t *epDesc;
+    102            uint16 cId;
+    103            uint16 dataLen;
+    104            uint8 transId;
+    105            uint8 txOpts;
+    106            uint8 radius;
+    107            uint8 tick;
+    108          } mtAfDataReq_t;
+    109          
+    110          struct _mtAfInMsgList_t
+    111          {
+    112            struct _mtAfInMsgList_t *next;
+    113            uint8 *data;
+    114            uint32 timestamp;         // Receipt timestamp from MAC.
+    115            uint8 tick;
+    116          };
+    117          typedef struct _mtAfInMsgList_t mtAfInMsgList_t;
+    118          
+    119          /* ------------------------------------------------------------------------------------------------
+    120           *                                        Local Variables
+    121           * ------------------------------------------------------------------------------------------------
+    122           */
+    123          
+    124          mtAfInMsgList_t *pMtAfInMsgList = NULL;
+    125          mtAfDataReq_t *pMtAfDataReq = NULL;
+    126          
+    127          /* ------------------------------------------------------------------------------------------------
+    128           *                                        Global Variables
+    129           * ------------------------------------------------------------------------------------------------
+    130           */
+    131          
+    132          #if defined ( MT_AF_CB_FUNC )
+    133          uint16 _afCallbackSub;
+    134          #endif
+    135          
+    136          /* ------------------------------------------------------------------------------------------------
+    137           *                                        Local Functions
+    138           * ------------------------------------------------------------------------------------------------
+    139           */
+    140          
+    141          void MT_AfRegister(uint8 *pBuf);
+    142          void MT_AfDataRequest(uint8 *pBuf);
+    143          
+    144          #if defined ( ZIGBEE_SOURCE_ROUTING )
+    145          void MT_AfDataRequestSrcRtg(uint8 *pBuf);
+    146          #endif
+    147          
+    148          #if defined INTER_PAN
+    149          static void MT_AfInterPanCtl(uint8 *pBuf);
+    150          #endif
+    151          
+    152          static void MT_AfDataRetrieve(uint8 *pBuf);
+    153          static void MT_AfDataStore(uint8 *pBuf);
+    154          
+    155          /**************************************************************************************************
+    156           * @fn          MT_AfExec
+    157           *
+    158           * @brief       This function is invoked by an MT timer event.
+    159           *
+    160           * input parameters
+    161           *
+    162           * None.
+    163           *
+    164           * output parameters
+    165           *
+    166           * None.
+    167           *
+    168           * @return      None.
+    169           **************************************************************************************************
+    170           */
+    171          void MT_AfExec(void)
+    172          {
+    173            mtAfInMsgList_t *pPrev, *pItem = pMtAfInMsgList;
+    174          
+    175            while (pItem != NULL)
+    176            {
+    177              if (--(pItem->tick) == 0)
+    178              {
+    179                if (pMtAfInMsgList == pItem)
+    180                {
+    181                  pMtAfInMsgList = pItem->next;
+    182                  (void)osal_mem_free(pItem);
+    183                  pItem = pMtAfInMsgList;
+    184                }
+    185                else
+    186                {
+    187                  pPrev->next = pItem->next;
+    188                  (void)osal_mem_free(pItem);
+    189                  pItem = pPrev->next;
+    190                }
+    191              }
+    192              else
+    193              {
+    194                pPrev = pItem;
+    195                pItem = pItem->next;
+    196              }
+    197            }
+    198          
+    199            if (pMtAfDataReq != NULL)
+    200            {
+    201              if (--(pMtAfDataReq->tick) == 0)
+    202              {
+    203                (void)osal_mem_free(pMtAfDataReq);
+    204                pMtAfDataReq = NULL;
+    205              }
+    206            }
+    207          
+    208            if ((pMtAfInMsgList != NULL) || (pMtAfDataReq != NULL))
+    209            {
+    210              if (ZSuccess != osal_start_timerEx(MT_TaskID, MT_AF_EXEC_EVT, MT_AF_EXEC_DLY))
+    211              {
+    212                osal_set_event(MT_TaskID, MT_AF_EXEC_EVT);
+    213              }
+    214            }
+    215          }
+    216          
+    217          /***************************************************************************************************
+    218           * @fn      MT_AfCommandProcessing
+    219           *
+    220           * @brief   Process all the AF commands that are issued by test tool
+    221           *
+    222           * @param   pBuf - pointer to the received buffer
+    223           *
+    224           * @return  status
+    225           ***************************************************************************************************/
+    226          uint8 MT_AfCommandProcessing(uint8 *pBuf)
+    227          {
+    228            uint8 status = MT_RPC_SUCCESS;
+    229          
+    230            switch (pBuf[MT_RPC_POS_CMD1])
+    231            {
+    232              case MT_AF_REGISTER:
+    233                MT_AfRegister(pBuf);
+    234                break;
+    235          
+    236              case MT_AF_DATA_REQUEST:
+    237              case MT_AF_DATA_REQUEST_EXT:
+    238                MT_AfDataRequest(pBuf);
+    239                break;
+    240          
+    241              case MT_AF_DATA_RETRIEVE:
+    242                MT_AfDataRetrieve(pBuf);
+    243                break;
+    244                
+    245              case MT_AF_DATA_STORE:
+    246                MT_AfDataStore(pBuf);
+    247                break;
+    248                
+    249          #if defined ( ZIGBEE_SOURCE_ROUTING )
+    250              case MT_AF_DATA_REQUEST_SRCRTG:
+    251                MT_AfDataRequestSrcRtg(pBuf);
+    252                break;
+    253          #endif
+    254                
+    255          #if defined INTER_PAN
+    256              case MT_AF_INTER_PAN_CTL:
+    257                MT_AfInterPanCtl(pBuf);
+    258                break; 
+    259          #endif
+    260                
+    261              default:
+    262                status = MT_RPC_ERR_COMMAND_ID;
+    263                break;
+    264            }
+    265          
+    266            return status;
+    267          }
+    268          
+    269          /***************************************************************************************************
+    270           * @fn      MT_AfRegister
+    271           *
+    272           * @brief   Process AF Register command
+    273           *
+    274           * @param   pBuf - pointer to the received buffer
+    275           *
+    276           * @return  none
+    277           ***************************************************************************************************/
+    278          void MT_AfRegister(uint8 *pBuf)
+    279          {
+    280            uint8 cmdId;
+    281            uint8 retValue = ZMemError;
+    282            endPointDesc_t *epDesc;
+    283          
+    284            /* parse header */
+    285            cmdId = pBuf[MT_RPC_POS_CMD1];
+    286            pBuf += MT_RPC_FRAME_HDR_SZ;
+    287          
+    288            epDesc = (endPointDesc_t *)osal_mem_alloc(sizeof(endPointDesc_t));
+    289            if ( epDesc )
+    290            {
+    291              epDesc->task_id = &MT_TaskID;
+    292              retValue = MT_BuildEndpointDesc( pBuf, epDesc );
+    293              if ( retValue == ZSuccess )
+    294              {
+    295                retValue = afRegister( epDesc );
+    296              }
+    297          
+    298              if ( retValue != ZSuccess )
+    299              {
+    300                osal_mem_free( epDesc );
+    301              }
+    302            }
+    303          
+    304            /* Build and send back the response */
+    305            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_AF), cmdId, 1, &retValue);
+    306          }
+    307          
+    308          /***************************************************************************************************
+    309           * @fn      MT_AfDataRequest
+    310           *
+    311           * @brief   Process AF Register command
+    312           *
+    313           * @param   pBuf - pointer to the received buffer
+    314           *
+    315           * @return  none
+    316           ***************************************************************************************************/
+    317          void MT_AfDataRequest(uint8 *pBuf)
+    318          {
+    319            #define MT_AF_REQ_MSG_LEN  10
+    320            #define MT_AF_REQ_MSG_EXT  10
+    321          
+    322            endPointDesc_t *epDesc;
+    323            afAddrType_t dstAddr;
+    324            cId_t cId;
+    325            uint8 transId, txOpts, radius;
+    326            uint8 cmd0, cmd1;
+    327            uint8 retValue = ZFailure;
+    328            uint16 dataLen, tempLen;
+    329          
+    330            /* Parse header */
+    331            cmd0 = pBuf[MT_RPC_POS_CMD0];
+    332            cmd1 = pBuf[MT_RPC_POS_CMD1];
+    333            pBuf += MT_RPC_FRAME_HDR_SZ;
+    334          
+    335            if (cmd1 == MT_AF_DATA_REQUEST_EXT)
+    336            {
+    337              dstAddr.addrMode = (afAddrMode_t)*pBuf++;
+    338          
+    339              if (dstAddr.addrMode == afAddr64Bit)
+    340              {
+    341                (void)osal_memcpy(dstAddr.addr.extAddr, pBuf, Z_EXTADDR_LEN);
+    342              }
+    343              else
+    344              {
+    345                dstAddr.addr.shortAddr = BUILD_UINT16(pBuf[0], pBuf[1]);
+    346              }
+    347              pBuf += Z_EXTADDR_LEN;
+    348          
+    349              dstAddr.endPoint = *pBuf++;
+    350              dstAddr.panId = BUILD_UINT16(pBuf[0], pBuf[1]);
+    351              pBuf += 2;
+    352            }
+    353            else
+    354            {
+    355              /* Destination address */
+    356              dstAddr.addrMode = afAddr16Bit;
+    357              dstAddr.addr.shortAddr = BUILD_UINT16(pBuf[0], pBuf[1]);
+    358              pBuf += 2;
+    359          
+    360              /* Destination endpoint */
+    361              dstAddr.endPoint = *pBuf++;
+    362              dstAddr.panId = 0;
+    363            }
+    364          
+    365            /* Source endpoint */
+    366            epDesc = afFindEndPointDesc(*pBuf++);
+    367          
+    368            /* ClusterId */
+    369            cId = BUILD_UINT16(pBuf[0], pBuf[1]);
+    370            pBuf +=2;
+    371          
+    372            /* TransId */
+    373            transId = *pBuf++;
+    374          
+    375            /* TxOption */
+    376            txOpts = *pBuf++;
+    377          
+    378            /* Radius */
+    379            radius = *pBuf++;
+    380          
+    381            /* Length */
+    382            if (cmd1 == MT_AF_DATA_REQUEST_EXT)
+    383            {
+    384              dataLen = BUILD_UINT16(pBuf[0], pBuf[1]);
+    385              tempLen = dataLen + MT_AF_REQ_MSG_LEN + MT_AF_REQ_MSG_EXT;
+    386              pBuf += 2;
+    387            }
+    388            else
+    389            {
+    390              dataLen = *pBuf++;
+    391              tempLen = dataLen + MT_AF_REQ_MSG_LEN;
+    392            }
+    393          
+    394            if ( epDesc == NULL )
+    395            {
+    396              retValue = afStatus_INVALID_PARAMETER;
+    397            }
+    398            else if (tempLen > (uint16)MT_RPC_DATA_MAX)
+    399            {
+    400              if (pMtAfDataReq != NULL)
+    401              {
+    402                retValue = afStatus_INVALID_PARAMETER;
+    403              }
+    404              else if ((pMtAfDataReq = osal_mem_alloc(sizeof(mtAfDataReq_t) + dataLen)) == NULL)
+    405              {
+    406                retValue = afStatus_MEM_FAIL;
+    407              }
+    408              else
+    409              {
+    410                retValue = afStatus_SUCCESS;
+    411          
+    412                pMtAfDataReq->data = (uint8 *)(pMtAfDataReq+1);
+    413                (void)osal_memcpy(&(pMtAfDataReq->dstAddr), &dstAddr, sizeof(afAddrType_t));
+    414                pMtAfDataReq->epDesc = epDesc;
+    415                pMtAfDataReq->cId = cId;
+    416                pMtAfDataReq->dataLen = dataLen;
+    417                pMtAfDataReq->transId = transId;
+    418                pMtAfDataReq->txOpts = txOpts;
+    419                pMtAfDataReq->radius = radius;
+    420          
+    421                // Setup to time-out the huge outgoing item if host does not MT_AF_DATA_STORE it.
+    422                pMtAfDataReq->tick = MT_AF_EXEC_CNT;
+    423                if (ZSuccess != osal_start_timerEx(MT_TaskID, MT_AF_EXEC_EVT, MT_AF_EXEC_DLY))
+    424                {
+    425                  (void)osal_set_event(MT_TaskID, MT_AF_EXEC_EVT);
+    426                }
+    427              }
+    428            }
+    429            else
+    430            {
+    431              retValue = AF_DataRequest(&dstAddr, epDesc, cId, dataLen, pBuf, &transId, txOpts, radius);
+    432            }
+    433          
+    434            if (MT_RPC_CMD_SREQ == (cmd0 & MT_RPC_CMD_TYPE_MASK))
+    435            {
+    436              MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP|(uint8)MT_RPC_SYS_AF), cmd1, 1, &retValue);
+    437            }
+    438          }
+    439          
+    440          #if defined ( ZIGBEE_SOURCE_ROUTING )
+    441          
+    442          /***************************************************************************************************
+    443           * @fn      MT_AfDataRequestSrcRtg
+    444           *
+    445           * @brief   Process AF Register command
+    446           *
+    447           * @param   pBuf - pointer to the received buffer
+    448           *
+    449           * @return  none
+    450           ***************************************************************************************************/
+    451          void MT_AfDataRequestSrcRtg(uint8 *pBuf)
+    452          {
+    453            uint8 cmdId, dataLen = 0;
+    454            uint8 retValue = ZFailure;
+    455            endPointDesc_t *epDesc;
+    456            byte transId;
+    457            afAddrType_t dstAddr;
+    458            cId_t cId;
+    459            byte txOpts, radius, srcEP, relayCnt;
+    460            uint16 *pRelayList;
+    461            uint8 i;
+    462          
+    463            /* parse header */
+    464            cmdId = pBuf[MT_RPC_POS_CMD1];
+    465            pBuf += MT_RPC_FRAME_HDR_SZ;
+    466          
+    467            /* Destination address */
+    468            /* Initialize the panID field to zero to avoid inter-pan */
+    469            osal_memset( &dstAddr, 0, sizeof(afAddrType_t) ); 
+    470            dstAddr.addrMode = afAddr16Bit;
+    471            dstAddr.addr.shortAddr = BUILD_UINT16(pBuf[0], pBuf[1]);
+    472            pBuf += 2;
+    473          
+    474            /* Destination endpoint */
+    475            dstAddr.endPoint = *pBuf++;
+    476          
+    477            /* Source endpoint */
+    478            srcEP = *pBuf++;
+    479            epDesc = afFindEndPointDesc( srcEP );
+    480          
+    481            /* ClusterId */
+    482            cId = BUILD_UINT16(pBuf[0], pBuf[1]);
+    483            pBuf +=2;
+    484          
+    485            /* TransId */
+    486            transId = *pBuf++;
+    487          
+    488            /* TxOption */
+    489            txOpts = *pBuf++;
+    490          
+    491            /* Radius */
+    492            radius = *pBuf++;
+    493            
+    494            /* Source route relay count */
+    495            relayCnt = *pBuf++;
+    496            
+    497            /* Convert the source route relay list */
+    498            if( (pRelayList = osal_mem_alloc( relayCnt * sizeof( uint16 ))) != NULL )
+    499            {
+    500              for( i = 0; i < relayCnt; i++ )
+    501              {
+    502                pRelayList[i]  = BUILD_UINT16( pBuf[0], pBuf[1] );
+    503                pBuf += 2;
+    504              }
+    505            
+    506              /* Data payload Length */
+    507              dataLen = *pBuf++;
+    508          
+    509              if ( epDesc == NULL )
+    510              {
+    511                retValue = afStatus_INVALID_PARAMETER;
+    512              }
+    513              else
+    514              {
+    515                retValue = AF_DataRequestSrcRtg( &dstAddr, epDesc, cId, dataLen, pBuf, 
+    516                                               &transId, txOpts, radius, relayCnt, pRelayList );
+    517              }
+    518              
+    519              /* Free the memory allocated */
+    520              osal_mem_free( pRelayList );
+    521            }
+    522            else
+    523            {
+    524              retValue = afStatus_MEM_FAIL;
+    525            }
+    526              
+    527          
+    528            /* Build and send back the response */
+    529            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_AF), cmdId, 1, &retValue);
+    530          }
+    531          #endif
+    532          
+    533          #if defined INTER_PAN
+    534          /***************************************************************************************************
+    535           * @fn      MT_AfInterPanCtl
+    536           *
+    537           * @brief   Process the AF Inter Pan control command.
+    538           *
+    539           * @param   pBuf - pointer to the received buffer
+    540           *
+    541           * @return  none
+    542           ***************************************************************************************************/
+    543          static void MT_AfInterPanCtl(uint8 *pBuf)
+    544          {
+    545            uint8 cmd, rtrn;
+    546            uint16 panId;
+    547            endPointDesc_t *pEP;
+    548            
+    549            cmd = pBuf[MT_RPC_POS_CMD1];
+    550            pBuf += MT_RPC_FRAME_HDR_SZ;
+    551          
+    552            switch (*pBuf++)  // Inter-pan request parameter.
+    553            {
+    554            case InterPanClr:
+    555              rtrn = StubAPS_SetIntraPanChannel();           // Switch channel back to the NIB channel.
+    556              break;
+    557          
+    558            case InterPanSet:
+    559              rtrn = StubAPS_SetInterPanChannel(*pBuf);      // Set channel for inter-pan communication.
+    560              break;
+    561          
+    562            case InterPanReg:
+    563              if ((pEP = afFindEndPointDesc(*pBuf)))
+    564              {
+    565                StubAPS_RegisterApp(pEP);
+    566                rtrn = SUCCESS;
+    567              }
+    568              else
+    569              {
+    570                rtrn = FAILURE;
+    571              }
+    572              break;
+    573          
+    574            case InterPanChk:
+    575              panId = BUILD_UINT16(pBuf[0], pBuf[1]);
+    576              rtrn = (StubAPS_InterPan(panId, pBuf[2])) ? ZSuccess : ZFailure;
+    577              break;
+    578          
+    579            default:
+    580              rtrn = afStatus_INVALID_PARAMETER;
+    581              break;
+    582            }
+    583          
+    584            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_AF), cmd, 1, &rtrn);
+    585          }
+    586          #endif
+    587          
+    588          /***************************************************************************************************
+    589           * @fn      MT_AfDataConfirm
+    590           *
+    591           * @brief   Process
+    592           *
+    593           * @param   pBuf - pointer to the received buffer
+    594           *
+    595           * @return  none
+    596           ***************************************************************************************************/
+    597          void MT_AfDataConfirm(afDataConfirm_t *pMsg)
+    598          {
+    599            uint8 retArray[3];
+    600          
+    601            retArray[0] = pMsg->hdr.status;
+    602            retArray[1] = pMsg->endpoint;
+    603            retArray[2] = pMsg->transID;
+    604          
+    605            /* Build and send back the response */
+    606            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_AF), MT_AF_DATA_CONFIRM, 3, retArray);
+    607          }
+    608          
+    609          /***************************************************************************************************
+    610           * @fn          MT_AfIncomingMsg
+    611           *
+    612           * @brief       Process the callback subscription for AF Incoming data.
+    613           *
+    614           * @param       pkt - Incoming AF data.
+    615           *
+    616           * @return      none
+    617           ***************************************************************************************************/
+    618          void MT_AfIncomingMsg(afIncomingMSGPacket_t *pMsg)
+    619          {
+    620            #define MT_AF_INC_MSG_LEN  17
+    621            #define MT_AF_INC_MSG_EXT  10
+    622          
+    623            uint16 dataLen = pMsg->cmd.DataLength;  // Length of the data section in the response packet.
+    624            uint16 respLen = MT_AF_INC_MSG_LEN + dataLen;
+    625            uint8 cmd = MT_AF_INCOMING_MSG;
+    626            uint8 *pRsp, *pTmp;
+    627            mtAfInMsgList_t *pItem = NULL;
+    628          
+    629          #if defined INTER_PAN
+    630            if (StubAPS_InterPan(pMsg->srcAddr.panId, pMsg->srcAddr.endPoint))
+    631            {
+    632              cmd = MT_AF_INCOMING_MSG_EXT;
+    633            }
+    634            else
+    635          #endif
+    636            if ((pMsg->srcAddr.addrMode == afAddr64Bit) ||
+    637                (respLen > (uint16)(MT_RPC_DATA_MAX - MT_AF_INC_MSG_EXT)))
+    638            {
+    639              cmd = MT_AF_INCOMING_MSG_EXT;
+    640            }
+    641          
+    642            if (cmd == MT_AF_INCOMING_MSG_EXT)
+    643            {
+    644              respLen += MT_AF_INC_MSG_EXT;
+    645            }
+    646          
+    647            if (respLen > (uint16)MT_RPC_DATA_MAX)
+    648            {
+    649              if ((pItem = (mtAfInMsgList_t *)osal_mem_alloc(sizeof(mtAfInMsgList_t) + dataLen)) == NULL)
+    650              {
+    651                return;  // If cannot hold a huge message, cannot give indication at all.
+    652              }
+    653          
+    654              pItem->data = (uint8 *)(pItem+1);
+    655              respLen -= dataLen;  // Zero data bytes are sent with an over-sized incoming indication.
+    656            }
+    657          
+    658            // Attempt to allocate memory for the response packet.
+    659            if ((pRsp = osal_mem_alloc(respLen)) == NULL)
+    660            {
+    661              if (pItem != NULL)
+    662              {
+    663                (void)osal_mem_free(pItem);
+    664              }
+    665              return;
+    666            }
+    667            pTmp = pRsp;
+    668          
+    669            /* Group ID */
+    670            *pTmp++ = LO_UINT16(pMsg->groupId);
+    671            *pTmp++ = HI_UINT16(pMsg->groupId);
+    672          
+    673            /* Cluster ID */
+    674            *pTmp++ = LO_UINT16(pMsg->clusterId);
+    675            *pTmp++ = HI_UINT16(pMsg->clusterId);
+    676          
+    677            if (cmd == MT_AF_INCOMING_MSG_EXT)
+    678            {
+    679              *pTmp++ = pMsg->srcAddr.addrMode;
+    680          
+    681              if (pMsg->srcAddr.addrMode == afAddr64Bit)
+    682              {
+    683                (void)osal_memcpy(pTmp, pMsg->srcAddr.addr.extAddr, Z_EXTADDR_LEN);
+    684              }
+    685              else
+    686              {
+    687                pTmp[0] = LO_UINT16(pMsg->srcAddr.addr.shortAddr);
+    688                pTmp[1] = HI_UINT16(pMsg->srcAddr.addr.shortAddr);
+    689              }
+    690              pTmp += Z_EXTADDR_LEN;
+    691          
+    692              *pTmp++ = pMsg->srcAddr.endPoint;
+    693          #if defined INTER_PAN
+    694              *pTmp++ = LO_UINT16(pMsg->srcAddr.panId);
+    695              *pTmp++ = HI_UINT16(pMsg->srcAddr.panId);
+    696          #else
+    697              *pTmp++ = 0;
+    698              *pTmp++ = 0;
+    699          #endif
+    700            }
+    701            else
+    702            {
+    703              /* Source Address */
+    704              *pTmp++ = LO_UINT16(pMsg->srcAddr.addr.shortAddr);
+    705              *pTmp++ = HI_UINT16(pMsg->srcAddr.addr.shortAddr);
+    706          
+    707              /* Source EP */
+    708              *pTmp++ = pMsg->srcAddr.endPoint;
+    709            }
+    710          
+    711            /* Destination EP */
+    712            *pTmp++ = pMsg->endPoint;
+    713          
+    714            /* WasBroadCast */
+    715            *pTmp++ = pMsg->wasBroadcast;
+    716          
+    717            /* LinkQuality */
+    718            *pTmp++ = pMsg->LinkQuality;
+    719          
+    720            /* SecurityUse */
+    721            *pTmp++ = pMsg->SecurityUse;
+    722          
+    723            /* Timestamp */
+    724            *pTmp++ = BREAK_UINT32(pMsg->timestamp, 0);
+    725            *pTmp++ = BREAK_UINT32(pMsg->timestamp, 1);
+    726            *pTmp++ = BREAK_UINT32(pMsg->timestamp, 2);
+    727            *pTmp++ = BREAK_UINT32(pMsg->timestamp, 3);
+    728          
+    729          
+    730            /* Data Length */
+    731            if (cmd == MT_AF_INCOMING_MSG_EXT)
+    732            {
+    733              /* Z-Tool apparently takes the last Byte before the data buffer as the dynamic length and
+    734               * ignores the bigger UInt16 length of an EXT incoming message. But no data bytes will be sent
+    735               * with a huge message, so it's necessary to work-around and fake-out Z-Tool with a zero here.
+    736               */
+    737              *pTmp++ = 0;  // TODO - workaround Z-Tool shortcoming; should be: = pMsg->cmd.TransSeqNumber;
+    738              *pTmp++ = LO_UINT16(dataLen);
+    739              *pTmp++ = HI_UINT16(dataLen);
+    740            }
+    741            else
+    742            {
+    743              *pTmp++ = pMsg->cmd.TransSeqNumber;
+    744              *pTmp++ = dataLen;
+    745            }
+    746          
+    747            /* Data */
+    748            if (pItem != NULL)
+    749            {
+    750              // Enqueue the new huge incoming item.
+    751              pItem->next = pMtAfInMsgList;
+    752              pMtAfInMsgList = pItem;
+    753          
+    754              // Setup to time-out the huge incoming item if host does not MT_AF_DATA_RETRIEVE it.
+    755              pItem->tick = MT_AF_EXEC_CNT;
+    756              if (ZSuccess != osal_start_timerEx(MT_TaskID, MT_AF_EXEC_EVT, MT_AF_EXEC_DLY))
+    757              {
+    758                (void)osal_set_event(MT_TaskID, MT_AF_EXEC_EVT);
+    759              }
+    760          
+    761              pItem->timestamp = pMsg->timestamp;
+    762              (void)osal_memcpy(pItem->data, pMsg->cmd.Data, dataLen);
+    763            }
+    764            else
+    765            {
+    766              (void)osal_memcpy(pTmp, pMsg->cmd.Data, dataLen);
+    767            }
+    768          
+    769            /* Build and send back the response */
+    770            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ|(uint8)MT_RPC_SYS_AF), cmd, respLen, pRsp);
+    771          
+    772            (void)osal_mem_free(pRsp);
+    773          }
+    774          
+    775          /**************************************************************************************************
+    776           * @fn          MT_AfDataRetrieve
+    777           *
+    778           * @brief   Process AF Data Retrieve command to incrementally read out a very large
+    779           *          incoming AF message.
+    780           *
+    781           * input parameters
+    782           *
+    783           * @param pBuf - pointer to the received buffer
+    784           *
+    785           * output parameters
+    786           *
+    787           * @param rtrn - AF-Status of the operation.
+    788           *
+    789           * @return      None.
+    790           **************************************************************************************************
+    791           */
+    792          void MT_AfDataRetrieve(uint8 *pBuf)
+    793          {
+    794            #define MT_AF_RTV_HDR_SZ  2
+    795          
+    796            uint32 timestamp;
+    797            mtAfInMsgList_t *pPrev, *pItem = pMtAfInMsgList;
+    798            uint8 rtrn = afStatus_FAILED;
+    799            uint8 len = 0;
+    800          
+    801            pBuf += MT_RPC_FRAME_HDR_SZ;
+    802            timestamp = BUILD_UINT32(pBuf[0], pBuf[1], pBuf[2], pBuf[3]);
+    803          
+    804            while (pItem != NULL)
+    805            {
+    806              pPrev = pItem;
+    807              if (pItem->timestamp == timestamp)
+    808              {
+    809                break;
+    810              }
+    811              pItem = pItem->next;
+    812            }
+    813          
+    814            if (pItem != NULL)
+    815            {
+    816              uint16 idx;
+    817              uint8 *pRsp;
+    818          
+    819              pBuf += 4;
+    820              idx = BUILD_UINT16(pBuf[0], pBuf[1]);
+    821              len = pBuf[2];
+    822          
+    823              if (len == 0)  // Indication to delete the afIncomingMSGPacket.
+    824              {
+    825                if (pMtAfInMsgList == pItem)
+    826                {
+    827                  pMtAfInMsgList = pItem->next;
+    828                }
+    829                else
+    830                {
+    831                  pPrev->next = pItem->next;
+    832                }
+    833                (void)osal_mem_free(pItem);
+    834                rtrn = afStatus_SUCCESS;
+    835              }
+    836              else if ((pRsp = osal_mem_alloc(len + MT_AF_RTV_HDR_SZ)) == NULL)
+    837              {
+    838                rtrn = afStatus_MEM_FAIL;
+    839                len = 0;
+    840              }
+    841              else
+    842              {
+    843                pRsp[0] = ZSuccess;
+    844                pRsp[1] = len;
+    845                (void)osal_memcpy(pRsp + MT_AF_RTV_HDR_SZ, pItem->data+idx, len);
+    846                MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_AF), 
+    847                                                     MT_AF_DATA_RETRIEVE, len + MT_AF_RTV_HDR_SZ, pRsp);
+    848                (void)osal_mem_free(pRsp);
+    849                return;
+    850              }
+    851            }
+    852          
+    853            pBuf[0] = rtrn;
+    854            pBuf[1] = len;
+    855            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_AF), 
+    856                                                 MT_AF_DATA_RETRIEVE, MT_AF_RTV_HDR_SZ, pBuf);
+    857          }
+    858          
+    859          /**************************************************************************************************
+    860           * @fn          MT_AfDataStore
+    861           *
+    862           * @brief   Process AF Data Store command to incrementally store the data buffer for very large
+    863           *          outgoing AF message.
+    864           *
+    865           * input parameters
+    866           *
+    867           * @param pBuf - pointer to the received buffer
+    868           *
+    869           * output parameters
+    870           *
+    871           * @param rtrn - AF-Status of the operation.
+    872           *
+    873           * @return      None.
+    874           **************************************************************************************************
+    875           */
+    876          void MT_AfDataStore(uint8 *pBuf)
+    877          {
+    878            uint16 idx;
+    879            uint8 len, rtrn = afStatus_FAILED;
+    880          
+    881            pBuf += MT_RPC_FRAME_HDR_SZ;
+    882            idx = BUILD_UINT16(pBuf[0], pBuf[1]);
+    883            len = pBuf[2];
+    884            pBuf += 3;
+    885          
+    886            if (pMtAfDataReq == NULL)
+    887            {
+    888              rtrn = afStatus_MEM_FAIL;
+    889            }
+    890            else if (len == 0)  // Indication to send the message.
+    891            {
+    892              rtrn = AF_DataRequest(&(pMtAfDataReq->dstAddr), pMtAfDataReq->epDesc, pMtAfDataReq->cId, 
+    893                                      pMtAfDataReq->dataLen,  pMtAfDataReq->data, 
+    894                                    &(pMtAfDataReq->transId), pMtAfDataReq->txOpts, pMtAfDataReq->radius);
+    895              (void)osal_mem_free(pMtAfDataReq);
+    896              pMtAfDataReq = NULL;
+    897            }
+    898            else
+    899            {
+    900              (void)osal_memcpy(pMtAfDataReq->data+idx, pBuf, len);
+    901              rtrn = afStatus_SUCCESS;
+    902            }
+    903          
+    904            MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_AF), 
+    905                                                                          MT_AF_DATA_STORE, 1, &rtrn);
+    906          }
+    907          
+    908          /***************************************************************************************************
+    909          ***************************************************************************************************/
+
+Errors: 1
+Warnings: none
