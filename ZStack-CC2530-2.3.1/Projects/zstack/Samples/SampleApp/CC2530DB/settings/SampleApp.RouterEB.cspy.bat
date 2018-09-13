@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0_2\common\bin\cspybat" -f "C:\Users\Ananda Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\settings\SampleApp.RouterEB.general.xcl" --backend -f "C:\Users\Ananda Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\settings\SampleApp.RouterEB.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0_2\common\bin\cspybat" -f "C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\settings\SampleApp.RouterEB.general.xcl" --backend -f "C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\settings\SampleApp.RouterEB.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0_2\common\bin\cspybat" -f "C:\Users\Ananda Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\settings\SampleApp.RouterEB.general.xcl" "--debug_file=%~1" --backend -f "C:\Users\Ananda Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\settings\SampleApp.RouterEB.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0_2\common\bin\cspybat" -f "C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\settings\SampleApp.RouterEB.general.xcl" "--debug_file=%~1" --backend -f "C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\settings\SampleApp.RouterEB.driver.xcl" 
 
 @echo off 
 :end

@@ -215,6 +215,7 @@ void MT_ProcessIncomingCommand( mtOSALSerialData_t *msg )
       msg_ptr[len-1] = MT_UartCalcFCS(msg_ptr + 1, (byte)(len-2));
 
 #ifdef MT_UART_DEFAULT_PORT
+      // change if the incoming command should not be echoed back to the serial 
       HalUARTWrite ( MT_UART_DEFAULT_PORT, msg_ptr, len );
 #endif
       break;
@@ -309,6 +310,7 @@ void MT_TransportSend(uint8 *pBuf)
 
   /* Send to UART */
 #ifdef MT_UART_DEFAULT_PORT
+  // change if the incoming command should not be echoed back to the serial 
   HalUARTWrite(MT_UART_DEFAULT_PORT, msgPtr, dataLen + SPI_0DATA_MSG_LEN);
 #endif
 

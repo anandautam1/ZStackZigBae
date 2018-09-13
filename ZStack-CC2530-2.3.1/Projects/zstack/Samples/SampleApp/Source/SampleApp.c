@@ -87,6 +87,45 @@
  * CONSTANTS
  */
 
+#if !defined( SAMPLE_APP_PORT )
+#define SAMPLE_APP_PORT  0
+#endif
+
+#if !defined( SAMPLE_APP_BAUD )
+#define SAMPLE_APP_BAUD  HAL_UART_BR_38400
+//#define SAMPLE_APP_BAUD  HAL_UART_BR_115200
+#endif
+
+// When the Rx buf space is less than this threshold, invoke the Rx callback.
+#if !defined( SAMPLE_APP_THRESH )
+#define SAMPLE_APP_THRESH  64
+#endif
+
+#if !defined( SAMPLE_APP_RX_SZ )
+#define SAMPLE_APP_RX_SZ  128
+#endif
+
+#if !defined( SAMPLE_APP_TX_SZ )
+#define SAMPLE_APP_TX_SZ  128
+#endif
+
+// Millisecs of idle time after a byte is received before invoking Rx callback.
+#if !defined( SAMPLE_APP_IDLE )
+#define SAMPLE_APP_IDLE  6
+#endif
+
+// Loopback Rx bytes to Tx for throughput testing.
+#if !defined( SAMPLE_APP_LOOPBACK )
+#define SAMPLE_APP_LOOPBACK  FALSE
+#endif
+
+// This is the max byte count per OTA message.
+#if !defined( SAMPLE_APP_TX_MAX )
+#define SAMPLE_APP_TX_MAX  80
+#endif
+
+#define SAMPLE_APP_RSP_CNT  4
+
 /*********************************************************************
  * TYPEDEFS
  */
@@ -94,6 +133,7 @@
 /*********************************************************************
  * GLOBAL VARIABLES
  */
+uint8 SerialApp_TaskID;    // Task ID for internal task/event processing.
 
 uint8 SampleApp_TaskID;    // Task ID for internal task/event processing.
 
@@ -101,7 +141,9 @@ uint8 SampleApp_TaskID;    // Task ID for internal task/event processing.
 const cId_t SampleApp_ClusterList[SAMPLEAPP_MAX_CLUSTERS] =
 {
   SAMPLEAPP_PERIODIC_CLUSTERID,
-  SAMPLEAPP_FLASH_CLUSTERID
+  SAMPLEAPP_FLASH_CLUSTERID,
+  SAMPLEAPP_CLUSTERID1,
+  SAMPLEAPP_CLUSTERID2
 };
 
 const SimpleDescriptionFormat_t SampleApp_SimpleDesc =
@@ -123,9 +165,35 @@ const SimpleDescriptionFormat_t SampleApp_SimpleDesc =
 // way it's defined in this sample app it is define in RAM.
 endPointDesc_t SampleApp_epDesc;
 
+const endPointDesc_t SerialApp_epDesc =
+{
+  SAMPLEAPP_ENDPOINT,
+ &SerialApp_TaskID,
+  (SimpleDescriptionFormat_t *)&SampleApp_SimpleDesc,
+  noLatencyReqs
+};
+
 /*********************************************************************
  * EXTERNAL VARIABLES
  */
+
+typedef struct
+{
+    int temperature;           // -100 degrees C to 200 degrees C
+    int water_level;           // -50m to 50m
+    int  flow_rate;   	 // -10000 L/min to 10000 L/min
+    uint8  PH;   		 // 0 to 14
+    uint32  salinity;   	 // 0 to 2000000 mg
+    uint8  batt_level;        // 0 to 100 percent
+    float GNSS_latitude;         // -85 to 85 decimal degrees
+    float GNSS_longitude;        // -180 to 180 decimal degrees
+    
+    bool sensors_okay;   	 // 1=good, 0=bad
+    bool node_okay;   		 // 1=good, 0=bad
+    char error_state[25];    	 // char message, null terminated "\n"
+ 
+} data_sensor_outgoing;
+
 
 /*********************************************************************
  * EXTERNAL FUNCTIONS
@@ -143,11 +211,21 @@ uint8 SampleApp_TransID;  // This is the unique message ID (counter)
 
 afAddrType_t SampleApp_Periodic_DstAddr;
 afAddrType_t SampleApp_Flash_DstAddr;
+afAddrType_t SampleApp_Broadcast;
 
 aps_Group_t SampleApp_Group;
 
 uint8 SampleAppPeriodicCounter = 0;
 uint8 SampleAppFlashCounter = 0;
+
+static afAddrType_t SampleApp_TxAddr;
+static uint8 SampleApp_TxSeq;
+static uint8 SampleApp_TxBuf[SAMPLE_APP_TX_MAX+1];
+static uint8 SampleApp_TxLen;
+
+static afAddrType_t SampleApp_RxAddr;
+static uint8 SampleApp_RxSeq;
+static uint8 SampleApp_RspBuf[SAMPLE_APP_RSP_CNT];
 
 /*********************************************************************
  * LOCAL FUNCTIONS
@@ -156,6 +234,8 @@ void SampleApp_HandleKeys( uint8 shift, uint8 keys );
 void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pckt );
 void SampleApp_SendPeriodicMessage( void );
 void SampleApp_SendFlashMessage( uint16 flashTime );
+
+static void SampleApp_CallBack(uint8 port, uint8 event);
 
 /*********************************************************************
  * NETWORK LAYER CALLBACKS
@@ -217,6 +297,10 @@ void SampleApp_Init( uint8 task_id )
   SampleApp_Flash_DstAddr.addrMode = (afAddrMode_t)afAddrGroup;
   SampleApp_Flash_DstAddr.endPoint = SAMPLEAPP_ENDPOINT;
   SampleApp_Flash_DstAddr.addr.shortAddr = SAMPLEAPP_FLASH_GROUP;
+  
+  SampleApp_Broadcast.addrMode = (afAddrMode_t)AddrBroadcast;
+  SampleApp_Broadcast.endPoint = SAMPLEAPP_ENDPOINT;
+  SampleApp_Broadcast.addr.shortAddr = 0xFFFF;
 
   // Fill out the endpoint description.
   SampleApp_epDesc.endPoint = SAMPLEAPP_ENDPOINT;
@@ -235,9 +319,31 @@ void SampleApp_Init( uint8 task_id )
   SampleApp_Group.ID = 0x0001;
   osal_memcpy( SampleApp_Group.name, "Group 1", 7  );
   aps_AddGroup( SAMPLEAPP_ENDPOINT, &SampleApp_Group );
+  
+  // Serial initialization start 
+  halUARTCfg_t uartConfig;
+
+  SampleApp_TaskID = task_id;
+  SampleApp_RxSeq = 0xC3;
+
+  afRegister( (endPointDesc_t *)&SampleApp_epDesc );
+
+  RegisterForKeys( task_id );
+
+  uartConfig.configured           = TRUE;              // 2x30 don't care - see uart driver.
+  uartConfig.baudRate             = SAMPLE_APP_BAUD;
+  uartConfig.flowControl          = TRUE;
+  uartConfig.flowControlThreshold = SAMPLE_APP_THRESH; // 2x30 don't care - see uart driver.
+  uartConfig.rx.maxBufSize        = SAMPLE_APP_RX_SZ;  // 2x30 don't care - see uart driver.
+  uartConfig.tx.maxBufSize        = SAMPLE_APP_TX_SZ;  // 2x30 don't care - see uart driver.
+  uartConfig.idleTimeout          = SAMPLE_APP_IDLE;   // 2x30 don't care - see uart driver.
+  uartConfig.intEnable            = TRUE;              // 2x30 don't care - see uart driver.
+  uartConfig.callBackFunc         = SampleApp_CallBack;
+  HalUARTOpen (SAMPLE_APP_PORT, &uartConfig);
+  // Serial Initialization end
 
 #if defined ( LCD_SUPPORTED )
-  HalLcdWriteString( "SampleApp", HAL_LCD_LINE_1 );
+  HalLcdWriteString( "SerialApp+Labs", HAL_LCD_LINE_1 );
 #endif
 }
 
@@ -349,11 +455,19 @@ void SampleApp_HandleKeys( uint8 shift, uint8 keys )
 {
   static uint16 JoyStickUpCount = 0;
   (void)shift;  // Intentionally unreferenced parameter
-  uint8 buffer[3];
+  uint8 buffer[5];
   
-  buffer[0] = (uint8)0xCC;
-  buffer[1] = (uint8)0x0B;
-  buffer[2] = (uint8)0x05;
+  // the first data can be the device id.
+  // temperature
+  buffer[0] = (uint8)0x25;
+  // water level 
+  buffer[1] = (uint8)0x10;
+  // PH 
+  buffer[2] = (uint8)0x01;
+  // Salinity
+  buffer[3] = (uint8)0x07;
+  // Battery_level
+  buffer[4] = (uint8)0x99;
   
   if ( keys & HAL_KEY_SW_1 )
   {
@@ -362,15 +476,26 @@ void SampleApp_HandleKeys( uint8 shift, uint8 keys )
      * device (even if it belongs to group 1).
      */
     
+    // the first data can be the device id.
+    // temperature
+    buffer[0] = (uint8)0x25;
+    // water level 
+    buffer[1] = (uint8)0x10;
+    // PH 
+    buffer[2] = (uint8)0x5000;
+    // Salinity
+    buffer[3] = (uint8)0x07;
+    // Battery_level
+    buffer[4] = (uint8)0x99;
+    
     // joystick is up send a packet to the coordinator with three bytes
     // 0xCC and next two bytes to be your App ID matthew id 3542046
     // 0xCC2046
     
     // send the packet 
-    
-    if (AF_DataRequest( &SampleApp_Flash_DstAddr, &SampleApp_epDesc,
-                       SAMPLEAPP_FLASH_CLUSTERID,
-                       3,
+    if (AF_DataRequest( &SampleApp_Broadcast, &SampleApp_epDesc,
+                       SAMPLEAPP_CLUSTERID1,
+                       5,
                        buffer,
                        &SampleApp_TransID,
                        AF_DISCV_ROUTE,
@@ -386,8 +511,8 @@ void SampleApp_HandleKeys( uint8 shift, uint8 keys )
     
     // do the logic for the arrow keys led blinker
     // HalLedBlink( uint8 leds, uint8 cnt, uint8 duty, uint16 time );
-    HalLedBlink(HAL_LED_1,4,50,1000);
-    //HalLcdWriteString ( "Joystick Up", HAL_LCD_LINE_2);
+    // HalLedBlink(HAL_LED_1,4,50,1000);
+    // HalLcdWriteString ( "Joystick Up", HAL_LCD_LINE_2);
     JoyStickUpCount++;
   }
 
@@ -430,6 +555,34 @@ void SampleApp_HandleKeys( uint8 shift, uint8 keys )
   {
     JoyStickUpCount = 0;
     HalLcdWriteString ( "Count Reset", HAL_LCD_LINE_2);
+    
+    // the first data can be the device id.
+    // temperature
+    buffer[0] = (uint8)0x10;
+    // water level 
+    buffer[1] = (uint8)0x10;
+    // PH 
+    buffer[2] = (uint8)0x08;
+    // Salinity
+    buffer[3] = (uint8)0x07;
+    // Battery_level
+    buffer[4] = (uint8)0x20;
+    
+    // send the packet 
+    if (AF_DataRequest( &SampleApp_Broadcast, &SampleApp_epDesc,
+                       SAMPLEAPP_CLUSTERID1,
+                       5,
+                       buffer,
+                       &SampleApp_TransID,
+                       AF_DISCV_ROUTE,
+                       AF_DEFAULT_RADIUS ) == afStatus_SUCCESS )
+    {
+    }
+    else
+    {
+      // Error occurred in request to send.
+    }
+    
   }
 }
 
@@ -450,16 +603,41 @@ void SampleApp_HandleKeys( uint8 shift, uint8 keys )
  */
 void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
 {
-  uint16 flashTime;
+  uint16 flashTime = 1;
   
   // additional variable
   uint8 groupID;
   uint16 srcShortAddr;
 
-  uint8 buffer[4];
+  uint8 buffer[5];
   switch ( pkt->clusterId )
   {
     case SAMPLEAPP_PERIODIC_CLUSTERID:
+      break;
+      
+    case SAMPLEAPP_CLUSTERID1:
+      HalLedBlink( HAL_LED_1, 4, 50, 250 );
+      
+      uint8 firstByte;
+      uint8 secondByte;
+      
+      uint8 temperature = pkt->cmd.Data[0];
+      uint8 water_level = pkt->cmd.Data[1];
+      uint8 flow_rate = pkt->cmd.Data[2];
+      uint8 PH = pkt->cmd.Data[3];
+      uint8 batt_level = pkt->cmd.Data[4];
+      uint8 node_okay = 1;
+      
+      data_sensor_outgoing current_status;
+      // ",GNSS_latitude:r1r0ft5p6pxb4vwr",
+      
+      HalLcdWriteStringValue( ",temperature:", temperature, 16, HAL_LCD_LINE_1);
+      HalLcdWriteStringValue( ",water_level:", water_level, 16, HAL_LCD_LINE_2);
+      HalLcdWriteStringValue( ",flow_rate:", flow_rate, 16, HAL_LCD_LINE_3);
+      HalLcdWriteStringValue( ",PH:", PH, 16, HAL_LCD_LINE_1);
+      HalLcdWriteStringValue( ",batt_level:", batt_level, 16, HAL_LCD_LINE_2);
+      HalLcdWriteStringValue( ",node_okay:", node_okay, 16, HAL_LCD_LINE_3);
+      
       break;
 
     case SAMPLEAPP_FLASH_CLUSTERID:
@@ -469,16 +647,15 @@ void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
       // added new codes 
       //groupIDJinx=BUILD_UINT16(pkt->cmd.Data[0], pkt->cmd.Data[1]);
       // extracting application data 
-      uint8 firstByte = pkt->cmd.Data[0];
-      uint8 secondByte = pkt->cmd.Data[1];
-      uint8 thirdByte = pkt->cmd.Data[2];
+      //uint8 firstByte = pkt->cmd.Data[0];
+      //uint8 secondByte = pkt->cmd.Data[1];
+      //uint8 thirdByte = pkt->cmd.Data[2];
       
       uint32 finalValue = 0;
-      finalValue = BUILD_UINT32(firstByte, secondByte, thirdByte, (uint8)0);
+      //finalValue = BUILD_UINT32(firstByte, secondByte, thirdByte, (uint8)0);
       //finalValue = BUILD_UINT32((uint8)0, firstByte, secondByte, thirdByte);
       
       groupID = pkt->cmd.Data[0];
-      
       
       if (groupID == 0x05){
         // take the first and second byte for the group ID 
@@ -587,10 +764,12 @@ void SampleApp_SendFlashMessage( uint16 flashTime )
  *
  * @return  none
  */
-/*
+
 static void SampleApp_CallBack(uint8 port, uint8 event)
 {
   (void)port;
+  uint8 localBuf[81];
+  uint16 receivedUARTLen;
 
   if ((event & (HAL_UART_RX_FULL | HAL_UART_RX_ABOUT_FULL | HAL_UART_RX_TIMEOUT)) &&
 #if SERIAL_APP_LOOPBACK
@@ -599,10 +778,19 @@ static void SampleApp_CallBack(uint8 port, uint8 event)
       !SampleApp_TxLen)
 #endif
   {
-    SampleApp_Send();
+    // buffer needed to be emptied for the new liner
+    for(int i = 0; i < 81; i++){
+      localBuf[i] = 0;
+    }   
+    receivedUARTLen= HalUARTRead(SAMPLE_APP_PORT, localBuf, SAMPLE_APP_TX_MAX);
+    HalLcdWriteStringValue( localBuf,  receivedUARTLen, 16, HAL_LCD_LINE_3 ); 
+    
+    
+    //HalUARTWrite(SAMPLE_APP_PORT, *localBuf, 81);
+    //SampleApp_Send();
   }
 }
-*/
+
 
 /*********************************************************************
 *********************************************************************/
