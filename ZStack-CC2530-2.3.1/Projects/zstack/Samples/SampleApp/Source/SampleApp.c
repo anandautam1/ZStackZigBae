@@ -482,7 +482,7 @@ void SampleApp_HandleKeys( uint8 shift, uint8 keys )
     // water level 
     buffer[1] = (uint8)0x10;
     // PH 
-    buffer[2] = (uint8)0x5000;
+    buffer[2] = (uint8)0x05;
     // Salinity
     buffer[3] = (uint8)0x07;
     // Battery_level

@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR C/C++ Compiler V10.20.1.5333 for 8051               12/Sep/2018  17:17:16
+# IAR C/C++ Compiler V10.20.1.5333 for 8051               13/Sep/2018  22:05:04
 # Copyright 2004-2018 IAR Systems AB.
 # Evaluation license - IAR Embedded Workbench for 8051, Evaluation version 10.20
 #
@@ -12,26 +12,25 @@
 #    Dptr setup         =  1,16
 #                          
 #    Source file        =  
-#        C:\Users\Ananda
-#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Components\mt\MT_TASK.c
+#        C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Components\mt\MT_TASK.c
 #    Command line       =  
-#        -f C:\Users\ANANDA~1\AppData\Local\Temp\EWCBF7.tmp ("C:\Users\Ananda
-#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Components\mt\MT_TASK.c"
+#        -f C:\Users\ANANDA~1\AppData\Local\Temp\EW97DB.tmp
+#        (C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Components\mt\MT_TASK.c
 #        -D ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC -D MT_ZDO_FUNC -D
-#        LCD_SUPPORTED=DEBUG -lC "C:\Users\Ananda
-#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\RouterEB\List"
-#        -lA "C:\Users\Ananda
-#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\RouterEB\List"
-#        --diag_suppress Pe001,Pa010 -o "C:\Users\Ananda
-#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\RouterEB\Obj"
+#        LCD_SUPPORTED=DEBUG -lC
+#        C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\RouterEB\List
+#        -lA
+#        C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\RouterEB\List
+#        --diag_suppress Pe001,Pa010 -o
+#        C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\RouterEB\Obj
 #        -e --debug --core=plain --dptr=16,1 --data_model=large
 #        --code_model=banked --calling_convention=xdata_reentrant
-#        --place_constants=data_rom --nr_virtual_regs 8 -f "C:\Users\Ananda
-#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\Tools\CC2530DB\f8wRouter.cfg"
+#        --place_constants=data_rom --nr_virtual_regs 8 -f
+#        C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\Tools\CC2530DB\f8wRouter.cfg
 #        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRUE
 #        -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8 -DMAC_CFG_RX_MAX=5
-#        -DRTR_NWK) -f "C:\Users\Ananda
-#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg"
+#        -DRTR_NWK) -f
+#        C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg
 #        (-DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
 #        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
 #        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
@@ -46,62 +45,60 @@
 #        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
 #        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
 #        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
-#        -DREJOIN_POLL_RATE=440) -I "C:\Users\Ananda
-#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\"
-#        -I "C:\Users\Ananda
-#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\SOURCE\"
-#        -I "C:\Users\Ananda
-#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\ZMAIN\TI2530DB\"
-#        -I "C:\Users\Ananda
-#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\MT\"
-#        -I "C:\Users\Ananda
-#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\HAL\INCLUDE\"
-#        -I "C:\Users\Ananda
-#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\HAL\TARGET\CC2530EB\"
-#        -I "C:\Users\Ananda
-#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\OSAL\MCU\CCSOC\"
-#        -I "C:\Users\Ananda
-#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\OSAL\INCLUDE\"
-#        -I "C:\Users\Ananda
-#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\AF\"
-#        -I "C:\Users\Ananda
-#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\NWK\"
-#        -I "C:\Users\Ananda
-#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\SEC\"
-#        -I "C:\Users\Ananda
-#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\SAPI\"
-#        -I "C:\Users\Ananda
-#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\SYS\"
-#        -I "C:\Users\Ananda
-#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\ZDO\"
-#        -I "C:\Users\Ananda
-#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\ZMAC\F8W\"
-#        -I "C:\Users\Ananda
-#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\ZMAC\"
-#        -I "C:\Users\Ananda
-#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\SERVICES\SADDR\"
-#        -I "C:\Users\Ananda
-#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\SERVICES\SDATA\"
-#        -I "C:\Users\Ananda
-#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\INCLUDE\"
-#        -I "C:\Users\Ananda
-#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\HIGH_LEVEL\"
-#        -I "C:\Users\Ananda
-#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\LOW_LEVEL\srf04\"
-#        -I "C:\Users\Ananda
-#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\LOW_LEVEL\srf04\SINGLE_CHIP\"
+#        -DREJOIN_POLL_RATE=440) -I
+#        C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\
+#        -I
+#        C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\SOURCE\
+#        -I
+#        C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\ZMAIN\TI2530DB\
+#        -I
+#        C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\MT\
+#        -I
+#        C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\HAL\INCLUDE\
+#        -I
+#        C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\HAL\TARGET\CC2530EB\
+#        -I
+#        C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\OSAL\MCU\CCSOC\
+#        -I
+#        C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\OSAL\INCLUDE\
+#        -I
+#        C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\AF\
+#        -I
+#        C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\NWK\
+#        -I
+#        C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\SEC\
+#        -I
+#        C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\SAPI\
+#        -I
+#        C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\SYS\
+#        -I
+#        C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\ZDO\
+#        -I
+#        C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\ZMAC\F8W\
+#        -I
+#        C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\ZMAC\
+#        -I
+#        C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\SERVICES\SADDR\
+#        -I
+#        C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\SERVICES\SDATA\
+#        -I
+#        C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\INCLUDE\
+#        -I
+#        C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\HIGH_LEVEL\
+#        -I
+#        C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\LOW_LEVEL\srf04\
+#        -I
+#        C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\LOW_LEVEL\srf04\SINGLE_CHIP\
 #        -Ohz --require_prototypes)
 #    Locale             =  English_USA.1252
 #    List file          =  
-#        C:\Users\Ananda
-#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\RouterEB\List\MT_TASK.lst
+#        C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\RouterEB\List\MT_TASK.lst
 #    Object file        =  
-#        C:\Users\Ananda
-#        Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\RouterEB\Obj\MT_TASK.r51
+#        C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Projects\zstack\Samples\SampleApp\CC2530DB\RouterEB\Obj\MT_TASK.r51
 #
 ###############################################################################
 
-C:\Users\Ananda Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Components\mt\MT_TASK.c
+C:\gitmuck\ZStackZigBae\ZStack-CC2530-2.3.1\Components\mt\MT_TASK.c
       1          /***************************************************************************************************
       2            Filename:       MT_TASK.c
       3            Revised:        $Date: 2010-04-20 16:45:06 -0700 (Tue, 20 Apr 2010) $
@@ -535,7 +532,8 @@ C:\Users\Ananda Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Components\mt\M
    \   000075   F0           MOVX      @DPTR,A
     216          
     217          #ifdef MT_UART_DEFAULT_PORT
-    218                HalUARTWrite ( MT_UART_DEFAULT_PORT, msg_ptr, len );
+    218                // change if the incoming command should not be echoed back to the serial 
+    219                HalUARTWrite ( MT_UART_DEFAULT_PORT, msg_ptr, len );
    \   000076                ; Setup parameters for call to function HalUARTWrite
    \   000076   AC..         MOV       R4,?V2
    \   000078   7D00         MOV       R5,#0x0
@@ -545,24 +543,24 @@ C:\Users\Ananda Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Components\mt\M
    \   00007D   FB           MOV       R3,A
    \   00007E   7900         MOV       R1,#0x0
    \   000080   12....       LCALL     `??HalUARTWrite::?relay`; Banked call to: HalUARTWrite
-    219          #endif
-    220                break;
+    220          #endif
+    221                break;
    \   000083   8017         SJMP      ??MT_ProcessIncomingCommand_5
-    221          
-    222              case CMD_DEBUG_STR:
-    223                MT_ProcessDebugStr( (mtDebugStr_t *)msg );
+    222          
+    223              case CMD_DEBUG_STR:
+    224                MT_ProcessDebugStr( (mtDebugStr_t *)msg );
    \                     ??MT_ProcessIncomingCommand_3:
    \   000085                ; Setup parameters for call to function MT_ProcessDebugStr
    \   000085   AA..         MOV       R2,?V0
    \   000087   AB..         MOV       R3,?V1
    \   000089   12....       LCALL     `??MT_ProcessDebugStr::?relay`; Banked call to: MT_ProcessDebugStr
-    224                break;
+    225                break;
    \   00008C   800E         SJMP      ??MT_ProcessIncomingCommand_5
-    225          
-    226          #if !defined ( NONWK )
-    227              case MT_SYS_APP_RSP_MSG:
-    228                len = SPI_0DATA_MSG_LEN + msg_ptr[DATALEN_FIELD];
-    229                MTProcessAppRspMsg( msg_ptr, len );
+    226          
+    227          #if !defined ( NONWK )
+    228              case MT_SYS_APP_RSP_MSG:
+    229                len = SPI_0DATA_MSG_LEN + msg_ptr[DATALEN_FIELD];
+    230                MTProcessAppRspMsg( msg_ptr, len );
    \                     ??MT_ProcessIncomingCommand_4:
    \   00008E                ; Setup parameters for call to function MTProcessAppRspMsg
    \   00008E   8A82         MOV       DPL,R2
@@ -574,55 +572,55 @@ C:\Users\Ananda Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Components\mt\M
    \   000096   2405         ADD       A,#0x5
    \   000098   F9           MOV       R1,A
    \   000099   12....       LCALL     `??MTProcessAppRspMsg::?relay`; Banked call to: MTProcessAppRspMsg
-    230                break;
-    231          #endif  // NONWK
-    232          
-    233          #if defined (MT_UTIL_FUNC)
-    234          #if defined ZCL_KEY_ESTABLISH
-    235              case ZCL_KEY_ESTABLISH_IND:
-    236                MT_UtilKeyEstablishInd((keyEstablishmentInd_t *)msg);
-    237                break;
-    238          #endif
+    231                break;
+    232          #endif  // NONWK
+    233          
+    234          #if defined (MT_UTIL_FUNC)
+    235          #if defined ZCL_KEY_ESTABLISH
+    236              case ZCL_KEY_ESTABLISH_IND:
+    237                MT_UtilKeyEstablishInd((keyEstablishmentInd_t *)msg);
+    238                break;
     239          #endif
-    240          #ifdef MT_ZDO_CB_FUNC
-    241              case ZDO_STATE_CHANGE:
-    242                MT_ZdoStateChangeCB((osal_event_hdr_t *)msg);
-    243                break;
-    244          #endif
-    245          
-    246              default:
-    247                break;
-    248            }
-    249          
-    250            if ( deallocate )
-    251            {
-    252              osal_msg_deallocate( (uint8 *)msg );
+    240          #endif
+    241          #ifdef MT_ZDO_CB_FUNC
+    242              case ZDO_STATE_CHANGE:
+    243                MT_ZdoStateChangeCB((osal_event_hdr_t *)msg);
+    244                break;
+    245          #endif
+    246          
+    247              default:
+    248                break;
+    249            }
+    250          
+    251            if ( deallocate )
+    252            {
+    253              osal_msg_deallocate( (uint8 *)msg );
    \                     ??MT_ProcessIncomingCommand_5:
    \   00009C                ; Setup parameters for call to function osal_msg_deallocate
    \   00009C   AA..         MOV       R2,?V0
    \   00009E   AB..         MOV       R3,?V1
    \   0000A0   12....       LCALL     `??osal_msg_deallocate::?relay`; Banked call to: osal_msg_deallocate
-    253            }
-    254          }
+    254            }
+    255          }
    \   0000A3   7F03         MOV       R7,#0x3
    \   0000A5   02....       LJMP      ?BANKED_LEAVE_XDATA
-    255          
-    256          #ifdef MT_TASK
-    257          /***************************************************************************************************
-    258           * @fn      MT_TransportAlloc
-    259           *
-    260           * @brief   Allocate memory for transport msg
-    261           *
-    262           * @param   uint8 cmd0 - The first byte of the MT command id containing the command type and subsystem.
-    263           *          uint8 len - length
-    264           *
-    265           * @return  pointer the allocated memory or NULL if fail to allocate the memory
-    266           ***************************************************************************************************/
+    256          
+    257          #ifdef MT_TASK
+    258          /***************************************************************************************************
+    259           * @fn      MT_TransportAlloc
+    260           *
+    261           * @brief   Allocate memory for transport msg
+    262           *
+    263           * @param   uint8 cmd0 - The first byte of the MT command id containing the command type and subsystem.
+    264           *          uint8 len - length
+    265           *
+    266           * @return  pointer the allocated memory or NULL if fail to allocate the memory
+    267           ***************************************************************************************************/
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    267          uint8 *MT_TransportAlloc(uint8 cmd0, uint8 len)
+    268          uint8 *MT_TransportAlloc(uint8 cmd0, uint8 len)
    \                     MT_TransportAlloc:
-    268          {
+    269          {
    \   000000                REQUIRE ?V0
    \   000000                REQUIRE ?V1
    \   000000   74F6         MOV       A,#-0xa
@@ -630,12 +628,12 @@ C:\Users\Ananda Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Components\mt\M
    \   000005                ; Saved register size: 10
    \   000005                ; Auto size: 0
    \   000005   EA           MOV       A,R2
-    269            uint8 *p;
-    270          
-    271            (void)cmd0;  // Intentionally unreferenced parameter
-    272          
-    273            /* Allocate a buffer of data length + SOP+CMD+FCS (5bytes) */
-    274            p = osal_msg_allocate(len + SPI_0DATA_MSG_LEN);
+    270            uint8 *p;
+    271          
+    272            (void)cmd0;  // Intentionally unreferenced parameter
+    273          
+    274            /* Allocate a buffer of data length + SOP+CMD+FCS (5bytes) */
+    275            p = osal_msg_allocate(len + SPI_0DATA_MSG_LEN);
    \   000006                ; Setup parameters for call to function osal_msg_allocate
    \   000006   2405         ADD       A,#0x5
    \   000008   FA           MOV       R2,A
@@ -645,75 +643,75 @@ C:\Users\Ananda Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Components\mt\M
    \   00000D   12....       LCALL     `??osal_msg_allocate::?relay`; Banked call to: osal_msg_allocate
    \   000010   8A82         MOV       DPL,R2
    \   000012   8B83         MOV       DPH,R3
-    275          
-    276            if (p)
+    276          
+    277            if (p)
    \   000014   E582         MOV       A,DPL
    \   000016   4583         ORL       A,DPH
    \   000018   6007         JZ        ??MT_TransportAlloc_0
-    277            {
-    278              p++; /* Save space for SOP_VALUE, msg structure */
-    279              return p;
+    278            {
+    279              p++; /* Save space for SOP_VALUE, msg structure */
+    280              return p;
    \   00001A   A3           INC       DPTR
    \   00001B   AA82         MOV       R2,DPL
    \   00001D   AB83         MOV       R3,DPH
    \   00001F   8004         SJMP      ??MT_TransportAlloc_1
-    280            }
-    281            else
-    282            {
-    283              return NULL;
+    281            }
+    282            else
+    283            {
+    284              return NULL;
    \                     ??MT_TransportAlloc_0:
    \   000021   7A00         MOV       R2,#0x0
    \   000023   7B00         MOV       R3,#0x0
-    284            }
+    285            }
    \                     ??MT_TransportAlloc_1:
    \   000025   02....       LJMP      ?Subroutine0 & 0xFFFF
-    285          }
-    286          
-    287          /***************************************************************************************************
-    288           * @fn      MT_TransportSend
-    289           *
-    290           * @brief   Fill in SOP and FCS then send out the msg
-    291           *
-    292           * @param   uint8 *pBuf - pointer to the message that contains CMD, length, data and FCS
-    293           *
-    294           * @return  None
-    295           ***************************************************************************************************/
+    286          }
+    287          
+    288          /***************************************************************************************************
+    289           * @fn      MT_TransportSend
+    290           *
+    291           * @brief   Fill in SOP and FCS then send out the msg
+    292           *
+    293           * @param   uint8 *pBuf - pointer to the message that contains CMD, length, data and FCS
+    294           *
+    295           * @return  None
+    296           ***************************************************************************************************/
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    296          void MT_TransportSend(uint8 *pBuf)
+    297          void MT_TransportSend(uint8 *pBuf)
    \                     MT_TransportSend:
-    297          {
+    298          {
    \   000000                REQUIRE ?V0
    \   000000                REQUIRE ?V1
    \   000000   74F6         MOV       A,#-0xa
    \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
    \   000005                ; Saved register size: 10
    \   000005                ; Auto size: 0
-    298            uint8 *msgPtr;
-    299            uint8 dataLen = pBuf[0]; /* Data length is on byte #1 from the pointer */
+    299            uint8 *msgPtr;
+    300            uint8 dataLen = pBuf[0]; /* Data length is on byte #1 from the pointer */
    \   000005   8A82         MOV       DPL,R2
    \   000007   8B83         MOV       DPH,R3
    \   000009   E0           MOVX      A,@DPTR
    \   00000A   F8           MOV       R0,A
-    300          
-    301            /* Move back to the SOP */
-    302            msgPtr = pBuf-1;
+    301          
+    302            /* Move back to the SOP */
+    303            msgPtr = pBuf-1;
    \   00000B   EA           MOV       A,R2
    \   00000C   24FF         ADD       A,#-0x1
    \   00000E   F5..         MOV       ?V0,A
    \   000010   EB           MOV       A,R3
    \   000011   34FF         ADDC      A,#-0x1
    \   000013   F5..         MOV       ?V1,A
-    303          
-    304            /* Insert SOP */
-    305            msgPtr[0] = MT_UART_SOF;
+    304          
+    305            /* Insert SOP */
+    306            msgPtr[0] = MT_UART_SOF;
    \   000015   85..82       MOV       DPL,?V0
    \   000018   F583         MOV       DPH,A
    \   00001A   74FE         MOV       A,#-0x2
    \   00001C   F0           MOVX      @DPTR,A
-    306          
-    307            /* Insert FCS */
-    308            msgPtr[SPI_0DATA_MSG_LEN - 1 + dataLen] = MT_UartCalcFCS (pBuf, (3 + dataLen));
+    307          
+    308            /* Insert FCS */
+    309            msgPtr[SPI_0DATA_MSG_LEN - 1 + dataLen] = MT_UartCalcFCS (pBuf, (3 + dataLen));
    \   00001D   E8           MOV       A,R0
    \   00001E   FE           MOV       R6,A
    \   00001F                ; Setup parameters for call to function MT_UartCalcFCS
@@ -733,10 +731,11 @@ C:\Users\Ananda Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Components\mt\M
    \   000033   A3           INC       DPTR
    \   000034   E9           MOV       A,R1
    \   000035   F0           MOVX      @DPTR,A
-    309          
-    310            /* Send to UART */
-    311          #ifdef MT_UART_DEFAULT_PORT
-    312            HalUARTWrite(MT_UART_DEFAULT_PORT, msgPtr, dataLen + SPI_0DATA_MSG_LEN);
+    310          
+    311            /* Send to UART */
+    312          #ifdef MT_UART_DEFAULT_PORT
+    313            // change if the incoming command should not be echoed back to the serial 
+    314            HalUARTWrite(MT_UART_DEFAULT_PORT, msgPtr, dataLen + SPI_0DATA_MSG_LEN);
    \   000036                ; Setup parameters for call to function HalUARTWrite
    \   000036   EE           MOV       A,R6
    \   000037   2405         ADD       A,#0x5
@@ -748,15 +747,15 @@ C:\Users\Ananda Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Components\mt\M
    \   000040   AB..         MOV       R3,?V1
    \   000042   7900         MOV       R1,#0x0
    \   000044   12....       LCALL     `??HalUARTWrite::?relay`; Banked call to: HalUARTWrite
-    313          #endif
-    314          
-    315            /* Deallocate */
-    316            osal_msg_deallocate(msgPtr);
+    315          #endif
+    316          
+    317            /* Deallocate */
+    318            osal_msg_deallocate(msgPtr);
    \   000047                ; Setup parameters for call to function osal_msg_deallocate
    \   000047   AA..         MOV       R2,?V0
    \   000049   AB..         MOV       R3,?V1
    \   00004B   12....       LCALL     `??osal_msg_deallocate::?relay`; Banked call to: osal_msg_deallocate
-    317          }
+    319          }
    \   00004E   02....       LJMP      ?Subroutine0 & 0xFFFF
 
    \                                 In  segment BANK_RELAYS, align 1
@@ -783,9 +782,9 @@ C:\Users\Ananda Utama\Documents\RMIT2018\WSN\ZStack-CC2530-2.3.1\Components\mt\M
    \                     `??MT_TransportSend::?relay`:
    \   000000   12....       LCALL   ?BDISPATCH
    \   000003   ......       DC24    MT_TransportSend
-    318          #endif /* MT_TASK */
-    319          /***************************************************************************************************
-    320           ***************************************************************************************************/
+    320          #endif /* MT_TASK */
+    321          /***************************************************************************************************
+    322           ***************************************************************************************************/
 
    Maximum stack usage in bytes:
 
